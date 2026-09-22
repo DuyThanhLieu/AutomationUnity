@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist Test Tay — TheSport Injury Time</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f6f8; color: #1a1a2e; font-size: 14px; }
+
+.page-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: white; padding: 24px 28px;
+}
+.page-header h1 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.5px; }
+.page-header p  { color: #94a3b8; margin-top: 6px; font-size: 0.85rem; font-family: monospace; }
+
+.info-bar {
+  background: #fff8e1; border-bottom: 2px solid #f59e0b;
+  padding: 10px 28px; font-size: 0.83rem; color: #78350f;
+  display: flex; gap: 20px; flex-wrap: wrap;
+}
+.info-bar b { color: #92400e; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 20px 16px; }
+
+/* === SUITE BLOCK === */
+.suite { margin-bottom: 28px; }
+.suite-title {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px;
+  border-radius: 8px 8px 0 0;
+  font-weight: 800; font-size: 0.95rem;
+  color: white;
+}
+.suite-1 .suite-title { background: #b91c1c; }
+.suite-2 .suite-title { background: #92400e; }
+.suite-3 .suite-title { background: #1e40af; }
+.suite-4 .suite-title { background: #065f46; }
+.suite-5 .suite-title { background: #581c87; }
+.suite-6 .suite-title { background: #475569; }
+
+.suite-badge {
+  background: rgba(255,255,255,0.2);
+  padding: 2px 8px; border-radius: 10px;
+  font-size: 0.72rem; font-weight: 700;
+}
+
+/* === TABLE === */
+.tbl-wrap { overflow-x: auto; border-radius: 0 0 8px 8px; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th {
+  background: #f8fafc; text-align: left;
+  padding: 9px 12px; font-size: 0.75rem; font-weight: 700;
+  color: #64748b; text-transform: uppercase; letter-spacing: .04em;
+  border-bottom: 2px solid #e2e8f0;
+  white-space: nowrap;
+}
+td { padding: 9px 12px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+
+.tc-num {
+  font-weight: 800; font-size: 0.8rem; color: #475569;
+  width: 32px; white-space: nowrap;
+}
+.tc-name { font-weight: 600; font-size: 0.88rem; }
+.tc-name small { display: block; font-weight: 400; color: #64748b; font-size: 0.78rem; margin-top: 2px; }
+
+.req { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.78rem; }
+.req .method { background: #dbeafe; color: #1d4ed8; padding: 1px 5px; border-radius: 3px; font-weight: 700; }
+.req .url { color: #0f172a; word-break: break-all; }
+.req .body { color: #64748b; margin-top: 3px; }
+
+.verify { font-size: 0.82rem; }
+.verify li { list-style: none; padding: 2px 0 2px 18px; position: relative; }
+.verify li::before { content: '·'; position: absolute; left: 6px; color: #94a3b8; }
+.verify.single { font-weight: 600; }
+.verify.single::before { content: none; }
+
+.result-pass { background: #f0fdf4; color: #15803d; font-weight: 700; font-size: 0.78rem; padding: 4px 8px; border-radius: 4px; white-space: nowrap; display: inline-block; }
+.result-warn { background: #fef9c3; color: #854d0e; font-weight: 600; font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; display: inline-block; }
+.result-bug  { background: #fee2e2; color: #991b1b; font-weight: 700; font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; display: inline-block; }
+
+.formula {
+  background: #0f172a; color: #7dd3fc;
+  font-family: monospace; font-size: 0.78rem;
+  padding: 4px 8px; border-radius: 4px; display: inline-block;
+  margin-top: 4px; white-space: pre;
+}
+
+.chk { width: 36px; text-align: center; }
+.chk input { width: 16px; height: 16px; cursor: pointer; accent-color: #1e40af; }
+
+.prio { font-weight: 700; font-size: 0.72rem; padding: 3px 8px; border-radius: 10px; white-space: nowrap; display: inline-block; }
+.prio-high { background: #fee2e2; color: #991b1b; }
+.prio-med  { background: #fef3c7; color: #92400e; }
+.prio-low  { background: #e0f2fe; color: #0369a1; }
+
+.divider {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  color: #94a3b8; letter-spacing: .06em;
+  padding: 6px 12px 4px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.group-divider {
+  font-size: 0.7rem; font-weight: 700;
+  color: #64748b; letter-spacing: .04em;
+  padding: 5px 12px;
+  background: #eef2f7;
+  border-bottom: 1px solid #e2e8f0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.note {
+  margin-top: 8px;
+  background: #fffbeb; border: 1px solid #fcd34d;
+  border-radius: 4px; padding: 7px 10px;
+  font-size: 0.8rem; color: #78350f;
+}
+.note-blocked {
+  margin-top: 8px;
+  background: #eff6ff; border: 1px solid #93c5fd;
+  border-radius: 4px; padding: 7px 10px;
+  font-size: 0.8rem; color: #1e3a8a;
+}
+
+@media print {
+  body { background: white; }
+  .page-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .suite-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Checklist Test Tay — TheSport injuryTime (Consumer + API)</h1>
+  <p>[API][Football][TheSport] injuryTime hiệp 2 không bao giờ bắn socket, API luôn trả announcedInjuryTime = 0</p>
+</div>
+
+<div class="info-bar">
+  <span><b>Repo Consumer:</b> consumer-football-incidents (applyInjuryTimeSideEffects, ~line 721)</span>
+  <span><b>Repo API:</b> uni-football-api (live_overrides.go:161, injury_time.go)</span>
+  <span><b>Verify staging:</b> 2026-08-10</span>
+  <span><b>Phạm vi fix:</b> chỉ hiệp 1 + hiệp 2 (ET1/ET2 NGOÀI phạm vi)</span>
+</div>
+
+<div class="wrap">
+
+  <!-- ============================================================ SUITE 1 -->
+  <div class="suite suite-1">
+    <div class="suite-title">
+      Suite 1 — Lỗi 1 (Consumer): period-end thắng vĩnh viễn
+      <span class="suite-badge">15 cases</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th style="width:28px">#</th>
+        <th style="width:70px">Ưu tiên</th>
+        <th style="min-width:200px">Tên case</th>
+        <th style="min-width:260px">Bước thực hiện</th>
+        <th style="min-width:220px">Cần verify (1 điều kiện duy nhất)</th>
+        <th>Kết quả mong đợi</th>
+      </tr>
+
+      <tr>
+        <td colspan="7" class="divider">
+          📌 Root cause: type 11 (HT)/12 (FT)/26/27 nằm trong MỌI batch snapshot sau đó → periodEnded luôn true → return sớm, current_injury_time không được set lại. Fix dùng period-scoped clear (closed[periodFirstHalf]/closed[periodSecondHalf] riêng biệt, không dùng 1 cờ chung).
+        </td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm A — Injury hiệp 1 (45+X)</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">1</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Injury hiệp 1 — current_injury_time KHÔNG rỗng dù type 11 đã tới trước
+          <small>Baseline cũ: chỉ 3/9 trận TS-only bắn được</small>
+        </td>
+        <td class="req">
+          Chọn 1 trận TS-only đang live, đợi qua phút 45+ (đã có type 19 injury hiệp 1 VÀ type 11 còi HT cùng xuất hiện trong feed, bất kể thứ tự tới).<br>
+          <span class="method">CMD</span>
+          <div class="url">redis-cli HGET event:&lt;matchId&gt; current_injury_time</div>
+        </td>
+        <td class="verify"><ul><li class="single">Giá trị trả về KHÔNG rỗng/nil</li></ul></td>
+        <td>
+          <span class="result-pass">PASS nếu có giá trị (không nil)</span>
+          <div class="note">⚠ Bug cũ: chỉ bắn khi batch type 19 tới TRƯỚC batch type 11 — nếu ngược thứ tự thì mất luôn</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">2</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Injury hiệp 1 — giá trị nằm trong khoảng hợp lý 1-15 phút
+          <small>Tách riêng khỏi case #1: có giá trị chưa chắc giá trị đúng</small>
+        </td>
+        <td class="req">
+          Dùng cùng trận/lệnh redis-cli ở case #1, đọc giá trị số cụ thể.
+        </td>
+        <td class="verify"><ul><li class="single">Giá trị nằm trong khoảng 1-15 (phút bù giờ hiệp 1 hợp lý theo luật bóng đá)</li></ul></td>
+        <td><span class="result-pass">PASS nếu 1 ≤ giá trị ≤ 15</span></td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm B — Injury hiệp 2 (90+X) — case CHÍNH của ticket</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">3</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Injury hiệp 2 — current_injury_time KHÔNG rỗng sau khi hiệp 1 đã kết thúc từ lâu
+          <small>Baseline cũ: 0/14 trận bắn được — 100% fail</small>
+        </td>
+        <td class="req">
+          Chọn 1 trận TS-only đang live, đợi qua phút 90+ (type 11 HT đã xuất hiện từ lâu, type 19 injury hiệp 2 vừa tới).<br>
+          <span class="method">CMD</span>
+          <div class="url">redis-cli HGET event:&lt;matchId&gt; current_injury_time</div>
+        </td>
+        <td class="verify"><ul><li class="single">Giá trị trả về KHÔNG rỗng/nil</li></ul></td>
+        <td>
+          <span class="result-pass">PASS nếu có giá trị (không nil)</span>
+          <div class="result-bug" style="margin-top:4px">FAIL = bug CHƯA fix, đúng hiện trạng ticket mô tả</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">4</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Injury hiệp 2 — giá trị khớp bù giờ thật (đối chiếu nguồn khác)
+          <small>Tách riêng khỏi case #3: có giá trị chưa chắc giá trị đúng</small>
+        </td>
+        <td class="req">
+          Dùng cùng trận ở case #3. Đối chiếu giá trị Redis với 1 nguồn độc lập (tường thuật trực tiếp, app đối thủ, hoặc timer trọng tài công bố).
+        </td>
+        <td class="verify"><ul><li class="single">Giá trị Redis khớp (±1 phút) với nguồn đối chiếu độc lập</li></ul></td>
+        <td><span class="result-pass">PASS nếu lệch ≤ 1 phút so với nguồn đối chiếu</span></td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm C — Clear đúng lúc còi hết hiệp 1 (HT)</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">5</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Ngay TRƯỚC còi HT — current_injury_time vẫn còn giá trị injury hiệp 1
+          <small>Xác nhận giá trị tồn tại trước khi kiểm tra bị xoá</small>
+        </td>
+        <td class="req">
+          Theo dõi 1 trận ở phút ~45+X, NGAY TRƯỚC khi type 11 (còi HT) xuất hiện trong feed.
+        </td>
+        <td class="verify"><ul><li class="single">current_injury_time = giá trị injury hiệp 1 (không rỗng)</li></ul></td>
+        <td><span class="result-pass">PASS nếu còn giá trị trước còi</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">6</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          NGAY SAU còi HT — current_injury_time bị xoá (HDel hoặc = 0)
+          <small>Không leak giá trị injury hiệp 1 sau khi hiệp đã kết thúc</small>
+        </td>
+        <td class="req">
+          Tiếp tục theo dõi trận ở case #5, ngay khi batch chứa type 11 xuất hiện (trong vòng 1 batch, không trễ).
+        </td>
+        <td class="verify"><ul><li class="single">current_injury_time bị HDel (nil) hoặc publish/set về 0</li></ul></td>
+        <td><span class="result-pass">PASS nếu về 0/rỗng trong vòng 1 batch sau còi</span></td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm D — Clear đúng lúc còi hết hiệp 2 (FT)</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">7</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Ngay TRƯỚC còi FT — current_injury_time vẫn còn giá trị injury hiệp 2
+          <small>Xác nhận giá trị tồn tại trước khi kiểm tra bị xoá</small>
+        </td>
+        <td class="req">
+          Theo dõi 1 trận ở phút ~90+X, NGAY TRƯỚC khi type 12 (còi FT) xuất hiện trong feed.
+        </td>
+        <td class="verify"><ul><li class="single">current_injury_time = giá trị injury hiệp 2 (không rỗng)</li></ul></td>
+        <td><span class="result-pass">PASS nếu còn giá trị trước còi</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">8</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          NGAY SAU còi FT — current_injury_time bị xoá (HDel hoặc = 0)
+          <small>Không leak giá trị injury hiệp 2 sau khi hiệp đã kết thúc</small>
+        </td>
+        <td class="req">
+          Tiếp tục theo dõi trận ở case #7, ngay khi batch chứa type 12 xuất hiện (trong vòng 1 batch, không trễ).
+        </td>
+        <td class="verify"><ul><li class="single">current_injury_time bị HDel (nil) hoặc publish/set về 0</li></ul></td>
+        <td><span class="result-pass">PASS nếu về 0/rỗng trong vòng 1 batch sau còi</span></td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm E — Nearest-boundary mapping (time bucket type 19)</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">9</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          time=46 map về P1, KHÔNG lệch sang P2
+          <small>Feed thật có 128 doc ở time=46 theo ticket</small>
+        </td>
+        <td class="req">
+          Tìm (qua OpenObserve hoặc log raw feed) 1 message type=19 có time=46.
+        </td>
+        <td class="verify"><ul><li class="single">injuryPeriod(46) trả về periodFirstHalf (P1), KHÔNG trả về P2</li></ul></td>
+        <td>
+          <span class="result-pass">PASS nếu map đúng P1</span>
+          <div class="note">⚠ Bug liên quan: tsNormalizeInjuryTime (socket.go:285) dùng &lt;= sẽ map sai time=46 sang P2</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">10</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          time=91 map về P2, KHÔNG lệch sang ET1
+          <small>Feed thật có 144 doc ở time=91 theo ticket</small>
+        </td>
+        <td class="req">
+          Tìm (qua OpenObserve hoặc log raw feed) 1 message type=19 có time=91.
+        </td>
+        <td class="verify"><ul><li class="single">injuryPeriod(91) trả về periodSecondHalf (P2), KHÔNG trả về ET1</li></ul></td>
+        <td>
+          <span class="result-pass">PASS nếu map đúng P2</span>
+          <div class="note">⚠ Bug liên quan: tsNormalizeInjuryTime (socket.go:285) dùng &lt;= sẽ map sai time=91 sang ET1</div>
+        </td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm F — Reject input rác: add_time ≤ 0</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">11</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          add_time = 0 bị reject, không set current_injury_time
+          <small>Feed có ~90 doc add_time âm/0 theo ticket</small>
+        </td>
+        <td class="req">
+          Tìm 1 message type=19 với add_time = 0 (qua log raw feed hoặc OpenObserve nếu có lưu payload gốc).
+        </td>
+        <td class="verify"><ul><li class="single">current_injury_time của trận đó KHÔNG bị set/thay đổi theo message này</li></ul></td>
+        <td><span class="result-pass">PASS nếu giá trị 0 không lan vào Redis</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">12</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          add_time &lt; 0 (âm) bị reject, không set current_injury_time
+          <small>Tách riêng khỏi case #11: =0 và &lt;0 là 2 giá trị khác nhau, code có thể xử lý khác nhau (vd chỉ check == 0)</small>
+        </td>
+        <td class="req">
+          Tìm 1 message type=19 với add_time &lt; 0 (âm — ticket xác nhận feed có tồn tại loại này).
+        </td>
+        <td class="verify"><ul><li class="single">current_injury_time của trận đó KHÔNG bị set theo giá trị âm này</li></ul></td>
+        <td><span class="result-pass">PASS nếu giá trị âm không lan vào Redis</span></td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm G — Reject time outlier (ngoài mọi boundary)</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">13</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          time=4 bị reject — injuryPeriod() không map vào period nào
+          <small>Ticket nêu cụ thể giá trị time=4 xuất hiện trong feed thật</small>
+        </td>
+        <td class="req">
+          Tìm 1 message type=19 với time=4.
+        </td>
+        <td class="verify"><ul><li class="single">injuryPeriod(4) trả về false/không map period nào (không bị ép vào P1 do quá gần 45 theo nearest-boundary sai)</li></ul></td>
+        <td><span class="result-pass">PASS nếu time=4 bị bỏ qua hoàn toàn</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">14</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          time=901 bị reject — injuryPeriod() không map vào period nào
+          <small>Ticket nêu cụ thể giá trị time=901 xuất hiện trong feed thật</small>
+        </td>
+        <td class="req">
+          Tìm 1 message type=19 với time=901.
+        </td>
+        <td class="verify"><ul><li class="single">injuryPeriod(901) trả về false/không map period nào</li></ul></td>
+        <td><span class="result-pass">PASS nếu time=901 bị bỏ qua hoàn toàn</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">15</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          current_injury_time KHÔNG bị set bởi message time=4 hoặc time=901
+          <small>Xác nhận tác động thật ở Redis, không chỉ đúng ở tầng logic injuryPeriod()</small>
+        </td>
+        <td class="req">
+          Ngay sau khi xác nhận case #13/#14 ở tầng logic, kiểm tra thêm giá trị Redis thật của trận đó tại thời điểm message outlier xuất hiện.
+        </td>
+        <td class="verify"><ul><li class="single">current_injury_time không đổi giá trị (không nhảy theo 4 hoặc 901) tại thời điểm message outlier tới</li></ul></td>
+        <td><span class="result-pass">PASS nếu Redis không phản ánh giá trị rác</span></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ SUITE 2 -->
+  <div class="suite suite-2">
+    <div class="suite-title">
+      Suite 2 — Lỗi 1 (Consumer): Extra Time — không leak injury hiệp 2
+      <span class="suite-badge">3 cases</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th style="width:28px">#</th>
+        <th style="width:70px">Ưu tiên</th>
+        <th style="min-width:200px">Tên case</th>
+        <th style="min-width:260px">Bước thực hiện</th>
+        <th style="min-width:220px">Cần verify (1 điều kiện duy nhất)</th>
+        <th>Kết quả mong đợi</th>
+      </tr>
+
+      <tr>
+        <td colspan="7" class="divider">
+          ⚠ ET1/ET2 injuryTime KHÔNG nằm trong phạm vi fix ticket này (cần overtime kickoff score[4], tách ticket riêng). Case ở đây CHỈ verify hành vi AN TOÀN — không leak giá trị cũ, KHÔNG verify injury time đúng cho ET.
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">1</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Trận vào ET — current_injury_time về 0 ngay khi type 12 (FT) xuất hiện
+          <small>Vì type 12 đã có trong snapshot ngay khi hết giờ chính thức</small>
+        </td>
+        <td class="req">
+          Bắt 1 trận thật đi vào hiệp phụ (hiếm — cần theo dõi live hoặc dùng trận đã biết trước có ET). Theo dõi current_injury_time ngay khi 90 phút chính thức kết thúc (type 12 xuất hiện).
+        </td>
+        <td class="verify"><ul><li class="single">current_injury_time = 0/rỗng ngay khi type 12 xuất hiện (trong vòng 1 batch)</li></ul></td>
+        <td><span class="result-pass">PASS nếu về 0 đúng lúc</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">2</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Trận vào ET — KHÔNG còn giữ giá trị injury hiệp 2 cũ (90+X)
+          <small>Tách riêng khỏi case #1: về 0 khác với "không còn leak giá trị cũ" nếu code có đường khác ghi đè lại</small>
+        </td>
+        <td class="req">
+          Dùng cùng trận ở case #1. So sánh giá trị current_injury_time NGAY SAU type 12 với giá trị injury hiệp 2 đã ghi nhận TRƯỚC đó.
+        </td>
+        <td class="verify"><ul><li class="single">Giá trị mới ≠ giá trị injury hiệp 2 cũ (không bị giữ lại/leak)</li></ul></td>
+        <td><span class="result-pass">PASS nếu giá trị cũ không còn xuất hiện lại</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">3</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          Trận vào ET — không tự chế injury time giả cho ET1/ET2 trong suốt hiệp phụ
+          <small>Xác nhận code KHÔNG cố gắng suy ra injury ET ngoài phạm vi ticket</small>
+        </td>
+        <td class="req">
+          Trong lúc trận đang ở ET (phút 91-120), kiểm tra current_injury_time liên tục trong suốt hiệp phụ (nhiều lần đọc, không chỉ 1 lần).
+        </td>
+        <td class="verify"><ul><li class="single">current_injury_time = 0/rỗng tại MỌI thời điểm kiểm tra trong ET (đúng scope injuryPeriod() DROP boundary 105/120)</li></ul></td>
+        <td><span class="result-pass">PASS nếu luôn 0/rỗng suốt ET, không tự chế</span></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ SUITE 3 -->
+  <div class="suite suite-3">
+    <div class="suite-title">
+      Suite 3 — Lỗi 2 (API): reader TheSport dead code
+      <span class="suite-badge">8 cases</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th style="width:28px">#</th>
+        <th style="width:70px">Ưu tiên</th>
+        <th style="min-width:200px">Tên case</th>
+        <th style="min-width:260px">Bước thực hiện</th>
+        <th style="min-width:220px">Cần verify (1 điều kiện duy nhất)</th>
+        <th>Kết quả mong đợi</th>
+      </tr>
+
+      <tr>
+        <td colspan="7" class="divider">
+          📌 Root cause: OverrideInjuryTime (live_overrides.go:161) chỉ đọc Opta live-score, comment "intentionally no fallback" — trận TS-only (optaID rỗng) → nil → announcedInjuryTime=0 vĩnh viễn dù Redis có data đúng.
+        </td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm A — announcedInjuryTime cho trận TS-only (case CHÍNH — Acceptance Criteria #4)</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">1</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Response có field announcedInjuryTime
+          <small>Điều kiện cấu trúc — tách riêng khỏi giá trị/đơn vị</small>
+        </td>
+        <td class="req">
+          Chọn 1 trận TS-only đang live, đã xác nhận Redis current_injury_time có giá trị (qua Suite 1 case #3).<br>
+          <span class="method">GET</span>
+          <div class="url">/api/v2/football/event/{eventId}/overview (cần tra path chính xác chứa announcedInjuryTime)</div>
+        </td>
+        <td class="verify"><ul><li class="single">Response JSON có field announcedInjuryTime (không undefined/missing)</li></ul></td>
+        <td><span class="result-pass">PASS nếu field tồn tại trong response</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">2</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          announcedInjuryTime khác 0
+          <small>Case CHÍNH của ticket — verify riêng khỏi case cấu trúc #1</small>
+        </td>
+        <td class="req">
+          Dùng cùng response ở case #1, đọc giá trị field announcedInjuryTime.
+        </td>
+        <td class="verify"><ul><li class="single">Giá trị announcedInjuryTime != 0</li></ul></td>
+        <td>
+          <span class="result-pass">PASS nếu khác 0</span>
+          <div class="result-bug" style="margin-top:4px">FAIL = bug CHƯA fix (dead code chưa được wire)</div>
+        </td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm B — Đơn vị chuyển đổi (Redis phút → API giây)</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">3</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          announcedInjuryTime = current_injury_time (Redis, phút) × 60
+          <small>Verify GetCurrentInjuryTime convert đúng contract phút→giây</small>
+        </td>
+        <td class="req">
+          Lấy current_injury_time từ Redis (phút) và announcedInjuryTime từ API (giây) CÙNG LÚC cho 1 trận (cùng request/khoảng thời gian ngắn để tránh injury time đổi giữa 2 lần đọc).
+        </td>
+        <td class="verify"><ul><li class="single">API_giây = Redis_phút × 60 (chính xác, sai số 0)</li></ul></td>
+        <td><span class="result-pass">PASS nếu khớp công thức chính xác</span></td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm C — Regression: trận có Opta không bị ảnh hưởng</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">4</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          Trận có map Opta — announcedInjuryTime lấy từ Opta, không bị TheSport đè
+          <small>Không phá hành vi hiện có cho trận có Opta</small>
+        </td>
+        <td class="req">
+          Chọn 1 trận CÓ map Opta đang live, có injury time từ nguồn Opta (currentOptaInjuryTimeSeconds khác nil).<br>
+          <span class="method">GET</span>
+          <div class="url">/api/v2/football/event/{eventId}/overview</div>
+        </td>
+        <td class="verify"><ul><li class="single">announcedInjuryTime khớp giá trị Opta injury time, KHÔNG bị TheSport fallback ghi đè</li></ul></td>
+        <td><span class="result-pass">PASS nếu hành vi Opta-first không đổi</span></td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm D — Trường hợp rỗng hợp lệ</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">5</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          Trận chưa tới injury (phút &lt;40) — HTTP status 200
+          <small>Case rỗng hợp lệ — tách điều kiện status khỏi giá trị</small>
+        </td>
+        <td class="req">
+          Chọn 1 trận đang ở phút &lt;40 (chưa tới thời điểm injury) hoặc chưa live.<br>
+          <span class="method">GET</span>
+          <div class="url">/api/v2/football/event/{eventId}/overview</div>
+        </td>
+        <td class="verify"><ul><li class="single">HTTP status = 200 (không 500/lỗi)</li></ul></td>
+        <td><span class="result-pass">PASS nếu 200, không crash</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">6</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          Trận chưa tới injury (phút &lt;40) — announcedInjuryTime = 0
+          <small>Tách riêng khỏi case #5: status đúng không đồng nghĩa giá trị đúng</small>
+        </td>
+        <td class="req">
+          Dùng cùng response ở case #5.
+        </td>
+        <td class="verify"><ul><li class="single">announcedInjuryTime = 0 (hợp lệ vì chưa tới thời điểm injury, không phải bug)</li></ul></td>
+        <td><span class="result-pass">PASS nếu = 0 đúng ngữ cảnh</span></td>
+      </tr>
+
+      <tr><td colspan="7" class="group-divider">Nhóm E — enricher.go không còn đọc field sai</td></tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">7</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          Vendor xác nhận vẫn chỉ gửi 6 phần tử (len(score) == 6)
+          <small>Xác nhận tiền đề của bug vẫn đúng — chưa đổi contract vendor</small>
+        </td>
+        <td class="req">
+          Kiểm tra field score trong hash matches_real_time (nếu còn quyền truy cập) cho 1 trận TS-only.
+        </td>
+        <td class="verify"><ul><li class="single">len(score) == 6 (vendor không đổi contract, score[6] chắc chắn không tồn tại)</li></ul></td>
+        <td><span class="result-pass">PASS nếu vẫn đúng 6 phần tử</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">8</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          enricher.go:554 không còn đọc score[6] làm add_time
+          <small>Tách riêng khỏi case #7: xác nhận vendor data khác xác nhận code đã sửa</small>
+        </td>
+        <td class="req">
+          Review code enricher.go (dòng ~554) sau khi fix deploy, hoặc kiểm tra AddTime output không còn phụ thuộc score[6] qua log/debug.
+        </td>
+        <td class="verify"><ul><li class="single">Nhánh đọc score[6] đã bị xoá hoặc chuyển sang đọc Redis (current_injury_time)</li></ul></td>
+        <td><span class="result-pass">PASS nếu không còn đọc field không tồn tại</span></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ SUITE 4 -->
+  <div class="suite suite-4">
+    <div class="suite-title">
+      Suite 4 — Socket fb-live-v1 (OpenObserve)
+      <span class="suite-badge">4 cases</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th style="width:28px">#</th>
+        <th style="width:70px">Ưu tiên</th>
+        <th style="min-width:200px">Tên case</th>
+        <th style="min-width:260px">Bước thực hiện</th>
+        <th style="min-width:220px">Cần verify (1 điều kiện duy nhất)</th>
+        <th>Kết quả mong đợi</th>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">1</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Message source="ts" với score[5] != 0 xuất hiện trên fb-live-v1
+          <small>Baseline cũ: 0 message trong 12h (345 message chỉ từ opta_ma3dp)</small>
+        </td>
+        <td class="req">
+          OpenObserve, stream <code>emqx_events_publish</code>, filter 12h gần nhất.<br>
+          <div class="formula">SELECT * FROM emqx_events_publish
+WHERE source = 'ts' AND topic = 'fb-live-v1'
+  AND score[5] != 0</div>
+        </td>
+        <td class="verify"><ul><li class="single">Số message &gt; 0 (baseline cũ = 0)</li></ul></td>
+        <td>
+          <span class="result-pass">PASS nếu &gt; 0 message</span>
+          <div class="result-bug" style="margin-top:4px">FAIL = 0 message → bug Consumer chưa fix hoặc chưa deploy</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">2</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          count(source=ts, score[5]!=0) &gt; 0 trong cùng khung 12h với opta_ma3dp
+          <small>Xác nhận nguồn ts thật sự phát sinh song song với nguồn opta, không phải leftover từ case #1</small>
+        </td>
+        <td class="req">
+          So sánh count(source=ts, score[5]!=0) với count(source=opta_ma3dp, injuryTime!=0) trong cùng khung 12h — chạy 2 query riêng.
+        </td>
+        <td class="verify"><ul><li class="single">count(source=ts, score[5]!=0) &gt; 0 (không yêu cầu bằng count(opta) — 2 tập dữ liệu độc lập)</li></ul></td>
+        <td><span class="result-pass">PASS nếu count(ts) &gt; 0, ghi lại tỷ lệ để theo dõi xu hướng theo thời gian</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">3</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          Có ít nhất 1 trận distinct với message injury hiệp 2 (matchTime 90-100)
+          <small>Đối chiếu trực tiếp Acceptance Criteria #3</small>
+        </td>
+        <td class="req">
+          <div class="formula">SELECT DISTINCT matchId FROM emqx_events_publish
+WHERE source = 'ts' AND topic = 'fb-live-v1'
+  AND score[5] > 0 AND matchTime BETWEEN 90 AND 100</div>
+        </td>
+        <td class="verify"><ul><li class="single">Số trận distinct &gt; 0 (baseline cũ: 0/14 trận)</li></ul></td>
+        <td><span class="result-pass">PASS nếu &gt; 0 trận có message injury hiệp 2</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">4</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          Số trận có injury hiệp 2 (case #3) tăng đáng kể so với baseline 0/14
+          <small>Tách riêng khỏi case #3: có ít nhất 1 trận khác với cải thiện diện rộng</small>
+        </td>
+        <td class="req">
+          Dùng kết quả case #3, so với mẫu 14 trận baseline trong ticket (nếu còn theo dõi được cùng nhóm trận, hoặc lấy mẫu tương đương kích thước).
+        </td>
+        <td class="verify"><ul><li class="single">Tỷ lệ trận có injury hiệp 2 &gt; 50% trong mẫu theo dõi (không chỉ 1 trận đơn lẻ ngẫu nhiên trúng)</li></ul></td>
+        <td><span class="result-pass">PASS nếu cải thiện diện rộng, không phải may rủi 1 trận</span></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ SUITE 5 -->
+  <div class="suite suite-5">
+    <div class="suite-title">
+      Suite 5 — Regression: giữ nguyên hành vi Opta / ScoreDedupeStore
+      <span class="suite-badge">3 cases</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th style="width:28px">#</th>
+        <th style="width:70px">Ưu tiên</th>
+        <th style="min-width:200px">Tên case</th>
+        <th style="min-width:260px">Bước thực hiện</th>
+        <th style="min-width:220px">Cần verify (1 điều kiện duy nhất)</th>
+        <th>Kết quả mong đợi</th>
+      </tr>
+
+      <tr>
+        <td colspan="7" class="divider">
+          📌 Ticket yêu cầu rõ: "Giữ nguyên Opta-suppression và ScoreDedupeStore — không đụng." Suite này verify KHÔNG có tác dụng phụ ngoài ý muốn từ thay đổi period-scoped clear.
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">1</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          Trận có Opta — message injury từ opta_ma3dp vẫn xuất hiện bình thường
+          <small>Opta-suppression phải còn hoạt động đúng</small>
+        </td>
+        <td class="req">
+          Chọn 1 trận có map Opta đang live, theo dõi socket message nguồn opta_ma3dp qua vài phút.
+        </td>
+        <td class="verify"><ul><li class="single">Message injury source=opta_ma3dp xuất hiện đều đặn, không bị gián đoạn</li></ul></td>
+        <td><span class="result-pass">PASS nếu Opta injury time không đổi hành vi</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">2</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          Không có 2 message publish(0) trùng nhau liên tiếp ngay sau còi hết hiệp
+          <small>ScoreDedupeStore vẫn lọc trùng đúng khi closed[period] set qua nhiều batch</small>
+        </td>
+        <td class="req">
+          Theo dõi socket log 1 trận qua nhiều batch liên tiếp quanh mốc còi hết hiệp (HT hoặc FT).
+        </td>
+        <td class="verify"><ul><li class="single">Chỉ có đúng 1 message publish(0) tại thời điểm clear, không có duplicate publish(0) ở các batch sau đó cùng giá trị</li></ul></td>
+        <td><span class="result-pass">PASS nếu không có duplicate publish bất thường</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">3</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          Trận thường (không injury) — field score/status không bị ảnh hưởng
+          <small>Smoke test diện rộng — không phá vỡ luồng cơ bản</small>
+        </td>
+        <td class="req">
+          Chọn ngẫu nhiên 5-10 trận đang live bất kỳ, theo dõi socket/API cơ bản (score, status) không liên quan injury.
+        </td>
+        <td class="verify"><ul><li class="single">Score, status của tất cả trận mẫu vẫn đúng như trước khi fix, không phát sinh lỗi mới</li></ul></td>
+        <td><span class="result-pass">PASS nếu không phát sinh lỗi ngoài phạm vi injury time</span></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ SUITE 6 -->
+  <div class="suite suite-6">
+    <div class="suite-title">
+      Suite 6 — Đối chiếu Replay Rule Mới (theo bảng ticket)
+      <span class="suite-badge">6 cases</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th style="width:28px">#</th>
+        <th style="width:70px">Ưu tiên</th>
+        <th style="min-width:200px">Tên case</th>
+        <th style="min-width:260px">Bước thực hiện</th>
+        <th style="min-width:220px">Cần verify (1 điều kiện duy nhất)</th>
+        <th>Kết quả mong đợi</th>
+      </tr>
+
+      <tr>
+        <td colspan="7" class="divider">
+          Do dev backend chạy script replay trên topic <code>thesport_football_match_incident</code> (1,859,820 message, 6,294 trận) với rule mới đã deploy — QA đối chiếu TỪNG số liệu riêng biệt với bảng ticket.
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">1</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          Số trận có ≥1 lần bắn injury (rule mới) ≥ 856
+          <small>So với baseline code cũ ~685 trận</small>
+        </td>
+        <td class="req">
+          Đọc kết quả replay script, lấy metric "trận có ≥1 lần bắn injury".
+        </td>
+        <td class="verify"><ul><li class="single">Số trận ≥ 856 (cho phép dao động nhỏ do dữ liệu live thay đổi theo thời gian chạy replay)</li></ul></td>
+        <td><span class="result-pass">PASS nếu ≥ 856 trận</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">2</td>
+        <td><span class="prio prio-med">MED</span></td>
+        <td class="tc-name">
+          Tổng số lần bắn injury (rule mới) ≥ 1,522
+          <small>So với baseline code cũ ~691 lần — tách riêng khỏi case #1 (số TRẬN khác số LẦN BẮN)</small>
+        </td>
+        <td class="req">
+          Đọc kết quả replay script, lấy metric "tổng số lần bắn injury".
+        </td>
+        <td class="verify"><ul><li class="single">Tổng số lần bắn ≥ 1,522</li></ul></td>
+        <td><span class="result-pass">PASS nếu ≥ 1,522 lần</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">3</td>
+        <td><span class="prio prio-high">HIGH</span></td>
+        <td class="tc-name">
+          0 trận bị MẤT so với code hiện tại (không regression)
+          <small>Điều kiện an toàn quan trọng nhất — tách riêng vì đây là tiêu chí PASS/FAIL cứng, không phải "tốt hơn thì OK"</small>
+        </td>
+        <td class="req">
+          So sánh tập trận có injury (rule mới) với tập trận có injury (code cũ) — kiểm tra tập cũ có phải subset của tập mới.
+        </td>
+        <td class="verify"><ul><li class="single">MỌI trận có injury ở code cũ đều PHẢI có injury ở rule mới (0 trận bị rơi mất)</li></ul></td>
+        <td>
+          <span class="result-pass">PASS nếu 0 trận bị mất</span>
+          <div class="result-bug" style="margin-top:4px">FAIL = regression nghiêm trọng, KHÔNG được deploy dù số liệu tổng thể tăng</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">4</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          +171 trận trước đây không bắn gì, giờ có bắn ≥1 lần
+          <small>Xác nhận đúng con số cải thiện cụ thể ticket nêu, tách riêng khỏi case #1 (tổng số khác số MỚI THÊM)</small>
+        </td>
+        <td class="req">
+          Tính: (trận có injury rule mới) − (trận có injury code cũ) = số trận MỚI có injury.
+        </td>
+        <td class="verify"><ul><li class="single">Số trận mới ≥ 171</li></ul></td>
+        <td><span class="result-pass">PASS nếu ≥ 171 trận mới</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">5</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          ≥ 614 trận bắn đúng 2 lần (P1 + P2)
+          <small>Phân bố phổ biến nhất theo ticket — tách riêng khỏi case #6 (2 lần khác &gt;4-5 lần)</small>
+        </td>
+        <td class="req">
+          Từ kết quả replay, đếm số trận có đúng 2 lần bắn injury.
+        </td>
+        <td class="verify"><ul><li class="single">Số trận bắn đúng 2 lần ≥ 614</li></ul></td>
+        <td><span class="result-pass">PASS nếu ≥ 614 trận</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">6</td>
+        <td><span class="prio prio-low">LOW</span></td>
+        <td class="tc-name">
+          0 trận bắn &gt; 4-5 lần (không có outlier/loop bug mới)
+          <small>Dấu hiệu bug mới do thay đổi logic — tách riêng vì đây là điều kiện AN TOÀN, không phải điều kiện "tốt hơn"</small>
+        </td>
+        <td class="req">
+          Từ kết quả replay, tìm max(số lần bắn/trận) và liệt kê các trận outlier nếu có.
+        </td>
+        <td class="verify"><ul><li class="single">Không có trận nào bắn &gt; 4-5 lần</li></ul></td>
+        <td>
+          <span class="result-pass">PASS nếu không có outlier</span>
+          <div class="result-bug" style="margin-top:4px">FAIL = nghi ngờ loop/duplicate bug mới phát sinh từ period-scoped clear</div>
+        </td>
+      </tr>
+
+    </table>
+    </div>
+  </div>
+
+  <!-- Thông tin bổ sung -->
+  <div style="background:white;border-radius:8px;padding:18px 20px;box-shadow:0 1px 4px rgba(0,0,0,.08)">
+    <div style="font-weight:700;font-size:0.85rem;color:#475569;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Ghi chú triển khai &amp; giới hạn test tay</div>
+    <div class="note-blocked">
+      <b>Thứ tự bắt buộc:</b> deploy Consumer TRƯỚC, API SAU — nếu ngược lại, API sẽ đọc Redis rỗng (dead code vừa wire vào nhưng chưa có data để đọc).
+    </div>
+    <div class="note-blocked" style="margin-top:8px">
+      <b>Công cụ cần có trước khi chạy Suite 1/2/4:</b> quyền truy cập Redis staging (redis-cli hoặc tool tương đương) và OpenObserve (dashboard hoặc API search) — chưa có 2 quyền này thì KHÔNG chạy được các case đối chiếu số liệu thật, chỉ có thể review code.
+    </div>
+    <div class="note-blocked" style="margin-top:8px">
+      <b>Trận mẫu:</b> cần dev/PM cung cấp trước danh sách match_id TS-only đang live tại thời điểm test (không có cách tự phát hiện từ Postgres — dữ liệu injury time không lưu DB, chỉ có trong Redis/Kafka).
+    </div>
+    <div class="note-blocked" style="margin-top:8px">
+      <b>Ngoài phạm vi (không test):</b> injuryTime cho ET1/ET2 (cần overtime kickoff score[4], tách ticket riêng nếu product cần) — Suite 2 trong checklist này CHỈ verify không leak giá trị cũ, không verify giá trị ET đúng.
+    </div>
+    <div class="note-blocked" style="margin-top:8px">
+      <b>Nguyên tắc tách case:</b> mỗi case trong checklist này CHỈ verify 1 điều kiện duy nhất (xem cột "Cần verify"). Nếu 1 bước thực hiện cho ra nhiều kết quả cần kiểm tra, các case liên tiếp sẽ TÁI SỬ DỤNG cùng bước thực hiện/response đã có (ghi rõ "dùng cùng... ở case #X") — không cần lặp lại request.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

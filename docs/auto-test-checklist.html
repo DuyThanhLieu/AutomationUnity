@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Test Checklist — upcoming_fakeip_time.spec.ts</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f1f5f9; color: #1e293b; font-size: 13px; }
+
+.header { background: #0f172a; color: white; padding: 20px 24px; }
+.header h1 { font-size: 1.1rem; font-weight: 800; }
+.header .file { color: #38bdf8; font-family: monospace; font-size: 0.82rem; margin-top: 4px; }
+.header .stats { display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+.stat { background: #1e293b; padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; color: #94a3b8; }
+.stat b { color: #e2e8f0; }
+
+.toolbar { background: white; border-bottom: 1px solid #e2e8f0; padding: 8px 24px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.toolbar button { padding: 5px 12px; border-radius: 4px; border: 1px solid #e2e8f0; background: #f8fafc; cursor: pointer; font-size: 0.78rem; font-weight: 600; color: #475569; }
+.toolbar button:hover { background: #e2e8f0; }
+.counter { margin-left: auto; font-size: 0.8rem; color: #64748b; }
+.counter b { color: #0ea5e9; }
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 16px; }
+
+/* Suite */
+.suite { margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.suite-hd {
+  padding: 10px 16px; display: flex; align-items: center; gap: 10px;
+  font-weight: 800; font-size: 0.88rem; color: white; cursor: pointer;
+  user-select: none;
+}
+.suite-hd .cnt { background: rgba(255,255,255,.2); padding: 1px 8px; border-radius: 10px; font-size: 0.72rem; margin-left: auto; }
+.s1 .suite-hd { background: #1d4ed8; }
+.s2 .suite-hd { background: #047857; }
+.s3 .suite-hd { background: #b45309; }
+.s4 .suite-hd { background: #6d28d9; }
+.s5 .suite-hd { background: #be123c; }
+.suite-body { background: white; }
+
+/* Test row */
+.tc { display: grid; grid-template-columns: 36px 1fr; border-bottom: 1px solid #f1f5f9; }
+.tc:last-child { border-bottom: none; }
+.tc.done .tc-name { opacity: .45; text-decoration: line-through; }
+.tc.fail .tc-name { color: #dc2626; }
+.tc.fail { background: #fef2f2; }
+
+.tc-chk { display: flex; align-items: flex-start; justify-content: center; padding: 11px 0 0; }
+.tc-chk input { width: 15px; height: 15px; cursor: pointer; accent-color: #1d4ed8; }
+
+.tc-info { padding: 9px 14px 9px 0; }
+.tc-name { font-size: 0.82rem; font-weight: 600; line-height: 1.45; font-family: 'SF Mono','Fira Code',monospace; }
+.tc-meta { display: flex; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+
+.tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 0.7rem; font-weight: 700; white-space: nowrap; }
+.tag-date   { background: #dbeafe; color: #1e40af; }
+.tag-locale { background: #dcfce7; color: #166534; }
+.tag-body   { background: #f5f3ff; color: #6b21a8; font-family: monospace; }
+.tag-db     { background: #fef9c3; color: #713f12; }
+.tag-crit   { background: #fee2e2; color: #991b1b; }
+.tag-reg    { background: #f0f9ff; color: #0369a1; }
+
+.divider-row td { background: #f8fafc; padding: 5px 14px; font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid #f1f5f9; }
+
+/* Progress bar */
+.progress-bar { height: 3px; background: #e2e8f0; }
+.progress-fill { height: 100%; background: #22c55e; transition: width .3s; width: 0%; }
+
+/* status badge on row */
+.status-badge { font-size: 0.68rem; font-weight: 700; padding: 1px 5px; border-radius: 3px; }
+.sb-pass { background: #dcfce7; color: #15803d; }
+.sb-fail { background: #fee2e2; color: #dc2626; }
+
+/* fail note */
+.fail-note { margin-top: 4px; font-size: 0.75rem; color: #dc2626; font-style: italic; }
+
+/* Print */
+@media print {
+  .toolbar { display: none; }
+  body { background: white; }
+  .suite-hd { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Auto Test Checklist — upcoming_fakeip_time.spec.ts</h1>
+  <div class="file">tests/upcoming_fakeip_time.spec.ts · npx playwright test tests/upcoming_fakeip_time.spec.ts --project=chrome</div>
+  <div class="stats">
+    <span class="stat">Suite 1: <b>12</b> tests — Bug Fix</span>
+    <span class="stat">Suite 2: <b>5</b> tests — SP Timezone</span>
+    <span class="stat">Suite 3: <b>3</b> tests — DB Verify</span>
+    <span class="stat">Suite 4: <b>~40</b> tests — Date Range</span>
+    <span class="stat">Suite 5: <b>7</b> tests — Multi-Locale</span>
+    <span class="stat">Total: <b>~67</b> tests</span>
+  </div>
+</div>
+
+<div class="toolbar">
+  <button onclick="checkAll()">✓ Check tất cả</button>
+  <button onclick="uncheckAll()">○ Bỏ check tất cả</button>
+  <button onclick="markFail()">✗ Đánh fail selected</button>
+  <button onclick="clearFail()">Clear fail</button>
+  <button onclick="window.print()">🖨 In</button>
+  <span class="counter">Đã check: <b id="cnt">0</b> / <span id="total">0</span></span>
+</div>
+<div class="progress-bar"><div class="progress-fill" id="bar"></div></div>
+
+<div class="wrap">
+
+<!-- ═══════════════════════════════════ SUITE 1 ═════════════════════════════ -->
+<div class="suite s1">
+  <div class="suite-hd" onclick="toggleSuite(this)">
+    ▾ Suite 1 — BUG FIX: API Upcoming chỉ trả về 2 trận
+    <span class="cnt">12 tests</span>
+  </div>
+  <div class="suite-body">
+
+    <!-- group: structure -->
+    <table style="width:100%;border-collapse:collapse">
+      <tr class="divider-row"><td colspan="2">Cấu trúc response</td></tr>
+    </table>
+
+    <div class="tc" id="tc-s1-1">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">response structure is valid (code=1, events/otherCompetitions/pagination exist)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY</span>
+          <span class="tag tag-locale">locale: VN</span>
+          <span class="tag tag-body">sortByMatchTime: false</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: code=1 · events là array · otherCompetitions là array · pagination.total là number · hasNextPage là boolean
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s1-2">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">otherCompetitions items have required fields (id, name, match_count, competition_ids)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: 2026-06-28</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: mỗi item có id(string) · name(string) · match_count(number>0) · competition_ids(array)
+        </div>
+      </div>
+    </div>
+
+    <!-- group: bug#1 -->
+    <table style="width:100%;border-collapse:collapse">
+      <tr class="divider-row"><td colspan="2">Fix Bug #1 — otherCompetitions bị tắt khi total ≤ 50</td></tr>
+    </table>
+
+    <div class="tc" id="tc-s1-3">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[Bug#1] data completeness: events + otherCompetitions.match_count = total (high traffic day)</div>
+        <div class="tc-meta">
+          <span class="tag tag-crit">CRITICAL</span>
+          <span class="tag tag-date">date: 2026-06-28</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Tính: counted = events.length + Σ otherComps[i].match_count · |counted − total| ≤ 5 · total > 0
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s1-4">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[Bug#1] low-traffic day (total ≤ 50): otherCompetitions must NOT be empty</div>
+        <div class="tc-meta">
+          <span class="tag tag-crit">CRITICAL</span>
+          <span class="tag tag-date">date: 2026-06-25</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: nếu events.length &lt; total thì otherCompetitions.length > 0 · |counted − total| ≤ 5
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s1-5">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[Bug#1] original bug date (2026-06-15) returns valid response without crashing</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: 2026-06-15</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: code=1 · events là array · otherCompetitions là array · (total=0 là bình thường — ngày đã qua)
+        </div>
+      </div>
+    </div>
+
+    <!-- group: bug#2 -->
+    <table style="width:100%;border-collapse:collapse">
+      <tr class="divider-row"><td colspan="2">Fix Bug #2 — Fallback không lọc status</td></tr>
+    </table>
+
+    <div class="tc" id="tc-s1-6">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[Bug#2] upcoming tab: all events must have status = not_started</div>
+        <div class="tc-meta">
+          <span class="tag tag-crit">CRITICAL</span>
+          <span class="tag tag-date">date: 2026-06-28</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: 100% events[i].status.type === "not_started" · wrongStatus.length === 0
+        </div>
+      </div>
+    </div>
+
+    <!-- group: regression -->
+    <table style="width:100%;border-collapse:collapse">
+      <tr class="divider-row"><td colspan="2">Regression Tests</td></tr>
+    </table>
+
+    <div class="tc" id="tc-s1-7">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[Regression] sortByMatchTime=true still returns events correctly</div>
+        <div class="tc-meta">
+          <span class="tag tag-reg">REGRESSION</span>
+          <span class="tag tag-date">date: 2026-06-28</span>
+          <span class="tag tag-body">sortByMatchTime: true</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: code=1 · events.length > 0 · total > 0 · nếu hasNextPage=false thì events.length === total
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s1-8">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[Regression] high-traffic day (total > 50) still works correctly</div>
+        <div class="tc-meta">
+          <span class="tag tag-reg">REGRESSION</span>
+          <span class="tag tag-date">date: 2026-06-28</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: total > 50 · |counted − total| ≤ 5
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s1-9">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[Regression] filtering by competitionIds returns only those competitions</div>
+        <div class="tc-meta">
+          <span class="tag tag-reg">REGRESSION</span>
+          <span class="tag tag-date">date: 2026-06-28</span>
+          <span class="tag tag-body">competitionIds: [otherComps[0].ids]</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75sm;color:#64748b">
+          Step1: lấy otherComps[0].competition_ids → Step2: filter theo ids đó · Verify: otherComps rỗng · |total − match_count| ≤ 5 · mọi event thuộc filter
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s1-10">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[QC] events diversity: multiple leagues represented (fallback working)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: 2026-06-28</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: số unique tournament.id trong events[] ≥ 3
+        </div>
+      </div>
+    </div>
+
+    <!-- group: pagination -->
+    <table style="width:100%;border-collapse:collapse">
+      <tr class="divider-row"><td colspan="2">Pagination Tests</td></tr>
+    </table>
+
+    <div class="tc" id="tc-s1-11">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[Pagination] page 2 returns different events from page 1 (no duplicates)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: 2026-06-28</span>
+          <span class="tag tag-body">page:1 → page:2</span>
+          <span class="tag tag-body">sortByMatchTime: true</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: page2.events.length > 0 · không có event.id nào trùng giữa page 1 và page 2
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s1-12">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[Pagination] hasNextPage flag is accurate</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: 2026-06-28</span>
+          <span class="tag tag-body">page:1 → page:2</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: hasNextPage=true → page2 có events · hasNextPage=false → page2 rỗng · tổng 2 trang ≈ total
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ SUITE 2 ═════════════════════════════ -->
+<div class="suite s2">
+  <div class="suite-hd" onclick="toggleSuite(this)">
+    ▾ Suite 2 — Brazil IP / São Paulo Timezone
+    <span class="cnt">5 tests</span>
+  </div>
+  <div class="suite-body">
+
+    <div class="tc" id="tc-s2-1">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">SP timezone: API with locale=BR returns valid response for SP tomorrow</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: tomorrowSP (UTC now − 3h + 1 ngày)</span>
+          <span class="tag tag-locale">locale: BR</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: code=1 · events là array · otherCompetitions là array
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s2-2">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[BUG] SP tomorrow: DB match count must equal API total (no missing matches)</div>
+        <div class="tc-meta">
+          <span class="tag tag-crit">CRITICAL</span>
+          <span class="tag tag-db">DB: sport_events</span>
+          <span class="tag tag-locale">locale: BR</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          DB window: [tomorrowSP 03:00Z → tomorrowSP+1 03:00Z], status_id IN (0,1) ·
+          Verify: |DB.not_started − API.total| ≤ 5 · |counted − total| ≤ 5
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#047857;font-weight:600">
+          ✓ Confirmed PASS: DB=87, API=87 (2026-06-22) — bug đã fix
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s2-3">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[BOUNDARY] Matches at 21:00–23:59 SP (=00:00–02:59 UTC next day) must be included</div>
+        <div class="tc-meta">
+          <span class="tag tag-crit">BOUNDARY</span>
+          <span class="tag tag-db">DB boundary check</span>
+          <span class="tag tag-locale">locale: BR</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          DB đếm trận trong [D+1 00:00Z → D+1 03:00Z] (= 21:00–23:59 SP) ·
+          Verify: API.total ≥ boundary_count
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s2-4">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">SP today and tomorrow: both return complete data with locale=BR</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: todaySP + tomorrowSP</span>
+          <span class="tag tag-locale">locale: BR</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: cả 2 ngày code=1 · nếu total > 0 thì |counted − total| ≤ 5
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s2-5">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">SP timezone boundary: correct "tomorrow" date at critical time points</div>
+        <div class="tc-meta">
+          <span class="tag tag-locale">locale: BR</span>
+          <span class="tag tag-date">4 mốc giờ giả lập</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          4 mốc: [23:00 UTC 06-17] [00:00 UTC 06-18] [02:00 UTC 06-18] [03:00 UTC 06-18] ·
+          Verify: code=1 · events là array tại mỗi mốc
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ SUITE 3 ═════════════════════════════ -->
+<div class="suite s3">
+  <div class="suite-hd" onclick="toggleSuite(this)">
+    ▾ Suite 3 — otherCompetitions match_count (DB Verify)
+    <span class="cnt">3 tests</span>
+  </div>
+  <div class="suite-body">
+
+    <div class="tc" id="tc-s3-1">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[DB] otherCompetitions match_count matches DB not_started count — today (±5)</div>
+        <div class="tc-meta">
+          <span class="tag tag-db">DB: sport_events</span>
+          <span class="tag tag-date">date: TODAY</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Top 10 groups · DB: COUNT WHERE competition_id IN [...] AND status_id IN (0,1) ·
+          Verify: |API.match_count − DB.not_started| ≤ 5 · skip nếu DB.total=0
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s3-2">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[DB] otherCompetitions match_count matches DB not_started count — tomorrow (±5)</div>
+        <div class="tc-meta">
+          <span class="tag tag-db">DB: sport_events</span>
+          <span class="tag tag-date">date: TODAY+1</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Tất cả groups · In cả live + ended để debug ·
+          Verify: |match_count − DB.not_started| ≤ 5 · skip nếu DB.total=0
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s3-3">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[DB] sum(otherCompetitions.match_count) === pagination.total - events.length</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY + TODAY+1</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify cả 2 ngày: |total − events.length − sumOC| ≤ 5
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ SUITE 4 ═════════════════════════════ -->
+<div class="suite s4">
+  <div class="suite-hd" onclick="toggleSuite(this)">
+    ▾ Suite 4 — Date Range Coverage (~40 tests động)
+    <span class="cnt">13 ngày × 3 + 1 Sweep</span>
+  </div>
+  <div class="suite-body">
+
+    <table style="width:100%;border-collapse:collapse">
+      <tr class="divider-row"><td colspan="2">Mỗi ngày tạo 3 test case: [structure] · [completeness] · [status filter]</td></tr>
+    </table>
+
+    <!-- Quá khứ -->
+    <div class="tc" id="tc-s4-p7">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[-7 ngày] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY − 7</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          3 tests: code=1 + arrays · |counted−total|≤5 (skip nếu total=0) · 100% not_started
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-p3">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[-3 ngày] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY − 3</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-p1">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[hôm qua] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY − 1</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-0">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[hôm nay] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-1">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[ngày mai] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY + 1</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-2">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[+2 ngày] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY + 2</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-7">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[+7 ngày] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY + 7</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-14">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[+14 ngày] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY + 14</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-30">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[+30 ngày] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: TODAY + 30</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-m1">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[đầu tháng này] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: 2026-06-01</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-m2">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[cuối tháng này] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: 2026-06-30</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-m3">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[đầu tháng sau] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: 2026-07-01</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s4-sat">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[thứ 7 gần nhất] {date}: structure · completeness · status (upcoming)</div>
+        <div class="tc-meta">
+          <span class="tag tag-date">date: 2026-06-28 (Thứ 7)</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+      </div>
+    </div>
+
+    <table style="width:100%;border-collapse:collapse">
+      <tr class="divider-row"><td colspan="2">Sweep Test</td></tr>
+    </table>
+
+    <div class="tc" id="tc-s4-sweep">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">Sweep: tất cả ngày trong matrix đều trả code=1, không crash</div>
+        <div class="tc-meta">
+          <span class="tag tag-crit">SWEEP</span>
+          <span class="tag tag-date">tất cả ~13 ngày song song</span>
+          <span class="tag tag-locale">locale: VN</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: failed.length === 0 (không ngày nào trả code ≠ 1 hoặc throw exception)
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ SUITE 5 ═════════════════════════════ -->
+<div class="suite s5">
+  <div class="suite-hd" onclick="toggleSuite(this)">
+    ▾ Suite 5 — Multi-Locale Timezone Smoke Test
+    <span class="cnt">7 tests</span>
+  </div>
+  <div class="suite-body">
+
+    <table style="width:100%;border-collapse:collapse">
+      <tr class="divider-row"><td colspan="2">Mỗi locale: date = ngày mai theo timezone local · Verify: code=1 + completeness ≤5 + all not_started</td></tr>
+    </table>
+
+    <div class="tc" id="tc-s5-br">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[BR] Brazil/São Paulo (UTC-3): structure + completeness + status</div>
+        <div class="tc-meta">
+          <span class="tag tag-locale">locale: BR</span>
+          <span class="tag tag-date">date: tomorrowInLocale(−3)</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: code=1 · events/otherComps là array · |counted−total|≤5 · 0 wrongStatus
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s5-ar">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[AR] Argentina (UTC-3): structure + completeness + status</div>
+        <div class="tc-meta">
+          <span class="tag tag-locale">locale: AR</span>
+          <span class="tag tag-date">date: tomorrowInLocale(−3)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s5-us">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[US] USA/New York (UTC-4): structure + completeness + status</div>
+        <div class="tc-meta">
+          <span class="tag tag-locale">locale: US</span>
+          <span class="tag tag-date">date: tomorrowInLocale(−4)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s5-mx">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[MX] Mexico City (UTC-6): structure + completeness + status</div>
+        <div class="tc-meta">
+          <span class="tag tag-locale">locale: MX</span>
+          <span class="tag tag-date">date: tomorrowInLocale(−6)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s5-vn">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[VN] Vietnam (UTC+7): structure + completeness + status</div>
+        <div class="tc-meta">
+          <span class="tag tag-locale">locale: VN</span>
+          <span class="tag tag-date">date: tomorrowInLocale(+7)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tc" id="tc-s5-jp">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">[JP] Japan (UTC+9): structure + completeness + status</div>
+        <div class="tc-meta">
+          <span class="tag tag-locale">locale: JP</span>
+          <span class="tag tag-date">date: tomorrowInLocale(+9)</span>
+        </div>
+      </div>
+    </div>
+
+    <table style="width:100%;border-collapse:collapse">
+      <tr class="divider-row"><td colspan="2">Cross-locale smoke</td></tr>
+    </table>
+
+    <div class="tc" id="tc-s5-cross">
+      <div class="tc-chk"><input type="checkbox" onchange="onCheck(this)"></div>
+      <div class="tc-info">
+        <div class="tc-name">Cross-locale: tất cả locale trả code=1, không crash</div>
+        <div class="tc-meta">
+          <span class="tag tag-crit">SWEEP</span>
+          <span class="tag tag-locale">6 locales song song</span>
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.75rem;color:#64748b">
+          Verify: crashed.length === 0 · soft: |counted−total|≤5 cho locale có total > 0
+        </div>
+        <div class="tc-meta" style="margin-top:3px;font-size:0.72rem;color:#047857">
+          In bảng: Locale | Offset | Date | Total | Counted | OK? — QC đọc để phát hiện timezone bug thủ công
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- wrap -->
+
+<script>
+// Counter
+function updateCounter() {
+  const all = document.querySelectorAll('input[type=checkbox]');
+  const checked = document.querySelectorAll('input[type=checkbox]:checked');
+  document.getElementById('cnt').textContent = checked.length;
+  document.getElementById('total').textContent = all.length;
+  document.getElementById('bar').style.width = (checked.length / all.length * 100) + '%';
+}
+
+function onCheck(el) {
+  const row = el.closest('.tc');
+  if (el.checked) row.classList.add('done');
+  else row.classList.remove('done');
+  updateCounter();
+  saveState();
+}
+
+function checkAll() {
+  document.querySelectorAll('input[type=checkbox]').forEach(cb => {
+    cb.checked = true;
+    cb.closest('.tc').classList.add('done');
+  });
+  updateCounter(); saveState();
+}
+
+function uncheckAll() {
+  document.querySelectorAll('input[type=checkbox]').forEach(cb => {
+    cb.checked = false;
+    cb.closest('.tc').classList.remove('done');
+    cb.closest('.tc').classList.remove('fail');
+  });
+  updateCounter(); saveState();
+}
+
+function markFail() {
+  const selected = prompt('Nhập ID row cần đánh fail (vd: tc-s1-3), dùng dấu phẩy ngăn cách:');
+  if (!selected) return;
+  selected.split(',').map(s=>s.trim()).forEach(id => {
+    const row = document.getElementById(id);
+    if (row) { row.classList.add('fail'); row.classList.remove('done'); }
+  });
+}
+
+function clearFail() {
+  document.querySelectorAll('.tc.fail').forEach(r => r.classList.remove('fail'));
+}
+
+function toggleSuite(hd) {
+  const body = hd.nextElementSibling;
+  if (body.style.display === 'none') {
+    body.style.display = '';
+    hd.textContent = hd.textContent.replace('▸', '▾');
+  } else {
+    body.style.display = 'none';
+    hd.textContent = hd.textContent.replace('▾', '▸');
+  }
+}
+
+function saveState() {
+  const state = {};
+  document.querySelectorAll('.tc[id]').forEach(row => {
+    const cb = row.querySelector('input[type=checkbox]');
+    state[row.id] = { checked: cb.checked, fail: row.classList.contains('fail') };
+  });
+  try { localStorage.setItem('tc-state', JSON.stringify(state)); } catch(e){}
+}
+
+function loadState() {
+  try {
+    const state = JSON.parse(localStorage.getItem('tc-state') || '{}');
+    Object.entries(state).forEach(([id, s]) => {
+      const row = document.getElementById(id);
+      if (!row) return;
+      const cb = row.querySelector('input[type=checkbox]');
+      if (s.checked) { cb.checked = true; row.classList.add('done'); }
+      if (s.fail)    { row.classList.add('fail'); }
+    });
+  } catch(e){}
+}
+
+loadState();
+updateCounter();
+</script>
+</body>
+</html>

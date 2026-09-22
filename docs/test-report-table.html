@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Báo Cáo Test Cases — API Upcoming Football</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; font-size: 13px; }
+
+/* ── HEADER ── */
+.page-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+  color: white; padding: 28px 32px;
+}
+.page-header h1 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.5px; }
+.page-header .sub { color: #7dd3fc; font-size: 0.82rem; margin-top: 6px; font-family: monospace; }
+.chips { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.chip { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); color: #e2e8f0; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+.chip b { color: white; }
+
+/* ── SUMMARY CARDS ── */
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; padding: 20px 24px; }
+.card { background: white; border-radius: 10px; padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.07); border-top: 3px solid #e2e8f0; }
+.card.s1 { border-color: #2563eb; }
+.card.s2 { border-color: #059669; }
+.card.s3 { border-color: #d97706; }
+.card.s4 { border-color: #7c3aed; }
+.card.s5 { border-color: #e11d48; }
+.card.total { border-color: #0ea5e9; }
+.card-num { font-size: 2rem; font-weight: 800; line-height: 1; }
+.card.s1 .card-num { color: #2563eb; }
+.card.s2 .card-num { color: #059669; }
+.card.s3 .card-num { color: #d97706; }
+.card.s4 .card-num { color: #7c3aed; }
+.card.s5 .card-num { color: #e11d48; }
+.card.total .card-num { color: #0ea5e9; }
+.card-label { font-size: 0.72rem; color: #64748b; margin-top: 4px; font-weight: 600; }
+.card-sub { font-size: 0.7rem; color: #94a3b8; margin-top: 2px; }
+
+/* ── WRAP ── */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px 32px; }
+
+/* ── SECTION ── */
+.section { margin-bottom: 28px; }
+.section-title {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px; border-radius: 8px 8px 0 0;
+  font-weight: 800; font-size: 0.9rem; color: white;
+}
+.s1 .section-title { background: #1d4ed8; }
+.s2 .section-title { background: #047857; }
+.s3 .section-title { background: #b45309; }
+.s4 .section-title { background: #6d28d9; }
+.s5 .section-title { background: #be123c; }
+.section-title .sc { background: rgba(255,255,255,.2); padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; margin-left: auto; }
+
+/* ── TABLE ── */
+.tbl-box { border-radius: 0 0 8px 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.07); }
+table { width: 100%; border-collapse: collapse; background: white; }
+th {
+  background: #f8fafc; text-align: left; padding: 9px 12px;
+  font-size: 0.7rem; font-weight: 700; color: #64748b;
+  text-transform: uppercase; letter-spacing: .04em;
+  border-bottom: 2px solid #e2e8f0; white-space: nowrap;
+}
+td { padding: 9px 12px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+
+.num { font-weight: 800; color: #94a3b8; font-size: 0.75rem; width: 36px; }
+.test-name { font-size: 0.82rem; font-weight: 600; line-height: 1.5; }
+.test-name code { background: #f1f5f9; padding: 0 4px; border-radius: 3px; font-size: 0.8em; font-family: monospace; }
+
+/* tags */
+.tag { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 0.68rem; font-weight: 700; white-space: nowrap; margin: 1px; }
+.t-crit   { background: #fee2e2; color: #991b1b; }
+.t-reg    { background: #dbeafe; color: #1e40af; }
+.t-db     { background: #fef9c3; color: #713f12; }
+.t-bound  { background: #ede9fe; color: #5b21b6; }
+.t-qc     { background: #ecfdf5; color: #065f46; }
+.t-sweep  { background: #fff7ed; color: #c2410c; }
+.t-struct { background: #f0f9ff; color: #0369a1; }
+.t-pagin  { background: #fdf4ff; color: #7e22ce; }
+
+/* verify column */
+.verify { font-size: 0.78rem; color: #475569; }
+.verify code { background: #f1f5f9; padding: 0 4px; border-radius: 3px; font-family: monospace; font-size: 0.85em; }
+
+/* param tags */
+.param { font-size: 0.73rem; color: #64748b; }
+.param .p-date { color: #1d4ed8; font-family: monospace; font-weight: 600; }
+.param .p-loc  { color: #047857; font-weight: 700; }
+
+/* divider row */
+.div-row td {
+  background: #f1f5f9; font-size: 0.68rem; font-weight: 700;
+  color: #94a3b8; text-transform: uppercase; letter-spacing: .05em;
+  padding: 5px 12px; border-bottom: 1px solid #e2e8f0;
+}
+
+/* suite 4 compact */
+.date-label { font-weight: 700; font-size: 0.82rem; }
+.date-val   { font-family: monospace; font-size: 0.78rem; color: #1d4ed8; }
+.assert-cell { font-size: 0.75rem; color: #475569; }
+.assert-cell li { list-style: none; padding: 2px 0; }
+.assert-cell li::before { content: '→ '; color: #94a3b8; }
+
+/* note */
+.note-confirmed { font-size: 0.73rem; color: #047857; font-weight: 600; margin-top: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<div class="page-header">
+  <h1>Báo Cáo Test Cases — API Upcoming Football</h1>
+  <div class="sub">upcoming_fakeip_time.spec.ts · POST /api/v2/sport/football/scheduled-events-pagination-v2/{date}/locale/{locale}/type/{type}</div>
+  <div class="chips">
+    <span class="chip">Base: <b>https://opta-api.uniscore.vn</b></span>
+    <span class="chip">DB: <b><DB_PROD_HOST>:5432 / api_ts</b></span>
+    <span class="chip">TODAY: <b id="today_chip"></b></span>
+    <span class="chip">Tổng: <b>~67 tests</b></span>
+  </div>
+</div>
+<script>document.getElementById('today_chip').textContent = new Date().toISOString().slice(0,10);</script>
+
+<!-- ── SUMMARY CARDS ── -->
+<div class="summary">
+  <div class="card s1">
+    <div class="card-num">12</div>
+    <div class="card-label">Suite 1</div>
+    <div class="card-sub">Bug Fix Verification</div>
+  </div>
+  <div class="card s2">
+    <div class="card-num">5</div>
+    <div class="card-label">Suite 2</div>
+    <div class="card-sub">São Paulo Timezone</div>
+  </div>
+  <div class="card s3">
+    <div class="card-num">3</div>
+    <div class="card-label">Suite 3</div>
+    <div class="card-sub">DB Verify</div>
+  </div>
+  <div class="card s4">
+    <div class="card-num">40</div>
+    <div class="card-label">Suite 4</div>
+    <div class="card-sub">Date Range Coverage</div>
+  </div>
+  <div class="card s5">
+    <div class="card-num">7</div>
+    <div class="card-label">Suite 5</div>
+    <div class="card-sub">Multi-Locale Smoke</div>
+  </div>
+  <div class="card total">
+    <div class="card-num">~67</div>
+    <div class="card-label">Tổng cộng</div>
+    <div class="card-sub">Tất cả test cases</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ════════════════════════════════ SUITE 1 ════════════════════════════════ -->
+<div class="section s1">
+  <div class="section-title">
+    Suite 1 — BUG FIX: API Upcoming chỉ trả về 2 trận
+    <span class="sc">12 tests · date mặc định: 2026-06-28 (Chủ nhật) / 2026-06-25 (Thứ tư)</span>
+  </div>
+  <div class="tbl-box">
+  <table>
+    <tr>
+      <th>#</th>
+      <th style="min-width:260px">Tên Test Case</th>
+      <th>Loại</th>
+      <th style="min-width:130px">Tham số</th>
+      <th style="min-width:240px">Điều kiện PASS</th>
+    </tr>
+
+    <tr class="div-row"><td colspan="5">Cấu trúc response</td></tr>
+
+    <tr>
+      <td class="num">S1-01</td>
+      <td class="test-name">response structure is valid<br><small style="font-weight:400;color:#64748b">(code=1, events / otherCompetitions / pagination exist)</small></td>
+      <td><span class="tag t-struct">Structure</span></td>
+      <td class="param"><span class="p-date">TODAY</span> · <span class="p-loc">VN</span> · sortByMatchTime=false</td>
+      <td class="verify">code===1 · events là array · otherCompetitions là array · pagination.total là number · hasNextPage là boolean</td>
+    </tr>
+    <tr>
+      <td class="num">S1-02</td>
+      <td class="test-name">otherCompetitions items have required fields<br><small style="font-weight:400;color:#64748b">(id, name, match_count, competition_ids)</small></td>
+      <td><span class="tag t-struct">Schema</span></td>
+      <td class="param"><span class="p-date">2026-06-28</span> · <span class="p-loc">VN</span></td>
+      <td class="verify">Mỗi item: id(string) · name(string) · match_count(number&gt;0) · competition_ids(array string)</td>
+    </tr>
+
+    <tr class="div-row"><td colspan="5">Fix Bug #1 — otherCompetitions bị tắt khi total ≤ 50</td></tr>
+
+    <tr>
+      <td class="num">S1-03</td>
+      <td class="test-name">[Bug#1] data completeness: events + otherCompetitions.match_count = total<br><small style="font-weight:400;color:#64748b">(high traffic day)</small></td>
+      <td><span class="tag t-crit">CRITICAL</span></td>
+      <td class="param"><span class="p-date">2026-06-28</span> · <span class="p-loc">VN</span></td>
+      <td class="verify">total &gt; 0 · <code>|events.length + Σ otherComps[i].match_count − total| ≤ 5</code></td>
+    </tr>
+    <tr>
+      <td class="num">S1-04</td>
+      <td class="test-name">[Bug#1] low-traffic day (total ≤ 50): otherCompetitions must NOT be empty</td>
+      <td><span class="tag t-crit">CRITICAL</span></td>
+      <td class="param"><span class="p-date">2026-06-25</span> · <span class="p-loc">VN</span></td>
+      <td class="verify">Nếu events.length &lt; total thì <code>otherCompetitions.length &gt; 0</code> · completeness diff ≤ 5</td>
+    </tr>
+    <tr>
+      <td class="num">S1-05</td>
+      <td class="test-name">[Bug#1] original bug date (2026-06-15) returns valid response without crashing</td>
+      <td><span class="tag t-crit">Bug Origin</span></td>
+      <td class="param"><span class="p-date">2026-06-15</span> · <span class="p-loc">VN</span></td>
+      <td class="verify">code===1 · events là array · otherCompetitions là array · <em>(total=0 bình thường vì ngày đã qua)</em></td>
+    </tr>
+
+    <tr class="div-row"><td colspan="5">Fix Bug #2 — Fallback không lọc theo status</td></tr>
+
+    <tr>
+      <td class="num">S1-06</td>
+      <td class="test-name">[Bug#2] upcoming tab: all events must have status = not_started</td>
+      <td><span class="tag t-crit">CRITICAL</span></td>
+      <td class="param"><span class="p-date">2026-06-28</span> · <span class="p-loc">VN</span></td>
+      <td class="verify"><code>wrongStatus.length === 0</code> — 100% events[i].status.type === "not_started"</td>
+    </tr>
+
+    <tr class="div-row"><td colspan="5">Regression Tests</td></tr>
+
+    <tr>
+      <td class="num">S1-07</td>
+      <td class="test-name">[Regression] sortByMatchTime=true still returns events correctly</td>
+      <td><span class="tag t-reg">Regression</span></td>
+      <td class="param"><span class="p-date">2026-06-28</span> · <span class="p-loc">VN</span> · sortByMatchTime=<b>true</b></td>
+      <td class="verify">code===1 · events.length &gt; 0 · total &gt; 0 · nếu hasNextPage=false thì events.length === total</td>
+    </tr>
+    <tr>
+      <td class="num">S1-08</td>
+      <td class="test-name">[Regression] high-traffic day (total &gt; 50) still works correctly</td>
+      <td><span class="tag t-reg">Regression</span></td>
+      <td class="param"><span class="p-date">2026-06-28</span> · <span class="p-loc">VN</span></td>
+      <td class="verify">total &gt; 50 · completeness diff ≤ 5</td>
+    </tr>
+    <tr>
+      <td class="num">S1-09</td>
+      <td class="test-name">[Regression] filtering by competitionIds returns only those competitions</td>
+      <td><span class="tag t-reg">Regression</span></td>
+      <td class="param"><span class="p-date">2026-06-28</span> · <span class="p-loc">VN</span> · competitionIds=[otherComps[0].ids]</td>
+      <td class="verify">otherCompetitions.length===0 · <code>|total − match_count| ≤ 5</code> · mọi event thuộc filter</td>
+    </tr>
+    <tr>
+      <td class="num">S1-10</td>
+      <td class="test-name">[QC] events diversity: multiple leagues represented (fallback working)</td>
+      <td><span class="tag t-qc">QC</span></td>
+      <td class="param"><span class="p-date">2026-06-28</span> · <span class="p-loc">VN</span></td>
+      <td class="verify">Số unique <code>tournament.id</code> trong events[] ≥ 3</td>
+    </tr>
+
+    <tr class="div-row"><td colspan="5">Pagination Tests</td></tr>
+
+    <tr>
+      <td class="num">S1-11</td>
+      <td class="test-name">[Pagination] page 2 returns different events from page 1 (no duplicates)</td>
+      <td><span class="tag t-pagin">Pagination</span></td>
+      <td class="param"><span class="p-date">2026-06-28</span> · <span class="p-loc">VN</span> · page:1 → page:2 · sortByMatchTime=true</td>
+      <td class="verify">page2.events.length &gt; 0 · <code>duplicates.length === 0</code></td>
+    </tr>
+    <tr>
+      <td class="num">S1-12</td>
+      <td class="test-name">[Pagination] hasNextPage flag is accurate</td>
+      <td><span class="tag t-pagin">Pagination</span></td>
+      <td class="param"><span class="p-date">2026-06-28</span> · <span class="p-loc">VN</span> · page:1 → page:2</td>
+      <td class="verify">hasNextPage=true → page2 có events · hasNextPage=false → page2 rỗng · tổng 2 trang ≈ total (±2)</td>
+    </tr>
+
+  </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ SUITE 2 ════════════════════════════════ -->
+<div class="section s2">
+  <div class="section-title">
+    Suite 2 — Brazil IP / São Paulo Timezone (UTC−3)
+    <span class="sc">5 tests · locale=BR · DB: sport_events</span>
+  </div>
+  <div class="tbl-box">
+  <table>
+    <tr>
+      <th>#</th>
+      <th style="min-width:260px">Tên Test Case</th>
+      <th>Loại</th>
+      <th style="min-width:140px">Tham số</th>
+      <th style="min-width:260px">Điều kiện PASS</th>
+    </tr>
+
+    <tr>
+      <td class="num">S2-01</td>
+      <td class="test-name">SP timezone: API with locale=BR returns valid response for SP tomorrow</td>
+      <td><span class="tag t-struct">Structure</span></td>
+      <td class="param"><span class="p-date">tomorrowSP</span> · <span class="p-loc">BR</span></td>
+      <td class="verify">code===1 · events là array · otherCompetitions là array<br><small><em>tomorrowSP = UTC now − 3h + 1 ngày (slice 0,10)</em></small></td>
+    </tr>
+    <tr>
+      <td class="num">S2-02</td>
+      <td class="test-name">[BUG] SP tomorrow: DB match count must equal API total (no missing matches)</td>
+      <td><span class="tag t-crit">CRITICAL</span> <span class="tag t-db">DB</span></td>
+      <td class="param"><span class="p-date">tomorrowSP</span> · <span class="p-loc">BR</span> · DB query</td>
+      <td class="verify">
+        DB window: <code>[tomorrowSP 03:00Z → tomorrowSP+1 03:00Z]</code> · status_id IN (0,1)<br>
+        <code>|DB.not_started − API.total| ≤ 5</code> · completeness ≤ 5
+        <div class="note-confirmed">✓ Đã xác nhận PASS: DB=87 · API=87 (2026-06-22) — bug timezone đã fix</div>
+      </td>
+    </tr>
+    <tr>
+      <td class="num">S2-03</td>
+      <td class="test-name">[BOUNDARY] Matches at 21:00–23:59 SP (= 00:00–02:59 UTC next day) must be included</td>
+      <td><span class="tag t-bound">Boundary</span> <span class="tag t-db">DB</span></td>
+      <td class="param"><span class="p-date">tomorrowSP</span> · <span class="p-loc">BR</span></td>
+      <td class="verify">DB boundary = <code>[D+1 00:00Z → D+1 03:00Z]</code> · nếu boundaryCount &gt; 0 thì <code>API.total ≥ boundaryCount</code></td>
+    </tr>
+    <tr>
+      <td class="num">S2-04</td>
+      <td class="test-name">SP today and tomorrow: both return complete data with locale=BR</td>
+      <td><span class="tag t-reg">Completeness</span></td>
+      <td class="param"><span class="p-date">todaySP + tomorrowSP</span> · <span class="p-loc">BR</span></td>
+      <td class="verify">Cả 2 ngày: code===1 · nếu total &gt; 0 thì completeness diff ≤ 5</td>
+    </tr>
+    <tr>
+      <td class="num">S2-05</td>
+      <td class="test-name">SP timezone boundary: correct "tomorrow" date at critical time points</td>
+      <td><span class="tag t-bound">Boundary</span></td>
+      <td class="param">4 mốc giờ UTC giả lập · <span class="p-loc">BR</span></td>
+      <td class="verify">
+        <small>
+          23:00 UTC 06-17 (=20:00 SP) → tomorrowSP=06-18<br>
+          00:00 UTC 06-18 (=21:00 SP) → tomorrowSP=06-18<br>
+          02:00 UTC 06-18 (=23:59 SP) → tomorrowSP=06-18<br>
+          03:00 UTC 06-18 (=00:00 SP) → tomorrowSP=06-19
+        </small><br>
+        Mỗi mốc: code===1 · events là array
+      </td>
+    </tr>
+
+  </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ SUITE 3 ════════════════════════════════ -->
+<div class="section s3">
+  <div class="section-title">
+    Suite 3 — otherCompetitions match_count chỉ đếm not_started (DB Verify)
+    <span class="sc">3 tests · DB: sport_events · locale=VN</span>
+  </div>
+  <div class="tbl-box">
+  <table>
+    <tr>
+      <th>#</th>
+      <th style="min-width:260px">Tên Test Case</th>
+      <th>Loại</th>
+      <th style="min-width:120px">Tham số</th>
+      <th style="min-width:260px">Điều kiện PASS</th>
+    </tr>
+
+    <tr>
+      <td class="num">S3-01</td>
+      <td class="test-name">[DB] otherCompetitions match_count matches DB not_started count — today (±5)</td>
+      <td><span class="tag t-db">DB</span> <span class="tag t-crit">CRITICAL</span></td>
+      <td class="param"><span class="p-date">TODAY</span> · <span class="p-loc">VN</span> · Top 10 groups</td>
+      <td class="verify">Với mỗi group: <code>|API.match_count − DB.not_started| ≤ 5</code><br><em>Skip group nếu DB.total=0 (DB chưa load data)</em></td>
+    </tr>
+    <tr>
+      <td class="num">S3-02</td>
+      <td class="test-name">[DB] otherCompetitions match_count matches DB not_started count — tomorrow (±5)</td>
+      <td><span class="tag t-db">DB</span> <span class="tag t-crit">CRITICAL</span></td>
+      <td class="param"><span class="p-date">TODAY+1</span> · <span class="p-loc">VN</span> · All groups</td>
+      <td class="verify">Tất cả groups: <code>|match_count − DB.not_started| ≤ 5</code> · In cả DB.live + DB.ended để debug<br><em>Skip group nếu DB.total=0</em></td>
+    </tr>
+    <tr>
+      <td class="num">S3-03</td>
+      <td class="test-name">[DB] sum(otherCompetitions.match_count) === pagination.total − events.length</td>
+      <td><span class="tag t-db">DB</span></td>
+      <td class="param"><span class="p-date">TODAY + TODAY+1</span> · <span class="p-loc">VN</span></td>
+      <td class="verify">Cả 2 ngày: <code>|total − events.length − Σ otherComps.match_count| ≤ 5</code><br><em>Skip nếu total=0</em></td>
+    </tr>
+
+  </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ SUITE 4 ════════════════════════════════ -->
+<div class="section s4">
+  <div class="section-title">
+    Suite 4 — Date Range Coverage (chỉ type=upcoming)
+    <span class="sc">13 ngày × 3 tests + 1 Sweep = ~40 tests · locale=VN</span>
+  </div>
+  <div class="tbl-box">
+  <table>
+    <tr>
+      <th style="width:36px">#</th>
+      <th style="width:110px">Nhãn ngày</th>
+      <th style="width:100px">Date (2026)</th>
+      <th style="min-width:180px">Test 1 — Structure</th>
+      <th style="min-width:180px">Test 2 — Completeness</th>
+      <th style="min-width:180px">Test 3 — Status Filter</th>
+    </tr>
+
+    <tr class="div-row"><td colspan="6">Quá khứ</td></tr>
+    <tr>
+      <td class="num">S4-01</td>
+      <td class="date-label">−7 ngày</td>
+      <td class="date-val">06-15</td>
+      <td class="assert-cell"><ul><li>code===1</li><li>events là array</li><li>otherComps là array</li><li>pagination.total là number</li></ul></td>
+      <td class="assert-cell"><ul><li>total=0 → skip (ngày đã qua)</li><li>nếu total&gt;0: diff ≤ 5</li></ul></td>
+      <td class="assert-cell"><ul><li>events rỗng → skip</li><li>nếu có: 100% not_started</li></ul></td>
+    </tr>
+    <tr>
+      <td class="num">S4-02</td>
+      <td class="date-label">−3 ngày</td>
+      <td class="date-val">06-19</td>
+      <td class="assert-cell"><ul><li>code===1, arrays đúng type</li></ul></td>
+      <td class="assert-cell"><ul><li>total=0 → skip</li><li>nếu có: diff ≤ 5</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started nếu có events</li></ul></td>
+    </tr>
+    <tr>
+      <td class="num">S4-03</td>
+      <td class="date-label">Hôm qua</td>
+      <td class="date-val">06-21</td>
+      <td class="assert-cell"><ul><li>code===1, arrays đúng type</li></ul></td>
+      <td class="assert-cell"><ul><li>total=0 → skip</li><li>nếu có: diff ≤ 5</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started nếu có events</li></ul></td>
+    </tr>
+
+    <tr class="div-row"><td colspan="6">Hiện tại</td></tr>
+    <tr>
+      <td class="num">S4-04</td>
+      <td class="date-label">Hôm nay</td>
+      <td class="date-val">06-22</td>
+      <td class="assert-cell"><ul><li>code===1, arrays đúng type</li><li>hasNextPage là boolean</li></ul></td>
+      <td class="assert-cell"><ul><li>diff ≤ 5 (nếu total&gt;0)</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started</li></ul></td>
+    </tr>
+
+    <tr class="div-row"><td colspan="6">Tương lai gần</td></tr>
+    <tr>
+      <td class="num">S4-05</td>
+      <td class="date-label">Ngày mai</td>
+      <td class="date-val">06-23</td>
+      <td class="assert-cell"><ul><li>code===1, arrays đúng type</li></ul></td>
+      <td class="assert-cell"><ul><li>diff ≤ 5</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started</li></ul></td>
+    </tr>
+    <tr>
+      <td class="num">S4-06</td>
+      <td class="date-label">+2 ngày</td>
+      <td class="date-val">06-24</td>
+      <td class="assert-cell"><ul><li>code===1, arrays đúng type</li></ul></td>
+      <td class="assert-cell"><ul><li>diff ≤ 5</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started</li></ul></td>
+    </tr>
+    <tr>
+      <td class="num">S4-07</td>
+      <td class="date-label">+7 ngày</td>
+      <td class="date-val">06-29</td>
+      <td class="assert-cell"><ul><li>code===1, arrays đúng type</li></ul></td>
+      <td class="assert-cell"><ul><li>diff ≤ 5</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started</li></ul></td>
+    </tr>
+    <tr>
+      <td class="num">S4-08</td>
+      <td class="date-label">+14 ngày</td>
+      <td class="date-val">07-06</td>
+      <td class="assert-cell"><ul><li>code===1, arrays đúng type</li></ul></td>
+      <td class="assert-cell"><ul><li>diff ≤ 5 (nếu có data)</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started nếu có events</li></ul></td>
+    </tr>
+    <tr>
+      <td class="num">S4-09</td>
+      <td class="date-label">+30 ngày</td>
+      <td class="date-val">07-22</td>
+      <td class="assert-cell"><ul><li>code===1, không crash</li></ul></td>
+      <td class="assert-cell"><ul><li>total=0 → skip</li><li>nếu có: diff ≤ 5</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started nếu có events</li></ul></td>
+    </tr>
+
+    <tr class="div-row"><td colspan="6">Biên tháng</td></tr>
+    <tr>
+      <td class="num">S4-10</td>
+      <td class="date-label">Đầu tháng 6</td>
+      <td class="date-val">06-01</td>
+      <td class="assert-cell"><ul><li>code===1, không crash</li></ul></td>
+      <td class="assert-cell"><ul><li>total=0 → skip (đã qua)</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started nếu có</li></ul></td>
+    </tr>
+    <tr>
+      <td class="num">S4-11</td>
+      <td class="date-label">Cuối tháng 6</td>
+      <td class="date-val">06-30</td>
+      <td class="assert-cell"><ul><li>code===1, arrays đúng type</li></ul></td>
+      <td class="assert-cell"><ul><li>diff ≤ 5</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started</li></ul></td>
+    </tr>
+    <tr>
+      <td class="num">S4-12</td>
+      <td class="date-label">Đầu tháng 7</td>
+      <td class="date-val">07-01</td>
+      <td class="assert-cell"><ul><li>code===1, arrays đúng type</li></ul></td>
+      <td class="assert-cell"><ul><li>diff ≤ 5 (nếu có data)</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started nếu có events</li></ul></td>
+    </tr>
+
+    <tr class="div-row"><td colspan="6">Ngày theo tuần</td></tr>
+    <tr>
+      <td class="num">S4-13</td>
+      <td class="date-label">Thứ 7 gần nhất</td>
+      <td class="date-val">06-28</td>
+      <td class="assert-cell"><ul><li>code===1, arrays đúng type</li></ul></td>
+      <td class="assert-cell"><ul><li>total&gt;50, diff ≤ 5</li><li>(Chủ nhật nhiều trận)</li></ul></td>
+      <td class="assert-cell"><ul><li>100% not_started</li></ul></td>
+    </tr>
+
+    <tr class="div-row"><td colspan="6">Sweep Test</td></tr>
+    <tr>
+      <td class="num">S4-SW</td>
+      <td colspan="2" class="date-label"><span class="tag t-sweep">SWEEP</span> Tất cả 13 ngày song song</td>
+      <td colspan="3" class="assert-cell">
+        <ul>
+          <li>Gọi tất cả ngày cùng lúc (<code>Promise.all</code>)</li>
+          <li><code>failed.length === 0</code> — không ngày nào trả code ≠ 1 hoặc throw</li>
+          <li>In bảng kết quả: ✓/✗ cho từng ngày</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ SUITE 5 ════════════════════════════════ -->
+<div class="section s5">
+  <div class="section-title">
+    Suite 5 — Multi-Locale Timezone Smoke Test
+    <span class="sc">7 tests · date = ngày mai theo timezone local</span>
+  </div>
+  <div class="tbl-box">
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Tên Test Case</th>
+      <th>Locale</th>
+      <th>Offset</th>
+      <th>Date query</th>
+      <th style="min-width:220px">Điều kiện PASS</th>
+    </tr>
+
+    <tr class="div-row"><td colspan="6">Từng locale: structure + completeness + status</td></tr>
+
+    <tr>
+      <td class="num">S5-01</td>
+      <td class="test-name">[BR] Brazil/São Paulo (UTC-3): structure + completeness + status</td>
+      <td><span class="p-loc">BR</span></td>
+      <td style="font-family:monospace;font-weight:700;color:#dc2626">UTC−3</td>
+      <td class="date-val">UTC now − 3h + 1 ngày</td>
+      <td class="verify">code===1 · events/otherComps là array · diff ≤ 5 · 0 wrongStatus</td>
+    </tr>
+    <tr>
+      <td class="num">S5-02</td>
+      <td class="test-name">[AR] Argentina (UTC-3): structure + completeness + status</td>
+      <td><span class="p-loc">AR</span></td>
+      <td style="font-family:monospace;font-weight:700;color:#dc2626">UTC−3</td>
+      <td class="date-val">UTC now − 3h + 1 ngày</td>
+      <td class="verify">code===1 · diff ≤ 5 · 0 wrongStatus</td>
+    </tr>
+    <tr>
+      <td class="num">S5-03</td>
+      <td class="test-name">[US] USA/New York (UTC-4): structure + completeness + status</td>
+      <td><span class="p-loc">US</span></td>
+      <td style="font-family:monospace;font-weight:700;color:#ea580c">UTC−4</td>
+      <td class="date-val">UTC now − 4h + 1 ngày</td>
+      <td class="verify">code===1 · diff ≤ 5 · 0 wrongStatus</td>
+    </tr>
+    <tr>
+      <td class="num">S5-04</td>
+      <td class="test-name">[MX] Mexico City (UTC-6): structure + completeness + status</td>
+      <td><span class="p-loc">MX</span></td>
+      <td style="font-family:monospace;font-weight:700;color:#ea580c">UTC−6</td>
+      <td class="date-val">UTC now − 6h + 1 ngày</td>
+      <td class="verify">code===1 · diff ≤ 5 · 0 wrongStatus</td>
+    </tr>
+    <tr>
+      <td class="num">S5-05</td>
+      <td class="test-name">[VN] Vietnam (UTC+7): structure + completeness + status</td>
+      <td><span class="p-loc">VN</span></td>
+      <td style="font-family:monospace;font-weight:700;color:#059669">UTC+7</td>
+      <td class="date-val">UTC now + 7h + 1 ngày</td>
+      <td class="verify">code===1 · diff ≤ 5 · 0 wrongStatus</td>
+    </tr>
+    <tr>
+      <td class="num">S5-06</td>
+      <td class="test-name">[JP] Japan (UTC+9): structure + completeness + status</td>
+      <td><span class="p-loc">JP</span></td>
+      <td style="font-family:monospace;font-weight:700;color:#059669">UTC+9</td>
+      <td class="date-val">UTC now + 9h + 1 ngày</td>
+      <td class="verify">code===1 · diff ≤ 5 · 0 wrongStatus</td>
+    </tr>
+
+    <tr class="div-row"><td colspan="6">Cross-locale sweep</td></tr>
+
+    <tr>
+      <td class="num">S5-07</td>
+      <td class="test-name">Cross-locale: tất cả locale trả code=1, không crash</td>
+      <td colspan="2"><span class="tag t-sweep">SWEEP</span> 6 locales song song</td>
+      <td class="date-val">Mỗi locale ngày mai local</td>
+      <td class="verify">
+        <code>crashed.length === 0</code> · soft: diff ≤ 5 cho locale có total &gt; 0<br>
+        <small>In bảng: Locale | Offset | Date | Total | Counted | OK?<br>
+        QC đọc bảng để phát hiện timezone bug thủ công:<br>
+        Kết quả xác nhận: BR=87 AR=87 US=88 MX=88 VN=76 JP=81 ✓</small>
+      </td>
+    </tr>
+
+  </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ LEGEND ════════════════════════════════ -->
+<div style="background:white;border-radius:8px;padding:16px 20px;box-shadow:0 1px 4px rgba(0,0,0,.07);margin-top:8px">
+  <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:#94a3b8;letter-spacing:.05em;margin-bottom:10px">Chú thích</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <span class="tag t-crit">CRITICAL</span><span style="font-size:0.75rem;color:#64748b">Test cốt lõi — fail = bug còn tồn tại</span>
+    <span class="tag t-reg">Regression</span><span style="font-size:0.75rem;color:#64748b">Kiểm tra luồng cũ không bị break</span>
+    <span class="tag t-db">DB</span><span style="font-size:0.75rem;color:#64748b">So sánh với DB sport_events (cần connect PG)</span>
+    <span class="tag t-bound">Boundary</span><span style="font-size:0.75rem;color:#64748b">Kiểm tra vùng biên timezone</span>
+    <span class="tag t-sweep">SWEEP</span><span style="font-size:0.75rem;color:#64748b">Gọi nhiều request song song, không crash</span>
+    <span class="tag t-struct">Structure</span><span style="font-size:0.75rem;color:#64748b">Kiểm tra JSON schema</span>
+    <span class="tag t-pagin">Pagination</span><span style="font-size:0.75rem;color:#64748b">Kiểm tra phân trang</span>
+  </div>
+  <div style="margin-top:10px;font-size:0.75rem;color:#64748b">
+    <b>Tolerance:</b> Cho phép sai lệch ±5 trận do race condition (match đổi trạng thái live trong lúc query song song) ·
+    <b>DB data:</b> sport_events chỉ có data cho 1–2 ngày tới — các Suite 3 test skip tự động nếu DB.total=0
+  </div>
+</div>
+
+</div><!-- wrap -->
+</body>
+</html>

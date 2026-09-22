@@ -1,0 +1,36 @@
+{
+  "name": "automationunity",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QA automation suite (Playwright + TypeScript) for the UniScore football platform",
+  "scripts": {
+    "test": "playwright test",
+    "test:report": "playwright show-report",
+    "report:summary": "node scripts/export-full-project-report.mjs"
+  },
+  "keywords": [
+    "playwright",
+    "qa",
+    "automation",
+    "e2e-testing"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "dotenv": "^17.4.2",
+    "mongodb": "^7.4.0",
+    "xlsx": "^0.18.5"
+  },
+  "dependencies": {
+    "@types/pg": "^8.20.0",
+    "deep-diff": "^1.0.2",
+    "exceljs": "^4.4.0",
+    "google-play-scraper": "^10.1.3",
+    "ioredis": "^6.0.0",
+    "mqtt": "^5.15.1",
+    "node-telegram-bot-api": "^2.1.0",
+    "pg": "^8.21.0"
+  }
+}

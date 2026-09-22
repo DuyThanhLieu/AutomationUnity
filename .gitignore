@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Playwright output
+test-results/
+playwright-report/
+results/
+tests/standard/results/
+tests/results/
+.playwright-mcp/
+
+# OS
+.DS_Store
+
+# Excel report outputs (generated, can be re-run) — except the main summary report
+*.xlsx
+!tests/**/*.xlsx
+!REPORT_TongHop_ToanBoProject.xlsx
+
+# Logs
+*.log
+
+# Claude Code local config (not part of the test project)
+.claude/
+.mcp.json
+
+# Ad-hoc debug screenshots from investigation sessions
+home-suggestions*.png

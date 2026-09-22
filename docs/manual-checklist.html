@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist Test Tay — API Upcoming</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f4f6f8; color: #1a1a2e; font-size: 14px; }
+
+.page-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: white; padding: 24px 28px;
+}
+.page-header h1 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.5px; }
+.page-header p  { color: #94a3b8; margin-top: 6px; font-size: 0.85rem; font-family: monospace; }
+
+.info-bar {
+  background: #fff8e1; border-bottom: 2px solid #f59e0b;
+  padding: 10px 28px; font-size: 0.83rem; color: #78350f;
+  display: flex; gap: 20px; flex-wrap: wrap;
+}
+.info-bar b { color: #92400e; }
+
+.wrap { max-width: 1000px; margin: 0 auto; padding: 20px 16px; }
+
+/* === SUITE BLOCK === */
+.suite { margin-bottom: 28px; }
+.suite-title {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px;
+  border-radius: 8px 8px 0 0;
+  font-weight: 800; font-size: 0.95rem;
+  color: white;
+}
+.suite-1 .suite-title { background: #1e40af; }
+.suite-2 .suite-title { background: #065f46; }
+.suite-3 .suite-title { background: #92400e; }
+.suite-4 .suite-title { background: #581c87; }
+.suite-5 .suite-title { background: #9f1239; }
+
+.suite-badge {
+  background: rgba(255,255,255,0.2);
+  padding: 2px 8px; border-radius: 10px;
+  font-size: 0.72rem; font-weight: 700;
+}
+
+/* === TABLE === */
+.tbl-wrap { overflow-x: auto; border-radius: 0 0 8px 8px; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th {
+  background: #f8fafc; text-align: left;
+  padding: 9px 12px; font-size: 0.75rem; font-weight: 700;
+  color: #64748b; text-transform: uppercase; letter-spacing: .04em;
+  border-bottom: 2px solid #e2e8f0;
+  white-space: nowrap;
+}
+td { padding: 9px 12px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+
+.tc-num {
+  font-weight: 800; font-size: 0.8rem; color: #475569;
+  width: 32px; white-space: nowrap;
+}
+.tc-name { font-weight: 600; font-size: 0.88rem; }
+.tc-name small { display: block; font-weight: 400; color: #64748b; font-size: 0.78rem; margin-top: 2px; }
+
+/* Request cell */
+.req { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.78rem; }
+.req .method { background: #dbeafe; color: #1d4ed8; padding: 1px 5px; border-radius: 3px; font-weight: 700; }
+.req .url { color: #0f172a; word-break: break-all; }
+.req .body { color: #64748b; margin-top: 3px; }
+
+/* Verify cell */
+.verify { font-size: 0.82rem; }
+.verify li { list-style: none; padding: 2px 0 2px 18px; position: relative; }
+.verify li::before { content: '·'; position: absolute; left: 6px; color: #94a3b8; }
+
+/* Result cell */
+.result-pass { background: #f0fdf4; color: #15803d; font-weight: 700; font-size: 0.78rem; padding: 4px 8px; border-radius: 4px; white-space: nowrap; }
+.result-warn { background: #fef9c3; color: #854d0e; font-weight: 600; font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; }
+
+/* Formula highlight */
+.formula {
+  background: #0f172a; color: #7dd3fc;
+  font-family: monospace; font-size: 0.78rem;
+  padding: 4px 8px; border-radius: 4px; display: inline-block;
+  margin-top: 4px; white-space: pre;
+}
+
+/* Checkbox column */
+.chk { width: 36px; text-align: center; }
+.chk input { width: 16px; height: 16px; cursor: pointer; accent-color: #1e40af; }
+
+/* Locale matrix */
+.locale-row td { font-size: 0.82rem; }
+.l-code { font-family: monospace; font-weight: 700; }
+
+/* Section divider */
+.divider {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  color: #94a3b8; letter-spacing: .06em;
+  padding: 6px 12px 4px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Note box */
+.note {
+  margin-top: 8px;
+  background: #fffbeb; border: 1px solid #fcd34d;
+  border-radius: 4px; padding: 7px 10px;
+  font-size: 0.8rem; color: #78350f;
+}
+
+/* Print helper */
+@media print {
+  body { background: white; }
+  .page-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .suite-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Checklist Test Tay — API Upcoming Football</h1>
+  <p>POST /api/v2/sport/football/scheduled-events-pagination-v2/{date}/locale/{locale}/type/{type}</p>
+</div>
+
+<div class="info-bar">
+  <span><b>Base URL:</b> https://opta-api.uniscore.vn</span>
+  <span><b>Content-Type:</b> application/json</span>
+  <span><b>Ngày test HIGH:</b> 2026-06-28 (Chủ nhật)</span>
+  <span><b>Ngày test LOW:</b> 2026-06-25 (Thứ tư)</span>
+  <span><b>TODAY:</b> <span id="today"></span></span>
+</div>
+<script>document.getElementById('today').textContent = new Date().toISOString().slice(0,10);</script>
+
+<div class="wrap">
+
+  <!-- ============================================================ SUITE 1 -->
+  <div class="suite suite-1">
+    <div class="suite-title">
+      Suite 1 — BUG FIX: API Upcoming chỉ trả về 2 trận
+      <span class="suite-badge">12 cases</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th style="width:28px">#</th>
+        <th style="min-width:180px">Tên case</th>
+        <th style="min-width:240px">Request</th>
+        <th style="min-width:220px">Cần verify</th>
+        <th>Kết quả mong đợi</th>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">1</td>
+        <td class="tc-name">
+          Response structure valid
+          <small>Cấu trúc JSON đúng format</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">/…/TODAY/locale/VN/type/upcoming</div>
+          <div class="body">{"sortByMatchTime": false}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>code === 1</li>
+          <li>data.events là array</li>
+          <li>data.otherCompetitions là array</li>
+          <li>data.pagination.total là number</li>
+          <li>data.pagination.hasNextPage là boolean</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu tất cả field tồn tại</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">2</td>
+        <td class="tc-name">
+          otherCompetitions schema
+          <small>Từng item có đủ field</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">/…/2026-06-28/locale/VN/type/upcoming</div>
+          <div class="body">{"sortByMatchTime": false}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Mỗi item trong otherCompetitions có:</li>
+          <li>· id (string, không rỗng)</li>
+          <li>· name (string, không rỗng)</li>
+          <li>· match_count (number > 0)</li>
+          <li>· competition_ids (array string)</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu tất cả item đúng schema</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">3</td>
+        <td class="tc-name">
+          [Bug#1] Completeness — HIGH traffic
+          <small>Ngày nhiều trận (>50) không mất data</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">/…/2026-06-28/locale/VN/type/upcoming</div>
+          <div class="body">{"sortByMatchTime": false}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Tính: counted = events.length + sum(otherComps[i].match_count)</li>
+          <li>So với: pagination.total</li>
+          <li>diff = |counted − total| ≤ 5</li>
+        </ul>
+        <div class="formula">counted = events.length
+       + Σ otherComps[i].match_count
+|counted − total| ≤ 5</div>
+        </td>
+        <td>
+          <span class="result-pass">PASS nếu diff ≤ 5</span>
+          <div class="note">⚠ Bug cũ: otherComps=[] → counted = 2, total = 45 → mất 43 trận</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">4</td>
+        <td class="tc-name">
+          [Bug#1] LOW traffic — otherComps KHÔNG rỗng
+          <small>Khi total ≤ 50, otherComps phải có data</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">/…/2026-06-25/locale/VN/type/upcoming</div>
+          <div class="body">{"sortByMatchTime": false}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Kiểm tra pagination.total ≤ 50</li>
+          <li>Nếu events.length &lt; total thì otherCompetitions.length > 0</li>
+          <li>Completeness diff ≤ 5</li>
+        </ul></td>
+        <td>
+          <span class="result-pass">PASS nếu otherComps có item + diff ≤ 5</span>
+          <div class="note">⚠ Bug cũ: điều kiện "total > 50" khóa otherComps</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">5</td>
+        <td class="tc-name">
+          [Bug#1] Ngày bug gốc 2026-06-15
+          <small>Không crash dù ngày đã qua</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">/…/2026-06-15/locale/VN/type/upcoming</div>
+          <div class="body">{"sortByMatchTime": false}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>code === 1 (không 500)</li>
+          <li>data tồn tại</li>
+          <li>total = 0 là bình thường (ngày đã qua)</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu code=1, không crash</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">6</td>
+        <td class="tc-name">
+          [Bug#2] Events đều là not_started
+          <small>Không có live/ended lọt vào upcoming</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">/…/2026-06-28/locale/VN/type/upcoming</div>
+          <div class="body">{"sortByMatchTime": false}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Lấy tất cả events[i].status.type</li>
+          <li>100% phải === "not_started"</li>
+          <li>Không được có "inprogress" hoặc "finished"</li>
+        </ul></td>
+        <td>
+          <span class="result-pass">PASS nếu mọi event là not_started</span>
+          <div class="note">⚠ Bug cũ: fallback chọn nhầm league ended → status sai lọt vào</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">7</td>
+        <td class="tc-name">
+          [Regression] sortByMatchTime=true
+          <small>Luồng sort phẳng không bị ảnh hưởng</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">/…/2026-06-28/locale/VN/type/upcoming</div>
+          <div class="body">{"sortByMatchTime": true}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>code === 1</li>
+          <li>events.length > 0</li>
+          <li>Nếu hasNextPage=false → events.length === total</li>
+          <li>Events sort tăng dần theo startTimestamp</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu luồng sort phẳng đúng</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">8</td>
+        <td class="tc-name">
+          [Regression] High traffic total > 50
+          <small>Xác nhận completeness ngày nhiều trận</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">/…/2026-06-28/locale/VN/type/upcoming</div>
+          <div class="body">{"sortByMatchTime": false}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>total > 50</li>
+          <li>diff ≤ 5</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu total > 50 và diff ≤ 5</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">9</td>
+        <td class="tc-name">
+          [Regression] Filter theo competitionIds
+          <small>Chỉ trả trận thuộc giải đã lọc</small>
+        </td>
+        <td class="req">
+          <span class="method">STEP 1</span>
+          <div class="url">/…/2026-06-28/locale/VN/type/upcoming — lấy otherComps[0]</div>
+          <span class="method">STEP 2</span>
+          <div class="url">Body: {"sortByMatchTime":false, "competitionIds":["id1","id2"]}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>otherCompetitions.length === 0</li>
+          <li>|total − otherComps[0].match_count| ≤ 5</li>
+          <li>Mọi event thuộc tournament.id trong filter</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu chỉ có trận của giải đã chọn</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">10</td>
+        <td class="tc-name">
+          [QC] Events diversity
+          <small>Fallback lấp đủ ≥ 3 league khác nhau</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">/…/2026-06-28/locale/VN/type/upcoming</div>
+          <div class="body">{"sortByMatchTime": false}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Đếm unique tournament.id trong events[]</li>
+          <li>Số unique IDs ≥ 3</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu ≥ 3 league trong events</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">11</td>
+        <td class="tc-name">
+          [Pagination] Page 2 khác page 1
+          <small>Không có event ID trùng</small>
+        </td>
+        <td class="req">
+          <span class="method">STEP 1</span>
+          <div class="url">Body: {"sortByMatchTime":true, "page":1} → lưu IDs</div>
+          <span class="method">STEP 2</span>
+          <div class="url">Body: {"sortByMatchTime":true, "page":2}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Page 2 có events > 0</li>
+          <li>Không có event.id nào xuất hiện ở cả 2 page</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu 0 ID trùng giữa 2 page</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">12</td>
+        <td class="tc-name">
+          [Pagination] hasNextPage chính xác
+          <small>Flag khớp với dữ liệu thực tế</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">Page 1 → đọc hasNextPage → gọi page 2 xem</div>
+        </td>
+        <td class="verify"><ul>
+          <li>hasNextPage=true → page 2 có events > 0</li>
+          <li>hasNextPage=false → page 2 có events = 0</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu flag khớp thực tế</span></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ SUITE 2 -->
+  <div class="suite suite-2">
+    <div class="suite-title">
+      Suite 2 — Brazil IP / São Paulo Timezone Bug
+      <span class="suite-badge">5 cases</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th style="width:28px">#</th>
+        <th style="min-width:180px">Tên case</th>
+        <th style="min-width:240px">Request / Setup</th>
+        <th style="min-width:220px">Cần verify</th>
+        <th>Kết quả mong đợi</th>
+      </tr>
+
+      <tr>
+        <td colspan="6" class="divider">
+          📌 Ngày mai São Paulo (UTC−3): nếu UTC hiện tại &lt; 03:00 → ngày mai SP = HÔM NAY. Nếu UTC ≥ 03:00 → ngày mai SP = NGÀY MAI.
+          <br>Cửa sổ UTC của ngày D ở SP: D 03:00Z → D+1 02:59Z
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">1</td>
+        <td class="tc-name">
+          locale=BR valid response
+          <small>Ngày mai SP không crash</small>
+        </td>
+        <td class="req">
+          <div style="color:#64748b;font-size:0.76rem;margin-bottom:4px">Tính SP_TOMORROW trước (xem công thức trên)</div>
+          <span class="method">POST</span>
+          <div class="url">/…/{SP_TOMORROW}/locale/BR/type/upcoming</div>
+          <div class="body">{"sortByMatchTime": false}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>code === 1</li>
+          <li>events là array</li>
+          <li>otherCompetitions là array</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu code=1, không crash</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">2</td>
+        <td class="tc-name">
+          [BUG CORE] DB = API total — ngày mai SP
+          <small>Không mất trận do timezone</small>
+        </td>
+        <td class="req">
+          <div style="color:#64748b;font-size:0.76rem;margin-bottom:4px">Query DB sport_events:</div>
+          <div class="formula">SELECT COUNT(*) FROM sport_events
+WHERE start_timestamp >= UNIX(D 03:00Z)
+  AND start_timestamp &lt;  UNIX(D+1 03:00Z)
+  AND status_id IN (0, 1) -- not_started</div>
+        </td>
+        <td class="verify"><ul>
+          <li>DB.not_started so với API.total (locale=BR)</li>
+          <li>|DB − API| ≤ 5</li>
+        </ul></td>
+        <td>
+          <span class="result-pass">PASS nếu diff ≤ 5</span>
+          <div class="note">⚠ Kết quả xác nhận: DB=87, API=87 → bug đã fix ✓</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">3</td>
+        <td class="tc-name">
+          [BOUNDARY] Trận 21:00–23:59 SP có trong response
+          <small>Vùng 00:00–02:59 UTC+1 không bị mất</small>
+        </td>
+        <td class="req">
+          <div style="color:#64748b;font-size:0.76rem;margin-bottom:4px">Vùng nguy hiểm:</div>
+          <div class="formula">21:00–23:59 SP ngày D
+= 00:00–02:59 UTC ngày D+1
+← bị mất nếu server dùng UTC 00:00 boundary</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Query DB đếm trận trong D+1 00:00Z → D+1 02:59Z</li>
+          <li>Nếu DB.boundary > 0 → API.total phải ≥ boundary</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu API không bỏ sót vùng 21h–00h SP</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">4</td>
+        <td class="tc-name">
+          Today + Tomorrow completeness, locale=BR
+          <small>Cả 2 ngày đều completeness đúng</small>
+        </td>
+        <td class="req">
+          <span class="method">POST</span>
+          <div class="url">/…/{SP_TODAY}/locale/BR/type/upcoming</div>
+          <span class="method">POST</span>
+          <div class="url">/…/{SP_TOMORROW}/locale/BR/type/upcoming</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Mỗi ngày: diff ≤ 5</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu cả 2 ngày diff ≤ 5</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">5</td>
+        <td class="tc-name">
+          Critical time points — 4 mốc giờ nguy hiểm
+          <small>Tính đúng "ngày mai SP" ở các mốc biên</small>
+        </td>
+        <td class="req">
+          <div class="formula">Mốc UTC        | Giờ SP  | Ngày mai SP
+2026-06-17 23:00 | 20:00 | 2026-06-18
+2026-06-18 00:00 | 21:00 | 2026-06-18  ← cẩn thận
+2026-06-18 02:59 | 23:59 | 2026-06-18  ← cẩn thận
+2026-06-18 03:00 | 00:00 | 2026-06-19  ← sang ngày mới</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Gọi API với từng date mong đợi ở bảng trên</li>
+          <li>Tất cả phải trả code=1</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu cả 4 mốc không crash</span></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ SUITE 3 -->
+  <div class="suite suite-3">
+    <div class="suite-title">
+      Suite 3 — DB Verify: match_count chỉ đếm not_started
+      <span class="suite-badge">3 cases</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th style="width:28px">#</th>
+        <th style="min-width:180px">Tên case</th>
+        <th style="min-width:240px">Request / Setup</th>
+        <th style="min-width:220px">Cần verify</th>
+        <th>Kết quả mong đợi</th>
+      </tr>
+
+      <tr>
+        <td colspan="6" class="divider">
+          ⚠ DB (sport_events) thường chỉ có data cho 1–2 ngày tới. Nếu DB.total=0 cho tất cả group → bỏ qua (skip), không fail.
+        </td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">1</td>
+        <td class="tc-name">
+          [DB] Hôm nay — top 10 groups
+          <small>match_count so với DB.not_started</small>
+        </td>
+        <td class="req">
+          <div style="color:#64748b;font-size:0.76rem;margin-bottom:4px">Step 1: lấy otherComps từ API (hôm nay)</div>
+          <div class="formula">SELECT COUNT(*) FILTER (WHERE status_id IN (0,1))
+FROM sport_events
+WHERE competition_id = ANY(ARRAY[...ids...])
+  AND start_timestamp BETWEEN day_start AND day_end</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Top 10 groups từ otherCompetitions</li>
+          <li>Mỗi group: |API.match_count − DB.not_started| ≤ 5</li>
+          <li>Skip nếu DB.total = 0</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu tất cả group diff ≤ 5</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">2</td>
+        <td class="tc-name">
+          [DB] Ngày mai — tất cả groups
+          <small>In cả live/ended để debug nếu server đếm sai</small>
+        </td>
+        <td class="req">
+          <div class="formula">SELECT
+  COUNT(*) FILTER (WHERE status_id IN (0,1)) AS not_started,
+  COUNT(*) FILTER (WHERE status_id IN (2,3,4)) AS live,
+  COUNT(*) FILTER (WHERE status_id NOT IN (0,1,2,3,4)) AS ended
+FROM sport_events
+WHERE competition_id = ANY(...) AND {ngày mai}</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Tất cả groups (không giới hạn 10)</li>
+          <li>|API.match_count − DB.not_started| ≤ 5</li>
+          <li>In live + ended để phát hiện đếm sai status</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu diff ≤ 5, không đếm lẫn live/ended</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">3</td>
+        <td class="tc-name">
+          [DB] Công thức: sum(otherComps) = total − events.length
+          <small>Hôm nay và ngày mai</small>
+        </td>
+        <td class="req">
+          <div class="formula">sumOC  = Σ otherComps[i].match_count
+evLen  = events.length
+total  = pagination.total
+→ |total − evLen − sumOC| ≤ 5</div>
+        </td>
+        <td class="verify"><ul>
+          <li>Tính cho ngày hôm nay</li>
+          <li>Tính cho ngày mai</li>
+          <li>Cả 2 diff ≤ 5</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu công thức cân bằng cả 2 ngày</span></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ SUITE 4 -->
+  <div class="suite suite-4">
+    <div class="suite-title">
+      Suite 4 — Date Range Coverage (chỉ type=upcoming)
+      <span class="suite-badge">13 ngày × 3 + 1 sweep</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th>Ngày</th>
+        <th>Mục đích</th>
+        <th>Assert 1: Structure</th>
+        <th>Assert 2: Completeness</th>
+        <th>Assert 3: Status filter</th>
+      </tr>
+
+      <tr><td colspan="6" class="divider">Quá khứ</td></tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">TODAY − 7 ngày</div></td>
+        <td>7 ngày trước không crash</td>
+        <td class="verify"><ul><li>code=1, arrays tồn tại</li></ul></td>
+        <td class="verify"><ul><li>total=0 là OK (đã qua)</li></ul></td>
+        <td class="verify"><ul><li>events[] rỗng hoặc all not_started</li></ul></td>
+      </tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">TODAY − 3 ngày</div></td>
+        <td>3 ngày trước không crash</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>total=0 là OK</li></ul></td>
+        <td class="verify"><ul><li>all not_started nếu có events</li></ul></td>
+      </tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">TODAY − 1 ngày</div></td>
+        <td>Hôm qua không crash</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>total=0 là OK</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+
+      <tr><td colspan="6" class="divider">Hiện tại & Tương lai gần</td></tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">TODAY</div></td>
+        <td>Hôm nay — ngày cơ sở</td>
+        <td class="verify"><ul><li>code=1, đủ fields</li></ul></td>
+        <td class="verify"><ul><li>diff ≤ 5</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">TODAY + 1 ngày</div></td>
+        <td>Ngày mai</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>diff ≤ 5</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">TODAY + 2 ngày</div></td>
+        <td>2 ngày tới</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>diff ≤ 5</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">TODAY + 7 ngày</div></td>
+        <td>Tuần tới</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>diff ≤ 5</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">TODAY + 14 ngày</div></td>
+        <td>2 tuần tới</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>diff ≤ 5</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">TODAY + 30 ngày</div></td>
+        <td>30 ngày tới</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>total có thể = 0, OK</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+
+      <tr><td colspan="6" class="divider">Biên tháng</td></tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">2026-07-01</div></td>
+        <td>Đầu tháng 7</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>diff ≤ 5</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">2026-06-30</div></td>
+        <td>Cuối tháng 6</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>diff ≤ 5</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">2026-08-01</div></td>
+        <td>Đầu tháng 8</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>diff ≤ 5</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+
+      <tr><td colspan="6" class="divider">Ngày theo tuần</td></tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="req"><div class="formula">2026-06-28 (Thứ 7)</div></td>
+        <td>Weekend — nhiều trận</td>
+        <td class="verify"><ul><li>code=1</li></ul></td>
+        <td class="verify"><ul><li>total > 50, diff ≤ 5</li></ul></td>
+        <td class="verify"><ul><li>all not_started</li></ul></td>
+      </tr>
+
+      <tr><td colspan="6" class="divider">Sweep — tất cả ngày song song</td></tr>
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td colspan="2" class="tc-name">
+          Sweep test: gọi tất cả 13 ngày cùng lúc, không ngày nào crash
+          <small>Xác nhận không có date nào gây lỗi 4xx/5xx</small>
+        </td>
+        <td colspan="3" class="verify"><ul>
+          <li>Tất cả 13 ngày phải trả code=1</li>
+          <li>Không có ngày nào trả HTTP 4xx hoặc 5xx</li>
+        </ul></td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ SUITE 5 -->
+  <div class="suite suite-5">
+    <div class="suite-title">
+      Suite 5 — Multi-Locale Timezone Smoke Test
+      <span class="suite-badge">7 cases</span>
+    </div>
+    <div class="tbl-wrap">
+    <table>
+      <tr>
+        <th class="chk">✓</th>
+        <th>#</th>
+        <th>Locale / Quốc gia</th>
+        <th>Offset</th>
+        <th>Ngày mai local</th>
+        <th>Verify</th>
+        <th>Kết quả mong đợi</th>
+      </tr>
+
+      <tr>
+        <td colspan="7" class="divider">
+          Công thức ngày mai local: <code style="background:#0f172a;color:#7dd3fc;padding:2px 6px;border-radius:3px;font-size:0.8rem">localNow = UTC_now + offsetH*3600s → tomorrow = localNow + 86400s → date = YYYY-MM-DD</code>
+        </td>
+      </tr>
+
+      <tr class="locale-row">
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">1</td>
+        <td><span class="l-code">BR</span> — Brazil / São Paulo</td>
+        <td>UTC−3</td>
+        <td>Tính = UTC now − 3h → +1 ngày</td>
+        <td class="verify"><ul>
+          <li>code=1</li>
+          <li>diff ≤ 5</li>
+          <li>all events not_started</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu 3 điều kiện đúng</span></td>
+      </tr>
+
+      <tr class="locale-row">
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">2</td>
+        <td><span class="l-code">AR</span> — Argentina</td>
+        <td>UTC−3</td>
+        <td>Như BR</td>
+        <td class="verify"><ul>
+          <li>code=1</li>
+          <li>diff ≤ 5</li>
+          <li>all events not_started</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu 3 điều kiện đúng</span></td>
+      </tr>
+
+      <tr class="locale-row">
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">3</td>
+        <td><span class="l-code">US</span> — USA / New York</td>
+        <td>UTC−4</td>
+        <td>Tính = UTC now − 4h → +1 ngày</td>
+        <td class="verify"><ul>
+          <li>code=1</li>
+          <li>diff ≤ 5</li>
+          <li>all events not_started</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu 3 điều kiện đúng</span></td>
+      </tr>
+
+      <tr class="locale-row">
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">4</td>
+        <td><span class="l-code">MX</span> — Mexico City</td>
+        <td>UTC−6</td>
+        <td>Tính = UTC now − 6h → +1 ngày</td>
+        <td class="verify"><ul>
+          <li>code=1</li>
+          <li>diff ≤ 5</li>
+          <li>all events not_started</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu 3 điều kiện đúng</span></td>
+      </tr>
+
+      <tr class="locale-row">
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">5</td>
+        <td><span class="l-code">VN</span> — Vietnam</td>
+        <td>UTC+7</td>
+        <td>Tính = UTC now + 7h → +1 ngày</td>
+        <td class="verify"><ul>
+          <li>code=1</li>
+          <li>diff ≤ 5</li>
+          <li>all events not_started</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu 3 điều kiện đúng</span></td>
+      </tr>
+
+      <tr class="locale-row">
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">6</td>
+        <td><span class="l-code">JP</span> — Japan</td>
+        <td>UTC+9</td>
+        <td>Tính = UTC now + 9h → +1 ngày</td>
+        <td class="verify"><ul>
+          <li>code=1</li>
+          <li>diff ≤ 5</li>
+          <li>all events not_started</li>
+        </ul></td>
+        <td><span class="result-pass">PASS nếu 3 điều kiện đúng</span></td>
+      </tr>
+
+      <tr>
+        <td class="chk"><input type="checkbox"></td>
+        <td class="tc-num">7</td>
+        <td colspan="2">Cross-locale: không locale nào crash</td>
+        <td colspan="2" class="verify"><ul>
+          <li>6/6 locale trả code=1</li>
+          <li>6/6 diff ≤ 5</li>
+        </ul>
+        <table style="margin-top:8px;font-size:0.78rem;width:auto">
+          <tr><th>Locale</th><th>Total mẫu</th><th>Diff</th></tr>
+          <tr><td>BR</td><td>~87</td><td style="color:#16a34a">≤5 ✓</td></tr>
+          <tr><td>AR</td><td>~87</td><td style="color:#16a34a">≤5 ✓</td></tr>
+          <tr><td>US</td><td>~88</td><td style="color:#16a34a">≤5 ✓</td></tr>
+          <tr><td>MX</td><td>~88</td><td style="color:#16a34a">≤5 ✓</td></tr>
+          <tr><td>VN</td><td>~76</td><td style="color:#16a34a">≤5 ✓</td></tr>
+          <tr><td>JP</td><td>~81</td><td style="color:#16a34a">≤5 ✓</td></tr>
+        </table>
+        </td>
+        <td><span class="result-pass">PASS nếu tất cả 6 locale đúng</span></td>
+      </tr>
+
+    </table>
+    </div>
+  </div>
+
+  <!-- Quick test command -->
+  <div style="background:white;border-radius:8px;padding:18px 20px;box-shadow:0 1px 4px rgba(0,0,0,.08)">
+    <div style="font-weight:700;font-size:0.85rem;color:#475569;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Smoke Test Nhanh — Terminal (chạy 1 lệnh)</div>
+    <div class="formula" style="font-size:0.77rem;line-height:1.7">DATE=$(date +%Y-%m-%d)
+BASE="https://opta-api.uniscore.vn/api/v2/sport/football/scheduled-events-pagination-v2"
+for LOCALE in VN BR AR US MX JP; do
+  R=$(curl -s -X POST "$BASE/$DATE/locale/$LOCALE/type/upcoming" \
+    -H "Content-Type: application/json" \
+    -d '{"sortByMatchTime":false}')
+  CODE=$(echo "$R" | python3 -c "import sys,json; print(json.load(sys.stdin)['code'])" 2>/dev/null)
+  EV=$(echo "$R"   | python3 -c "import sys,json; d=json.load(sys.stdin)['data']; print(len(d.get('events',[])))" 2>/dev/null)
+  OC=$(echo "$R"   | python3 -c "import sys,json; d=json.load(sys.stdin)['data']; print(sum(x['match_count'] for x in d.get('otherCompetitions',[])))" 2>/dev/null)
+  TT=$(echo "$R"   | python3 -c "import sys,json; print(json.load(sys.stdin)['data']['pagination']['total'])" 2>/dev/null)
+  DIFF=$(python3 -c "print(abs($((EV+OC)) - $TT))" 2>/dev/null)
+  echo "[$LOCALE] code=$CODE  events=$EV  otherComps=$OC  counted=$((EV+OC))  total=$TT  diff=$DIFF"
+done</div>
+    <div style="margin-top:10px;font-size:0.82rem;color:#475569">
+      <b>Kết quả mong đợi:</b> mỗi dòng có <code style="background:#f1f5f9;padding:1px 5px;border-radius:3px">code=1</code> và <code style="background:#f1f5f9;padding:1px 5px;border-radius:3px">diff ≤ 5</code>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

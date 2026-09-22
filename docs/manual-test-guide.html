@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual Test Guide — API Upcoming</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #1a1a1a; line-height: 1.6; }
+
+  .header { background: #1e293b; color: white; padding: 28px 32px; }
+  .header h1 { font-size: 1.5rem; font-weight: 700; }
+  .header p  { color: #94a3b8; font-size: 0.9rem; margin-top: 4px; }
+
+  .meta { display: flex; gap: 24px; margin-top: 14px; flex-wrap: wrap; }
+  .meta span { background: #334155; color: #cbd5e1; padding: 3px 10px; border-radius: 4px; font-size: 0.8rem; font-family: monospace; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+
+  .suite { background: white; border-radius: 8px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.08); overflow: hidden; }
+  .suite-header { padding: 16px 20px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #e2e8f0; }
+  .suite-title { font-size: 1rem; font-weight: 700; }
+  .suite-count { background: #e2e8f0; color: #475569; padding: 2px 8px; border-radius: 12px; font-size: 0.78rem; font-weight: 600; }
+
+  .badge { padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; }
+  .badge-bug    { background: #fee2e2; color: #dc2626; }
+  .badge-reg    { background: #e0f2fe; color: #0369a1; }
+  .badge-tz     { background: #f0fdf4; color: #16a34a; }
+  .badge-db     { background: #fef9c3; color: #854d0e; }
+  .badge-range  { background: #f5f3ff; color: #6d28d9; }
+  .badge-smoke  { background: #fff7ed; color: #c2410c; }
+
+  .case { border-bottom: 1px solid #f1f5f9; }
+  .case:last-child { border-bottom: none; }
+  .case-header { padding: 14px 20px 10px; display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+  .case-num { background: #f1f5f9; color: #64748b; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+  .case-title { font-size: 0.92rem; font-weight: 600; flex: 1; }
+  .case-body { padding: 0 20px 16px 56px; }
+
+  .label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #94a3b8; letter-spacing: .05em; margin-bottom: 4px; margin-top: 12px; }
+
+  .steps { list-style: none; counter-reset: step; }
+  .steps li { counter-increment: step; padding: 4px 0 4px 24px; position: relative; font-size: 0.88rem; }
+  .steps li::before { content: counter(step); position: absolute; left: 0; top: 4px; width: 18px; height: 18px; background: #e2e8f0; color: #475569; border-radius: 50%; font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+  .code { background: #0f172a; color: #e2e8f0; padding: 10px 14px; border-radius: 6px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.8rem; overflow-x: auto; margin: 8px 0; white-space: pre; }
+  .code-inline { background: #f1f5f9; color: #0f172a; padding: 1px 6px; border-radius: 3px; font-family: monospace; font-size: 0.85em; }
+
+  .expect { background: #f0fdf4; border-left: 3px solid #16a34a; padding: 8px 12px; border-radius: 0 4px 4px 0; font-size: 0.86rem; margin-top: 8px; }
+  .expect b { color: #15803d; }
+
+  .warn { background: #fffbeb; border-left: 3px solid #f59e0b; padding: 8px 12px; border-radius: 0 4px 4px 0; font-size: 0.84rem; margin-top: 8px; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+  @media(max-width: 600px) { .grid2 { grid-template-columns: 1fr; } }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin-top: 8px; }
+  th { background: #f8fafc; text-align: left; padding: 7px 10px; border-bottom: 2px solid #e2e8f0; font-size: 0.78rem; color: #64748b; text-transform: uppercase; }
+  td { padding: 7px 10px; border-bottom: 1px solid #f1f5f9; }
+  tr:last-child td { border-bottom: none; }
+  .pass { color: #16a34a; font-weight: 700; }
+  .fail { color: #dc2626; font-weight: 700; }
+
+  .toc { background: white; border-radius: 8px; padding: 20px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+  .toc h2 { font-size: 0.9rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
+  .toc-items { display: flex; flex-direction: column; gap: 6px; }
+  .toc-item { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1e293b; font-size: 0.88rem; padding: 6px 10px; border-radius: 6px; }
+  .toc-item:hover { background: #f8fafc; }
+  .toc-num { color: #94a3b8; font-size: 0.8rem; width: 24px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Manual Test Guide — API Upcoming</h1>
+  <p>POST /api/v2/sport/football/scheduled-events-pagination-v2/{date}/locale/{locale}/type/{type}</p>
+  <div class="meta">
+    <span>60 automated tests</span>
+    <span>5 suites</span>
+    <span>Base URL: https://opta-api.uniscore.vn</span>
+    <span>DB: <DB_PROD_HOST>:5432 / api_ts</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <h2>Nội dung</h2>
+    <div class="toc-items">
+      <a class="toc-item" href="#s1"><span class="toc-num">S1</span> Bug Fix — API Upcoming chỉ trả về 2 trận (12 cases)</a>
+      <a class="toc-item" href="#s2"><span class="toc-num">S2</span> Brazil IP / São Paulo Timezone (5 cases)</a>
+      <a class="toc-item" href="#s3"><span class="toc-num">S3</span> DB Verify — match_count chỉ đếm not_started (3 cases)</a>
+      <a class="toc-item" href="#s4"><span class="toc-num">S4</span> Date Range Coverage (13 ngày × 3 + Sweep)</a>
+      <a class="toc-item" href="#s5"><span class="toc-num">S5</span> Multi-Locale Timezone Smoke Test (7 cases)</a>
+    </div>
+  </div>
+
+  <!-- SUITE 1 -->
+  <div class="suite" id="s1">
+    <div class="suite-header">
+      <span class="badge badge-bug">BUG FIX</span>
+      <span class="suite-title">S1 — API Upcoming chỉ trả về 2 trận</span>
+      <span class="suite-count">12 cases</span>
+    </div>
+
+    <!-- TC 1 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">1</span>
+        <span class="case-title">Response structure valid</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Request</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-22/locale/VN/type/upcoming
+Body: {"sortByMatchTime": false}</div>
+        <div class="label">Verify</div>
+        <ul class="steps">
+          <li>Response HTTP 200</li>
+          <li><code class="code-inline">code === 1</code></li>
+          <li><code class="code-inline">data.events</code> là array (có thể rỗng)</li>
+          <li><code class="code-inline">data.otherCompetitions</code> là array</li>
+          <li><code class="code-inline">data.pagination.total</code> là số</li>
+          <li><code class="code-inline">data.pagination.hasNextPage</code> là boolean</li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi tất cả field tồn tại đúng kiểu, không có lỗi 4xx/5xx</div>
+      </div>
+    </div>
+
+    <!-- TC 2 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">2</span>
+        <span class="case-title">otherCompetitions schema</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Request</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-28/locale/VN/type/upcoming
+Body: {"sortByMatchTime": false}</div>
+        <div class="label">Verify mỗi item trong <code class="code-inline">otherCompetitions[]</code></div>
+        <ul class="steps">
+          <li><code class="code-inline">id</code>: string, không rỗng</li>
+          <li><code class="code-inline">name</code>: string, không rỗng</li>
+          <li><code class="code-inline">match_count</code>: number > 0</li>
+          <li><code class="code-inline">competition_ids</code>: array string không rỗng</li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi tất cả item đều có đủ 4 field đúng kiểu</div>
+      </div>
+    </div>
+
+    <!-- TC 3 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">3</span>
+        <span class="case-title">[Bug#1] Completeness — ngày nhiều trận</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Request</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-28/locale/VN/type/upcoming
+Body: {"sortByMatchTime": false}</div>
+        <div class="label">Công thức kiểm tra</div>
+        <div class="code">eventsCount    = data.events.length
+sumOtherComps  = sum(data.otherCompetitions[i].match_count)
+counted        = eventsCount + sumOtherComps
+diff           = |counted - data.pagination.total|</div>
+        <div class="expect"><b>PASS</b> khi <code class="code-inline">diff ≤ 5</code> và <code class="code-inline">total > 50</code></div>
+        <div class="warn">⚠ Nếu total = 0: ngày chưa có lịch — chọn ngày khác (thứ 7/CN)</div>
+      </div>
+    </div>
+
+    <!-- TC 4 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">4</span>
+        <span class="case-title">[Bug#1] Ngày ít trận — otherCompetitions KHÔNG được rỗng</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Request — chọn ngày ít trận (thứ 3/4 giữa tuần xa)</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-25/locale/VN/type/upcoming
+Body: {"sortByMatchTime": false}</div>
+        <div class="label">Verify</div>
+        <ul class="steps">
+          <li>Kiểm tra <code class="code-inline">pagination.total ≤ 50</code></li>
+          <li>Nếu <code class="code-inline">events.length &lt; total</code> thì <code class="code-inline">otherCompetitions.length > 0</code></li>
+          <li>Completeness: <code class="code-inline">|counted - total| ≤ 5</code></li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi otherCompetitions không rỗng và completeness đúng</div>
+        <div class="warn">⚠ Bug gốc: otherCompetitions=[] khi total ≤ 50 → 43 trận biến mất</div>
+      </div>
+    </div>
+
+    <!-- TC 5 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">5</span>
+        <span class="case-title">[Bug#1] Ngày bug gốc 2026-06-15 không crash</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Request</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-15/locale/VN/type/upcoming
+Body: {"sortByMatchTime": false}</div>
+        <div class="expect"><b>PASS</b> khi <code class="code-inline">code === 1</code>, không 500 error. total=0 là bình thường vì ngày đã qua.</div>
+      </div>
+    </div>
+
+    <!-- TC 6 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">6</span>
+        <span class="case-title">[Bug#2] Tất cả events trong upcoming phải là not_started</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Request</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-28/locale/VN/type/upcoming
+Body: {"sortByMatchTime": false}</div>
+        <div class="label">Verify từng event trong <code class="code-inline">data.events[]</code></div>
+        <ul class="steps">
+          <li>Lấy tất cả <code class="code-inline">events[i].status.type</code></li>
+          <li>Không được có value nào khác <code class="code-inline">"not_started"</code></li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi 100% events có <code class="code-inline">status.type === "not_started"</code></div>
+        <div class="warn">⚠ Bug gốc: fallback chọn nhầm league có trận đã đá → status "finished" lọt vào events[]</div>
+      </div>
+    </div>
+
+    <!-- TC 7 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">7</span>
+        <span class="case-title">[Regression] sortByMatchTime=true không bị ảnh hưởng</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Request</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-28/locale/VN/type/upcoming
+Body: {"sortByMatchTime": true}</div>
+        <div class="label">Verify</div>
+        <ul class="steps">
+          <li><code class="code-inline">code === 1</code></li>
+          <li><code class="code-inline">events.length > 0</code></li>
+          <li>Nếu <code class="code-inline">hasNextPage === false</code> thì <code class="code-inline">events.length === total</code></li>
+          <li>Events được sort tăng dần theo <code class="code-inline">startTimestamp</code></li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi luồng sort phẳng hoạt động bình thường</div>
+      </div>
+    </div>
+
+    <!-- TC 8 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">8</span>
+        <span class="case-title">[Regression] High-traffic day (total > 50) vẫn đúng</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Request</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-28/locale/VN/type/upcoming
+Body: {"sortByMatchTime": false}</div>
+        <div class="expect"><b>PASS</b> khi <code class="code-inline">total > 50</code> và completeness <code class="code-inline">diff ≤ 5</code></div>
+      </div>
+    </div>
+
+    <!-- TC 9 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">9</span>
+        <span class="case-title">[Regression] Filter theo competitionIds</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Step 1 — lấy competition_ids từ otherCompetitions</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-28/locale/VN/type/upcoming
+Body: {"sortByMatchTime": false}
+→ Lấy otherCompetitions[0].competition_ids = ["xxx","yyy"]
+→ Lấy otherCompetitions[0].match_count = N</div>
+        <div class="label">Step 2 — filter theo ids đó</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-28/locale/VN/type/upcoming
+Body: {"sortByMatchTime": false, "competitionIds": ["xxx","yyy"]}</div>
+        <div class="label">Verify</div>
+        <ul class="steps">
+          <li><code class="code-inline">otherCompetitions.length === 0</code> (không có "giải còn lại")</li>
+          <li><code class="code-inline">|total - match_count| ≤ 5</code></li>
+          <li>Mọi event có <code class="code-inline">tournament.id</code> thuộc filter</li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi chỉ trả trận của giải đã filter</div>
+      </div>
+    </div>
+
+    <!-- TC 10 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">10</span>
+        <span class="case-title">[QC] Events diversity — fallback hoạt động</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Request</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-28/locale/VN/type/upcoming
+Body: {"sortByMatchTime": false}</div>
+        <div class="label">Verify</div>
+        <ul class="steps">
+          <li>Đếm số <code class="code-inline">tournament.id</code> unique trong events[]</li>
+          <li>Phải có ≥ 3 league khác nhau</li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi events đến từ ≥ 3 giải — fallback đã lấp đủ top section</div>
+      </div>
+    </div>
+
+    <!-- TC 11 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">11</span>
+        <span class="case-title">[Pagination] Page 2 khác hoàn toàn page 1</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Step 1</div>
+        <div class="code">POST /scheduled-events-pagination-v2/2026-06-28/locale/VN/type/upcoming
+Body: {"sortByMatchTime": true, "page": 1}
+→ Lưu lại tất cả event IDs của page 1</div>
+        <div class="label">Step 2</div>
+        <div class="code">POST ... Body: {"sortByMatchTime": true, "page": 2}</div>
+        <div class="label">Verify</div>
+        <ul class="steps">
+          <li>Page 2 có events (> 0)</li>
+          <li>Không có ID nào trùng với page 1</li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi 0 ID trùng giữa page 1 và page 2</div>
+      </div>
+    </div>
+
+    <!-- TC 12 -->
+    <div class="case">
+      <div class="case-header">
+        <span class="case-num">12</span>
+        <span class="case-title">[Pagination] hasNextPage chính xác</span>
+      </div>
+      <div class="case-body">
+        <div class="label">Verify</div>
+        <ul class="steps">
+          <li>Nếu <code class="code-inline">hasNextPage === true</code> → gọi page 2, phải có events > 0</li>
+          <li>Nếu <code class="code-inline">hasNextPage === false</code> → gọi page 2, phải có events = 0</li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi flag khớp với thực tế dữ liệu page 2</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUITE 2 -->
+  <div class="suite" id="s2">
+    <div class="suite-header">
+      <span class="badge badge-tz">TIMEZONE</span>
+      <span class="suite-title">S2 — Brazil IP / São Paulo Timezone</span>
+      <span class="suite-count">5 cases</span>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">1</span><span class="case-title">locale=BR trả valid response</span></div>
+      <div class="case-body">
+        <div class="label">Setup — tính ngày mai theo giờ São Paulo (UTC−3)</div>
+        <div class="code"># Nếu giờ UTC hiện tại &lt; 03:00 → ngày mai SP = HÔM NAY UTC
+# Nếu giờ UTC hiện tại ≥ 03:00 → ngày mai SP = NGÀY MAI UTC
+# Ví dụ: UTC 2026-06-22 01:00 → SP đang là 2026-06-21 22:00 → ngày mai SP = 2026-06-22</div>
+        <div class="label">Request</div>
+        <div class="code">POST /scheduled-events-pagination-v2/{SP_TOMORROW}/locale/BR/type/upcoming
+Body: {"sortByMatchTime": false}</div>
+        <div class="expect"><b>PASS</b> khi code=1, events là array, otherCompetitions là array</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">2</span><span class="case-title">[BUG CORE] DB count = API total — ngày mai SP</span></div>
+      <div class="case-body">
+        <div class="label">Cửa sổ thời gian đúng cho São Paulo</div>
+        <div class="code"># Ngày D ở SP = UTC từ D 03:00:00 đến D+1 02:59:59
+# Ví dụ: ngày mai SP = 2026-06-22
+# → UTC window: 2026-06-22T03:00:00Z đến 2026-06-23T02:59:59Z</div>
+        <div class="label">Query DB</div>
+        <div class="code">SELECT COUNT(*)
+FROM sport_events
+WHERE start_timestamp >= UNIX(2026-06-22T03:00:00Z)
+  AND start_timestamp &lt;  UNIX(2026-06-23T03:00:00Z)
+  AND status_id IN (0, 1)   -- not_started</div>
+        <div class="label">So sánh</div>
+        <ul class="steps">
+          <li>DB.not_started ≈ API.total (±5)</li>
+          <li>Nếu DB > API + 5 → server đang bỏ sót trận → bug timezone</li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi <code class="code-inline">|DB.not_started - API.total| ≤ 5</code></div>
+        <div class="warn">⚠ Đây là test cốt lõi phát hiện timezone bug. Hiện tại: DB=87, API=87 ✓</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">3</span><span class="case-title">[BOUNDARY] Trận 21:00–23:59 SP phải có trong response</span></div>
+      <div class="case-body">
+        <div class="label">Vùng nguy hiểm</div>
+        <div class="code"># 21:00–23:59 SP ngày D  =  00:00–02:59 UTC ngày D+1
+# Đây là phần bị mất nếu server dùng UTC day boundary thay vì SP boundary</div>
+        <div class="label">Query DB — đếm trận trong boundary</div>
+        <div class="code">SELECT COUNT(*)
+FROM sport_events
+WHERE start_timestamp >= UNIX(D+1 00:00 UTC)
+  AND start_timestamp &lt;  UNIX(D+1 03:00 UTC)
+  AND status_id IN (0, 1)</div>
+        <div class="label">Verify</div>
+        <ul class="steps">
+          <li>Nếu DB có trận trong boundary (> 0)</li>
+          <li>Thì API.total phải ≥ boundary_count</li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi API không bỏ sót trận trong khung 21:00–23:59 SP</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">4</span><span class="case-title">Today + Tomorrow SP completeness với locale=BR</span></div>
+      <div class="case-body">
+        <div class="label">Requests</div>
+        <div class="code">POST .../SP_TODAY/locale/BR/type/upcoming   → events + otherComps = total ?
+POST .../SP_TOMORROW/locale/BR/type/upcoming → events + otherComps = total ?</div>
+        <div class="expect"><b>PASS</b> khi cả 2 ngày đều có <code class="code-inline">|counted - total| ≤ 5</code></div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">5</span><span class="case-title">Critical time points — tính đúng "ngày mai SP"</span></div>
+      <div class="case-body">
+        <div class="label">4 mốc giờ nguy hiểm cần verify thủ công</div>
+        <table>
+          <tr><th>Mốc UTC</th><th>Giờ SP</th><th>Ngày mai SP</th><th>Verify</th></tr>
+          <tr><td>2026-06-17 23:00</td><td>20:00 SP</td><td>2026-06-18</td><td>API date=18 trả data hợp lệ</td></tr>
+          <tr><td>2026-06-18 00:00</td><td>21:00 SP</td><td>2026-06-18</td><td>Vẫn là ngày 18 SP (chưa sang 19)</td></tr>
+          <tr><td>2026-06-18 02:59</td><td>23:59 SP</td><td>2026-06-18</td><td>Vẫn là ngày 18 SP</td></tr>
+          <tr><td>2026-06-18 03:00</td><td>00:00 SP</td><td>2026-06-19</td><td>Sang ngày mới ở SP → ngày mai = 19</td></tr>
+        </table>
+        <div class="expect"><b>PASS</b> khi API trả code=1 cho cả 4 mốc</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUITE 3 -->
+  <div class="suite" id="s3">
+    <div class="suite-header">
+      <span class="badge badge-db">DB VERIFY</span>
+      <span class="suite-title">S3 — match_count chỉ đếm not_started</span>
+      <span class="suite-count">3 cases</span>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">1</span><span class="case-title">[DB] match_count vs DB.not_started — hôm nay (top 10 groups)</span></div>
+      <div class="case-body">
+        <div class="label">Step 1 — lấy otherCompetitions của ngày hôm nay</div>
+        <div class="code">POST /scheduled-events-pagination-v2/TODAY/locale/VN/type/upcoming
+→ Lấy otherCompetitions[0..9] (top 10 groups)</div>
+        <div class="label">Step 2 — với mỗi group, query DB</div>
+        <div class="code">SELECT
+  COUNT(*) FILTER (WHERE status_id IN (0,1)) AS not_started,
+  COUNT(*) AS total
+FROM sport_events
+WHERE competition_id = ANY(ARRAY['id1','id2',...])
+  AND start_timestamp >= UNIX(TODAY 00:00 +07:00)
+  AND start_timestamp &lt;  UNIX(TODAY 00:00 +07:00) + 86400</div>
+        <div class="label">Verify</div>
+        <ul class="steps">
+          <li><code class="code-inline">|DB.not_started - API.match_count| ≤ 5</code></li>
+          <li>Nếu sai lệch lớn → server đang đếm cả live/ended vào match_count</li>
+        </ul>
+        <div class="expect"><b>PASS</b> khi tất cả 10 group có diff ≤ 5</div>
+        <div class="warn">⚠ Nếu DB.total = 0 cho tất cả group → DB chưa có data ngày hôm nay, skip</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">2</span><span class="case-title">[DB] match_count vs DB.not_started — ngày mai (all groups)</span></div>
+      <div class="case-body">
+        <div class="label">Tương tự TC#1 nhưng với NGÀY MAI và tất cả groups</div>
+        <div class="code">POST /scheduled-events-pagination-v2/TOMORROW/locale/VN/type/upcoming
+→ Lấy tất cả otherCompetitions (không giới hạn 10)</div>
+        <div class="label">Với mỗi group, query DB cho ngày mai</div>
+        <div class="code">SELECT
+  COUNT(*) FILTER (WHERE status_id IN (0,1))    AS not_started,
+  COUNT(*) FILTER (WHERE status_id IN (2,3,4))  AS live,
+  COUNT(*) FILTER (WHERE status_id NOT IN (0,1,2,3,4)) AS ended
+FROM sport_events
+WHERE competition_id = ANY(...)
+  AND start_timestamp >= UNIX(TOMORROW 00:00 +07:00)
+  AND start_timestamp &lt;  UNIX(TOMORROW 00:00 +07:00) + 86400</div>
+        <div class="expect"><b>PASS</b> khi <code class="code-inline">diff ≤ 5</code> cho tất cả group có DB data</div>
+        <div class="warn">⚠ In cả live và ended để debug nếu server đếm sai status</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">3</span><span class="case-title">[DB] sum(otherComps.match_count) = total − events.length</span></div>
+      <div class="case-body">
+        <div class="label">Verify với hôm nay và ngày mai</div>
+        <div class="code">sumOC  = sum(otherCompetitions[i].match_count)
+evLen  = events.length
+total  = pagination.total
+→ |total - evLen - sumOC| ≤ 5</div>
+        <div class="expect"><b>PASS</b> khi công thức cân bằng cho cả 2 ngày</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUITE 4 -->
+  <div class="suite" id="s4">
+    <div class="suite-header">
+      <span class="badge badge-range">DATE RANGE</span>
+      <span class="suite-title">S4 — Date Range Coverage (chỉ type=upcoming)</span>
+      <span class="suite-count">13 ngày × 3 + Sweep</span>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">—</span><span class="case-title">Ma trận ngày test</span></div>
+      <div class="case-body">
+        <table>
+          <tr><th>Nhóm</th><th>Ngày</th><th>Mục đích</th></tr>
+          <tr><td>Quá khứ</td><td>−7, −3, −1 ngày</td><td>API không crash với ngày đã qua</td></tr>
+          <tr><td>Hiện tại</td><td>Hôm nay</td><td>Ngày cơ sở</td></tr>
+          <tr><td>Tương lai gần</td><td>+1, +2, +7, +14, +30</td><td>Lịch sắp tới</td></tr>
+          <tr><td>Biên tháng</td><td>Đầu tháng, cuối tháng, đầu tháng sau</td><td>Boundary tháng</td></tr>
+          <tr><td>Ngày tuần</td><td>Thứ 7, Thứ 2 gần nhất</td><td>Weekend nhiều trận / weekday ít</td></tr>
+        </table>
+        <div class="label" style="margin-top: 14px;">3 assertions cho MỖI ngày</div>
+        <ul class="steps">
+          <li><b>Structure</b>: code=1, events/otherCompetitions là array, total là number</li>
+          <li><b>Completeness</b>: <code class="code-inline">|events + otherComps - total| ≤ 5</code> (nếu total > 0)</li>
+          <li><b>Status filter</b>: 100% events có <code class="code-inline">status.type === "not_started"</code></li>
+        </ul>
+        <div class="label" style="margin-top: 14px;">Sweep — chạy song song tất cả ngày</div>
+        <div class="code">for DATE in [-7,-3,-1,0,+1,+2,+7,+14,+30,đầu tháng,cuối tháng,...]:
+  curl POST /date=$DATE/locale=VN/type=upcoming
+  → tất cả phải trả code=1</div>
+        <div class="expect"><b>PASS</b> khi không ngày nào crash (code ≠ 1 hoặc 5xx)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUITE 5 -->
+  <div class="suite" id="s5">
+    <div class="suite-header">
+      <span class="badge badge-smoke">SMOKE</span>
+      <span class="suite-title">S5 — Multi-Locale Timezone Smoke Test</span>
+      <span class="suite-count">7 cases</span>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">1–6</span><span class="case-title">Từng locale: structure + completeness + status</span></div>
+      <div class="case-body">
+        <table>
+          <tr><th>Locale</th><th>Tên</th><th>Offset</th><th>Ngày mai local</th><th>Verify</th></tr>
+          <tr><td>BR</td><td>Brazil/SP</td><td>UTC−3</td><td>Tính = UTC now − 3h + 1 ngày</td><td>code=1, completeness ±5, events đều not_started</td></tr>
+          <tr><td>AR</td><td>Argentina</td><td>UTC−3</td><td>Như BR</td><td>Như BR</td></tr>
+          <tr><td>US</td><td>USA/NY</td><td>UTC−4</td><td>Tính = UTC now − 4h + 1 ngày</td><td>Như BR</td></tr>
+          <tr><td>MX</td><td>Mexico City</td><td>UTC−6</td><td>Tính = UTC now − 6h + 1 ngày</td><td>Như BR</td></tr>
+          <tr><td>VN</td><td>Vietnam</td><td>UTC+7</td><td>Tính = UTC now + 7h + 1 ngày</td><td>Như BR</td></tr>
+          <tr><td>JP</td><td>Japan</td><td>UTC+9</td><td>Tính = UTC now + 9h + 1 ngày</td><td>Như BR</td></tr>
+        </table>
+        <div class="label" style="margin-top: 14px;">Smoke test nhanh bằng curl</div>
+        <div class="code">DATE=$(date +%Y-%m-%d)
+for LOCALE in VN BR AR US MX JP; do
+  TOTAL=$(curl -s -X POST \
+    "https://opta-api.uniscore.vn/api/v2/sport/football/scheduled-events-pagination-v2/$DATE/locale/$LOCALE/type/upcoming" \
+    -H "Content-Type: application/json" \
+    -d '{"sortByMatchTime":false}' | python3 -c \
+    "import sys,json; d=json.load(sys.stdin)['data']; \
+     ev=len(d.get('events',[])); \
+     oc=sum(x['match_count'] for x in d.get('otherCompetitions',[])); \
+     t=d['pagination']['total']; \
+     print(f'total={t} counted={ev+oc} diff={abs(t-ev-oc)}')")
+  echo "$LOCALE: $TOTAL"
+done</div>
+        <div class="expect"><b>PASS</b> khi tất cả locale trả code=1 và diff ≤ 5</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-header"><span class="case-num">7</span><span class="case-title">Cross-locale: không locale nào crash, completeness đúng</span></div>
+      <div class="case-body">
+        <div class="label">Kết quả mong đợi (ví dụ lúc UTC 03:00 ngày 2026-06-22)</div>
+        <table>
+          <tr><th>Locale</th><th>Date query</th><th>Total</th><th>Diff</th><th>Status</th></tr>
+          <tr><td>BR</td><td>2026-06-22</td><td>~87</td><td>≤5</td><td class="pass">✓</td></tr>
+          <tr><td>AR</td><td>2026-06-22</td><td>~87</td><td>≤5</td><td class="pass">✓</td></tr>
+          <tr><td>US</td><td>2026-06-22</td><td>~88</td><td>≤5</td><td class="pass">✓</td></tr>
+          <tr><td>MX</td><td>2026-06-22</td><td>~88</td><td>≤5</td><td class="pass">✓</td></tr>
+          <tr><td>VN</td><td>2026-06-23</td><td>~76</td><td>≤5</td><td class="pass">✓</td></tr>
+          <tr><td>JP</td><td>2026-06-23</td><td>~81</td><td>≤5</td><td class="pass">✓</td></tr>
+        </table>
+        <div class="warn">⚠ Dấu hiệu bug timezone còn tồn tại: UTC− locale (BR/US/MX) trả total thấp bất thường so với ngày trước/sau</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
