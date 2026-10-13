@@ -3,14 +3,14 @@
 # gửi kết quả vào nhóm Telegram — giống hệt workflow daily trên GitHub Actions.
 #
 # Dùng:
-#   ./scripts/run-us4795-home-matches.sh            # chạy + báo Telegram
-#   ./scripts/run-us4795-home-matches.sh --no-telegram   # chỉ chạy, không gửi Telegram
+#   ./tests/standard/2026-Q3-task-4795-home-matches/run-tests.sh            # chạy + báo Telegram
+#   ./tests/standard/2026-Q3-task-4795-home-matches/run-tests.sh --no-telegram   # chỉ chạy, không gửi Telegram
 #
 # Cần biến môi trường (lấy trong 1Password/ghi chú riêng, không commit):
 #   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
 
 set -uo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../../.."
 
 SEND_TELEGRAM=1
 if [[ "${1:-}" == "--no-telegram" ]]; then
