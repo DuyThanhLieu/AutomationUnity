@@ -25,10 +25,13 @@ jobs:
       - name: Run US-4795 home matches tests
         id: run_tests
         continue-on-error: true
+        env:
+          PLAYWRIGHT_JSON_OUTPUT_NAME: test-results.json
         run: |
           npx playwright test tests/standard/2026-Q3-task-4795-home-matches/ \
             --project=chrome \
-            --reporter=json > test-results.json
+            --reporter=json,html \
+            2> test-stderr.log || true
 
       - name: Summarize results
         id: summary
@@ -36,26 +39,33 @@ jobs:
         run: |
           node -e "
             const fs = require('fs');
-            const data = JSON.parse(fs.readFileSync('test-results.json', 'utf8'));
-            let passed = 0, failed = 0, skipped = 0;
+            let data;
+            try {
+              data = JSON.parse(fs.readFileSync('test-results.json', 'utf8'));
+            } catch (e) {
+              const stderr = fs.existsSync('test-stderr.log') ? fs.readFileSync('test-stderr.log', 'utf8').slice(0, 1500) : '';
+              fs.writeFileSync('summary.txt', 'CRASH: Playwright không sinh ra report hợp lệ.\n' + e.message + '\n\nstderr:\n' + stderr);
+              require('fs').appendFileSync(process.env.GITHUB_OUTPUT, 'failed=1\nstatus=crash\n');
+              console.log('CRASH — xem summary.txt');
+              process.exit(0);
+            }
+            const { expected = 0, unexpected = 0, skipped = 0, flaky = 0 } = data.stats || {};
             const failures = [];
             function walk(suite) {
               for (const spec of suite.specs || []) {
                 for (const test of spec.tests || []) {
                   for (const r of test.results || []) {
-                    if (r.status === 'passed') passed++;
-                    else if (r.status === 'skipped') skipped++;
-                    else { failed++; failures.push(spec.title); }
+                    if (r.status !== 'passed' && r.status !== 'skipped') failures.push(spec.title);
                   }
                 }
               }
               for (const s of suite.suites || []) walk(s);
             }
             for (const s of data.suites || []) walk(s);
-            const summary = \`Passed: \${passed}, Failed: \${failed}, Skipped: \${skipped}\`;
-            fs.writeFileSync('summary.txt', summary + '\n' + failures.map(f => '- ' + f).join('\n'));
+            const summary = \`Passed: \${expected}, Failed: \${unexpected}, Flaky: \${flaky}, Skipped: \${skipped}\`;
+            fs.writeFileSync('summary.txt', summary + (failures.length ? '\n\nTest fail:\n' + failures.map(f => '- ' + f).join('\n') : ''));
             console.log(summary);
-            require('fs').appendFileSync(process.env.GITHUB_OUTPUT, \`failed=\${failed}\n\`);
+            require('fs').appendFileSync(process.env.GITHUB_OUTPUT, \`failed=\${unexpected}\nstatus=\${unexpected > 0 ? 'failed' : 'passed'}\n\`);
           "
 
       - name: Upload HTML report
@@ -65,16 +75,24 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 14
+          if-no-files-found: ignore
 
-      - name: Notify Telegram on failure
-        if: steps.summary.outputs.failed != '0'
+      - name: Notify Telegram (always)
+        if: always()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           SUMMARY=$(cat summary.txt)
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          TEXT="⚠️ US-4795 Home Matches - Daily test FAILED
+          if [ "${{ steps.summary.outputs.status }}" = "passed" ]; then
+            ICON="✅"
+            TITLE="PASSED"
+          else
+            ICON="⚠️"
+            TITLE="FAILED"
+          fi
+          TEXT="${ICON} US-4795 Home Matches - Daily test ${TITLE}
           ${SUMMARY}
 
           Chi tiết: ${RUN_URL}"
