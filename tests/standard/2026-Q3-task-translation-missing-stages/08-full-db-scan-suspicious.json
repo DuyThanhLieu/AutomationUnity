@@ -1,0 +1,726 @@
+[
+  {
+    "stageName": "Promotion/Rel. Play-Off",
+    "triedKeys": [
+      "promotion_rel_play_off",
+      "promotion/rel_play-off",
+      "promotion_rel_play-off"
+    ]
+  },
+  {
+    "stageName": "1/8 Final (A)",
+    "triedKeys": [
+      "1_8_final_a",
+      "1/8_final_a"
+    ]
+  },
+  {
+    "stageName": "Third Place(Central)",
+    "triedKeys": [
+      "third_place_central"
+    ]
+  },
+  {
+    "stageName": "Clausura 1/4 Finals",
+    "triedKeys": [
+      "clausura_1_4_finals",
+      "clausura_1/4_finals"
+    ]
+  },
+  {
+    "stageName": "Semifinal(West A)",
+    "triedKeys": [
+      "semifinal_west_a"
+    ]
+  },
+  {
+    "stageName": "Round 2/4",
+    "triedKeys": [
+      "round_2_4",
+      "round_2/4"
+    ]
+  },
+  {
+    "stageName": "1/4 Final",
+    "triedKeys": [
+      "1_4_final",
+      "1/4_final"
+    ]
+  },
+  {
+    "stageName": "Promotion/Relegation P/O",
+    "triedKeys": [
+      "promotion_relegation_p_o",
+      "promotion/relegation_p/o"
+    ]
+  },
+  {
+    "stageName": "Semifinal(West B)",
+    "triedKeys": [
+      "semifinal_west_b"
+    ]
+  },
+  {
+    "stageName": "TDI-1/16 Finals",
+    "triedKeys": [
+      "tdi_1_16_finals",
+      "tdi-1/16_finals",
+      "tdi-1_16_finals"
+    ]
+  },
+  {
+    "stageName": "Semifinal(WESTA)",
+    "triedKeys": [
+      "semifinal_westa"
+    ]
+  },
+  {
+    "stageName": "West A Zone（A）",
+    "triedKeys": [
+      "west_a_zone_a",
+      "west_a_zone（a）"
+    ]
+  },
+  {
+    "stageName": "1/16 Final",
+    "triedKeys": [
+      "1_16_final",
+      "1/16_final"
+    ]
+  },
+  {
+    "stageName": "Play-offs B/C",
+    "triedKeys": [
+      "play_offs_b_c",
+      "play-offs_b/c",
+      "play-offs_b_c"
+    ]
+  },
+  {
+    "stageName": "places 7~8",
+    "triedKeys": [
+      "places_7_8",
+      "places_7~8"
+    ]
+  },
+  {
+    "stageName": "Final(Central)",
+    "triedKeys": [
+      "final_central"
+    ]
+  },
+  {
+    "stageName": "Semifinal(Central)",
+    "triedKeys": [
+      "semifinal_central"
+    ]
+  },
+  {
+    "stageName": "1/6 Finals",
+    "triedKeys": [
+      "1_6_finals",
+      "1/6_finals"
+    ]
+  },
+  {
+    "stageName": "Upgrade Playoffs(F)",
+    "triedKeys": [
+      "upgrade_playoffs_f"
+    ]
+  },
+  {
+    "stageName": "1/32 Final",
+    "triedKeys": [
+      "1_32_final",
+      "1/32_final"
+    ]
+  },
+  {
+    "stageName": "Final(Caribbean)",
+    "triedKeys": [
+      "final_caribbean"
+    ]
+  },
+  {
+    "stageName": "Final(CE)",
+    "triedKeys": [
+      "final_ce"
+    ]
+  },
+  {
+    "stageName": "Promotion/Relegation Play-offs",
+    "triedKeys": [
+      "promotion_relegation_play_offs",
+      "promotion/relegation_play-offs",
+      "promotion_relegation_play-offs"
+    ]
+  },
+  {
+    "stageName": "Semifinal(CE)",
+    "triedKeys": [
+      "semifinal_ce"
+    ]
+  },
+  {
+    "stageName": "Xi'an Tournament",
+    "triedKeys": [
+      "xi_san_tournament"
+    ]
+  },
+  {
+    "stageName": "Relegation/Promotion Playoffs",
+    "triedKeys": [
+      "relegation_promotion_playoffs",
+      "relegation/promotion_playoffs"
+    ]
+  },
+  {
+    "stageName": "THE RPL's Path Finals",
+    "triedKeys": [
+      "the_rpl_ss_path_finals"
+    ]
+  },
+  {
+    "stageName": "Quarter Final(1)",
+    "triedKeys": [
+      "quarter_final_1"
+    ]
+  },
+  {
+    "stageName": "1/8 Final",
+    "triedKeys": [
+      "1_8_final",
+      "1/8_final"
+    ]
+  },
+  {
+    "stageName": "Play-offs A/B",
+    "triedKeys": [
+      "play_offs_a_b",
+      "play-offs_a/b",
+      "play-offs_a_b"
+    ]
+  },
+  {
+    "stageName": "1/32 final",
+    "triedKeys": [
+      "1_32_final",
+      "1/32_final"
+    ]
+  },
+  {
+    "stageName": "Third Place(West B)",
+    "triedKeys": [
+      "third_place_west_b"
+    ]
+  },
+  {
+    "stageName": "Qualifying(UNCAF)",
+    "triedKeys": [
+      "qualifying_uncaf"
+    ]
+  },
+  {
+    "stageName": "1/4Finals",
+    "triedKeys": [
+      "1_4finals",
+      "1/4finals"
+    ]
+  },
+  {
+    "stageName": "Third Place(West A)",
+    "triedKeys": [
+      "third_place_west_a"
+    ]
+  },
+  {
+    "stageName": "2,3 Div. Upgrade Final",
+    "triedKeys": [
+      "2_3_div_upgrade_final"
+    ]
+  },
+  {
+    "stageName": "West A Zone（B）",
+    "triedKeys": [
+      "west_a_zone_b",
+      "west_a_zone（b）"
+    ]
+  },
+  {
+    "stageName": "Semifinal(CA)",
+    "triedKeys": [
+      "semifinal_ca"
+    ]
+  },
+  {
+    "stageName": "Third Place(South)",
+    "triedKeys": [
+      "third_place_south"
+    ]
+  },
+  {
+    "stageName": "B Promotion(F)",
+    "triedKeys": [
+      "b_promotion_f"
+    ]
+  },
+  {
+    "stageName": "places 5~6",
+    "triedKeys": [
+      "places_5_6",
+      "places_5~6"
+    ]
+  },
+  {
+    "stageName": "Third Place(CE)",
+    "triedKeys": [
+      "third_place_ce"
+    ]
+  },
+  {
+    "stageName": "半決賽",
+    "triedKeys": [
+      "",
+      "半決賽"
+    ]
+  },
+  {
+    "stageName": "1/8Final",
+    "triedKeys": [
+      "1_8final",
+      "1/8final"
+    ]
+  },
+  {
+    "stageName": "1/16-Finals",
+    "triedKeys": [
+      "1_16_finals",
+      "1/16-finals",
+      "1_16-finals"
+    ]
+  },
+  {
+    "stageName": "1/32-finals",
+    "triedKeys": [
+      "1_32_finals",
+      "1/32-finals",
+      "1_32-finals"
+    ]
+  },
+  {
+    "stageName": "1/16Final",
+    "triedKeys": [
+      "1_16final",
+      "1/16final"
+    ]
+  },
+  {
+    "stageName": "1/8 Final (C)",
+    "triedKeys": [
+      "1_8_final_c",
+      "1/8_final_c"
+    ]
+  },
+  {
+    "stageName": "Semifinal(ME)",
+    "triedKeys": [
+      "semifinal_me"
+    ]
+  },
+  {
+    "stageName": "1/4-Finals",
+    "triedKeys": [
+      "1_4_finals",
+      "1/4-finals",
+      "1_4-finals"
+    ]
+  },
+  {
+    "stageName": "1/32-Finals",
+    "triedKeys": [
+      "1_32_finals",
+      "1/32-finals",
+      "1_32-finals"
+    ]
+  },
+  {
+    "stageName": "1/4 finals",
+    "triedKeys": [
+      "1_4_finals",
+      "1/4_finals"
+    ]
+  },
+  {
+    "stageName": "Semifinal(WESTB)",
+    "triedKeys": [
+      "semifinal_westb"
+    ]
+  },
+  {
+    "stageName": "Final(South)",
+    "triedKeys": [
+      "final_south"
+    ]
+  },
+  {
+    "stageName": "Final Groups 1/4 finals",
+    "triedKeys": [
+      "final_groups_1_4_finals",
+      "final_groups_1/4_finals"
+    ]
+  },
+  {
+    "stageName": "1/16 Final 2ND LEG",
+    "triedKeys": [
+      "1_16_final_2nd_leg",
+      "1/16_final_2nd_leg"
+    ]
+  },
+  {
+    "stageName": "附加準決賽",
+    "triedKeys": [
+      "",
+      "附加準決賽"
+    ]
+  },
+  {
+    "stageName": "Promotion/relegation play-offs",
+    "triedKeys": [
+      "promotion_relegation_play_offs",
+      "promotion/relegation_play-offs",
+      "promotion_relegation_play-offs"
+    ]
+  },
+  {
+    "stageName": "1/16-finals",
+    "triedKeys": [
+      "1_16_finals",
+      "1/16-finals",
+      "1_16-finals"
+    ]
+  },
+  {
+    "stageName": "1/4决赛",
+    "triedKeys": [
+      "1_4",
+      "1/4决赛"
+    ]
+  },
+  {
+    "stageName": "Round 2/5",
+    "triedKeys": [
+      "round_2_5",
+      "round_2/5"
+    ]
+  },
+  {
+    "stageName": "1/4 final",
+    "triedKeys": [
+      "1_4_final",
+      "1/4_final"
+    ]
+  },
+  {
+    "stageName": "Round 2/6",
+    "triedKeys": [
+      "round_2_6",
+      "round_2/6"
+    ]
+  },
+  {
+    "stageName": "联赛",
+    "triedKeys": [
+      "",
+      "联赛"
+    ]
+  },
+  {
+    "stageName": "1/16 Final 1ST LEG",
+    "triedKeys": [
+      "1_16_final_1st_leg",
+      "1/16_final_1st_leg"
+    ]
+  },
+  {
+    "stageName": "3/4 place",
+    "triedKeys": [
+      "3_4_place",
+      "3/4_place"
+    ]
+  },
+  {
+    "stageName": "Qualifying(Caribbean)",
+    "triedKeys": [
+      "qualifying_caribbean"
+    ]
+  },
+  {
+    "stageName": "Champions' Play-offs",
+    "triedKeys": [
+      "champions_s_play_offs",
+      "champions_s_play-offs"
+    ]
+  },
+  {
+    "stageName": "1/4 Finals",
+    "triedKeys": [
+      "1_4_finals",
+      "1/4_finals"
+    ]
+  },
+  {
+    "stageName": "Match(Central)",
+    "triedKeys": [
+      "match_central"
+    ]
+  },
+  {
+    "stageName": "Quarter Final(2)",
+    "triedKeys": [
+      "quarter_final_2"
+    ]
+  },
+  {
+    "stageName": "Semifinal(WESA)",
+    "triedKeys": [
+      "semifinal_wesa"
+    ]
+  },
+  {
+    "stageName": "Groups(WESTB)",
+    "triedKeys": [
+      "groups_westb"
+    ]
+  },
+  {
+    "stageName": "THE RPL's Path Semi-finals",
+    "triedKeys": [
+      "the_rpl_ss_path_semi_finals",
+      "the_rpl_ss_path_semi-finals"
+    ]
+  },
+  {
+    "stageName": "Clausura 1/4 finals",
+    "triedKeys": [
+      "clausura_1_4_finals",
+      "clausura_1/4_finals"
+    ]
+  },
+  {
+    "stageName": "Quarterfinals(a)",
+    "triedKeys": [
+      "quarterfinals_a"
+    ]
+  },
+  {
+    "stageName": "B Promotion(S)",
+    "triedKeys": [
+      "b_promotion_s"
+    ]
+  },
+  {
+    "stageName": "The RPL's path Quarterfinals",
+    "triedKeys": [
+      "the_rpl_ss_path_quarterfinals"
+    ]
+  },
+  {
+    "stageName": "Promotion/Relegation Play-off",
+    "triedKeys": [
+      "promotion_relegation_play_off",
+      "promotion/relegation_play-off",
+      "promotion_relegation_play-off"
+    ]
+  },
+  {
+    "stageName": "Primera B/Primera C triangular",
+    "triedKeys": [
+      "primera_b_primera_c_triangular",
+      "primera_b/primera_c_triangular"
+    ]
+  },
+  {
+    "stageName": "1/16final",
+    "triedKeys": [
+      "1_16final",
+      "1/16final"
+    ]
+  },
+  {
+    "stageName": "1/8 final",
+    "triedKeys": [
+      "1_8_final",
+      "1/8_final"
+    ]
+  },
+  {
+    "stageName": "1/8-finals",
+    "triedKeys": [
+      "1_8_finals",
+      "1/8-finals",
+      "1_8-finals"
+    ]
+  },
+  {
+    "stageName": "Quarterfinals(c)",
+    "triedKeys": [
+      "quarterfinals_c"
+    ]
+  },
+  {
+    "stageName": "Final(C American)",
+    "triedKeys": [
+      "final_c_american"
+    ]
+  },
+  {
+    "stageName": "1/8-Finals",
+    "triedKeys": [
+      "1_8_finals",
+      "1/8-finals",
+      "1_8-finals"
+    ]
+  },
+  {
+    "stageName": "Apertura 1/4 Finals",
+    "triedKeys": [
+      "apertura_1_4_finals",
+      "apertura_1/4_finals"
+    ]
+  },
+  {
+    "stageName": "Relegation P/O",
+    "triedKeys": [
+      "relegation_p_o",
+      "relegation_p/o"
+    ]
+  },
+  {
+    "stageName": "Final(ME)",
+    "triedKeys": [
+      "final_me"
+    ]
+  },
+  {
+    "stageName": "1/16 Finals",
+    "triedKeys": [
+      "1_16_finals",
+      "1/16_finals"
+    ]
+  },
+  {
+    "stageName": "聯賽",
+    "triedKeys": [
+      "",
+      "聯賽"
+    ]
+  },
+  {
+    "stageName": "1/8final",
+    "triedKeys": [
+      "1_8final",
+      "1/8final"
+    ]
+  },
+  {
+    "stageName": "Third place's fight",
+    "triedKeys": [
+      "third_place_ss_fight"
+    ]
+  },
+  {
+    "stageName": "EL P/O Final",
+    "triedKeys": [
+      "el_p_o_final",
+      "el_p/o_final"
+    ]
+  },
+  {
+    "stageName": "B Promotion(Q)",
+    "triedKeys": [
+      "b_promotion_q"
+    ]
+  },
+  {
+    "stageName": "1/32Final",
+    "triedKeys": [
+      "1_32final",
+      "1/32final"
+    ]
+  },
+  {
+    "stageName": "Round 2/3",
+    "triedKeys": [
+      "round_2_3",
+      "round_2/3"
+    ]
+  },
+  {
+    "stageName": "1/4final",
+    "triedKeys": [
+      "1_4final",
+      "1/4final"
+    ]
+  },
+  {
+    "stageName": "1/8-FINALS",
+    "triedKeys": [
+      "1_8_finals",
+      "1/8-finals",
+      "1_8-finals"
+    ]
+  },
+  {
+    "stageName": "Groups(WESTA)",
+    "triedKeys": [
+      "groups_westa"
+    ]
+  },
+  {
+    "stageName": "Semifinal(South)",
+    "triedKeys": [
+      "semifinal_south"
+    ]
+  },
+  {
+    "stageName": "Final(West A)",
+    "triedKeys": [
+      "final_west_a"
+    ]
+  },
+  {
+    "stageName": "1/4-FINALS",
+    "triedKeys": [
+      "1_4_finals",
+      "1/4-finals",
+      "1_4-finals"
+    ]
+  },
+  {
+    "stageName": "1/16 finals",
+    "triedKeys": [
+      "1_16_finals",
+      "1/16_finals"
+    ]
+  },
+  {
+    "stageName": "B Promotion(FQ)",
+    "triedKeys": [
+      "b_promotion_fq"
+    ]
+  },
+  {
+    "stageName": "Prom/Rel Play Off",
+    "triedKeys": [
+      "prom_rel_play_off",
+      "prom/rel_play_off"
+    ]
+  },
+  {
+    "stageName": "Final Groups 1/8 finals",
+    "triedKeys": [
+      "final_groups_1_8_finals",
+      "final_groups_1/8_finals"
+    ]
+  }
+]
