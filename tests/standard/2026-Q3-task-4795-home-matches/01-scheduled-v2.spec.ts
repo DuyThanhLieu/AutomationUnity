@@ -23,6 +23,15 @@ const CASES = [
   { locale: 'VN', date: PAST },
   { locale: 'VN', date: TODAY },
   { locale: 'GB', date: PAST },
+  // Mở rộng thêm nhiều quốc gia khác nhau (châu Á, châu Âu, châu Mỹ) để bắt
+  // bug riêng theo locale — ví dụ otherCompetitions ưu tiên sai giải cho
+  // quốc gia đó, hoặc category order áp dụng nhầm tên châu lục ngôn ngữ khác.
+  // Chỉ test với TODAY (không nhân với PAST) để tránh nổ số lượng test case.
+  { locale: 'US', date: TODAY },
+  { locale: 'JP', date: TODAY },
+  { locale: 'BR', date: TODAY },
+  { locale: 'TH', date: TODAY },
+  { locale: 'DE', date: TODAY },
 ];
 
 for (const { locale, date } of CASES) {
