@@ -44,28 +44,65 @@ jobs:
               data = JSON.parse(fs.readFileSync('test-results.json', 'utf8'));
             } catch (e) {
               const stderr = fs.existsSync('test-stderr.log') ? fs.readFileSync('test-stderr.log', 'utf8').slice(0, 1500) : '';
-              fs.writeFileSync('summary.txt', 'CRASH: Playwright không sinh ra report hợp lệ.\n' + e.message + '\n\nstderr:\n' + stderr);
+              fs.writeFileSync('telegram-message.html', '⚠️ <b>US-4795 Home Matches</b>\nKhông sinh được report (crash trước khi chạy test).\n\n<pre>' + (e.message + '\n' + stderr).replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</pre>');
               require('fs').appendFileSync(process.env.GITHUB_OUTPUT, 'failed=1\nstatus=crash\n');
-              console.log('CRASH — xem summary.txt');
+              console.log('CRASH — xem telegram-message.html');
               process.exit(0);
             }
-            const { expected = 0, unexpected = 0, skipped = 0, flaky = 0 } = data.stats || {};
-            const failures = [];
+
+            // File endpoint theo đúng tên spec, giữ thứ tự doc US-4640
+            const FILE_LABEL = [
+              ['01-scheduled-v2.spec.ts', 'scheduled-v2'],
+              ['02-scheduled-v1.spec.ts', 'scheduled-v1'],
+              ['03-live-v1.spec.ts', 'live-v1'],
+              ['04-live-v2.spec.ts', 'live-v2'],
+              ['05-my-matches.spec.ts', 'my-matches'],
+            ];
+            const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
+
+            function fileOf(spec) { return (spec.file || '').split('/').pop(); }
             function walk(suite) {
               for (const spec of suite.specs || []) {
-                for (const test of spec.tests || []) {
-                  for (const r of test.results || []) {
-                    if (r.status !== 'passed' && r.status !== 'skipped') failures.push(spec.title);
+                const bucket = byFile.get(fileOf(spec));
+                for (const t of spec.tests || []) {
+                  for (const r of t.results || []) {
+                    if (!bucket) continue;
+                    if (r.status === 'passed') bucket.passed++;
+                    else if (r.status === 'skipped') bucket.skipped++;
+                    else { bucket.failed++; bucket.failTitles.push(spec.title); }
                   }
                 }
               }
               for (const s of suite.suites || []) walk(s);
             }
             for (const s of data.suites || []) walk(s);
-            const summary = \`Passed: \${expected}, Failed: \${unexpected}, Flaky: \${flaky}, Skipped: \${skipped}\`;
-            fs.writeFileSync('summary.txt', summary + (failures.length ? '\n\nTest fail:\n' + failures.map(f => '- ' + f).join('\n') : ''));
-            console.log(summary);
-            require('fs').appendFileSync(process.env.GITHUB_OUTPUT, \`failed=\${unexpected}\nstatus=\${unexpected > 0 ? 'failed' : 'passed'}\n\`);
+
+            const { expected = 0, unexpected = 0, skipped = 0 } = data.stats || {};
+            const ranAt = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false });
+            const allOk = unexpected === 0;
+            const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+            const lines = [];
+            lines.push((allOk ? '✅' : '⚠️') + ' <b>US-4795 — Home Matches Daily Check</b>');
+            lines.push('🕗 ' + esc(ranAt) + ' (giờ VN)');
+            lines.push('');
+            lines.push('<b>Tổng:</b> ✅ ' + expected + ' pass · ❌ ' + unexpected + ' fail · ⏭ ' + skipped + ' skip');
+            lines.push('');
+            lines.push('<b>Theo endpoint:</b>');
+            for (const [file, label] of FILE_LABEL) {
+              const b = byFile.get(file);
+              const icon = b.failed > 0 ? '❌' : '✅';
+              lines.push(icon + ' <b>' + label + '</b> — ' + b.passed + ' pass, ' + b.failed + ' fail, ' + b.skipped + ' skip');
+            }
+            const allFailTitles = FILE_LABEL.flatMap(([f, label]) => byFile.get(f).failTitles.map((t) => '[' + label + '] ' + t));
+            if (allFailTitles.length) {
+              lines.push('');
+              lines.push('<b>Chi tiết fail:</b>');
+              for (const t of allFailTitles) lines.push('• ' + esc(t));
+            }
+            fs.writeFileSync('telegram-message.html', lines.join('\n'));
+            console.log('Passed: ' + expected + ', Failed: ' + unexpected + ', Skipped: ' + skipped);
+            require('fs').appendFileSync(process.env.GITHUB_OUTPUT, 'failed=' + unexpected + '\nstatus=' + (allOk ? 'passed' : 'failed') + '\n');
           "
 
       - name: Upload HTML report
@@ -82,23 +119,13 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          SUMMARY=$(cat summary.txt)
-          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          if [ "${{ steps.summary.outputs.status }}" = "passed" ]; then
-            ICON="✅"
-            TITLE="PASSED"
-          else
-            ICON="⚠️"
-            TITLE="FAILED"
-          fi
-          TEXT="${ICON} US-4795 Home Matches - Daily test ${TITLE}
-          ${SUMMARY}
-
-          Chi tiết: ${RUN_URL}"
+          printf '\n\n🔗 <a href="%s">Xem chi tiết run</a>' "$RUN_URL" >> telegram-message.html
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
-            --data-urlencode "text=${TEXT}"
+            --data-urlencode "parse_mode=HTML" \
+            --data-urlencode "text@telegram-message.html"
 
       - name: Fail job if tests failed
         if: steps.summary.outputs.failed != '0'
