@@ -6,11 +6,18 @@
 #   ./tests/standard/2026-Q3-task-4795-home-matches/run-tests.sh            # chạy + báo Telegram
 #   ./tests/standard/2026-Q3-task-4795-home-matches/run-tests.sh --no-telegram   # chỉ chạy, không gửi Telegram
 #
-# Cần biến môi trường (lấy trong 1Password/ghi chú riêng, không commit):
-#   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+# Cần biến môi trường TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID — tự đọc từ file
+# .env ở gốc repo nếu có (không commit, xem .gitignore), hoặc set sẵn trước khi gọi script.
 
 set -uo pipefail
 cd "$(dirname "$0")/../../.."
+
+if [[ -f .env ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source .env
+  set +a
+fi
 
 SEND_TELEGRAM=1
 if [[ "${1:-}" == "--no-telegram" ]]; then
