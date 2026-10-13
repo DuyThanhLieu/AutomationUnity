@@ -47,6 +47,11 @@ test.describe('UI vs API — tab All', () => {
     test.skip(body.code !== 1 || body.data.events.length === 0, 'Không có trận nào hôm nay để đối chiếu');
 
     await page.goto(SITE, { waitUntil: 'networkidle' });
+    // React có thể vẫn đang hydrate/render match list sau khi network đã idle
+    // (networkidle chỉ đảm bảo hết request, không đảm bảo hết re-render) —
+    // thiếu chờ này khiến getMainListText đôi khi đọc trúng DOM chưa có data
+    // thật, gây false-positive toàn bộ trận "không tìm thấy".
+    await page.waitForTimeout(800);
     const uiText = await getMainListText(page);
 
     // Chỉ kiểm tra N trận đầu (đủ để phát hiện lệch thứ tự/thiếu trận mà không
@@ -72,6 +77,7 @@ test.describe('UI vs API — tab All', () => {
     test.skip(body.code !== 1, 'API không trả code 1');
 
     await page.goto(SITE, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(800);
     const uiText = await getMainListText(page);
     // Đếm số lần tên đội (shortName) của API xuất hiện trong UI text — ước lượng
     // số trận UI thực sự render (không đếm trùng khối "All Leagues" vì đã cắt ở getMainListText).
