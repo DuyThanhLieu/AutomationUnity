@@ -22,30 +22,44 @@ import { vnDate } from './lib/home-client';
 
 const SITE = 'https://uniscore.com/en';
 
+/** Lấy dòng trận ĐẦU TIÊN là trận thật (test-id="match-row-{eventId}"), loại
+ *  trừ "match-row-tw-card" — widget quảng cáo/khuyến mãi chèn xen kẽ vào danh
+ *  sách, số lượng và vị trí thay đổi thất thường giữa các lần load, không
+ *  phải trận đấu và không điều hướng đi đâu khi click (đã xác nhận qua test
+ *  thật nhiều lần: lúc dòng đầu là trận thật, lúc là tw-card). Dùng .first()
+ *  thô trên toàn bộ [data-testid="match-row"] là nguồn flaky thật của test
+ *  này trước khi sửa — không phải bug sản phẩm. */
+async function firstRealMatchRow(page: import('@playwright/test').Page) {
+  const all = page.locator('[data-testid="match-row"]');
+  const count = await all.count();
+  for (let i = 0; i < count; i++) {
+    const row = all.nth(i);
+    const testId = await row.getAttribute('test-id');
+    if (testId && testId !== 'match-row-tw-card') return { row, matchId: testId.replace('match-row-', '') };
+  }
+  return null;
+}
+
 test.describe('UI · click vào 1 trận điều hướng đúng trang chi tiết', () => {
   test('click dòng trận đầu tiên trong tab All → URL chuyển sang /football/match/{slug}/{id}', async ({ page }) => {
     await page.goto(SITE, { waitUntil: 'networkidle' });
-    const rows = page.locator('[data-testid="match-row"]');
-    test.skip((await rows.count()) === 0, 'Không có trận nào trong danh sách để click');
+    const first = await firstRealMatchRow(page);
+    test.skip(!first, 'Không có trận thật nào trong danh sách để click (chỉ toàn tw-card hoặc rỗng)');
 
-    const firstRow = rows.first();
-    const testId = await firstRow.getAttribute('test-id'); // vd "match-row-cq0afiln6ngev78"
-    const matchId = testId?.replace('match-row-', '');
-
-    await firstRow.click();
+    await first!.row.click();
     await page.waitForURL(/\/football\/match\//, { timeout: 10_000 });
 
     expect(page.url()).toMatch(/\/en\/football\/match\//);
     // URL trang chi tiết phải chứa đúng id của trận vừa click, không phải trận khác.
-    if (matchId) expect(page.url()).toContain(matchId);
+    expect(page.url()).toContain(first!.matchId);
   });
 
   test('trang chi tiết trận có tiêu đề/heading chứa tên 2 đội (không phải trang lỗi/trống)', async ({ page }) => {
     await page.goto(SITE, { waitUntil: 'networkidle' });
-    const rows = page.locator('[data-testid="match-row"]');
-    test.skip((await rows.count()) === 0, 'Không có trận nào trong danh sách để click');
+    const first = await firstRealMatchRow(page);
+    test.skip(!first, 'Không có trận thật nào trong danh sách để click (chỉ toàn tw-card hoặc rỗng)');
 
-    await rows.first().click();
+    await first!.row.click();
     await page.waitForURL(/\/football\/match\//, { timeout: 10_000 });
     await page.waitForLoadState('networkidle');
 
