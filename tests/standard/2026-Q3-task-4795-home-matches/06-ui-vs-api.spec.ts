@@ -23,19 +23,33 @@ const SITE = 'https://uniscore.com/en';
  *  nhất có chứa text thật của trận (nhận diện qua dấu hiệu định dạng giờ "HH:MM"
  *  hoặc "FT") nhưng KHÔNG chứa "All Leagues" (dấu hiệu riêng của sidebar). */
 async function getMainListText(page: import('@playwright/test').Page): Promise<string> {
-  return page.evaluate(() => {
-    const finishedBtn = document.querySelector('[data-testid="filter-finish"]');
-    if (!finishedBtn) return document.body.innerText;
-    let node: HTMLElement | null = finishedBtn as HTMLElement;
-    for (let i = 0; i < 15 && node; i++) {
-      const text = node.innerText || '';
-      if (!text.includes('All Leagues') && (/\d{1,2}:\d{2}/.test(text) || text.includes('FT')) && text.length > 200) {
-        return text;
+  const extract = () =>
+    page.evaluate(() => {
+      const finishedBtn = document.querySelector('[data-testid="filter-finish"]');
+      if (!finishedBtn) return null;
+      let node: HTMLElement | null = finishedBtn as HTMLElement;
+      for (let i = 0; i < 15 && node; i++) {
+        const text = node.innerText || '';
+        if (!text.includes('All Leagues') && (/\d{1,2}:\d{2}/.test(text) || text.includes('FT')) && text.length > 200) {
+          return text;
+        }
+        node = node.parentElement;
       }
-      node = node.parentElement;
-    }
-    return document.body.innerText;
-  });
+      return null;
+    });
+
+  // Máy CI (đặc biệt GitHub Actions ubuntu-latest) có thể chậm hơn nhiều so
+  // với máy dev khi hydrate React lần đầu sau networkidle — 1 lần
+  // waitForTimeout cố định (800ms) không đủ, từng gây ~25/27 trận
+  // "không tìm thấy" hàng loạt trên CI dù local luôn pass. Poll chủ động tới
+  // khi có text thật thay vì đoán 1 khoảng chờ cố định.
+  const deadline = Date.now() + 10_000;
+  while (Date.now() < deadline) {
+    const text = await extract();
+    if (text) return text;
+    await page.waitForTimeout(300);
+  }
+  return page.evaluate(() => document.body.innerText);
 }
 
 // 3 ngày: hôm qua (finished chắc chắn có), hôm nay, ngày mai (upcoming chắc
