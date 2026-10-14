@@ -1,0 +1,98 @@
+{
+  "1ztvu6l8638ev9p": {
+    "id": "1ztvu6l8638ev9p",
+    "date": "2026-10-11",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 2,
+    "homeTeam": "SDQ",
+    "awayTeam": "Vancouver",
+    "firstSeenAt": "2026-10-14T09:08:49.049Z",
+    "lastSeenAt": "2026-10-14T09:12:05.693Z"
+  },
+  "5z3v0bl2l91zvu6": {
+    "id": "5z3v0bl2l91zvu6",
+    "date": "2026-10-10",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 1,
+    "homeTeam": "Arsenal",
+    "awayTeam": "Leeds",
+    "firstSeenAt": "2026-10-14T09:08:49.049Z",
+    "lastSeenAt": "2026-10-14T09:12:05.693Z"
+  },
+  "6hqac9lu3lq3vme": {
+    "id": "6hqac9lu3lq3vme",
+    "date": "2026-10-10",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 2,
+    "homeTeam": "Augsburg",
+    "awayTeam": "Bayern",
+    "firstSeenAt": "2026-10-14T09:08:49.049Z",
+    "lastSeenAt": "2026-10-14T09:12:05.693Z"
+  },
+  "6hqac9lul673vme": {
+    "id": "6hqac9lul673vme",
+    "date": "2026-10-11",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 0,
+    "homeTeam": "Hanoi",
+    "awayTeam": "Bac Ninh",
+    "firstSeenAt": "2026-10-14T09:08:49.049Z",
+    "lastSeenAt": "2026-10-14T09:12:05.693Z"
+  },
+  "7kbz8ilul4ger9b": {
+    "id": "7kbz8ilul4ger9b",
+    "date": "2026-10-10",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 3,
+    "awayDisplay": 0,
+    "homeTeam": "Inter",
+    "awayTeam": "Parma",
+    "firstSeenAt": "2026-10-14T09:08:49.049Z",
+    "lastSeenAt": "2026-10-14T09:12:05.693Z"
+  },
+  "7kbz8ilulj01r9b": {
+    "id": "7kbz8ilulj01r9b",
+    "date": "2026-10-11",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 3,
+    "homeTeam": "Liverpool",
+    "awayTeam": "Man City",
+    "firstSeenAt": "2026-10-14T09:08:49.049Z",
+    "lastSeenAt": "2026-10-14T09:12:05.693Z"
+  },
+  "hesv5yld2e28whu": {
+    "id": "hesv5yld2e28whu",
+    "date": "2026-10-10",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 3,
+    "awayDisplay": 0,
+    "homeTeam": "Barcelona",
+    "awayTeam": "Getafe",
+    "firstSeenAt": "2026-10-14T09:08:49.049Z",
+    "lastSeenAt": "2026-10-14T09:12:05.693Z"
+  },
+  "mx7a61lrd1qawi4": {
+    "id": "mx7a61lrd1qawi4",
+    "date": "2026-10-11",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 0,
+    "homeTeam": "Real Madrid",
+    "awayTeam": "Villarreal",
+    "firstSeenAt": "2026-10-14T09:08:49.049Z",
+    "lastSeenAt": "2026-10-14T09:12:05.693Z"
+  }
+}

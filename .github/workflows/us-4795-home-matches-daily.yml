@@ -70,6 +70,7 @@ jobs:
               ['09-ui-navigation.spec.ts', 'ui-navigation'],
               ['10-cross-day-regression.spec.ts', 'cross-day-regression'],
               ['11-ui-daily-user-journey.spec.ts', 'ui-daily-journey'],
+              ['12-cross-day-extended.spec.ts', 'cross-day-extended'],
             ];
             const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
 
@@ -145,9 +146,10 @@ jobs:
 
       - name: Commit cross-day baseline
         if: always()
-        # 2 file ghi baseline trong test.afterAll() bất kể pass/fail:
-        #   - 10-cross-day-regression.spec.ts  → .baseline/matches.json (tầng API)
+        # 3 file ghi baseline trong test.afterAll() bất kể pass/fail:
+        #   - 10-cross-day-regression.spec.ts  → .baseline/matches.json (tầng API, toàn bộ lịch thi đấu)
         #   - 11-ui-daily-user-journey.spec.ts → .baseline/ui-matches.json (tầng UI thật)
+        #   - 12-cross-day-extended.spec.ts    → .baseline/my-matches.json (trận yêu thích user theo dõi)
         # Commit lại NGAY ở đây để lần chạy daily KẾ TIẾP đọc được baseline của
         # lần này. Không commit thì toàn bộ cơ chế "so sánh xuyên ngày" (tỷ số
         # đổi sau finished, trận biến mất, UI tiến trình bị lùi, data kẹt nhiều
