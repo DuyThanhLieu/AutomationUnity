@@ -21,30 +21,43 @@ const SITE = 'https://uniscore.com/en';
  *  đội/quốc gia và có thể gây false-positive nếu đối chiếu bằng
  *  document.body.innerText thô).
  *
- *  LƯU Ý: text loại trừ đúng trên trang Home là "Other matches" — KHÔNG phải
- *  "All Leagues" (đó là text ở trang /competition riêng, route khác hẳn).
- *  Dùng nhầm "All Leagues" từng khiến điều kiện loại trừ không bao giờ khớp,
- *  hàm rơi vào nhánh fallback document.body.innerText (lẫn lộn sidebar +
- *  match list + footer SEO dài hàng nghìn ký tự) — chỉ lộ rõ trên CI (môi
- *  trường render chậm hơn/khác timing) dù "tình cờ" không fail trên local.
+ *  LỊCH SỬ 2 LẦN SỬA SAI TRƯỚC — ghi lại để không lặp lại:
+ *  1) Dùng từ khóa loại trừ "All Leagues" — SAI, đó là text ở trang
+ *     /competition riêng, route khác hẳn trang Home.
+ *  2) Đổi sang "Other matches" (đúng từ khóa) nhưng vẫn dùng logic
+ *     "!text.includes(...)" để DỪNG tại ancestor đầu tiên không chứa từ khóa —
+ *     SAI vì "Other matches" (sidebar) và danh sách trận chính nằm chung 1
+ *     cây DOM lớn hơn: mọi ancestor đủ cao để chứa match list CŨNG chứa luôn
+ *     sidebar phía dưới nó. Kết quả: không có ancestor nào thoả "không chứa
+ *     Other matches", hàm luôn trả null, rơi vào fallback
+ *     document.body.innerText (lẫn lộn mọi thứ) — tái hiện được trên CI dù
+ *     "tình cờ" pass nhiều lần trên local (layout/viewport khác nhau khiến
+ *     độ dài text tại mỗi độ sâu khác nhau đủ để đôi khi né được).
  *
- *  Đi lên từ tab filter "Finished" ([data-testid=filter-finish]) tới ancestor
- *  gần nhất có chứa text thật của trận (nhận diện qua dấu hiệu định dạng giờ
- *  "HH:MM" hoặc "FT") nhưng KHÔNG chứa "Other matches". */
+ *  CÁCH ĐÚNG: không loại trừ theo từ khóa — tìm ancestor NHỎ NHẤT (độ dài text
+ *  ngắn nhất) vừa đủ chứa dấu hiệu 1 trận thật ("HH:MM" hoặc "FT") và có độ
+ *  dài hợp lý cho 1 danh sách trận (vài trăm đến vài nghìn ký tự) — vì sidebar
+ *  + match list cộng lại luôn dài hơn nhiều so với chỉ riêng match list. Giới
+ *  hạn trên (maxLen) để không lỡ khớp luôn toàn trang khi match list quá ít
+ *  (test.skip lúc đó nếu cần, nhưng tránh false-negative nguy hiểm hơn). */
 async function getMainListText(page: import('@playwright/test').Page): Promise<string> {
   const extract = () =>
     page.evaluate(() => {
       const finishedBtn = document.querySelector('[data-testid="filter-finish"]');
       if (!finishedBtn) return null;
       let node: HTMLElement | null = finishedBtn as HTMLElement;
-      for (let i = 0; i < 15 && node; i++) {
+      let best: string | null = null;
+      for (let i = 0; i < 20 && node; i++) {
         const text = node.innerText || '';
-        if (!text.includes('Other matches') && (/\d{1,2}:\d{2}/.test(text) || text.includes('FT')) && text.length > 200) {
-          return text;
+        const looksLikeMatchList = /\d{1,2}:\d{2}/.test(text) || text.includes('FT');
+        // Container nhỏ nhất (ít ký tự nhất) thỏa điều kiện luôn là ứng viên
+        // tốt nhất — nó bao bọc ít nội dung "thừa" (sidebar, footer) nhất.
+        if (looksLikeMatchList && text.length > 200 && text.length < 8000) {
+          if (!best || text.length < best.length) best = text;
         }
         node = node.parentElement;
       }
-      return null;
+      return best;
     });
 
   // Máy CI (đặc biệt GitHub Actions ubuntu-latest) có thể chậm hơn nhiều so
