@@ -18,6 +18,22 @@ export const SAMPLE_FAVORITES = {
   matchesFavorite: ['n97akmln2d9mwnv'],
 };
 
+/** Bộ yêu thích thứ 2 — đa dạng giải/châu lục khác với SAMPLE_FAVORITES (vốn
+ *  thiên về đội lớn châu Âu), để tăng độ phủ data: bug chỉ xảy ra với đội ở
+ *  giải nhỏ/châu lục khác (vd AFC Champions League 2, giải Úc) sẽ không bị
+ *  bộ favorites đầu che khuất. */
+export const SAMPLE_FAVORITES_2 = {
+  teamsFavorite: [
+    'ykcv4il1h7as1xj', // Persib (AFC Champions League 2)
+    'q69zrnl93jyrah5', // Melbourne Victory (AFC Champions League 2)
+    'c467w80ox69rt8p', // Galatasaray (UEFA Champions League)
+    '2wogs0kowdms1xj', // Atl. Madrid (UEFA Champions League)
+    '2es0s3koh8hntnv', // Viking (UEFA Champions League)
+    'nkb1x23odwzse70', // Villarreal (UEFA Champions League)
+  ],
+  matchesFavorite: [] as string[],
+};
+
 export const FINISHED_CODES = [100, 110, 120];
 export const INPROGRESS_TYPE = 'inprogress';
 

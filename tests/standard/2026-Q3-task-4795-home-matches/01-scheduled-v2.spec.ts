@@ -19,20 +19,32 @@ const CATEGORY_ORDER = ['Quốc tế', 'Châu Âu', 'Châu Mỹ', 'Châu Á', 'C
 // Trạng thái "treo": chưa đá / pending / hoãn / gián đoạn / huỷ / bỏ dở / cut in half — mục 05 doc.
 const STALE_CODES = [0, 1, 15, 60, 70, 80, 90];
 
-const CASES = [
-  { locale: 'VN', date: PAST },
-  { locale: 'VN', date: TODAY },
-  { locale: 'GB', date: PAST },
-  // Mở rộng thêm nhiều quốc gia khác nhau (châu Á, châu Âu, châu Mỹ) để bắt
-  // bug riêng theo locale — ví dụ otherCompetitions ưu tiên sai giải cho
-  // quốc gia đó, hoặc category order áp dụng nhầm tên châu lục ngôn ngữ khác.
-  // Chỉ test với TODAY (không nhân với PAST) để tránh nổ số lượng test case.
-  { locale: 'US', date: TODAY },
-  { locale: 'JP', date: TODAY },
-  { locale: 'BR', date: TODAY },
-  { locale: 'TH', date: TODAY },
-  { locale: 'DE', date: TODAY },
-];
+// Độ phủ ngày: 3 ngày trước + hôm nay + 3 ngày tới (7 ngày liên tục) — tăng từ
+// chỉ 2 mốc (PAST/TODAY) trước đây, để bắt được bug chỉ xảy ra ở 1 số ngày cụ
+// thể (vd VT9 fallback phụ thuộc số giải đang thi đấu, biến động theo ngày).
+const DATES_TO_CHECK = [vnDate(-3), vnDate(-2), vnDate(-1), TODAY, vnDate(1), vnDate(2), vnDate(3)];
+
+// Độ phủ quốc gia: 14 locale trải khắp các châu lục (Á, Âu, Mỹ, Phi, Đại
+// Dương) — tăng từ 7 locale trước đây, để bắt bug riêng theo locale (vd
+// otherCompetitions ưu tiên sai giải, category order áp dụng nhầm ngôn ngữ,
+// hoặc VT9 fallback chỉ lộ ra ở 1 số quốc gia có ít giải "nhà" hơn).
+const LOCALES_TO_CHECK = ['VN', 'GB', 'US', 'JP', 'BR', 'TH', 'DE', 'KR', 'ID', 'MX', 'EG', 'AU', 'IN', 'AR'];
+
+// Full matrix (7 ngày × 14 locale = 98 bộ dữ liệu) cho ngày TODAY và PAST với
+// TẤT CẢ locale; các ngày còn lại chỉ test với VN để tránh nổ số lượng test
+// case quá mức cần thiết (98 describe block × 6 test/block đã là ~600 case).
+const CASES: Array<{ locale: string; date: string }> = [];
+for (const locale of LOCALES_TO_CHECK) {
+  for (const date of DATES_TO_CHECK) {
+    // Full coverage ngày × locale chỉ cho 2 mốc quan trọng nhất (hôm qua gần
+    // nhất đã có kết quả ổn định, hôm nay đang biến động) — các ngày khác chỉ
+    // cần 1 locale đại diện (VN) để vẫn phủ được biến động theo ngày mà không
+    // nhân nổ số lượng.
+    if (date === PAST || date === TODAY || locale === 'VN') {
+      CASES.push({ locale, date });
+    }
+  }
+}
 
 for (const { locale, date } of CASES) {
   test.describe(`scheduled-v2 · ${locale} · ${date} · all`, () => {

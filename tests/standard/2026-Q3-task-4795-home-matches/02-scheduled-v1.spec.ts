@@ -12,63 +12,76 @@ import { post, vnDate, scheduledV1, scheduledV2, duplicateIds } from './lib/home
 
 const PAST = vnDate(-3);
 
-test.describe(`scheduled-v1 vs v2 · VN · ${PAST}`, () => {
-  let v1: any;
-  let v2: any;
+// Mở rộng từ 1 ngày (PAST) lên 5 mốc ngày (3 trước, hôm nay, 2 sau) × 4 locale
+// — đối chiếu V1/V2 có thể lệch chỉ ở 1 số ngày/locale cụ thể tuỳ tập trận.
+const V1V2_CASES: Array<{ date: string; locale: string }> = [];
+for (const date of [vnDate(-3), vnDate(-2), vnDate(-1), vnDate(0), vnDate(1), vnDate(2)]) {
+  for (const locale of ['VN', 'GB', 'US', 'JP']) {
+    // Full matrix chỉ cho VN (locale gốc của doc); locale khác chỉ test đúng
+    // ngày PAST để tăng phủ mà không nhân nổ số lượng case.
+    if (locale === 'VN' || date === PAST) V1V2_CASES.push({ date, locale });
+  }
+}
 
-  test.beforeAll(async ({ request }) => {
-    // V1 cache RAM từng pod, V2 snapshot Redis → có thể lệch vài giây khi dữ liệu vừa đổi.
-    // Thử lại tối đa 3 lần cho tới khi 2 bên cùng tổng số trận.
-    for (let i = 0; i < 3; i++) {
-      [v1, v2] = await Promise.all([post(request, scheduledV1(PAST)), post(request, scheduledV2(PAST))]).then((r) => r.map((x) => x.body));
-      if (v1.data.events.length === v2.data.events.length) break;
-      await new Promise((r) => setTimeout(r, 3000));
-    }
-  });
+for (const { date, locale } of V1V2_CASES) {
+  test.describe(`scheduled-v1 vs v2 · ${locale} · ${date}`, () => {
+    let v1: any;
+    let v2: any;
 
-  test('response hợp lệ, không trùng trận', () => {
-    expect(v1.code).toBe(1);
-    expect(v1.data.pagination).toMatchObject({ page: 1, size: 5000 });
-    expect(duplicateIds(v1.data.events)).toEqual([]);
-  });
+    test.beforeAll(async ({ request }) => {
+      // V1 cache RAM từng pod, V2 snapshot Redis → có thể lệch vài giây khi dữ liệu vừa đổi.
+      // Thử lại tối đa 3 lần cho tới khi 2 bên cùng tổng số trận.
+      for (let i = 0; i < 3; i++) {
+        [v1, v2] = await Promise.all([post(request, scheduledV1(date, locale)), post(request, scheduledV2(date, locale))]).then((r) => r.map((x) => x.body));
+        if (v1.data.events.length === v2.data.events.length) break;
+        await new Promise((r) => setTimeout(r, 3000));
+      }
+    });
 
-  test('events cùng tập trận với V2', () => {
-    const a = new Set(v1.data.events.map((e: any) => e.id));
-    const b = new Set(v2.data.events.map((e: any) => e.id));
-    expect([...b].filter((id) => !a.has(id))).toEqual([]);
-    expect([...a].filter((id) => !b.has(id))).toEqual([]);
-  });
+    test('response hợp lệ, không trùng trận', () => {
+      expect(v1.code).toBe(1);
+      expect(v1.data.pagination).toMatchObject({ page: 1, size: 5000 });
+      expect(duplicateIds(v1.data.events)).toEqual([]);
+    });
 
-  test('trận không thuộc bảng đấu: thứ tự trùng V2; thứ tự giải trùng V2', () => {
-    const grouped = new Set(v2.data.events.filter((e: any) => e.tournament.group_id).map((e: any) => e.id));
-    const order1 = v1.data.events.filter((e: any) => !grouped.has(e.id)).map((e: any) => e.id);
-    const order2 = v2.data.events.filter((e: any) => !grouped.has(e.id)).map((e: any) => e.id);
-    expect(order1).toEqual(order2);
-    const comps = (evs: any[]) => [...new Set(evs.map((e) => e.tournament.id))];
-    expect(comps(v1.data.events)).toEqual(comps(v2.data.events));
-  });
+    test('events cùng tập trận với V2', () => {
+      const a = new Set(v1.data.events.map((e: any) => e.id));
+      const b = new Set(v2.data.events.map((e: any) => e.id));
+      expect([...b].filter((id) => !a.has(id))).toEqual([]);
+      expect([...a].filter((id) => !b.has(id))).toEqual([]);
+    });
 
-  test('V1 không có tournament.group_id', () => {
-    expect(v1.data.events.filter((e: any) => e.tournament.group_id).map((e: any) => e.id)).toEqual([]);
-  });
+    test('trận không thuộc bảng đấu: thứ tự trùng V2; thứ tự giải trùng V2', () => {
+      const grouped = new Set(v2.data.events.filter((e: any) => e.tournament.group_id).map((e: any) => e.id));
+      const order1 = v1.data.events.filter((e: any) => !grouped.has(e.id)).map((e: any) => e.id);
+      const order2 = v2.data.events.filter((e: any) => !grouped.has(e.id)).map((e: any) => e.id);
+      expect(order1).toEqual(order2);
+      const comps = (evs: any[]) => [...new Set(evs.map((e) => e.tournament.id))];
+      expect(comps(v1.data.events)).toEqual(comps(v2.data.events));
+    });
 
-  test('otherCompetitions phẳng: mỗi dòng 1 giải, sắp tier tăng dần (99999 cuối)', () => {
-    const rows = v1.data.otherCompetitions;
-    for (const r of rows) {
-      expect(typeof r.competition_id).toBe('string');
-      expect(r.match_count).toBeGreaterThan(0);
-    }
-    const tiers = rows.map((r: any) => r.competition_tier);
-    expect(tiers.every((t: number, i: number) => i === 0 || t >= tiers[i - 1])).toBe(true);
-    expect(new Set(rows.map((r: any) => r.competition_id)).size).toBe(rows.length);
-  });
+    test('V1 không có tournament.group_id', () => {
+      expect(v1.data.events.filter((e: any) => e.tournament.group_id).map((e: any) => e.id)).toEqual([]);
+    });
 
-  test('tổng match_count V1 ≥ V2 (V1 giữ cả giải không có quốc gia/châu lục)', () => {
-    const s1 = v1.data.otherCompetitions.reduce((s: number, r: any) => s + r.match_count, 0);
-    const s2 = v2.data.otherCompetitions.reduce((s: number, g: any) => s + g.match_count, 0);
-    expect(s1).toBeGreaterThanOrEqual(s2);
+    test('otherCompetitions phẳng: mỗi dòng 1 giải, sắp tier tăng dần (99999 cuối)', () => {
+      const rows = v1.data.otherCompetitions;
+      for (const r of rows) {
+        expect(typeof r.competition_id).toBe('string');
+        expect(r.match_count).toBeGreaterThan(0);
+      }
+      const tiers = rows.map((r: any) => r.competition_tier);
+      expect(tiers.every((t: number, i: number) => i === 0 || t >= tiers[i - 1])).toBe(true);
+      expect(new Set(rows.map((r: any) => r.competition_id)).size).toBe(rows.length);
+    });
+
+    test('tổng match_count V1 ≥ V2 (V1 giữ cả giải không có quốc gia/châu lục)', () => {
+      const s1 = v1.data.otherCompetitions.reduce((s: number, r: any) => s + r.match_count, 0);
+      const s2 = v2.data.otherCompetitions.reduce((s: number, g: any) => s + g.match_count, 0);
+      expect(s1).toBeGreaterThanOrEqual(s2);
+    });
   });
-});
+}
 
 // Mọi request competitionId trên V1 có thể ghi đè cache trang chủ của 1 pod
 // (BUG #1) → người dùng thật vào trang chủ ngày đó trên pod đó chỉ thấy vài

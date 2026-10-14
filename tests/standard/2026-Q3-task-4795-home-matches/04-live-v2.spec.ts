@@ -10,7 +10,8 @@ import {
   firstSuggestionViolation, brokenGroups, duplicateIds, isSortedAsc,
 } from './lib/home-client';
 
-for (const locale of ['VN', 'GB']) {
+// Mở rộng từ 2 locale lên 10 locale đa châu lục — cùng lý do với live-v1.
+for (const locale of ['VN', 'GB', 'US', 'JP', 'BR', 'TH', 'DE', 'KR', 'ID', 'AU']) {
   test.describe(`live-v2 · ${locale}`, () => {
     let body: any;
 

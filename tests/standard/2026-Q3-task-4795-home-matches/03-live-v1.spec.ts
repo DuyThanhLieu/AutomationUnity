@@ -10,7 +10,10 @@
 import { test, expect } from '@playwright/test';
 import { post, liveV1, INPROGRESS_TYPE, splitCompetitions, duplicateIds, isSortedAsc } from './lib/home-client';
 
-for (const locale of ['VN', 'GB']) {
+// Mở rộng từ 2 locale (VN, GB) lên 10 locale đa châu lục — trận live có thể
+// khác nhau tuỳ locale (otherCompetitions ưu tiên khác nhau), tăng độ phủ để
+// bắt bug chỉ lộ ra ở 1 số quốc gia cụ thể.
+for (const locale of ['VN', 'GB', 'US', 'JP', 'BR', 'TH', 'DE', 'KR', 'ID', 'AU']) {
   test.describe(`live v1 · ${locale}`, () => {
     let body: any;
 
