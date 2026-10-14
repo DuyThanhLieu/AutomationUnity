@@ -34,6 +34,17 @@ jobs:
         continue-on-error: true
         env:
           PLAYWRIGHT_JSON_OUTPUT_NAME: test-results.json
+          # DB football (nguồn thật, bảng isport_sport_event) — dùng bởi
+          # 15-db-cross-check.spec.ts. Thiếu các secret này thì file đó tự
+          # fail kết nối (ECONNREFUSED) — set đủ 5 secret trong GitHub repo
+          # Settings → Secrets and variables → Actions trước khi mong đợi
+          # file 15 chạy được trên CI.
+          FOOTBALL_DB_HOST: ${{ secrets.FOOTBALL_DB_HOST }}
+          FOOTBALL_DB_PORT: ${{ secrets.FOOTBALL_DB_PORT }}
+          FOOTBALL_DB_USER: ${{ secrets.FOOTBALL_DB_USER }}
+          FOOTBALL_DB_PASSWORD: ${{ secrets.FOOTBALL_DB_PASSWORD }}
+          FOOTBALL_DB_NAME: ${{ secrets.FOOTBALL_DB_NAME }}
+          ID_ENCODE_BASE: ${{ secrets.ID_ENCODE_BASE }}
         run: |
           npx playwright test tests/standard/2026-Q3-task-4795-home-matches/ \
             --project=chrome \
@@ -73,6 +84,7 @@ jobs:
               ['12-cross-day-extended.spec.ts', 'cross-day-extended'],
               ['13-extended-coverage.spec.ts', 'extended-coverage'],
               ['14-full-locale-matrix.spec.ts', 'locale-matrix'],
+              ['15-db-cross-check.spec.ts', 'db-cross-check'],
             ];
             const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
 

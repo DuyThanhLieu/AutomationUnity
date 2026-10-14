@@ -65,6 +65,7 @@ node -e "
     ['12-cross-day-extended.spec.ts', 'cross-day-extended'],
     ['13-extended-coverage.spec.ts', 'extended-coverage'],
     ['14-full-locale-matrix.spec.ts', 'locale-matrix'],
+    ['15-db-cross-check.spec.ts', 'db-cross-check'],
   ];
   const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
 
