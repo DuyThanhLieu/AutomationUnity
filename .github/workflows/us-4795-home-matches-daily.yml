@@ -69,6 +69,7 @@ jobs:
               ['08-live-and-rare-cases.spec.ts', 'live-rare-cases'],
               ['09-ui-navigation.spec.ts', 'ui-navigation'],
               ['10-cross-day-regression.spec.ts', 'cross-day-regression'],
+              ['11-ui-daily-user-journey.spec.ts', 'ui-daily-journey'],
             ];
             const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
 
@@ -144,18 +145,20 @@ jobs:
 
       - name: Commit cross-day baseline
         if: always()
-        # File 10-cross-day-regression.spec.ts ghi lại baseline/.baseline/matches.json
-        # trong test.afterAll() bất kể test pass/fail — commit lại NGAY ở đây để lần
-        # chạy daily KẾ TIẾP đọc được baseline của lần này. Không commit thì cơ chế
-        # "so sánh xuyên ngày" (tỷ số đổi sau finished, trận biến mất, data kẹt
-        # nhiều ngày) hoàn toàn vô nghĩa — mỗi lần chạy sẽ lại bắt đầu từ baseline
-        # rỗng vì ubuntu-latest runner không giữ state giữa các lần chạy.
+        # 2 file ghi baseline trong test.afterAll() bất kể pass/fail:
+        #   - 10-cross-day-regression.spec.ts  → .baseline/matches.json (tầng API)
+        #   - 11-ui-daily-user-journey.spec.ts → .baseline/ui-matches.json (tầng UI thật)
+        # Commit lại NGAY ở đây để lần chạy daily KẾ TIẾP đọc được baseline của
+        # lần này. Không commit thì toàn bộ cơ chế "so sánh xuyên ngày" (tỷ số
+        # đổi sau finished, trận biến mất, UI tiến trình bị lùi, data kẹt nhiều
+        # ngày) vô nghĩa — mỗi lần chạy lại bắt đầu từ baseline rỗng vì
+        # ubuntu-latest runner không giữ state giữa các lần chạy.
         run: |
-          BASELINE_PATH="tests/standard/2026-Q3-task-4795-home-matches/.baseline/matches.json"
-          if [[ -f "$BASELINE_PATH" ]] && ! git diff --quiet -- "$BASELINE_PATH"; then
+          BASELINE_DIR="tests/standard/2026-Q3-task-4795-home-matches/.baseline"
+          if [[ -d "$BASELINE_DIR" ]] && ! git diff --quiet -- "$BASELINE_DIR"; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add "$BASELINE_PATH"
+            git add "$BASELINE_DIR"
             git commit -m "chore(US-4795): update cross-day baseline [skip ci]"
             # Có thể có commit khác đã push lên main giữa lúc job chạy — rebase rồi
             # thử lại 1 lần, không retry vô hạn để tránh job treo nếu xung đột thật.
