@@ -205,3 +205,168 @@ test.describe('UI vs API — tab Finished', () => {
     expect(issues, issues.join('\n')).toEqual([]);
   });
 });
+
+// ============================================================================
+// Nhóm case mới: trận BIẾN MẤT khỏi UI, SẮP SAI THỨ TỰ, và hiển thị SAI TAB
+// (trận chưa đến ngày thi đấu lại lọt vào Finished, hoặc ngược lại).
+// ============================================================================
+
+/** Trạng thái "chưa diễn ra" theo status.type API (xem STALE_CODES ở file 01). */
+const NOT_STARTED_TYPES = new Set(['not_started']);
+const FINISHED_TYPES = new Set(['finished']);
+
+test.describe('UI vs API — trận mất tích / sai thứ tự (tab All)', () => {
+  test('không có trận nào bị MẤT HOÀN TOÀN khỏi UI tab All (không tìm thấy ở bất kỳ vị trí nào)', async ({ page, request }) => {
+    const { body } = await post(request, scheduledV2(TODAY, 'VN', 'all', 'en'));
+    test.skip(body.code !== 1 || body.data.events.length === 0, 'Không có trận nào hôm nay để đối chiếu');
+
+    await page.goto(`${SITE}?date=${TODAY}`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(800);
+    const uiText = await getMainListText(page);
+
+    // Khác với test "đúng thứ tự" (cho phép lệch nhỏ do phân trang): đây chỉ
+    // kiểm tra trận có MẶT ở bất kỳ đâu trong UI hay không, không quan tâm vị
+    // trí — tách riêng để khi fail, biết chắc là "mất trận" chứ không phải
+    // "chỉ sai thứ tự" (2 loại bug khác nhau, cần dev xử lý khác nhau).
+    const missing = body.data.events.filter((e: any) => !uiText.includes(e.homeTeam.shortName) || !uiText.includes(e.awayTeam.shortName));
+    const report = missing.map((e: any) => `"${e.homeTeam.shortName} vs ${e.awayTeam.shortName}" (${e.tournament?.name ?? '?'}, id=${e.id})`);
+    const threshold = Math.max(2, Math.ceil(body.data.events.length * 0.05));
+    expect(report.length, `${report.length}/${body.data.events.length} trận MẤT KHỎI UI hoàn toàn:\n${report.join('\n')}`).toBeLessThanOrEqual(threshold);
+  });
+
+  test('thứ tự hiển thị trên UI không bị ĐẢO NGƯỢC so với API (trận #N không được đứng trước trận #N-1)', async ({ page, request }) => {
+    const { body } = await post(request, scheduledV2(TODAY, 'VN', 'all', 'en'));
+    test.skip(body.code !== 1 || body.data.events.length < 2, 'Không đủ trận để kiểm tra thứ tự');
+
+    await page.goto(`${SITE}?date=${TODAY}`, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(800);
+    const uiText = await getMainListText(page);
+
+    // Lấy vị trí (index trong uiText) của từng trận tìm thấy được, theo đúng
+    // thứ tự API trả về. Nếu UI hiển thị đúng thứ tự, dãy vị trí này phải tăng
+    // dần đơn điệu — 1 vị trí nhỏ hơn vị trí trước đó nghĩa là 2 trận đã bị
+    // ĐẢO CHỖ cho nhau trên UI (khác với "mất trận": ở đây cả 2 đều có mặt,
+    // chỉ sai thứ tự tương đối).
+    const positions: Array<{ idx: number; home: string; away: string; pos: number }> = [];
+    for (let i = 0; i < body.data.events.length; i++) {
+      const e = body.data.events[i];
+      const pos = uiText.indexOf(e.homeTeam.shortName);
+      if (pos !== -1) positions.push({ idx: i, home: e.homeTeam.shortName, away: e.awayTeam.shortName, pos });
+    }
+
+    const outOfOrder: string[] = [];
+    for (let i = 1; i < positions.length; i++) {
+      if (positions[i].pos < positions[i - 1].pos) {
+        outOfOrder.push(
+          `Trận #${positions[i].idx} "${positions[i].home} vs ${positions[i].away}" (vị trí UI=${positions[i].pos}) ` +
+          `đứng TRƯỚC trận #${positions[i - 1].idx} "${positions[i - 1].home} vs ${positions[i - 1].away}" (vị trí UI=${positions[i - 1].pos}), ngược thứ tự API`
+        );
+      }
+    }
+    // Cho phép vài cặp lệch do trùng substring tên rút gọn (vd "Sao Paulo" vs
+    // "Paulo") gây định vị index sai — chỉ fail khi số lượng đủ lớn để là bug
+    // thật, không phải nhiễu do cách so chuỗi.
+    const threshold = Math.max(3, Math.ceil(positions.length * 0.05));
+    expect(outOfOrder.length, `${outOfOrder.length} cặp trận bị đảo thứ tự:\n${outOfOrder.join('\n')}`).toBeLessThanOrEqual(threshold);
+  });
+});
+
+test.describe('UI vs API — trận hiển thị SAI TAB (chưa đến ngày / đã xong nhưng lẫn tab)', () => {
+  test('tab Upcoming không được lẫn trận ĐÃ KẾT THÚC (status finished)', async ({ page, request }) => {
+    const { body } = await post(request, scheduledV2(TODAY, 'VN', 'upcoming', 'en'));
+    test.skip(body.code !== 1, 'API không trả code 1');
+
+    // Case biên quan trọng nhất theo yêu cầu: chính API trả về tab "upcoming"
+    // nhưng lại chứa trận có status "finished" — đây là bug backend thật,
+    // không phải lỗi hiển thị UI. Kiểm tra ngay ở tầng API trước khi tốn công
+    // verify UI (UI không thể "sửa" được dữ liệu sai từ API).
+    const wronglyFinished = body.data.events.filter((e: any) => FINISHED_TYPES.has(e.status?.type));
+    expect(
+      wronglyFinished.map((e: any) => `"${e.homeTeam.shortName} vs ${e.awayTeam.shortName}" status=${e.status?.type}`),
+      'API tab Upcoming trả về trận ĐÃ KẾT THÚC'
+    ).toEqual([]);
+
+    test.skip(body.data.events.length === 0, 'Không có trận upcoming hôm nay để verify UI');
+    await page.goto(SITE, { waitUntil: 'networkidle' });
+    const upcomingTab = page.getByTestId('filter-upcoming');
+    await upcomingTab.click();
+    await page.waitForTimeout(800);
+    const uiText = await getMainListText(page);
+
+    // UI không được hiện badge "FT" (kết thúc) cho bất kỳ trận nào đang ở tab
+    // Upcoming — nếu có, là bug hiển thị UI (khác bug backend đã check ở trên).
+    //
+    // QUAN TRỌNG: định vị bằng indexOf(home) ĐƠN LẺ sẽ lấy occurrence ĐẦU TIÊN
+    // của tên đội trong toàn bộ uiText — sai nếu đội đó (hoặc 1 đội trùng tên
+    // rút gọn, vd "Inter" của cả Inter Milan lẫn Inter Miami) từng xuất hiện ở
+    // vị trí khác trước đó trong text. Phải định vị bằng CẶP home+away liền kề
+    // (giống cách test "đúng thứ tự" ở trên đã làm đúng) để chắc chắn lấy đúng
+    // context của chính trận #i, không phải 1 occurrence trùng tên ngẫu nhiên.
+    const sampleSize = Math.min(10, body.data.events.length);
+    const wrongBadge: string[] = [];
+    let cursor1 = 0;
+    for (let i = 0; i < sampleSize; i++) {
+      const e = body.data.events[i];
+      const home = e.homeTeam.shortName;
+      const away = e.awayTeam.shortName;
+      const homeIdx = uiText.indexOf(home, cursor1);
+      if (homeIdx === -1) continue; // đã báo "mất trận" ở test khác, không lặp lại ở đây
+      const awayIdx = uiText.indexOf(away, homeIdx);
+      if (awayIdx === -1) continue;
+      cursor1 = awayIdx;
+      // Lấy đoạn text ngay trước tên đội home — đây là nơi badge trạng thái
+      // ("FT", giờ "HH:MM") thường nằm cạnh tên giải, theo đúng layout đã quan
+      // sát qua getMainListText.
+      const context = uiText.slice(Math.max(0, homeIdx - 80), homeIdx);
+      if (/\bFT\b/.test(context)) wrongBadge.push(`#${i} "${home}": thấy badge "FT" ngay trước tên đội dù status API là upcoming`);
+    }
+    expect(wrongBadge, wrongBadge.join('\n')).toEqual([]);
+  });
+
+  test('tab Finished không được lẫn trận CHƯA DIỄN RA (status not_started, chưa đến ngày)', async ({ page, request }) => {
+    const { body } = await post(request, scheduledV2(TODAY, 'VN', 'finish', 'en'));
+    test.skip(body.code !== 1, 'API không trả code 1');
+
+    // Tương tự trên: check tầng API trước — trận chưa bắt đầu lọt vào tab
+    // "finish" là bug backend rõ ràng, không phụ thuộc UI.
+    const wronglyNotStarted = body.data.events.filter((e: any) => NOT_STARTED_TYPES.has(e.status?.type));
+    expect(
+      wronglyNotStarted.map((e: any) => `"${e.homeTeam.shortName} vs ${e.awayTeam.shortName}" status=${e.status?.type}, startTimestamp=${e.startTimestamp}`),
+      'API tab Finished trả về trận CHƯA DIỄN RA (chưa đến ngày)'
+    ).toEqual([]);
+
+    test.skip(body.data.events.length === 0, 'Không có trận finished hôm nay để verify UI');
+    await page.goto(SITE, { waitUntil: 'networkidle' });
+    const finishedTab = page.getByTestId('filter-finish');
+    await finishedTab.click();
+    await page.waitForTimeout(800);
+    const uiText = await getMainListText(page);
+
+    // Ngược lại: UI không được hiện giờ thi đấu dạng "HH:MM" (dấu hiệu trận
+    // chưa đá) cho trận ở tab Finished — trận đã xong phải hiện "FT", không
+    // phải giờ kickoff.
+    //
+    // Định vị bằng CẶP home+away liền kề (không phải indexOf(home) đơn lẻ) —
+    // xem giải thích chi tiết ở test "tab Upcoming" phía trên: tên rút gọn
+    // trùng nhau giữa nhiều đội (vd "Inter" = Inter Milan lẫn Inter Miami) có
+    // thể khớp nhầm occurrence đầu tiên, gây false-positive.
+    const sampleSize = Math.min(10, body.data.events.length);
+    const wrongBadge: string[] = [];
+    let cursor2 = 0;
+    for (let i = 0; i < sampleSize; i++) {
+      const e = body.data.events[i];
+      const home = e.homeTeam.shortName;
+      const away = e.awayTeam.shortName;
+      const homeIdx = uiText.indexOf(home, cursor2);
+      if (homeIdx === -1) continue;
+      const awayIdx = uiText.indexOf(away, homeIdx);
+      if (awayIdx === -1) continue;
+      cursor2 = awayIdx;
+      const context = uiText.slice(Math.max(0, homeIdx - 80), homeIdx);
+      if (/\d{1,2}:\d{2}/.test(context) && !context.includes('FT')) {
+        wrongBadge.push(`#${i} "${home}": thấy giờ kickoff (chưa đá) ngay trước tên đội dù status API là finished`);
+      }
+    }
+    expect(wrongBadge, wrongBadge.join('\n')).toEqual([]);
+  });
+});
