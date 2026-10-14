@@ -2,8 +2,12 @@ name: US-4795 Home Matches - Daily Check
 
 on:
   schedule:
-    # 01:30 UTC = 08:30 giờ VN hằng ngày
-    - cron: '30 1 * * *'
+    # 01:37 UTC = 08:37 giờ VN hằng ngày. Dùng phút lẻ (không phải :00/:30
+    # tròn) theo khuyến nghị của GitHub để tránh bị dồn vào hàng đợi chung
+    # với hàng loạt workflow khác chạy đúng giờ tròn — nguyên nhân khiến lần
+    # chạy 08:30 VN 14/10/2026 không trigger (GitHub tự ghi nhận: "scheduled
+    # workflows may be delayed or dropped during periods of high load").
+    - cron: '37 1 * * *'
   workflow_dispatch: {}
 
 jobs:
