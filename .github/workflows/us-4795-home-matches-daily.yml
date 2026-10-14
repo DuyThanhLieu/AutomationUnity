@@ -66,21 +66,31 @@ jobs:
             const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
 
             function fileOf(spec) { return (spec.file || '').split('/').pop(); }
-            function walk(suite) {
+            // Giữ lại tên describe block cha (vd 'scheduled-v2 · VN · 2026-10-14 · all')
+            // — đây chính là nơi chứa ngày/locale cụ thể bug xảy ra, bị mất nếu chỉ
+            // lấy spec.title (tên test con, không có ngày). Với bộ test đã mở rộng
+            // nhiều ngày/locale, không có ngày trong tên fail thì không biết bug
+            // xảy ra đúng ngày nào để báo lại.
+            function walk(suite, describePath) {
               for (const spec of suite.specs || []) {
                 const bucket = byFile.get(fileOf(spec));
+                const fullTitle = describePath ? describePath + ' › ' + spec.title : spec.title;
                 for (const t of spec.tests || []) {
                   for (const r of t.results || []) {
                     if (!bucket) continue;
                     if (r.status === 'passed') bucket.passed++;
                     else if (r.status === 'skipped') bucket.skipped++;
-                    else { bucket.failed++; bucket.failTitles.push(spec.title); }
+                    else { bucket.failed++; bucket.failTitles.push(fullTitle); }
                   }
                 }
               }
-              for (const s of suite.suites || []) walk(s);
+              for (const s of suite.suites || []) {
+                // Suite gốc (tên file .spec.ts) không cần lặp lại trong path hiển thị.
+                const nextPath = /\.spec\.ts$/.test(s.title) ? describePath : (describePath ? describePath + ' › ' + s.title : s.title);
+                walk(s, nextPath);
+              }
             }
-            for (const s of data.suites || []) walk(s);
+            for (const s of data.suites || []) walk(s, null);
 
             const { expected = 0, unexpected = 0, skipped = 0 } = data.stats || {};
             const ranAt = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false });
@@ -104,11 +114,21 @@ jobs:
               const icon = b.failed > 0 ? '❌' : '✅';
               lines.push(icon + ' <b>' + label + '</b> — ' + b.passed + ' pass, ' + b.failed + ' fail, ' + b.skipped + ' skip');
             }
-            const allFailTitles = FILE_LABEL.flatMap(([f, label]) => byFile.get(f).failTitles.map((t) => '[' + label + '] ' + t));
+            // Không cần prefix [label] nữa — describe path (vd 'scheduled-v2 · VN ·
+            // 2026-10-14 · all') đã tự chứa đúng tên route + ngày + locale rồi.
+            const allFailTitles = FILE_LABEL.flatMap(([f]) => byFile.get(f).failTitles);
             if (allFailTitles.length) {
               lines.push('');
               lines.push('<b>Chi tiết fail:</b>');
-              for (const t of allFailTitles) lines.push('• ' + esc(t));
+              // Giới hạn 20 dòng đầu — bộ test đã mở rộng nhiều ngày/locale nên 1 bug
+              // thật (vd VT9 fallback) có thể fail hàng chục case cùng lúc; in hết sẽ
+              // vượt giới hạn 4096 ký tự của Telegram. Link report đầy đủ ở cuối tin
+              // (xem bước Upload HTML report) vẫn cho xem toàn bộ danh sách thật.
+              const MAX_SHOWN = 20;
+              for (const t of allFailTitles.slice(0, MAX_SHOWN)) lines.push('• ' + esc(t));
+              if (allFailTitles.length > MAX_SHOWN) {
+                lines.push('… và ' + (allFailTitles.length - MAX_SHOWN) + ' case khác (xem report đầy đủ)');
+              }
             }
             fs.writeFileSync('telegram-message.html', lines.join('\n'));
             console.log('Passed: ' + expected + ', Failed: ' + unexpected + ', Skipped: ' + skipped);

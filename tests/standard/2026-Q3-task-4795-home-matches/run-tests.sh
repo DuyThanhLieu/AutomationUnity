@@ -61,21 +61,27 @@ node -e "
   const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
 
   function fileOf(spec) { return (spec.file || '').split('/').pop(); }
-  function walk(suite) {
+  // Giữ tên describe cha (vd 'scheduled-v2 · VN · 2026-10-14 · all') — chứa
+  // ngày/locale cụ thể bug xảy ra, mất nếu chỉ lấy spec.title.
+  function walk(suite, describePath) {
     for (const spec of suite.specs || []) {
       const bucket = byFile.get(fileOf(spec));
+      const fullTitle = describePath ? describePath + ' › ' + spec.title : spec.title;
       for (const t of spec.tests || []) {
         for (const r of t.results || []) {
           if (!bucket) continue;
           if (r.status === 'passed') bucket.passed++;
           else if (r.status === 'skipped') bucket.skipped++;
-          else { bucket.failed++; bucket.failTitles.push(spec.title); }
+          else { bucket.failed++; bucket.failTitles.push(fullTitle); }
         }
       }
     }
-    for (const s of suite.suites || []) walk(s);
+    for (const s of suite.suites || []) {
+      const nextPath = /\.spec\.ts$/.test(s.title) ? describePath : (describePath ? describePath + ' › ' + s.title : s.title);
+      walk(s, nextPath);
+    }
   }
-  for (const s of data.suites || []) walk(s);
+  for (const s of data.suites || []) walk(s, null);
 
   const { expected = 0, unexpected = 0, skipped = 0 } = data.stats || {};
   const ranAt = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false });
@@ -95,11 +101,15 @@ node -e "
     const icon = b.failed > 0 ? '❌' : '✅';
     lines.push(icon + ' <b>' + label + '</b> — ' + b.passed + ' pass, ' + b.failed + ' fail, ' + b.skipped + ' skip');
   }
-  const allFailTitles = FILE_LABEL.flatMap(([f, label]) => byFile.get(f).failTitles.map((t) => '[' + label + '] ' + t));
+  const allFailTitles = FILE_LABEL.flatMap(([f]) => byFile.get(f).failTitles);
   if (allFailTitles.length) {
     lines.push('');
     lines.push('<b>Chi tiết fail:</b>');
-    for (const t of allFailTitles) lines.push('• ' + esc(t));
+    const MAX_SHOWN = 20;
+    for (const t of allFailTitles.slice(0, MAX_SHOWN)) lines.push('• ' + esc(t));
+    if (allFailTitles.length > MAX_SHOWN) {
+      lines.push('… và ' + (allFailTitles.length - MAX_SHOWN) + ' case khác (xem report đầy đủ: npx playwright show-report)');
+    }
   }
   fs.writeFileSync(workdir + '/telegram-message.html', lines.join('\n'));
   console.log('Passed: ' + expected + ', Failed: ' + unexpected + ', Skipped: ' + skipped);
