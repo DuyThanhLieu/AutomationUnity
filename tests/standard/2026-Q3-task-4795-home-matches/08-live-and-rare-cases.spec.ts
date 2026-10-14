@@ -123,9 +123,12 @@ test.describe('case hiếm · trận hoãn/huỷ (BUG #5 doc my-matches)', () =>
     }
     test.skip(found.length === 0, 'Chưa gặp trận hoãn/huỷ nào trong 7 ngày qua tại lần chạy này — sẽ tự bắt khi có (BUG #5 doc my-matches)');
     // Nếu tới đây nghĩa là ĐÃ tìm thấy ít nhất 1 trận hoãn/huỷ, và nó ĐANG xuất
-    // hiện trong response — tức là test tự chứng minh bug (nếu có) không còn
-    // tái hiện ở route scheduled-v2 (chỉ còn phải verify tiếp ở my-matches
-    // bằng tay khi gặp case này, do my-matches cần biết đội yêu thích cụ thể).
+    // hiện trong response — tức là scheduled-v2 không ẩn trận treo (khác hẳn
+    // bug thật ở my-matches). Test NÀY chỉ verify scheduled-v2; bug #5 thật sự
+    // (trận hoãn/huỷ của ĐỘI YÊU THÍCH bị ẩn khỏi my-matches) được verify riêng
+    // ở 05-my-matches.spec.ts (test "BUG #5") — vì my-matches dùng pipeline ES
+    // khác hẳn scheduled-v2 (đúng theo mô tả doc), không thể suy luận từ kết
+    // quả của test này.
     expect(found.length).toBeGreaterThan(0);
   });
 });

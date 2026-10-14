@@ -7,7 +7,7 @@
  * CHẠY: npx playwright test tests/standard/2026-Q3-task-4795-home-matches/05-my-matches.spec.ts --project=chrome
  */
 import { test, expect } from '@playwright/test';
-import { post, vnDate, myMatches, SAMPLE_FAVORITES, SAMPLE_FAVORITES_2, FINISHED_CODES, INPROGRESS_TYPE } from './lib/home-client';
+import { post, vnDate, myMatches, scheduledV2, SAMPLE_FAVORITES, SAMPLE_FAVORITES_2, FINISHED_CODES, INPROGRESS_TYPE } from './lib/home-client';
 
 const STALE_CODES = [0, 1, 15, 60, 70, 80, 90];
 const PAST_DAYS = [-1, -2, -3, -4, -5, -6, -7].map(vnDate);
@@ -129,8 +129,42 @@ test.describe('my-matches · bug đã báo fix', () => {
     }
   });
 
-  test.fixme('BUG #5: trận hoãn/huỷ của đội yêu thích ở ngày đã qua vẫn hiện ở type=all', async () => {
-    // Cần 1 trận hoãn/huỷ thật của đội trong SAMPLE_FAVORITES (id + ngày) để khẳng định
-    // trận đó có trong response type=all của đúng ngày. Bổ sung id khi có mẫu.
+  // Thay cho test.fixme cũ — tự dò khi có data thay vì chờ ai đó bổ sung id
+  // thủ công (đã quá hạn từ lâu, chưa từng được bổ sung). Doc mục 05 ghi rõ
+  // bug này CHỈ xảy ra ở my-matches (query ES riêng, lọc khác hẳn
+  // scheduled-v2) — file 08-live-and-rare-cases.spec.ts có 1 test tương tự
+  // nhưng cho scheduled-v2, KHÔNG cover được bug này (2 route dùng pipeline
+  // dữ liệu khác nhau theo đúng mô tả doc).
+  const STALE_CODES_MY_MATCHES = [15, 60, 70, 80, 90]; // hoãn/gián đoạn/huỷ/bỏ dở/cut-in-half (không tính 0/1 — chưa đá/pending vẫn hợp lệ ở ngày tương lai)
+
+  test('BUG #5: khi có trận hoãn/huỷ thật của đội yêu thích ở ngày đã qua, trận đó không được biến mất khỏi my-matches type=all', async ({ request }) => {
+    const bothSets = [SAMPLE_FAVORITES, SAMPLE_FAVORITES_2];
+    let found: { date: string; e: any; favorites: typeof SAMPLE_FAVORITES } | null = null;
+
+    for (const favorites of bothSets) {
+      const isFav = makeIsFav(favorites);
+      for (const date of PAST_DAYS) {
+        // Dùng scheduled-v2 (nguồn sự thật độc lập, không qua pipeline
+        // my-matches) để tìm trận hoãn/huỷ thật của đúng ngày đó — nếu
+        // scheduled-v2 cũng không thấy thì không chắc trận có tồn tại thật sự
+        // hay chỉ do giới hạn tìm kiếm, nên không dùng làm bằng chứng.
+        const { body } = await post(request, scheduledV2(date, 'VN', 'all', 'en'));
+        if (body.code !== 1) continue;
+        const stale = body.data.events.find((e: any) => STALE_CODES_MY_MATCHES.includes(e.status.code) && isFav(e));
+        if (stale) { found = { date, e: stale, favorites }; break; }
+      }
+      if (found) break;
+    }
+    test.skip(!found, 'Không tìm được trận hoãn/huỷ nào của đội yêu thích trong 7 ngày qua tại lần chạy này — sẽ tự bắt khi có (BUG #5, doc 5-5-my-matches.md mục 05)');
+
+    const { date, e, favorites } = found!;
+    const { body: myBody } = await post(request, myMatches('all', 'VN'), { ...favorites, startDate: date });
+    expect(myBody.code).toBe(1);
+    const stillThere = myBody.data.events.some((ev: any) => ev.id === e.id);
+    expect(
+      stillThere,
+      `Trận hoãn/huỷ "${e.homeTeam.shortName} vs ${e.awayTeam.shortName}" (status.code=${e.status.code}, ngày ${date}) có thật trên scheduled-v2 ` +
+      `nhưng KHÔNG xuất hiện trong my-matches type=all cùng ngày — BUG #5 vẫn còn tái hiện`
+    ).toBe(true);
   });
 });

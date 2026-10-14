@@ -67,15 +67,22 @@ test.describe('live-v2 · body', () => {
     expect(Math.abs(body.data.events.length - def.data.events.length)).toBeLessThanOrEqual(2);
   });
 
-  test('sortByMatchTime: tăng dần theo giờ bắt đầu, chỉ có events + pagination', async ({ request }) => {
+  test('sortByMatchTime: tăng dần theo giờ bắt đầu, chỉ có events + pagination, vẫn có aggHomeScore/aggAwayScore', async ({ request }) => {
     const { body } = await post(request, liveV2(), { sortByMatchTime: true });
     test.skip(body.code !== 1, 'Không có trận live');
     expect(isSortedAsc(body.data.events.map((e: any) => e.startTimestamp))).toBe(true);
     expect(Object.keys(body.data).sort()).toEqual(['events', 'pagination']);
+    // Doc mục 08: sortByMatchTime bỏ otherCompetitions nhưng KHÔNG bỏ field
+    // aggHomeScore/aggAwayScore của từng event — verify field vẫn có mặt
+    // (không undefined) dù giá trị thường là -1 khi không phải trận lượt về.
+    const missingAgg = body.data.events.filter((e: any) => typeof e.aggHomeScore !== 'number' || typeof e.aggAwayScore !== 'number');
+    expect(missingAgg.map((e: any) => e.id)).toEqual([]);
   });
 
-  test.fixme('BUG #3: pass World Cup (gắn gợi ý cho bảng có ĐTQG locale) chạy khi ENCODE_ID bật', async () => {
-    // Chỉ verify được khi có World Cup nam đang diễn ra: trận cùng bảng với ĐTQG
-    // của locale phải có tournament.suggestion = 1 và đứng trong khối gợi ý.
-  });
+  // BUG #3 (pass World Cup gắn gợi ý cho bảng có ĐTQG locale, chạy khi
+  // ENCODE_ID bật) — đã có test thật thay cho test.fixme cũ (vốn chết vĩnh
+  // viễn, chỉ verify được thủ công khi ai đó nhớ ngày có World Cup), xem
+  // 08-live-and-rare-cases.spec.ts › "case hiếm · World Cup / giải đấu quốc tế
+  // lớn đang diễn ra" — tự dò qua tên giải chứa "World Cup" trong mọi lần
+  // chạy daily, verify suggestion=1, không cần ai bật tay.
 });
