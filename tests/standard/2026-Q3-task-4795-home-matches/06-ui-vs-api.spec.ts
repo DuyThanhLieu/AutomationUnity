@@ -16,12 +16,21 @@ import { post, vnDate, scheduledV2, liveV2 } from './lib/home-client';
 const TODAY = vnDate(0);
 const SITE = 'https://uniscore.com/en';
 
-/** Lấy đúng khối chứa danh sách trận chính (loại bỏ sidebar "All Leagues" bên phải
- *  và widget "Featured Live Match" ở đầu trang — cả hai cũng chứa tên đội/quốc gia
- *  và có thể gây false-positive nếu đối chiếu bằng document.body.innerText thô).
- *  Đi lên từ tab filter "Finished" ([data-testid=filter-finish]) tới ancestor gần
- *  nhất có chứa text thật của trận (nhận diện qua dấu hiệu định dạng giờ "HH:MM"
- *  hoặc "FT") nhưng KHÔNG chứa "All Leagues" (dấu hiệu riêng của sidebar). */
+/** Lấy đúng khối chứa danh sách trận chính (loại bỏ sidebar "Other matches" bên
+ *  phải và widget "Featured Live Match" ở đầu trang — cả hai cũng chứa tên
+ *  đội/quốc gia và có thể gây false-positive nếu đối chiếu bằng
+ *  document.body.innerText thô).
+ *
+ *  LƯU Ý: text loại trừ đúng trên trang Home là "Other matches" — KHÔNG phải
+ *  "All Leagues" (đó là text ở trang /competition riêng, route khác hẳn).
+ *  Dùng nhầm "All Leagues" từng khiến điều kiện loại trừ không bao giờ khớp,
+ *  hàm rơi vào nhánh fallback document.body.innerText (lẫn lộn sidebar +
+ *  match list + footer SEO dài hàng nghìn ký tự) — chỉ lộ rõ trên CI (môi
+ *  trường render chậm hơn/khác timing) dù "tình cờ" không fail trên local.
+ *
+ *  Đi lên từ tab filter "Finished" ([data-testid=filter-finish]) tới ancestor
+ *  gần nhất có chứa text thật của trận (nhận diện qua dấu hiệu định dạng giờ
+ *  "HH:MM" hoặc "FT") nhưng KHÔNG chứa "Other matches". */
 async function getMainListText(page: import('@playwright/test').Page): Promise<string> {
   const extract = () =>
     page.evaluate(() => {
@@ -30,7 +39,7 @@ async function getMainListText(page: import('@playwright/test').Page): Promise<s
       let node: HTMLElement | null = finishedBtn as HTMLElement;
       for (let i = 0; i < 15 && node; i++) {
         const text = node.innerText || '';
-        if (!text.includes('All Leagues') && (/\d{1,2}:\d{2}/.test(text) || text.includes('FT')) && text.length > 200) {
+        if (!text.includes('Other matches') && (/\d{1,2}:\d{2}/.test(text) || text.includes('FT')) && text.length > 200) {
           return text;
         }
         node = node.parentElement;
