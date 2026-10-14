@@ -79,12 +79,13 @@ node -e "
 
   const { expected = 0, unexpected = 0, skipped = 0 } = data.stats || {};
   const ranAt = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false });
+  const vnToday = new Date(Date.now() + 7 * 3600_000).toISOString().slice(0, 10);
   const allOk = unexpected === 0;
   const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
 
   const lines = [];
   lines.push((allOk ? '✅' : '⚠️') + ' <b>US-4795 — Home Matches</b> (chạy tay)');
-  lines.push('🕗 ' + esc(ranAt) + ' (giờ VN)');
+  lines.push('🕗 ' + esc(ranAt) + ' (giờ VN) · 📅 Data ngày: ' + vnToday);
   lines.push('');
   lines.push('<b>Tổng:</b> ✅ ' + expected + ' pass · ❌ ' + unexpected + ' fail · ⏭ ' + skipped + ' skip');
   lines.push('');

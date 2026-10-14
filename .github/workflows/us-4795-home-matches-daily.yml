@@ -84,12 +84,17 @@ jobs:
 
             const { expected = 0, unexpected = 0, skipped = 0 } = data.stats || {};
             const ranAt = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh', hour12: false });
+            // Ngày VN thật mà bộ test dùng để gọi API (vnDate(0) trong code test) —
+            // in rõ ra Telegram để xác nhận mỗi lần chạy đang check ĐÚNG NGÀY HÔM
+            // ĐÓ, không phải data cũ bị lặp lại (mỗi ngày trận đấu hoàn toàn khác
+            // nhau nên đây là điều cần verify được ngay từ báo cáo, không cần đào log).
+            const vnToday = new Date(Date.now() + 7 * 3600_000).toISOString().slice(0, 10);
             const allOk = unexpected === 0;
             const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
 
             const lines = [];
             lines.push((allOk ? '✅' : '⚠️') + ' <b>US-4795 — Home Matches Daily Check</b>');
-            lines.push('🕗 ' + esc(ranAt) + ' (giờ VN)');
+            lines.push('🕗 ' + esc(ranAt) + ' (giờ VN) · 📅 Data ngày: ' + vnToday);
             lines.push('');
             lines.push('<b>Tổng:</b> ✅ ' + expected + ' pass · ❌ ' + unexpected + ' fail · ⏭ ' + skipped + ' skip');
             lines.push('');
