@@ -16,6 +16,39 @@ import { post, vnDate, scheduledV2, liveV2 } from './lib/home-client';
 const TODAY = vnDate(0);
 const SITE = 'https://uniscore.com/en';
 
+/** CẢNH BÁO QUAN TRỌNG — gốc rễ thật sự của toàn bộ "25/27 trận không tìm
+ *  thấy" trên CI (sau khi đã loại trừ các khả năng DOM/polling/sidebar):
+ *
+ *  UI tự detect "locale" (= quốc gia người xem, theo IP) khi gọi API
+ *  scheduled-v2 — KHÔNG phải tham số cố định. Trên máy dev tại Việt Nam, UI
+ *  luôn tự gọi locale=VN, nên các test trước đây hard-code locale='VN' khi
+ *  gọi API đối chiếu và TÌNH CỜ khớp — không phải vì code đúng, mà vì môi
+ *  trường chạy test trùng với giả định cứng trong code.
+ *
+ *  Trên GitHub Actions (ubuntu-latest, datacenter Mỹ), IP egress khác hẳn —
+ *  UI tự nhận diện quốc gia khác (vd United States, xác nhận qua DOM
+ *  "combobox 'country: United States'" trong CI artifact) và gọi
+ *  locale=US, ưu tiên hiển thị MLS lên đầu danh sách thay vì các giải VN hay
+ *  xem. Vì test vẫn gọi API đối chiếu với locale='VN' cứng, 2 danh sách
+ *  hoàn toàn khác nhau → gần như mọi trận "không tìm thấy".
+ *
+ *  Cách sửa đúng: bắt CHÍNH request mà UI thật sự gửi ra (qua page.on
+ *  'request'), lấy locale thật từ URL đó, rồi dùng ĐÚNG locale này để gọi
+ *  API đối chiếu — thay vì đoán/hard-code bất kỳ giá trị nào. */
+async function getUiLocale(page: import('@playwright/test').Page, gotoUrl: string): Promise<string> {
+  let capturedLocale: string | null = null;
+  const handler = (req: import('@playwright/test').Request) => {
+    const m = req.url().match(/scheduled-events-pagination-v2\/[^/]+\/locale\/([^/]+)\//);
+    if (m) capturedLocale = m[1];
+  };
+  page.on('request', handler);
+  await page.goto(gotoUrl, { waitUntil: 'networkidle' });
+  page.off('request', handler);
+  // Fallback 'VN' chỉ dùng khi không bắt được request nào (không nên xảy ra
+  // trong điều kiện bình thường) — không che giấu lỗi, chỉ tránh crash test.
+  return capturedLocale ?? 'VN';
+}
+
 /** Lấy đúng khối chứa danh sách trận chính (loại bỏ sidebar "Other matches" bên
  *  phải và widget "Featured Live Match" ở đầu trang — cả hai cũng chứa tên
  *  đội/quốc gia và có thể gây false-positive nếu đối chiếu bằng
@@ -85,15 +118,23 @@ const DAYS_TO_CHECK: Array<{ label: string; date: string }> = [
 for (const { label, date } of DAYS_TO_CHECK) {
   test.describe(`UI vs API — tab All — ${label} (${date})`, () => {
     test('toàn bộ trận trên UI khớp đúng thứ tự + tên đội với API scheduled-v2', async ({ page, request }) => {
+      // scheduled-v2 không tự chuyển ngày trên UI — dùng query ?date= mà UI
+      // hỗ trợ (đã xác nhận qua network request thật khi đổi ngày trên UI).
+      //
+      // QUAN TRỌNG: phải goto() TRƯỚC rồi lấy locale UI thật sự dùng (qua
+      // getUiLocale bắt network request), thay vì hard-code 'VN' — UI tự
+      // detect locale theo IP của máy chạy browser, và locale này gần như
+      // chắc chắn khác nhau giữa máy dev (IP VN) và CI (IP datacenter khác,
+      // thường ra US). Hard-code sai locale khiến API đối chiếu trả về 1
+      // danh sách trận hoàn toàn khác UI thật — xem chi tiết ở comment
+      // getUiLocale phía trên.
+      const uiLocale = await getUiLocale(page, `${SITE}?date=${date}`);
       // UI test chạy trên uniscore.com/en (tiếng Anh) nên phải gọi API với
       // language=en — language=vi trả field `name` khác hẳn (short code kiểu
       // "CA.HN" thay vì tên đầy đủ, xem bug UTD-899) và sẽ gây false-positive.
-      const { body } = await post(request, scheduledV2(date, 'VN', 'all', 'en'));
+      const { body } = await post(request, scheduledV2(date, uiLocale, 'all', 'en'));
       test.skip(body.code !== 1 || body.data.events.length === 0, `Không có trận nào ${label} để đối chiếu`);
 
-      // scheduled-v2 không tự chuyển ngày trên UI — dùng query ?date= mà UI
-      // hỗ trợ (đã xác nhận qua network request thật khi đổi ngày trên UI).
-      await page.goto(`${SITE}?date=${date}`, { waitUntil: 'networkidle' });
       // React có thể vẫn đang hydrate/render match list sau khi network đã idle
       // (networkidle chỉ đảm bảo hết request, không đảm bảo hết re-render) —
       // thiếu chờ này khiến getMainListText đôi khi đọc trúng DOM chưa có data
@@ -125,10 +166,10 @@ for (const { label, date } of DAYS_TO_CHECK) {
     });
 
     test('số trận hiển thị trên UI tab All khớp số lượng events trả về từ API (không quá chênh lệch)', async ({ page, request }) => {
-      const { body } = await post(request, scheduledV2(date, 'VN', 'all', 'en'));
+      const uiLocale = await getUiLocale(page, `${SITE}?date=${date}`);
+      const { body } = await post(request, scheduledV2(date, uiLocale, 'all', 'en'));
       test.skip(body.code !== 1, 'API không trả code 1');
 
-      await page.goto(`${SITE}?date=${date}`, { waitUntil: 'networkidle' });
       await page.waitForTimeout(800);
       const uiText = await getMainListText(page);
       // Đếm số lần tên đội (shortName) của API xuất hiện trong UI text — ước lượng
@@ -142,10 +183,10 @@ for (const { label, date } of DAYS_TO_CHECK) {
 
 test.describe('UI vs API — tab Live', () => {
   test('trận live hiển thị trên UI (nếu có) khớp với API live-v2', async ({ page, request }) => {
-    const { body } = await post(request, liveV2('VN', 'en'));
+    const uiLocale = await getUiLocale(page, SITE);
+    const { body } = await post(request, liveV2(uiLocale, 'en'));
     test.skip(body.code !== 1 || !body.data.events?.length, 'Không có trận live tại thời điểm chạy');
 
-    await page.goto(SITE, { waitUntil: 'networkidle' });
     // 2 element cùng tên "Live" trên trang (widget Featured Live Match + tab filter
     // thật sự) — dùng data-testid để chọn đúng tab filter, tránh strict mode violation.
     const liveTab = page.getByTestId('filter-live');
@@ -161,10 +202,10 @@ test.describe('UI vs API — tab Live', () => {
 
 test.describe('UI vs API — tab Upcoming', () => {
   test('N trận đầu của tab Upcoming trên UI khớp API (status chưa đá)', async ({ page, request }) => {
-    const { body } = await post(request, scheduledV2(TODAY, 'VN', 'upcoming', 'en'));
+    const uiLocale = await getUiLocale(page, SITE);
+    const { body } = await post(request, scheduledV2(TODAY, uiLocale, 'upcoming', 'en'));
     test.skip(body.code !== 1 || body.data.events.length === 0, 'Không có trận upcoming hôm nay');
 
-    await page.goto(SITE, { waitUntil: 'networkidle' });
     const upcomingTab = page.getByTestId('filter-upcoming');
     await upcomingTab.click();
     await page.waitForTimeout(800);
@@ -181,21 +222,18 @@ test.describe('UI vs API — tab Upcoming', () => {
     expect(missing, `${missing.length}/${sampleSize} trận không thấy trên UI: ${missing.join(', ')}`).toEqual([]);
   });
 
-  // Không có test "locale GB" ở đây: trang uniscore.com/en luôn gọi API với
-  // locale=VN bất kể URL — locale trong các route Home là vị trí địa lý dùng
-  // để ưu tiên top leagues/giờ hiển thị, không map được sang 1 URL GB riêng
-  // để verify UI (đã xác nhận qua network request thật — không có request
-  // locale=GB nào khi load trang). Việc đổi locale param khi gọi API mà
-  // không đổi được UI tương ứng theo sẽ luôn gây false-positive ở đây; test
-  // GB cho route này đã có đủ ở lớp API thuần (file 01/05), không cần lặp ở UI.
+  // Không có test "locale GB" riêng ở đây: UI tự chọn locale theo IP của máy
+  // chạy browser (xem getUiLocale phía trên) — không thể ép UI hiển thị theo
+  // 1 locale cụ thể qua URL param. Test GB cho route scheduled-v2 đã có đủ ở
+  // lớp API thuần (file 01/05), không cần lặp ở UI.
 });
 
 test.describe('UI vs API — tab Finished', () => {
   test('N trận đầu của tab Finished trên UI khớp API (có tỷ số)', async ({ page, request }) => {
-    const { body } = await post(request, scheduledV2(TODAY, 'VN', 'finish', 'en'));
+    const uiLocale = await getUiLocale(page, SITE);
+    const { body } = await post(request, scheduledV2(TODAY, uiLocale, 'finish', 'en'));
     test.skip(body.code !== 1 || body.data.events.length === 0, 'Không có trận finished hôm nay');
 
-    await page.goto(SITE, { waitUntil: 'networkidle' });
     const finishedTab = page.getByTestId('filter-finish');
     await finishedTab.click();
     await page.waitForTimeout(800);
@@ -230,10 +268,10 @@ const FINISHED_TYPES = new Set(['finished']);
 
 test.describe('UI vs API — trận mất tích / sai thứ tự (tab All)', () => {
   test('không có trận nào bị MẤT HOÀN TOÀN khỏi UI tab All (không tìm thấy ở bất kỳ vị trí nào)', async ({ page, request }) => {
-    const { body } = await post(request, scheduledV2(TODAY, 'VN', 'all', 'en'));
+    const uiLocale = await getUiLocale(page, `${SITE}?date=${TODAY}`);
+    const { body } = await post(request, scheduledV2(TODAY, uiLocale, 'all', 'en'));
     test.skip(body.code !== 1 || body.data.events.length === 0, 'Không có trận nào hôm nay để đối chiếu');
 
-    await page.goto(`${SITE}?date=${TODAY}`, { waitUntil: 'networkidle' });
     await page.waitForTimeout(800);
     const uiText = await getMainListText(page);
 
@@ -248,10 +286,10 @@ test.describe('UI vs API — trận mất tích / sai thứ tự (tab All)', () 
   });
 
   test('thứ tự hiển thị trên UI không bị ĐẢO NGƯỢC so với API (trận #N không được đứng trước trận #N-1)', async ({ page, request }) => {
-    const { body } = await post(request, scheduledV2(TODAY, 'VN', 'all', 'en'));
+    const uiLocale = await getUiLocale(page, `${SITE}?date=${TODAY}`);
+    const { body } = await post(request, scheduledV2(TODAY, uiLocale, 'all', 'en'));
     test.skip(body.code !== 1 || body.data.events.length < 2, 'Không đủ trận để kiểm tra thứ tự');
 
-    await page.goto(`${SITE}?date=${TODAY}`, { waitUntil: 'networkidle' });
     await page.waitForTimeout(800);
     const uiText = await getMainListText(page);
 
@@ -286,7 +324,8 @@ test.describe('UI vs API — trận mất tích / sai thứ tự (tab All)', () 
 
 test.describe('UI vs API — trận hiển thị SAI TAB (chưa đến ngày / đã xong nhưng lẫn tab)', () => {
   test('tab Upcoming không được lẫn trận ĐÃ KẾT THÚC (status finished)', async ({ page, request }) => {
-    const { body } = await post(request, scheduledV2(TODAY, 'VN', 'upcoming', 'en'));
+    const uiLocale = await getUiLocale(page, SITE);
+    const { body } = await post(request, scheduledV2(TODAY, uiLocale, 'upcoming', 'en'));
     test.skip(body.code !== 1, 'API không trả code 1');
 
     // Case biên quan trọng nhất theo yêu cầu: chính API trả về tab "upcoming"
@@ -300,7 +339,6 @@ test.describe('UI vs API — trận hiển thị SAI TAB (chưa đến ngày / �
     ).toEqual([]);
 
     test.skip(body.data.events.length === 0, 'Không có trận upcoming hôm nay để verify UI');
-    await page.goto(SITE, { waitUntil: 'networkidle' });
     const upcomingTab = page.getByTestId('filter-upcoming');
     await upcomingTab.click();
     await page.waitForTimeout(800);
@@ -337,7 +375,8 @@ test.describe('UI vs API — trận hiển thị SAI TAB (chưa đến ngày / �
   });
 
   test('tab Finished không được lẫn trận CHƯA DIỄN RA (status not_started, chưa đến ngày)', async ({ page, request }) => {
-    const { body } = await post(request, scheduledV2(TODAY, 'VN', 'finish', 'en'));
+    const uiLocale = await getUiLocale(page, SITE);
+    const { body } = await post(request, scheduledV2(TODAY, uiLocale, 'finish', 'en'));
     test.skip(body.code !== 1, 'API không trả code 1');
 
     // Tương tự trên: check tầng API trước — trận chưa bắt đầu lọt vào tab
@@ -349,7 +388,6 @@ test.describe('UI vs API — trận hiển thị SAI TAB (chưa đến ngày / �
     ).toEqual([]);
 
     test.skip(body.data.events.length === 0, 'Không có trận finished hôm nay để verify UI');
-    await page.goto(SITE, { waitUntil: 'networkidle' });
     const finishedTab = page.getByTestId('filter-finish');
     await finishedTab.click();
     await page.waitForTimeout(800);
