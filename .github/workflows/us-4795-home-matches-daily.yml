@@ -10,6 +10,9 @@ on:
     - cron: '37 1 * * *'
   workflow_dispatch: {}
 
+permissions:
+  contents: write # cần quyền push để commit lại file baseline cross-day sau mỗi lần chạy
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -65,6 +68,7 @@ jobs:
               ['07-data-integrity.spec.ts', 'data-integrity'],
               ['08-live-and-rare-cases.spec.ts', 'live-rare-cases'],
               ['09-ui-navigation.spec.ts', 'ui-navigation'],
+              ['10-cross-day-regression.spec.ts', 'cross-day-regression'],
             ];
             const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
 
@@ -137,6 +141,29 @@ jobs:
             console.log('Passed: ' + expected + ', Failed: ' + unexpected + ', Skipped: ' + skipped);
             require('fs').appendFileSync(process.env.GITHUB_OUTPUT, 'failed=' + unexpected + '\nstatus=' + (allOk ? 'passed' : 'failed') + '\n');
           "
+
+      - name: Commit cross-day baseline
+        if: always()
+        # File 10-cross-day-regression.spec.ts ghi lại baseline/.baseline/matches.json
+        # trong test.afterAll() bất kể test pass/fail — commit lại NGAY ở đây để lần
+        # chạy daily KẾ TIẾP đọc được baseline của lần này. Không commit thì cơ chế
+        # "so sánh xuyên ngày" (tỷ số đổi sau finished, trận biến mất, data kẹt
+        # nhiều ngày) hoàn toàn vô nghĩa — mỗi lần chạy sẽ lại bắt đầu từ baseline
+        # rỗng vì ubuntu-latest runner không giữ state giữa các lần chạy.
+        run: |
+          BASELINE_PATH="tests/standard/2026-Q3-task-4795-home-matches/.baseline/matches.json"
+          if [[ -f "$BASELINE_PATH" ]] && ! git diff --quiet -- "$BASELINE_PATH"; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add "$BASELINE_PATH"
+            git commit -m "chore(US-4795): update cross-day baseline [skip ci]"
+            # Có thể có commit khác đã push lên main giữa lúc job chạy — rebase rồi
+            # thử lại 1 lần, không retry vô hạn để tránh job treo nếu xung đột thật.
+            git pull --rebase origin main || true
+            git push origin HEAD:main || echo "Push baseline thất bại — sẽ thử lại ở lần chạy daily kế tiếp, không chặn job."
+          else
+            echo "Baseline không đổi hoặc chưa được tạo — bỏ qua commit."
+          fi
 
       - name: Upload HTML report
         if: always()

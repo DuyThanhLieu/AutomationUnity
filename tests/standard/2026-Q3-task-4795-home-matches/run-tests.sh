@@ -60,6 +60,7 @@ node -e "
     ['07-data-integrity.spec.ts', 'data-integrity'],
     ['08-live-and-rare-cases.spec.ts', 'live-rare-cases'],
     ['09-ui-navigation.spec.ts', 'ui-navigation'],
+    ['10-cross-day-regression.spec.ts', 'cross-day-regression'],
   ];
   const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
 
