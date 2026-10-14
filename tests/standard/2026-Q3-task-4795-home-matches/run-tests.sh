@@ -57,6 +57,7 @@ node -e "
     ['04-live-v2.spec.ts', 'live-v2'],
     ['05-my-matches.spec.ts', 'my-matches'],
     ['06-ui-vs-api.spec.ts', 'ui-vs-api'],
+    ['07-data-integrity.spec.ts', 'data-integrity'],
   ];
   const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
 
