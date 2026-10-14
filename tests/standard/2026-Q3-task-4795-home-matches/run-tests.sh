@@ -63,6 +63,7 @@ node -e "
     ['10-cross-day-regression.spec.ts', 'cross-day-regression'],
     ['11-ui-daily-user-journey.spec.ts', 'ui-daily-journey'],
     ['12-cross-day-extended.spec.ts', 'cross-day-extended'],
+    ['13-extended-coverage.spec.ts', 'extended-coverage'],
   ];
   const byFile = new Map(FILE_LABEL.map(([f]) => [f, { passed: 0, failed: 0, skipped: 0, failTitles: [] }]));
 
