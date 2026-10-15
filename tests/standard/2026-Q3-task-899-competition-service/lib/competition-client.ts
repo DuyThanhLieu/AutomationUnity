@@ -18,12 +18,18 @@ export type Sample = {
   stage: string; // stage của mùa đã kết thúc
   currentSeason: string; // mùa đang diễn ra — cho next/last/transfers
   groupSlug?: string; // chỉ giải có vòng bảng
+  team: string; // team id thật (BXH hoặc, nếu không có BXH, đội trong 1 trận đã kết thúc) — dùng cho latest-matches
+  player: string; // player id thật (top-players) — dùng cho heatmap
 };
 
 export const SAMPLES: Sample[] = [
-  { key: 'UCL', name: 'UEFA Champions League', competition: 'c9dxsq8o5wt1o5r', season: 'c9dxsq8ov73r5s2', stage: 'gk7aeql6867r6iv', currentSeason: 'n97akmlchp8sjyf' },
-  { key: 'EPL', name: 'Premier League', competition: 'mfiws1aoh0uztg4', season: 'o014smcorpas6pk', stage: 'o8tzjgl6h32s006', currentSeason: 'cq0afilqgkgr31c' },
-  { key: 'ACL2', name: 'AFC Champions League 2', competition: '87dyw5ro5pgni6u', season: 'neo1xasoewzr6iv', stage: 'mx7a61lnd2rse70', currentSeason: 'o8tzjglugp3s006', groupSlug: 'group-a' },
+  { key: 'UCL', name: 'UEFA Champions League', competition: 'c9dxsq8o5wt1o5r', season: 'c9dxsq8ov73r5s2', stage: 'gk7aeql6867r6iv', currentSeason: 'n97akmlchp8sjyf', team: 'c467w80old4rt8p', player: 'sybadnlgm0gsdt6' },
+  { key: 'EPL', name: 'Premier League', competition: 'mfiws1aoh0uztg4', season: 'o014smcorpas6pk', stage: 'o8tzjgl6h32s006', currentSeason: 'cq0afilqgkgr31c', team: 'c467w80old4rt8p', player: '5z3v0blgl20rq93' },
+  { key: 'ACL2', name: 'AFC Champions League 2', competition: '87dyw5ro5pgni6u', season: 'neo1xasoewzr6iv', stage: 'mx7a61lnd2rse70', currentSeason: 'o8tzjglugp3s006', groupSlug: 'group-a', team: '6hqac9ldvknrihp', player: 'a8qv3rl79y1n7fj' },
+  // Mở rộng phạm vi test (data đa dạng hơn để tìm thêm bug): World Cup thật (cup lớn, có vòng bảng, mùa 2022 đã kết thúc)
+  { key: 'WC22', name: 'World Cup 2022', competition: 'nq8prta4pwtedsb', season: 'jy2us9tome0n7fj', stage: '1ztvu6l949mr5s2', currentSeason: 'h5bhxp8oojcr35v', groupSlug: 'group-a', team: '2es0s3kohj8ntnv', player: 'a8qv3rld71zn7fj' },
+  // Cup knockout quốc nội (không có vòng bảng, không có stage cụ thể — khác hẳn 4 giải trên) để test route stage với data rỗng/khác dạng
+  { key: 'FACUP', name: 'FA Cup', competition: '1z88sr5o1v9ntsd', season: 'jqcfxzpo4wnsdt6', stage: 'jqcfxzpo4wnsdt6', currentSeason: '270vqal4txys6pk', team: '1z88sr5ov30ntsd', player: 'cq0afilwv7zwv78' },
 ];
 
 /** newOnly: route chỉ tồn tại ở Go (API cũ không có / 404 / 500) — không so sánh, chỉ kiểm tra Go trả 200 hợp lệ. */
@@ -81,6 +87,14 @@ export function routesFor(s: Sample): Route[] {
   if (s.groupSlug) {
     r.push({ task: 'UTD-1160', name: `Trận của bảng ${s.groupSlug}`, method: 'GET', path: `/unique-tournament/${c}/season/${se}/stage/${st}/events/groups/${s.groupSlug}${L}` });
   }
+  // 5 API mới phát hiện 29/09/2026 (traffic thật, chưa có subtask lúc đó) — nay đã có subtask UTD-1196→1200 (tạo 30/09/2026).
+  r.push(
+    { task: 'UTD-1196', name: 'Trận gần đây của đội trong giải (latest-matches)', method: 'GET', path: `/unique-tournaments/${c}/seasons/${se}/team/${s.team}/latest-matches` },
+    { task: 'UTD-1197', name: 'Đội hình tiêu biểu theo vòng (team-of-the-week/rounds)', method: 'GET', path: `/unique-tournament/${c}/season/${se}/team-of-the-week/rounds` },
+    { task: 'UTD-1198', name: 'Nhà vô địch hiện tại (current-champions)', method: 'GET', path: `/competition/${c}/current-champions` },
+    { task: 'UTD-1199', name: 'Đội nhiều danh hiệu nhất (most-titles)', method: 'GET', path: `/competition/${c}/most-titles` },
+    { task: 'UTD-1200', name: 'Heatmap cầu thủ (heatmap)', method: 'GET', path: `/competition/${c}/season/${se}/player/${s.player}/heatmap` },
+  );
   return r;
 }
 

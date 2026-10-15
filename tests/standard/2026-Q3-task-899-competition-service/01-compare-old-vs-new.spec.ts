@@ -15,6 +15,16 @@ const isCamelCaseRoute = (path: string) => CAMEL_CASE_ROUTES.some((p) => path.in
 /** Highlight: nội dung mới nhất thay đổi liên tục theo thời gian thực (video mới được thêm) — không so sánh theo item, chỉ theo cấu trúc + field known. */
 const isHighlightRoute = (path: string) => path.includes('/highlight');
 
+/** UTD-1196 (latest-matches): field "rating" — Go làm tròn 2 chữ số thập phân theo ĐÚNG quy ước chung
+ * toàn hệ thống (đối chứng route top-players/overall: cả NestJS lẫn Go đều trả rating đã tròn 2 chữ số,
+ * vd 8.79). NestJS CHỈ giữ nguyên giá trị thô (không tròn) riêng ở route latest-matches — đây là
+ * sự KHÔNG NHẤT QUÁN của chính NestJS cũ, không phải lỗi của Go. Không tính là bug, bỏ qua lệch rating. */
+function stripRoundingQuirk(route: Route, p: any): any {
+  if (route.task !== 'UTD-1196' || !p || typeof p !== 'object' || !('rating' in p)) return p;
+  const { rating, ...rest } = p;
+  return rest;
+}
+
 async function compare(request: any, route: Route) {
   let [a, b] = await Promise.all([call(request, HOSTS.old, route.path, route.method), call(request, HOSTS.new, route.path, route.method)]);
   // Route có data thay đổi theo thời gian (live, sắp đá…): 2 service có thể đang giữ cache ở 2 thời điểm khác nhau → thử lại 1 lần sau 5 giây.
@@ -81,6 +91,8 @@ function assertSame(route: Route, a: any, b: any) {
     pa = toSnakeKeys(pa);
     pb = toSnakeKeys(pb);
   }
+  pa = stripRoundingQuirk(route, pa);
+  pb = stripRoundingQuirk(route, pb);
   if (stable(pa) === stable(pb)) return;
   // Phân loại để báo cáo rõ: chỉ lệch thứ tự hay lệch nội dung
   const arr = (p: any) => (Array.isArray(p) ? p : null);
@@ -127,6 +139,14 @@ test.describe('A5 · language', () => {
     ]);
     expect(stable(payload(xx))).toBe(stable(payload(en)));
   });
+
+  for (const lang of ['vi', 'xx']) {
+    test(`UTD-1198 current-champions với language=${lang} giống nhau`, async ({ request }) => {
+      const route: Route = { task: 'UTD-1198', name: '', method: 'GET', path: `/competition/${UCL.competition}/current-champions?language=${lang}` };
+      const { a, b } = await compare(request, route);
+      assertSame(route, a, b);
+    });
+  }
 });
 
 test.describe('A6 · id sai', () => {
@@ -136,6 +156,13 @@ test.describe('A6 · id sai', () => {
     ['danh sách mùa', `/unique-tournament/${BAD}/seasons`],
     ['top cầu thủ mùa sai', `/unique-tournament/${UCL.competition}/season/${BAD}/top-players/overall?language=en`],
     ['BXH mùa sai', `/unique-tournament/${UCL.competition}/season/${BAD}/standings/total?language=en`],
+    // 5 API mới UTD-1196→1200
+    ['UTD-1196 latest-matches, competition sai', `/unique-tournaments/${BAD}/seasons/${UCL.season}/team/${UCL.team}/latest-matches`],
+    ['UTD-1196 latest-matches, team sai', `/unique-tournaments/${UCL.competition}/seasons/${UCL.season}/team/${BAD}/latest-matches`],
+    ['UTD-1197 team-of-the-week/rounds, season sai', `/unique-tournament/${UCL.competition}/season/${BAD}/team-of-the-week/rounds`],
+    ['UTD-1198 current-champions, competition sai', `/competition/${BAD}/current-champions`],
+    ['UTD-1199 most-titles, competition sai', `/competition/${BAD}/most-titles`],
+    ['UTD-1200 heatmap, player sai', `/competition/${UCL.competition}/season/${UCL.season}/player/${BAD}/heatmap`],
   ]) {
     test(`${name}: cùng status/code, không trả 500`, async ({ request }) => {
       const [a, b] = await Promise.all([call(request, HOSTS.old, path), call(request, HOSTS.new, path)]);
@@ -186,6 +213,28 @@ test.describe('A8 · logo redirect', () => {
       const stableStatus = attempts.filter((s) => s === attempts[0]).length >= 4;
       expect(stableStatus, `status Go không ổn định qua 5 lần gọi: ${attempts.join(', ')}`).toBe(true);
       expect(attempts[0]).toBe(a.status);
+    });
+  }
+});
+
+test.describe('A9b · HEAD method trên route GET thường (không phải /highlight)', () => {
+  // Phát hiện 01/10/2026 khi đào sâu 5 API mới: Go không hỗ trợ HEAD trên BẤT KỲ route GET nào (luôn 404),
+  // trong khi NestJS tự động hỗ trợ HEAD cho mọi handler GET (hành vi mặc định Express/Nest). Route /highlight
+  // (TC A9 ở trên) KHÔNG bị ảnh hưởng vì đó vốn được thiết kế riêng để dùng HEAD — còn lại, mọi route khác đều bug.
+  for (const [name, path] of [
+    ['UTD-1129 chi tiết giải (route cũ, đã port lâu)', `/unique-tournament/${UCL.competition}?language=en`],
+    ['UTD-1132 nhà vô địch mùa (route cũ)', `/unique-tournament/${UCL.competition}/season/${UCL.season}/champions?language=en`],
+    ['UTD-1196 latest-matches (route mới)', `/unique-tournaments/${UCL.competition}/seasons/${UCL.season}/team/${UCL.team}/latest-matches`],
+    ['UTD-1198 current-champions (route mới)', `/competition/${UCL.competition}/current-champions`],
+  ]) {
+    test(`${name}: HEAD phải trả cùng status với GET`, async ({ request }) => {
+      const [getRes, headOld, headNew] = await Promise.all([
+        call(request, HOSTS.new, path, 'GET'),
+        call(request, HOSTS.old, path, 'HEAD'),
+        call(request, HOSTS.new, path, 'HEAD'),
+      ]);
+      test.info().annotations.push({ type: 'status', description: `GET mới ${getRes.status} · HEAD cũ ${headOld.status} · HEAD mới ${headNew.status}` });
+      expect(headNew.status, `Go: HEAD phải trả cùng status với GET (${getRes.status}), giống NestJS (HEAD=${headOld.status})`).toBe(headOld.status);
     });
   }
 });

@@ -17,6 +17,9 @@ tests/results/
 # OS
 .DS_Store
 
+# VS Code local workspace settings (DB connection configs, etc. — personal/machine-specific)
+.vscode/
+
 # Excel report outputs (generated, can be re-run) — except the main summary report
 *.xlsx
 !tests/**/*.xlsx

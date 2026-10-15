@@ -15,7 +15,7 @@
  */
 
 import { test, expect } from '@playwright/test';
-import { ODDS_BASE, SAMPLE_EVENTS, MARKET_IDS, getJson } from './lib/odds-client';
+import { ODDS_BASE, SAMPLE_EVENTS, MARKET_IDS, getJson, isGoByErrorCodeField } from './lib/odds-client';
 
 const BASE = ODDS_BASE.staging;
 const EVENT = SAMPLE_EVENTS[0];
@@ -124,17 +124,34 @@ test.describe('[US-898] Param bẫy — theo bảng "Giá trị param" trong doc
     expect(companyIds.length).toBe(0);
   });
 
-  test('[BUG CONFIRMED] half giá trị khác 0/1 (vd "9") — doc mô tả "coi như half=0" nhưng thực tế trả RỖNG', async ({ request }) => {
+  test('[BUG CONFIRMED — CHỈ ở NestJS, Go đã ĐÚNG] half giá trị khác 0/1 (vd "9") — doc mô tả "coi như half=0" nhưng NestJS trả RỖNG', async ({ request }) => {
     // Gọi TUẦN TỰ (không Promise.all) để loại trừ race condition dữ liệu live.
     // Đã verify tay bằng curl tuần tự (cách nhau 1s) cho half=2,5,9,99,-1 —
     // TẤT CẢ đều trả rỗng (0 company), không phải "coi như half=0" như doc.
+    //
+    // XÁC NHẬN 07/10/2026: đây là bug CŨ của riêng NestJS, KHÔNG tồn tại ở Go —
+    // đã verify trực tiếp goDev (dev-api.uniscore.vn) cho half=9: Go trả data
+    // GIỐNG HỆT half=0 (đúng theo mô tả doc "giá trị khác coi như 0"). Vì NestJS
+    // là service đang bị THAY THẾ bởi Go (mục tiêu chính UTD-898), bug này không
+    // cần báo mới cho ticket — chỉ giữ lại test để biết NestJS lệch doc ở điểm
+    // nào, không phải hành vi cần Go phải bắt chước.
     const half0 = await getJson(request, BASE, `/football/event/${EVENT}/odds/half/0/market/hdp`);
     const halfWeird = await getJson(request, BASE, `/football/event/${EVENT}/odds/half/9/market/hdp`);
     expect(halfWeird.status).toBe(200);
     expect(Object.keys(half0.body.data).length, 'half=0 phải có data để so sánh có ý nghĩa').toBeGreaterThan(0);
     // Assert ĐÚNG theo doc để bug này tiếp tục hiện đỏ cho tới khi dev xác nhận
     // đây là bug thật (sửa cho khớp doc) hay doc cần cập nhật lại mô tả.
-    expect(halfWeird.body.data, 'BUG: half ngoài {0,1} trả rỗng, không "coi như half=0" như doc mô tả').toEqual(half0.body.data);
+    expect(halfWeird.body.data, 'BUG (chỉ NestJS): half ngoài {0,1} trả rỗng, không "coi như half=0" như doc mô tả. Go đã làm đúng, xem comment test này.').toEqual(half0.body.data);
+  });
+
+  test('[Go ĐÚNG spec] half giá trị khác 0/1 (vd "9") trên Go — PHẢI coi như half=0', async ({ request }) => {
+    const up = await isGoByErrorCodeField(request, ODDS_BASE.goDev);
+    test.skip(!up, 'goDev không phản hồi hoặc không phải Go thật — bỏ qua');
+    const half0 = await getJson(request, ODDS_BASE.goDev, `/football/event/${EVENT}/odds/half/0/market/hdp`);
+    const halfWeird = await getJson(request, ODDS_BASE.goDev, `/football/event/${EVENT}/odds/half/9/market/hdp`);
+    expect(halfWeird.status).toBe(200);
+    expect(Object.keys(half0.body.data).length, 'half=0 phải có data để so sánh có ý nghĩa').toBeGreaterThan(0);
+    expect(halfWeird.body.data, 'Go phải coi half ngoài {0,1} như half=0 theo đúng doc').toEqual(half0.body.data);
   });
 
   test('provider_id không phải số (hoặc số không tồn tại) — GHI NHẬN hành vi thật, không assert cứng theo bảng param (bảng đó áp dụng cho route khác)', async ({ request }) => {
