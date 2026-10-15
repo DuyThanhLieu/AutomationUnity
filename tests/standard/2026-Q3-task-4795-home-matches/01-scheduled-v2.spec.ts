@@ -70,7 +70,15 @@ for (const { locale, date } of CASES) {
     });
 
     test('bù đủ 10 giải khi còn giải khác (VT 9 fallback)', () => {
-      const comps = new Set(body.data.events.map((e: any) => e.tournament.id));
+      // SỬA QUAN TRỌNG: đếm theo tournament.id là SAI — đã xác nhận qua ảnh UI
+      // thật (user chỉ ra) rằng 1 giải có nhiều bảng đấu (vd "AFC Champions
+      // League 2" chia Group C/F/G/H...) hiển thị trên UI như NHIỀU KHỐI RIÊNG
+      // BIỆT, mỗi group tính là 1 "giải" khi đếm đủ 10, dù chung tournament.id.
+      // Đếm theo tournament.id gộp nhầm các group này lại thành 1, làm số đếm
+      // thấp hơn thực tế UI hiển thị → gây fail giả hàng loạt trước đây.
+      // Đếm đúng phải theo tổ hợp (tournament.id, group_id) — trận không có
+      // group_id (giải không chia bảng) vẫn đếm theo tournament.id như cũ.
+      const comps = new Set(body.data.events.map((e: any) => `${e.tournament.id}|${e.tournament.group_id ?? ''}`));
       if (body.data.otherCompetitions.length > 0) expect(comps.size).toBeGreaterThanOrEqual(10);
     });
 
