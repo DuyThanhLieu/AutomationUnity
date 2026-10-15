@@ -33,21 +33,17 @@ sheet.views = [{ state: 'frozen', ySplit: 1 }];
 const rows = [
   {
     no: 1,
-    title: 'VT9 fallback — không bù đủ 10 giải khi còn giải khác',
-    severity: 'Cao',
+    title: '[ĐÃ GỠ BỎ KHỎI PHẠM VI — không còn là bug] VT9 fallback (bù đủ 10 giải)',
+    severity: 'Không áp dụng',
     endpoint: 'scheduled-v2',
     symptom:
-      'Khi otherCompetitions còn nhiều giải/trận khác chưa hiện, danh sách events chính lẽ ra phải luôn đủ 10 KHỐI khác nhau (1 giải chia nhiều bảng/group thì mỗi group tính là 1 khối riêng — đã xác nhận đúng qua UI thật: locale VN hôm nay hiện "AFC Champions League 2" thành 4 khối Group C/F/G/H, cộng 6 giải khác = ĐÚNG 10 khối, khớp 100% với số liệu API — VN KHÔNG có bug). Tuy nhiên với CÁC LOCALE KHÁC (GB, US, JP, BR...) cùng ngày, số khối thực tế đo được CHỈ 3-4 khối trong khi sidebar vẫn còn 50+ giải khác chưa hiện — tức cơ chế "bù đủ 10" chỉ hoạt động đúng ở 1 số locale, không phải toàn cục.',
+      'Trước đó nghi ngờ: khi otherCompetitions còn nhiều giải/trận khác chưa hiện, danh sách events chính không bù đủ 10 khối như cam kết trong doc gốc. Đã điều tra kỹ (đối chiếu UI thật, sửa lại cách đếm theo group, verify nhiều locale) — nhưng XÁC NHẬN TỪ BẠN (2026-10-15): logic "kéo đủ 10 giải hiển thị trang Home" ĐÃ ĐƯỢC CHỦ ĐÍCH GỠ BỎ khỏi sản phẩm, không còn là hành vi mong muốn nữa. Vậy toàn bộ các case "thiếu khối" trước đây không phải bug — chỉ là test đang kiểm tra đúng 1 hành vi đã không còn tồn tại trong sản phẩm.',
     uiLink: `${SITE}?date=${TODAY}`,
-    apiLink: `POST /scheduled-events-pagination-v2/${TODAY}/locale/GB/type/all  body: {}\n${API_DOCS_NOTE}`,
-    sample:
-      `Ngày ${TODAY} — ĐỐI CHIẾU 2 LOCALE CÙNG NGÀY:\n` +
-      'locale VN: 10 khối (UEFA CL, UEFA EL, UEFA Conf. League, AFC CL2 ×4 group, Championship, MLS, Professional League) — ĐÚNG, khớp UI thật 100%\n' +
-      'locale GB: CHỈ 3 khối (UEFA Europa League, UEFA Conference League, Football League One), trong khi otherCompetitions còn 58 nhóm giải khác chưa hiện — SAI, thiếu nghiêm trọng',
-    qaStatus: 'VN: ĐÃ XÁC NHẬN KHÔNG FAIL (đếm đúng theo khối, khớp UI thật). GB/US/JP/BR/TH/DE/KR/ID/MX/EG/AU/IN/AR: vẫn FAIL ổn định qua nhiều lần chạy lại — bug thật, chỉ không xảy ra ở locale VN.',
-    confirm: '',
-    note:
-      'GIỚI HẠN KHI TỰ CHECK UI: trang uniscore.com tự nhận diện locale theo địa chỉ IP của máy đang mở trình duyệt (không đổi được qua URL như /en-gb) — nếu bạn mở link UI từ máy ở Việt Nam, trang LUÔN hiển thị theo locale VN (đang đúng), không thấy được lỗi của GB/US/... Cách tự check locale khác: (1) dùng VPN đổi IP sang đúng quốc gia rồi mở link UI, hoặc (2) tin cậy vào lệnh API ở cột trước (đổi "locale/GB/" thành locale muốn test), chạy bằng Postman và tự đếm số (tournament.id + group_id) phân biệt trong data.events.',
+    apiLink: 'Không cần test lại — đã xác nhận logic này không còn áp dụng.',
+    sample: 'Test tự động tương ứng ("bù đủ 10 giải khi còn giải khác (VT 9 fallback)") đã được XÓA KHỎI file 01-scheduled-v2.spec.ts theo đúng xác nhận này.',
+    qaStatus: 'ĐÃ ĐÓNG — không cần confirm, không cần theo dõi thêm.',
+    confirm: 'Không phải bug - logic đã bị gỡ bỏ',
+    note: 'Lưu ý: bug #2 (locale VN/vn khác số trận, xem dòng bên dưới) từng được nghi ngờ "cùng gốc rễ" với case này — giờ VT9 fallback không còn là bug, nhưng bug locale VN/vn VẪN CÒN HIỆU LỰC RIÊNG (lệch số trận thật giữa 2 cách viết locale, không liên quan gì đến việc có đủ 10 khối hay không).',
   },
   {
     no: 2,
@@ -71,23 +67,20 @@ const rows = [
   },
   {
     no: 3,
-    title: 'competitionId (số ít) vẫn trả rỗng trên live-v1 — bug cũ tái xuất hiện',
-    severity: 'Trung bình - Cao',
+    title: '[KHÔNG BÁO — API có lỗi nhưng không UI nào dùng] competitionId (số ít) trả rỗng trên live-v1',
+    severity: 'Không áp dụng',
     endpoint: 'live-v1 (/events/live)',
     symptom:
-      'Bug cũ đã từng báo "đã fix": gửi competitionId (số ít, 1 giải) phải trả kết quả giống hệt gửi competitionIds (số nhiều, 1 phần tử). Verify lại hôm nay: competitionIds trả về 1 trận, nhưng competitionId lại trả về 0 trận — bug có vẻ đã tái xuất hiện, hoặc chưa từng được fix triệt để.',
+      'Ở tầng API thuần: gửi competitionId (số ít) luôn trả 0 trận trong khi competitionIds (số nhiều, cùng 1 giải) trả đúng — lỗi "giải mã 2 lần" có thật ở code. NHƯNG đã kiểm tra lại theo đúng nguyên tắc "API có bug nhưng UI không dùng thì không báo": bắt network request THẬT của UI web (page.on("request") khi bấm tab Live trên uniscore.com) — UI web KHÔNG HỀ gọi endpoint live-v1 này, mà dùng GET /events/live-v2 (route khác), và không có bất kỳ tham số competitionId/competitionIds nào trong request đó. Đồng thời chính doc gốc (3-5-live-v1.md, câu hỏi mở #1) ghi rõ: "Client dùng competitionIds. Server có thể bỏ lần giải mã thứ hai nếu không còn client nào phụ thuộc vào hành vi cũ" — tức dev đã biết trước không còn ai dùng field số ít này.',
     uiLink: `${SITE}`,
-    apiLink:
-      `POST /events/live/locale/VN  body: {"competitionIds": ["no03wnpof59rah5"]}   → kỳ vọng 1 trận\n` +
-      `POST /events/live/locale/VN  body: {"competitionId": "no03wnpof59rah5"}    → đang trả 0 trận (SAI)`,
+    apiLink: 'Không cần test lại — đã xác nhận rõ không có UI nào sử dụng field này.',
     sample:
-      'ĐÀO SÂU THÊM (theo yêu cầu) — test trên 2 GIẢI KHÁC NHAU để loại trừ khả năng "chỉ 1 giải bị lỗi riêng":\n' +
-      'Giải 1: United Football League (id: no03wnpof59rah5) → competitionIds: 1 trận | competitionId: 0 trận\n' +
-      'Giải 2: Shillong Premier League (id: bm0nxitodvss3t6) → competitionIds: 1 trận | competitionId: 0 trận\n' +
-      '=> CẢ 2 GIẢI đều lỗi giống hệt nhau → đây là lỗi xử lý tham số ở tầng code chung (áp dụng cho mọi giải), không phải lỗi riêng của 1 giải cụ thể.',
-    qaStatus: 'Verify lại hôm nay vẫn tái hiện đúng như mô tả, đã test thêm trên giải thứ 2 để chắc chắn — fail ổn định 2/2 giải, không phải flaky hay lỗi riêng 1 giải.',
-    confirm: '',
-    note: 'Giải mẫu cụ thể ở trên chỉ đúng tại thời điểm test (phụ thuộc có trận live lúc đó) — nếu hết live khi bạn check lại, tìm 1 giải đang có trận live khác trên UI, lấy competition id tương ứng rồi test lại bằng công thức: gọi competitionIds:[id] rồi competitionId:id, so sánh events.length — nếu công thức này tái hiện đúng (số nhiều > 0, số ít = 0) ở BẤT KỲ giải nào, bug được xác nhận chắc chắn.',
+      'Bằng chứng network request thật khi bấm tab Live trên UI:\n' +
+      'GET https://api.uni-score.com/api/v2/sport/football/events/live-v2/locale/VN?sortByMatchTime=false&page=1&language=en\n' +
+      '(route live-v2, không phải live-v1; không có tham số competitionId nào)',
+    qaStatus: 'ĐÃ QUYẾT ĐỊNH BỎ QUA theo yêu cầu: lỗi có thật ở tầng API (đã verify ổn định trên 2 giải khác nhau) nhưng không có UI/client nào trong hệ thống hiện tại sử dụng field này — báo dev sẽ vô nghĩa vì không ảnh hưởng ai.',
+    confirm: 'Không cần - đã quyết định bỏ qua',
+    note: 'Giữ lại 1 test tự động dạng ghi nhận hành vi (không hard-fail) trong bộ test — chỉ để biết ngay nếu sau này có client mới bắt đầu dùng lại field này thì cần xem lại quyết định bỏ qua.',
   },
   {
     no: 4,
@@ -113,7 +106,7 @@ const rows = [
     severity: 'Cao',
     endpoint: 'scheduled-v2',
     symptom:
-      'Cùng 1 ngày, cùng ý nghĩa locale (Việt Nam), chỉ khác cách viết hoa/thường, nhưng trả về SỐ TRẬN KHÁC NHAU trong danh sách chính (events). ĐÀO SÂU THÊM (theo yêu cầu): verify lặp lại 3 NGÀY LIÊN TIẾP (14, 15, 16/10) đều lệch ổn định (27 vs 24, 54 vs 29, 21 vs 19) — không phải trùng hợp ngẫu nhiên 1 lần. Phân tích chi tiết ngày 15/10: locale=vn (thường) THIẾU ĐÚNG 6 khối so với locale=VN (hoa) — thiếu toàn bộ "AFC Champions League 2" (4 group) + "Major League Soccer" + "Professional League". QUAN TRỌNG: otherCompetitions (sidebar) giữa 2 trường hợp cũng KHÁC NHAU (67 vs 68 nhóm) — tức bug này ảnh hưởng sâu hơn, không chỉ riêng bước chọn "10 khối ưu tiên" mà có vẻ ảnh hưởng toàn bộ pipeline xử lý locale. CÓ KHẢ NĂNG đây cùng gốc rễ với bug #1 (VT9 fallback) — cả 2 đều biểu hiện qua việc 1 số khối/giải bị "rớt" khỏi danh sách khi locale không phải dạng chuẩn.',
+      'Cùng 1 ngày, cùng ý nghĩa locale (Việt Nam), chỉ khác cách viết hoa/thường, nhưng trả về SỐ TRẬN KHÁC NHAU trong danh sách chính (events). ĐÀO SÂU THÊM (theo yêu cầu): verify lặp lại 3 NGÀY LIÊN TIẾP (14, 15, 16/10) đều lệch ổn định (27 vs 24, 54 vs 29, 21 vs 19) — không phải trùng hợp ngẫu nhiên 1 lần. Phân tích chi tiết ngày 15/10: locale=vn (thường) THIẾU ĐÚNG 6 khối so với locale=VN (hoa) — thiếu toàn bộ "AFC Champions League 2" (4 group) + "Major League Soccer" + "Professional League". QUAN TRỌNG: otherCompetitions (sidebar) giữa 2 trường hợp cũng KHÁC NHAU (67 vs 68 nhóm) — tức bug này ảnh hưởng toàn bộ pipeline xử lý locale, không chỉ riêng 1 bước nhỏ.',
     uiLink: `${SITE}?date=${TODAY}`,
     apiLink:
       `POST /scheduled-events-pagination-v2/${TODAY}/locale/VN/type/all  body: {}\n` +
@@ -125,9 +118,9 @@ const rows = [
       '15/10: VN(hoa)=54 trận | vn(thường)=29 trận — thiếu đúng 6 khối: AFC Champions League 2 (cả 4 group), Major League Soccer, Professional League\n' +
       '16/10: VN(hoa)=21 trận | vn(thường)=19 trận\n' +
       'otherCompetitions ngày 15/10: VN(hoa)=67 nhóm, vn(thường)=68 nhóm (KHÁC NHAU, không chỉ events mới khác)',
-    qaStatus: 'Verify ổn định qua 3 ngày liên tiếp khác nhau — đây là bug có độ tin cậy cao nhất trong danh sách này, và có dấu hiệu liên quan tới bug #1.',
+    qaStatus: 'Verify ổn định qua 3 ngày liên tiếp khác nhau — ĐÂY LÀ BUG DUY NHẤT CÒN HIỆU LỰC trong toàn bộ danh sách, độ tin cậy cao nhất (ổn định, tái hiện được ngay lập tức bất cứ lúc nào).',
     confirm: '',
-    note: 'Rủi ro thật: nhiều hệ thống/client (web, app, đối tác) có thể gửi locale với format hoa/thường khác nhau tùy chỗ — không phải trường hợp lý thuyết hiếm gặp. Đề xuất báo dev kiểm tra CHUNG với bug #1 vì nghi ngờ cùng gốc rễ (xử lý locale không chuẩn hoá trước khi dùng để lọc/chọn giải).',
+    note: 'Rủi ro thật: nhiều hệ thống/client (web, app, đối tác) có thể gửi locale với format hoa/thường khác nhau tùy chỗ — không phải trường hợp lý thuyết hiếm gặp.',
   },
   {
     no: 6,
@@ -153,7 +146,7 @@ for (const r of rows) {
   const row = sheet.addRow(r);
   row.alignment = { vertical: 'top', wrapText: true };
   row.height = 110;
-  if (r.title.startsWith('[KHÔNG PHẢI BUG]')) {
+  if (r.title.startsWith('[KHÔNG PHẢI BUG]') || r.title.startsWith('[ĐÃ GỠ BỎ KHỎI PHẠM VI') || r.title.startsWith('[KHÔNG BÁO')) {
     row.eachCell((cell) => {
       cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFE2EFDA' } };
     });

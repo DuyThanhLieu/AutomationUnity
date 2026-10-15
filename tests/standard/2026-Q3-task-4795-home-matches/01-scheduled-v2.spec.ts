@@ -69,18 +69,11 @@ for (const { locale, date } of CASES) {
       expect(firstSuggestionViolation(body.data.events)).toBe(-1);
     });
 
-    test('bù đủ 10 giải khi còn giải khác (VT 9 fallback)', () => {
-      // SỬA QUAN TRỌNG: đếm theo tournament.id là SAI — đã xác nhận qua ảnh UI
-      // thật (user chỉ ra) rằng 1 giải có nhiều bảng đấu (vd "AFC Champions
-      // League 2" chia Group C/F/G/H...) hiển thị trên UI như NHIỀU KHỐI RIÊNG
-      // BIỆT, mỗi group tính là 1 "giải" khi đếm đủ 10, dù chung tournament.id.
-      // Đếm theo tournament.id gộp nhầm các group này lại thành 1, làm số đếm
-      // thấp hơn thực tế UI hiển thị → gây fail giả hàng loạt trước đây.
-      // Đếm đúng phải theo tổ hợp (tournament.id, group_id) — trận không có
-      // group_id (giải không chia bảng) vẫn đếm theo tournament.id như cũ.
-      const comps = new Set(body.data.events.map((e: any) => `${e.tournament.id}|${e.tournament.group_id ?? ''}`));
-      if (body.data.otherCompetitions.length > 0) expect(comps.size).toBeGreaterThanOrEqual(10);
-    });
+    // Test "bù đủ 10 giải khi còn giải khác (VT9 fallback)" đã bị XÓA theo xác
+    // nhận của user (2026-10-15): logic kéo đủ 10 giải hiển thị trên trang
+    // Home đã được chủ đích gỡ bỏ khỏi sản phẩm, không còn là hành vi mong
+    // muốn — các case fail trước đó (31/33 locale/ngày) không phải bug, mà là
+    // test đang check đúng 1 hành vi đã không còn tồn tại.
 
     test('trận cùng bảng được gom liền nhau (group_id, UOB-613)', () => {
       expect(brokenGroups(body.data.events)).toEqual([]);
