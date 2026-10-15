@@ -37,17 +37,17 @@ const rows = [
     severity: 'Cao',
     endpoint: 'scheduled-v2',
     symptom:
-      'Khi otherCompetitions còn nhiều giải/trận khác chưa hiện, danh sách events chính lẽ ra phải luôn đủ 10 KHỐI GIẢI khác nhau (theo cơ chế "bù đủ 10 giải"; 1 giải chia nhiều bảng/group thì mỗi group tính là 1 khối riêng, đã xác nhận qua ảnh UI thật — "AFC Champions League 2" hiện 4 lần cho Group C/F/G/H). Đã sửa lại cách đếm cho đúng (đếm theo tổ hợp giải+bảng thay vì chỉ theo giải) và verify lại toàn bộ — KẾT QUẢ KHÔNG ĐỔI: vẫn thiếu khối nghiêm trọng. Ví dụ rõ nhất: locale AR ngày 15/10, 38 trận trong events nhưng chỉ gói trong 4 giải/khối phân biệt, trong khi otherCompetitions còn tới 53 nhóm giải khác chưa hiện.',
+      'Khi otherCompetitions còn nhiều giải/trận khác chưa hiện, danh sách events chính lẽ ra phải luôn đủ 10 KHỐI khác nhau (1 giải chia nhiều bảng/group thì mỗi group tính là 1 khối riêng — đã xác nhận đúng qua UI thật: locale VN hôm nay hiện "AFC Champions League 2" thành 4 khối Group C/F/G/H, cộng 6 giải khác = ĐÚNG 10 khối, khớp 100% với số liệu API — VN KHÔNG có bug). Tuy nhiên với CÁC LOCALE KHÁC (GB, US, JP, BR...) cùng ngày, số khối thực tế đo được CHỈ 3-4 khối trong khi sidebar vẫn còn 50+ giải khác chưa hiện — tức cơ chế "bù đủ 10" chỉ hoạt động đúng ở 1 số locale, không phải toàn cục.',
     uiLink: `${SITE}?date=${TODAY}`,
-    apiLink: `POST /scheduled-events-pagination-v2/${TODAY}/locale/AR/type/all  body: {}\n${API_DOCS_NOTE}`,
+    apiLink: `POST /scheduled-events-pagination-v2/${TODAY}/locale/GB/type/all  body: {}\n${API_DOCS_NOTE}`,
     sample:
-      `Ngày ${TODAY}, locale AR (Argentina) — mẫu rõ nhất:\n` +
-      'events: 38 trận nhưng chỉ thuộc 4 giải/khối: Copa Libertadores, Division 1, UEFA Europa League, UEFA Conference League\n' +
-      'otherCompetitions: 53 nhóm giải khác vẫn chưa hiện\n' +
-      '=> Còn rất nhiều dư địa để bù lên ≥10 khối nhưng hệ thống không bù.',
-    qaStatus: 'Lặp lại ổn định trên hầu hết ngày/locale đã test (VN, GB, US, JP, BR, TH, DE, KR, ID, MX, EG, AU, IN, AR). Đã kiểm tra lại kỹ sau khi có nghi vấn về cách đếm (do UI hiện nhiều group cùng tên giải) — sửa cách đếm cho đúng và bug vẫn y nguyên, không phải do lỗi đếm.',
+      `Ngày ${TODAY} — ĐỐI CHIẾU 2 LOCALE CÙNG NGÀY:\n` +
+      'locale VN: 10 khối (UEFA CL, UEFA EL, UEFA Conf. League, AFC CL2 ×4 group, Championship, MLS, Professional League) — ĐÚNG, khớp UI thật 100%\n' +
+      'locale GB: CHỈ 3 khối (UEFA Europa League, UEFA Conference League, Football League One), trong khi otherCompetitions còn 58 nhóm giải khác chưa hiện — SAI, thiếu nghiêm trọng',
+    qaStatus: 'VN: ĐÃ XÁC NHẬN KHÔNG FAIL (đếm đúng theo khối, khớp UI thật). GB/US/JP/BR/TH/DE/KR/ID/MX/EG/AU/IN/AR: vẫn FAIL ổn định qua nhiều lần chạy lại — bug thật, chỉ không xảy ra ở locale VN.',
     confirm: '',
-    note: 'Cách tự check: mở link UI ở cột trước (đổi ?date= sang ngày đang test), đếm số KHỐI GIẢI khác nhau hiển thị trong danh sách trận chính (không tính sidebar "Other matches") — 1 giải chia nhiều bảng thì mỗi bảng tính là 1 khối riêng (như ảnh AFC Champions League 2 chia Group C/F/G/H). Nếu sidebar còn nhiều giải mà danh sách chính chưa đủ 10 khối → đúng hiện tượng.',
+    note:
+      'GIỚI HẠN KHI TỰ CHECK UI: trang uniscore.com tự nhận diện locale theo địa chỉ IP của máy đang mở trình duyệt (không đổi được qua URL như /en-gb) — nếu bạn mở link UI từ máy ở Việt Nam, trang LUÔN hiển thị theo locale VN (đang đúng), không thấy được lỗi của GB/US/... Cách tự check locale khác: (1) dùng VPN đổi IP sang đúng quốc gia rồi mở link UI, hoặc (2) tin cậy vào lệnh API ở cột trước (đổi "locale/GB/" thành locale muốn test), chạy bằng Postman và tự đếm số (tournament.id + group_id) phân biệt trong data.events.',
   },
   {
     no: 2,
@@ -63,11 +63,11 @@ const rows = [
       'So sánh data.otherCompetitions (V1 là mảng phẳng, V2 là mảng nhóm) — cộng tổng match_count cả 2 bên.',
     sample:
       'Lần chạy test đầu: fail ở locale VN ngày 2026-10-17 và locale BR ngày hôm nay.\n' +
-      'Chạy lại ngay sau đó (cùng ngày/locale): PASS bình thường, không lệch.\n' +
-      'Nghi ngờ nguyên nhân: V1 dùng cache RAM từng pod, V2 dùng snapshot Redis — có thể lệch vài giây khi data vừa cập nhật.',
-    qaStatus: 'KHÔNG ổn định — pass lại khi chạy nhiều lần liên tiếp. Có khả năng đây là flaky bình thường do cache, không phải bug cố định.',
+      'ĐÀO SÂU THÊM (theo yêu cầu): gọi lại liên tiếp 5 lần cùng locale VN ngày 15/10 — CẢ 5 LẦN đều PASS ổn định (V1=236, V2=232, luôn đúng V1≥V2). Không tái hiện lại được lỗi dù thử nhiều lần ngay sau đó.\n' +
+      'Nghi ngờ nguyên nhân: V1 dùng cache RAM từng pod, V2 dùng snapshot Redis — có thể lệch vài giây ĐÚNG THỜI ĐIỂM data vừa cập nhật (cửa sổ lỗi rất hẹp, khó chủ động tái hiện).',
+    qaStatus: 'Đã cố gắng điều tra kỹ theo yêu cầu: chạy lại 5 lần liên tiếp đều PASS, không bắt lại được lỗi. Đây là flaky thật (cửa sổ thời gian hẹp), không phải lỗi cố định — khó báo dev vì không có bước tái hiện ổn định để họ debug.',
     confirm: '',
-    note: 'Không cần confirm gấp — đây là tín hiệu "theo dõi thêm" hơn là bug chắc chắn. Nếu lặp lại thường xuyên trong các lần chạy daily tới mới đáng báo dev.',
+    note: 'Gộp chung với bug #6 (cùng hiện tượng, cùng nghi ngờ nguyên nhân cache). Đề xuất: nếu muốn điều tra tiếp, cần theo dõi qua nhiều lần chạy test daily tự động (đã có sẵn trong hệ thống) để xem tần suất lặp lại thực tế qua thời gian dài, thay vì cố gắng tái hiện thủ công.',
   },
   {
     no: 3,
@@ -81,12 +81,13 @@ const rows = [
       `POST /events/live/locale/VN  body: {"competitionIds": ["no03wnpof59rah5"]}   → kỳ vọng 1 trận\n` +
       `POST /events/live/locale/VN  body: {"competitionId": "no03wnpof59rah5"}    → đang trả 0 trận (SAI)`,
     sample:
-      'Giải mẫu: United Football League (id: no03wnpof59rah5)\n' +
-      'competitionIds:["no03wnpof59rah5"] → 1 trận\n' +
-      'competitionId:"no03wnpof59rah5" → 0 trận',
-    qaStatus: 'Verify lại hôm nay vẫn tái hiện đúng như mô tả — fail ổn định, không phải flaky.',
+      'ĐÀO SÂU THÊM (theo yêu cầu) — test trên 2 GIẢI KHÁC NHAU để loại trừ khả năng "chỉ 1 giải bị lỗi riêng":\n' +
+      'Giải 1: United Football League (id: no03wnpof59rah5) → competitionIds: 1 trận | competitionId: 0 trận\n' +
+      'Giải 2: Shillong Premier League (id: bm0nxitodvss3t6) → competitionIds: 1 trận | competitionId: 0 trận\n' +
+      '=> CẢ 2 GIẢI đều lỗi giống hệt nhau → đây là lỗi xử lý tham số ở tầng code chung (áp dụng cho mọi giải), không phải lỗi riêng của 1 giải cụ thể.',
+    qaStatus: 'Verify lại hôm nay vẫn tái hiện đúng như mô tả, đã test thêm trên giải thứ 2 để chắc chắn — fail ổn định 2/2 giải, không phải flaky hay lỗi riêng 1 giải.',
     confirm: '',
-    note: 'Lưu ý: giải mẫu cụ thể ở trên chỉ đúng tại thời điểm test (phụ thuộc có trận live lúc đó) — nếu giải này hết live khi bạn check lại, tìm 1 giải đang có trận live khác trên UI rồi lấy competition id tương ứng để test lại.',
+    note: 'Giải mẫu cụ thể ở trên chỉ đúng tại thời điểm test (phụ thuộc có trận live lúc đó) — nếu hết live khi bạn check lại, tìm 1 giải đang có trận live khác trên UI, lấy competition id tương ứng rồi test lại bằng công thức: gọi competitionIds:[id] rồi competitionId:id, so sánh events.length — nếu công thức này tái hiện đúng (số nhiều > 0, số ít = 0) ở BẤT KỲ giải nào, bug được xác nhận chắc chắn.',
   },
   {
     no: 4,
@@ -112,20 +113,21 @@ const rows = [
     severity: 'Cao',
     endpoint: 'scheduled-v2',
     symptom:
-      'Cùng 1 ngày, cùng ý nghĩa locale (Việt Nam), chỉ khác cách viết hoa/thường, nhưng trả về SỐ TRẬN KHÁC NHAU trong danh sách chính (events). Đã verify lặp lại nhiều lần ở các ngày khác nhau, luôn cho kết quả khác nhau ổn định — không phải do data đổi giữa 2 lần gọi.',
+      'Cùng 1 ngày, cùng ý nghĩa locale (Việt Nam), chỉ khác cách viết hoa/thường, nhưng trả về SỐ TRẬN KHÁC NHAU trong danh sách chính (events). ĐÀO SÂU THÊM (theo yêu cầu): verify lặp lại 3 NGÀY LIÊN TIẾP (14, 15, 16/10) đều lệch ổn định (27 vs 24, 54 vs 29, 21 vs 19) — không phải trùng hợp ngẫu nhiên 1 lần. Phân tích chi tiết ngày 15/10: locale=vn (thường) THIẾU ĐÚNG 6 khối so với locale=VN (hoa) — thiếu toàn bộ "AFC Champions League 2" (4 group) + "Major League Soccer" + "Professional League". QUAN TRỌNG: otherCompetitions (sidebar) giữa 2 trường hợp cũng KHÁC NHAU (67 vs 68 nhóm) — tức bug này ảnh hưởng sâu hơn, không chỉ riêng bước chọn "10 khối ưu tiên" mà có vẻ ảnh hưởng toàn bộ pipeline xử lý locale. CÓ KHẢ NĂNG đây cùng gốc rễ với bug #1 (VT9 fallback) — cả 2 đều biểu hiện qua việc 1 số khối/giải bị "rớt" khỏi danh sách khi locale không phải dạng chuẩn.',
     uiLink: `${SITE}?date=${TODAY}`,
     apiLink:
       `POST /scheduled-events-pagination-v2/${TODAY}/locale/VN/type/all  body: {}\n` +
       `POST /scheduled-events-pagination-v2/${TODAY}/locale/vn/type/all  body: {}\n` +
-      'So sánh data.events.length giữa 2 lần gọi — chỉ khác chữ hoa/thường ở locale.',
+      'So sánh data.events.length VÀ data.otherCompetitions.length giữa 2 lần gọi — chỉ khác chữ hoa/thường ở locale.',
     sample:
-      `Ngày ${TODAY}:\n` +
-      'locale=VN (hoa): 54 trận\n' +
-      'locale=vn (thường): 29 trận\n' +
-      'Chênh lệch rất lớn (gần gấp đôi), đã verify lại nhiều lần đều cho kết quả tương tự.',
-    qaStatus: 'Verify ổn định qua nhiều lần chạy ở các ngày khác nhau — đây là bug có độ tin cậy cao nhất trong danh sách này.',
+      '3 ngày liên tiếp đã verify:\n' +
+      '14/10: VN(hoa)=27 trận | vn(thường)=24 trận\n' +
+      '15/10: VN(hoa)=54 trận | vn(thường)=29 trận — thiếu đúng 6 khối: AFC Champions League 2 (cả 4 group), Major League Soccer, Professional League\n' +
+      '16/10: VN(hoa)=21 trận | vn(thường)=19 trận\n' +
+      'otherCompetitions ngày 15/10: VN(hoa)=67 nhóm, vn(thường)=68 nhóm (KHÁC NHAU, không chỉ events mới khác)',
+    qaStatus: 'Verify ổn định qua 3 ngày liên tiếp khác nhau — đây là bug có độ tin cậy cao nhất trong danh sách này, và có dấu hiệu liên quan tới bug #1.',
     confirm: '',
-    note: 'Rủi ro thật: nhiều hệ thống/client (web, app, đối tác) có thể gửi locale với format hoa/thường khác nhau tùy chỗ — không phải trường hợp lý thuyết hiếm gặp.',
+    note: 'Rủi ro thật: nhiều hệ thống/client (web, app, đối tác) có thể gửi locale với format hoa/thường khác nhau tùy chỗ — không phải trường hợp lý thuyết hiếm gặp. Đề xuất báo dev kiểm tra CHUNG với bug #1 vì nghi ngờ cùng gốc rễ (xử lý locale không chuẩn hoá trước khi dùng để lọc/chọn giải).',
   },
   {
     no: 6,
@@ -141,9 +143,9 @@ const rows = [
     sample:
       'Lần 1 (test tự động): phát hiện lệch.\n' +
       'Lần 2 (verify thủ công ngay sau): V1 = 38 trận, V2 = 38 trận, khớp hoàn toàn 0 lệch.',
-    qaStatus: 'Nhiều khả năng đây là biểu hiện khác của bug #2 (cache lệch tạm thời), không phải lỗi cố định riêng locale BR.',
+    qaStatus: 'ĐÃ GỘP VỚI BUG #2 THEO YÊU CẦU — xem chi tiết đào sâu (5 lần chạy lại liên tiếp đều pass) ở dòng #2. Đây chỉ là 1 biểu hiện khác của cùng hiện tượng flaky cache, không phải lỗi cố định riêng locale BR.',
     confirm: '',
-    note: 'Gộp chung hướng theo dõi với bug #2 — không cần confirm riêng, chỉ cần biết nếu bug #2 được xác nhận/fix thì case này cũng nên tự hết.',
+    note: 'Không cần confirm riêng dòng này — kết luận chung đã gộp vào dòng #2.',
   },
 ];
 
