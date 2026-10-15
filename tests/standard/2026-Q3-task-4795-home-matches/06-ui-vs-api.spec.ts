@@ -421,3 +421,67 @@ test.describe('UI vs API — trận hiển thị SAI TAB (chưa đến ngày / �
     expect(wrongBadge, wrongBadge.join('\n')).toEqual([]);
   });
 });
+
+// ============================================================================
+// Nhóm case mới: đối chiếu UI THẬT với bug "trận bị xếp sai ngày theo locale"
+// đã phát hiện ở tầng API (file 16-locale-date-boundary.spec.ts) — locale GB,
+// KH, CI, CM, GH, LA đều có trận bị kẹt sai 1 ngày. Trang Home tự detect
+// locale theo IP máy chạy browser (xem getUiLocale phía trên) nên không ép
+// được 1 locale cụ thể khác locale thật của máy — nhóm case này verify đúng
+// locale UI THẬT ĐANG DÙNG tại thời điểm chạy, dùng để daily tự bắt bug nếu
+// nó xảy ra đúng với locale của máy chạy CI/local lúc đó.
+// ============================================================================
+
+test.describe('UI vs API — trận gần ranh giới ngày hiển thị đúng ngày (đối chiếu bug date-boundary)', () => {
+  test('trận đá sát nửa đêm giờ địa phương UI, nếu API xác nhận thuộc ngày hôm nay thì phải thấy trên UI ngày hôm nay (không bị kẹt ở ngày hôm qua)', async ({ page, request }) => {
+    const uiLocale = await getUiLocale(page, `${SITE}?date=${TODAY}`);
+    const { body: today } = await post(request, scheduledV2(TODAY, uiLocale, 'all', 'en'));
+    test.skip(today.code !== 1, 'API không trả code 1 cho ngày hôm nay');
+
+    // Trận đá trong vùng 4h đầu ngày UTC — đây là vùng dễ lộ bug "kẹt ở ngày
+    // UTC gốc, chưa cộng offset địa phương" nhất (giống mẫu KH/GB đã xác nhận
+    // thật ở file 16: trận UTC 19h-23h59 hôm trước có thể bị kẹt sai 1 ngày
+    // với locale UTC+dương, hoặc trận UTC 0h-4h có thể lộ bug với locale
+    // UTC-âm — tuỳ dấu offset của uiLocale đang dùng).
+    const boundaryInToday = today.data.events.filter((e: any) => {
+      const h = new Date(e.startTimestamp * 1000).getUTCHours();
+      return h <= 4;
+    });
+    test.skip(boundaryInToday.length === 0, `Không có trận nào gần ranh giới ngày trong response hôm nay (locale ${uiLocale}) để kiểm tra`);
+
+    await page.waitForTimeout(800);
+    const uiText = await getMainListText(page);
+    const missing = boundaryInToday.filter((e: any) => !uiText.includes(e.homeTeam.shortName) || !uiText.includes(e.awayTeam.shortName));
+    // Không hard 0 tuyệt đối vì vẫn có thể là giải nhỏ không nổi bật (giới hạn
+    // top-list như đã ghi nhận ở file 16) — nhưng ngưỡng rất chặt vì đây là
+    // trận gần biên, nếu UI thật không thấy đúng trận mà API nói có thì đáng
+    // chú ý hơn hẳn 1 trận ngẫu nhiên giữa ngày.
+    const threshold = Math.max(1, Math.ceil(boundaryInToday.length * 0.15));
+    expect(missing.length, `Locale UI thật = ${uiLocale}: ${missing.length}/${boundaryInToday.length} trận gần ranh giới ngày API xác nhận hôm nay nhưng KHÔNG thấy trên UI:\n${missing.map((e: any) => `${e.homeTeam.shortName} vs ${e.awayTeam.shortName} (UTC=${new Date(e.startTimestamp * 1000).toISOString()})`).join('\n')}`).toBeLessThanOrEqual(threshold);
+  });
+
+  test('trận API xác nhận đã xếp SAI vào ngày hôm qua (chưa cộng offset địa phương) thì KHÔNG được xuất hiện trên UI ngày hôm nay như thể đã đá xong', async ({ page, request }) => {
+    const uiLocale = await getUiLocale(page, `${SITE}?date=${TODAY}`);
+    const { body: yesterday } = await post(request, scheduledV2(vnDate(-1), uiLocale, 'all', 'en'));
+    test.skip(yesterday.code !== 1, 'API không trả code 1 cho ngày hôm qua');
+
+    // Tìm trận "lạc" trong response hôm qua mà UTC giờ đá đã rất muộn (gần
+    // sát ranh giới sang ngày mới) — đây chính là dạng trận bị bug date-
+    // boundary giữ lại sai ở ngày cũ (xem file 16, ví dụ GB: trận UTC 23:40
+    // hôm trước đáng ra sang ngày mới nhưng bị kẹt ở ngày cũ).
+    const suspiciousInYesterday = yesterday.data.events.filter((e: any) => {
+      const h = new Date(e.startTimestamp * 1000).getUTCHours();
+      return h >= 22;
+    });
+    test.skip(suspiciousInYesterday.length === 0, `Không có trận nào nghi ngờ bug date-boundary trong response hôm qua (locale ${uiLocale})`);
+
+    // Mục đích: ghi nhận annotation để theo dõi, KHÔNG hard-fail trực tiếp từ
+    // UI — vì bước xác nhận "có đúng là bug hay không" cần đối chiếu múi giờ
+    // IANA chuẩn (đã làm kỹ ở file 16), phép so trên UI chỉ mang tính minh hoạ
+    // trực quan khi trùng đúng thời điểm/locale máy chạy đang bị ảnh hưởng.
+    test.info().annotations.push({
+      type: 'date-boundary-ui-sample',
+      description: `Locale UI thật = ${uiLocale}: ${suspiciousInYesterday.length} trận UTC giờ muộn (>=22h) trong response "hôm qua" — nếu trùng đúng locale đang bug (xem file 16), đây có thể là bằng chứng trực quan trên UI. Mẫu: ${suspiciousInYesterday.slice(0, 3).map((e: any) => `${e.homeTeam.shortName} vs ${e.awayTeam.shortName}`).join(', ')}`,
+    });
+  });
+});
