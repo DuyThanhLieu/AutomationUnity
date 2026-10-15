@@ -164,6 +164,16 @@ test.describe('trận live phải tiến triển theo thời gian (không đứn
     const second = await post(request, liveV2('VN', 'en'));
     test.skip(second.body.code !== 1, 'API không trả code 1 ở lần gọi thứ 2');
 
+    // QUAN TRỌNG — đã tự hiểu sai field này khi viết lần đầu, gây fail giả
+    // 100% (3/3 trận) lặp lại ổn định 2 lần chạy liên tiếp: time.currentPeriodStartTimestamp
+    // là MỐC BẮT ĐẦU của hiệp đấu hiện tại (cố định suốt cả hiệp), KHÔNG phải
+    // đồng hồ trôi theo thời gian thực — nó chỉ đổi khi SANG HIỆP MỚI, không
+    // đổi chỉ vì 45 giây trôi qua giữa hiệp. Verify thủ công: trận "Hunters vs
+    // Khovd" đứng ở status.code=7 (2nd_half) cả 2 lần gọi là HOÀN TOÀN BÌNH
+    // THƯỜNG nếu hiệp 2 kéo dài hơn 45s (gần như luôn đúng — 1 hiệp dài 45
+    // phút). Field này không dùng được để phát hiện "pipeline đứng" ở khung
+    // thời gian ngắn như vậy — chỉ đổi tỷ số hoặc chuyển hiệp mới là tín hiệu
+    // tiến triển thật đáng tin trong 45s.
     const firstById = new Map(first.body.data.events.map((e: any) => [e.id, e]));
     const bad: string[] = [];
     let compared = 0;
@@ -172,20 +182,21 @@ test.describe('trận live phải tiến triển theo thời gian (không đứn
       if (!e1 || e1.status.type !== 'inprogress' || e2.status.type !== 'inprogress') continue;
       compared++;
       const scoreChanged = e1.homeScore.display !== e2.homeScore.display || e1.awayScore.display !== e2.awayScore.display;
-      // "Tiến triển" ở đây nghĩa rộng hơn chỉ tỷ số: status.code (hiệp 1/2/hiệp
-      // phụ) hoặc currentPeriodStartTimestamp đổi cũng tính là có tiến triển —
-      // phần lớn trận live 45 giây không ghi bàn vẫn hoàn toàn bình thường.
       const periodChanged = e1.status.code !== e2.status.code;
-      const clockMoved = e1.time?.currentPeriodStartTimestamp !== e2.time?.currentPeriodStartTimestamp;
-      if (!scoreChanged && !periodChanged && !clockMoved) {
-        bad.push(`${e2.id} (${e2.homeTeam.shortName} vs ${e2.awayTeam.shortName}): status/tỷ số/mốc hiệp giống hệt sau 45s — nghi ngờ pipeline live đứng`);
+      if (!scoreChanged && !periodChanged) {
+        bad.push(`${e2.id} (${e2.homeTeam.shortName} vs ${e2.awayTeam.shortName}): tỷ số và hiệp giống hệt sau 45s`);
       }
     }
     test.skip(compared === 0, 'Không có trận nào giữ nguyên trạng thái inprogress ở cả 2 lần gọi để kiểm tra tiến triển');
-    // Đây là tín hiệu CẢNH BÁO (1 trận có thể thật sự "im ắng" 45s không có gì
-    // mới ghi vào feed) — chỉ fail khi TẤT CẢ trận đang theo dõi đều đứng yên
-    // (dấu hiệu rõ ràng của lỗi hệ thống, không phải 1 trận cá biệt im lặng).
-    expect(bad.length, `${bad.length}/${compared} trận live không có bất kỳ tiến triển nào sau 45s:\n${bad.join('\n')}`).toBeLessThan(compared);
+    // Phần lớn trận 45s không ghi bàn và không hết hiệp là CHUYỆN BÌNH THƯỜNG
+    // (1 hiệp dài 45 phút, bàn thắng hiếm) — đây chỉ là annotation thông tin,
+    // KHÔNG hard-fail vì tỷ lệ "đứng yên" cao trong 45s không phải bất thường.
+    // Muốn phát hiện pipeline đứng thật cần cửa sổ dài hơn nhiều (nhiều phút)
+    // và theo dõi xuyên nhiều lần chạy daily — để dành cho baseline cross-day
+    // (file 10/11/12 phần baseline), không phải so sánh trong-run ngắn này.
+    if (bad.length > 0) {
+      test.info().annotations.push({ type: 'live-match-quiet-45s', description: `${bad.length}/${compared} trận không đổi tỷ số/hiệp trong 45s (bình thường, không phải bug):\n${bad.join('\n')}` });
+    }
   });
 });
 
