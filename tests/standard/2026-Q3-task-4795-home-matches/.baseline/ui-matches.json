@@ -116,6 +116,15 @@
     "scoreText": "1 - 3",
     "seenAt": "2026-10-15T07:04:12.959Z"
   },
+  "4m9appl6xl9er6b": {
+    "id": "4m9appl6xl9er6b",
+    "date": "2026-10-16",
+    "uiState": "upcoming",
+    "homeTeam": "Tijuana",
+    "awayTeam": "Puebla",
+    "scoreText": null,
+    "seenAt": "2026-10-16T02:31:06.880Z"
+  },
   "54cvbml3824mvp4": {
     "id": "54cvbml3824mvp4",
     "date": "2026-10-15",
@@ -124,6 +133,15 @@
     "awayTeam": "Orlando",
     "scoreText": "3 - 3",
     "seenAt": "2026-10-15T07:04:12.959Z"
+  },
+  "54cvbml3h06zvp4": {
+    "id": "54cvbml3h06zvp4",
+    "date": "2026-10-16",
+    "uiState": "live",
+    "homeTeam": "Necaxa",
+    "awayTeam": "Atlas",
+    "scoreText": null,
+    "seenAt": "2026-10-16T02:31:06.880Z"
   },
   "54cvbml3m11xvp4": {
     "id": "54cvbml3m11xvp4",
@@ -368,6 +386,24 @@
     "scoreText": "0 - 3",
     "seenAt": "2026-10-15T07:04:12.959Z"
   },
+  "a8qv3rlqf5h1r1c": {
+    "id": "a8qv3rlqf5h1r1c",
+    "date": "2026-10-16",
+    "uiState": "upcoming",
+    "homeTeam": "Boston Legacy (W)",
+    "awayTeam": "Racing Louisville (W)",
+    "scoreText": null,
+    "seenAt": "2026-10-16T02:31:06.880Z"
+  },
+  "a8qv3rlqlk93r1c": {
+    "id": "a8qv3rlqlk93r1c",
+    "date": "2026-10-16",
+    "uiState": "upcoming",
+    "homeTeam": "Frosinone",
+    "awayTeam": "Sassuolo",
+    "scoreText": null,
+    "seenAt": "2026-10-16T02:31:06.880Z"
+  },
   "a8qv3rlqt517r1c": {
     "id": "a8qv3rlqt517r1c",
     "date": "2026-10-14",
@@ -476,6 +512,15 @@
     "scoreText": "2 - 3",
     "seenAt": "2026-10-14T10:31:31.930Z"
   },
+  "cq0afilnmwmpv78": {
+    "id": "cq0afilnmwmpv78",
+    "date": "2026-10-16",
+    "uiState": "live",
+    "homeTeam": "Atlante",
+    "awayTeam": "Pumas",
+    "scoreText": null,
+    "seenAt": "2026-10-16T02:31:06.880Z"
+  },
   "cq0afilnv2awv78": {
     "id": "cq0afilnv2awv78",
     "date": "2026-10-15",
@@ -511,6 +556,15 @@
     "awayTeam": "Lillestrom",
     "scoreText": null,
     "seenAt": "2026-10-15T07:04:12.959Z"
+  },
+  "go6v7ils73cfrxk": {
+    "id": "go6v7ils73cfrxk",
+    "date": "2026-10-16",
+    "uiState": "upcoming",
+    "homeTeam": "Tormenta",
+    "awayTeam": "FC Naples",
+    "scoreText": null,
+    "seenAt": "2026-10-16T02:31:06.880Z"
   },
   "go6v7ils8xm5rxk": {
     "id": "go6v7ils8xm5rxk",
@@ -700,6 +754,24 @@
     "awayTeam": "Crvena Zvezda",
     "scoreText": null,
     "seenAt": "2026-10-15T07:04:12.959Z"
+  },
+  "sybadnlfw2opwhq": {
+    "id": "sybadnlfw2opwhq",
+    "date": "2026-10-16",
+    "uiState": "upcoming",
+    "homeTeam": "Frankfurt",
+    "awayTeam": "Köln",
+    "scoreText": null,
+    "seenAt": "2026-10-16T02:31:06.880Z"
+  },
+  "ykcv4ill4xm9w5u": {
+    "id": "ykcv4ill4xm9w5u",
+    "date": "2026-10-16",
+    "uiState": "upcoming",
+    "homeTeam": "Deportivo",
+    "awayTeam": "Levante",
+    "scoreText": null,
+    "seenAt": "2026-10-16T02:31:06.880Z"
   },
   "ykcv4ill9ozlw5u": {
     "id": "ykcv4ill9ozlw5u",
