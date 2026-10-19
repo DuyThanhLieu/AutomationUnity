@@ -1079,6 +1079,15 @@
     "scoreText": null,
     "seenAt": "2026-10-17T06:08:35.083Z"
   },
+  "b1ta1ll5s1h2vff": {
+    "id": "b1ta1ll5s1h2vff",
+    "date": "2026-10-19",
+    "uiState": "upcoming",
+    "homeTeam": "Getafe",
+    "awayTeam": "Rayo Vallecano",
+    "scoreText": null,
+    "seenAt": "2026-10-19T06:46:47.137Z"
+  },
   "b1ta1ll5s4yovff": {
     "id": "b1ta1ll5s4yovff",
     "date": "2026-10-14",
@@ -1213,6 +1222,15 @@
     "awayTeam": "Colorado",
     "scoreText": null,
     "seenAt": "2026-10-17T06:08:35.083Z"
+  },
+  "cq0afilnl988v78": {
+    "id": "cq0afilnl988v78",
+    "date": "2026-10-19",
+    "uiState": "upcoming",
+    "homeTeam": "USA (W) U17",
+    "awayTeam": "Samoa U17(W)",
+    "scoreText": null,
+    "seenAt": "2026-10-19T06:46:47.137Z"
   },
   "cq0afilnv2awv78": {
     "id": "cq0afilnv2awv78",
@@ -1511,6 +1529,15 @@
     "scoreText": null,
     "seenAt": "2026-10-18T06:35:21.181Z"
   },
+  "mx7a61lrlv4hwi4": {
+    "id": "mx7a61lrlv4hwi4",
+    "date": "2026-10-19",
+    "uiState": "live",
+    "homeTeam": "Tottenham",
+    "awayTeam": "Coventry",
+    "scoreText": null,
+    "seenAt": "2026-10-19T06:46:47.137Z"
+  },
   "mx7a61lrlvzhwi4": {
     "id": "mx7a61lrlvzhwi4",
     "date": "2026-10-18",
@@ -1799,6 +1826,15 @@
     "scoreText": null,
     "seenAt": "2026-10-15T07:04:12.959Z"
   },
+  "q69zrnlug2j7vee": {
+    "id": "q69zrnlug2j7vee",
+    "date": "2026-10-19",
+    "uiState": "upcoming",
+    "homeTeam": "Parma",
+    "awayTeam": "Torino",
+    "scoreText": null,
+    "seenAt": "2026-10-19T06:46:47.137Z"
+  },
   "q69zrnlutgslvee": {
     "id": "q69zrnlutgslvee",
     "date": "2026-10-15",
@@ -1870,6 +1906,15 @@
     "awayTeam": "Crvena Zvezda",
     "scoreText": "3 - 2",
     "seenAt": "2026-10-16T02:27:58.393Z"
+  },
+  "sybadnlfeg38whq": {
+    "id": "sybadnlfeg38whq",
+    "date": "2026-10-19",
+    "uiState": "upcoming",
+    "homeTeam": "Monza",
+    "awayTeam": "Cagliari",
+    "scoreText": null,
+    "seenAt": "2026-10-19T06:46:47.137Z"
   },
   "sybadnlfeoc7whq": {
     "id": "sybadnlfeoc7whq",
