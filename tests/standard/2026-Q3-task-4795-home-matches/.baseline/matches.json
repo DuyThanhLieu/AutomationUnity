@@ -1,4 +1,18 @@
 {
+  "1ztvu6l828m0v9p": {
+    "id": "1ztvu6l828m0v9p",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792888200,
+    "homeTeam": "Kansas City",
+    "awayTeam": "Austin FC",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "1ztvu6l828o0v9p": {
     "id": "1ztvu6l828o0v9p",
     "date": "2026-10-15",
@@ -86,30 +100,30 @@
   "1ztvu6l8encyv9p": {
     "id": "1ztvu6l8encyv9p",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 0,
     "startTimestamp": 1792695600,
     "homeTeam": "Olympiakos",
     "awayTeam": "Sparta Praha",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "1ztvu6l8enjzv9p": {
     "id": "1ztvu6l8enjzv9p",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 1,
     "startTimestamp": 1792695600,
     "homeTeam": "AGF",
     "awayTeam": "Egnatia",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "1ztvu6l8ennwv9p": {
     "id": "1ztvu6l8ennwv9p",
@@ -277,7 +291,7 @@
     "awayTeam": "Diriyah",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "1ztvu6lfmlg4v9p": {
     "id": "1ztvu6lfmlg4v9p",
@@ -305,7 +319,7 @@
     "awayTeam": "Bedford",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "270vqal5td98w0m": {
     "id": "270vqal5td98w0m",
@@ -349,6 +363,20 @@
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-14T10:31:31.482Z"
   },
+  "270vqalr7xj9w0m": {
+    "id": "270vqalr7xj9w0m",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792936800,
+    "homeTeam": "Man Utd",
+    "awayTeam": "Bournemouth",
+    "tournament": "Premier League",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "270vqalrd9rqw0m": {
     "id": "270vqalrd9rqw0m",
     "date": "2026-10-21",
@@ -361,7 +389,7 @@
     "awayTeam": "Al-Ittihad",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "270vqalrf4mew0m": {
     "id": "270vqalrf4mew0m",
@@ -389,7 +417,7 @@
     "awayTeam": "Southampton",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "270vqalrfg3pw0m": {
     "id": "270vqalrfg3pw0m",
@@ -403,7 +431,7 @@
     "awayTeam": "Bremen",
     "tournament": "Bundesliga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "270vqalrfz6lw0m": {
     "id": "270vqalrfz6lw0m",
@@ -450,30 +478,30 @@
   "270vqalrrp70w0m": {
     "id": "270vqalrrp70w0m",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 2,
     "startTimestamp": 1792695600,
     "homeTeam": "Celje",
     "awayTeam": "RB Salzburg",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "270vqalrrpckw0m": {
     "id": "270vqalrrpckw0m",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 2,
     "startTimestamp": 1792687500,
     "homeTeam": "OFI",
     "awayTeam": "Leverkusen",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "270vqalrww27w0m": {
     "id": "270vqalrww27w0m",
@@ -515,7 +543,7 @@
     "awayTeam": "Bac Ninh",
     "tournament": "V.League 1",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "4m9appl65po8r6b": {
     "id": "4m9appl65po8r6b",
@@ -557,7 +585,7 @@
     "awayTeam": "Leipzig",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "4m9appl66oolr6b": {
     "id": "4m9appl66oolr6b",
@@ -641,7 +669,7 @@
     "awayTeam": "West Brom",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "4m9appl683g4r6b": {
     "id": "4m9appl683g4r6b",
@@ -655,7 +683,7 @@
     "awayTeam": "Union Berlin",
     "tournament": "Bundesliga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "4m9appl683j4r6b": {
     "id": "4m9appl683j4r6b",
@@ -741,6 +769,20 @@
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-18T06:35:20.760Z"
   },
+  "4m9appl6x06kr6b": {
+    "id": "4m9appl6x06kr6b",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792936800,
+    "homeTeam": "Hull",
+    "awayTeam": "Brentford",
+    "tournament": "Premier League",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "4m9appl6x0hfr6b": {
     "id": "4m9appl6x0hfr6b",
     "date": "2026-10-18",
@@ -781,7 +823,7 @@
     "awayTeam": "Chesham",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "4m9applugo09r6b": {
     "id": "4m9applugo09r6b",
@@ -867,6 +909,20 @@
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-14T10:31:31.482Z"
   },
+  "54cvbml382cmvp4": {
+    "id": "54cvbml382cmvp4",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792895400,
+    "homeTeam": "San Diego",
+    "awayTeam": "Seattle",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "54cvbml3h3mzvp4": {
     "id": "54cvbml3h3mzvp4",
     "date": "2026-10-24",
@@ -879,7 +935,7 @@
     "awayTeam": "Sassuolo",
     "tournament": "Serie A",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "54cvbml3hj7lvp4": {
     "id": "54cvbml3hj7lvp4",
@@ -894,6 +950,34 @@
     "tournament": "Premier League",
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-14T10:31:31.482Z"
+  },
+  "54cvbml3hjj0vp4": {
+    "id": "54cvbml3hjj0vp4",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792936800,
+    "homeTeam": "Crystal Palace",
+    "awayTeam": "Newcastle",
+    "tournament": "Premier League",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
+  "54cvbml3hkqxvp4": {
+    "id": "54cvbml3hkqxvp4",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792944900,
+    "homeTeam": "Toulouse",
+    "awayTeam": "Troyes",
+    "tournament": "Ligue 1",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "54cvbml3m11xvp4": {
     "id": "54cvbml3m11xvp4",
@@ -993,6 +1077,20 @@
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-16T09:15:08.624Z"
   },
+  "54cvbml3rgo5vp4": {
+    "id": "54cvbml3rgo5vp4",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792945800,
+    "homeTeam": "Freiburg",
+    "awayTeam": "Bayern",
+    "tournament": "Bundesliga",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "54cvbml3ro0zvp4": {
     "id": "54cvbml3ro0zvp4",
     "date": "2026-10-24",
@@ -1005,7 +1103,7 @@
     "awayTeam": "Burnley",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "54cvbml3rohzvp4": {
     "id": "54cvbml3rohzvp4",
@@ -1047,7 +1145,7 @@
     "awayTeam": "Villarreal",
     "tournament": "La Liga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "54cvbmlf1o6evp4": {
     "id": "54cvbmlf1o6evp4",
@@ -1061,7 +1159,7 @@
     "awayTeam": "Gateshead",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "54cvbmlfd186vp4": {
     "id": "54cvbmlfd186vp4",
@@ -1108,16 +1206,30 @@
   "5z3v0bl20l1ovu6": {
     "id": "5z3v0bl20l1ovu6",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 2,
     "startTimestamp": 1792687500,
     "homeTeam": "Juventus",
     "awayTeam": "Rennes",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
+  "5z3v0bl271jmvu6": {
+    "id": "5z3v0bl271jmvu6",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792941300,
+    "homeTeam": "Celta",
+    "awayTeam": "Real Betis",
+    "tournament": "La Liga",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "5z3v0bl27j5avu6": {
     "id": "5z3v0bl27j5avu6",
@@ -1206,16 +1318,16 @@
   "5z3v0bl2wdzyvu6": {
     "id": "5z3v0bl2wdzyvu6",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 2,
     "startTimestamp": 1792676400,
     "homeTeam": "Al-Hazm",
     "awayTeam": "Al-Fayha",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "5z3v0bl2x7r5vu6": {
     "id": "5z3v0bl2x7r5vu6",
@@ -1271,7 +1383,7 @@
     "awayTeam": "Barrow",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "623z28le7798vx5": {
     "id": "623z28le7798vx5",
@@ -1355,7 +1467,7 @@
     "awayTeam": "Viking",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "623z28le7y94vx5": {
     "id": "623z28le7y94vx5",
@@ -1383,7 +1495,7 @@
     "awayTeam": "Lens",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "623z28lel4h4vx5": {
     "id": "623z28lel4h4vx5",
@@ -1411,7 +1523,7 @@
     "awayTeam": "Bologna",
     "tournament": "Serie A",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "623z28lelos0vx5": {
     "id": "623z28lelos0vx5",
@@ -1439,7 +1551,7 @@
     "awayTeam": "Al-Hazm",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-18T06:35:20.760Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "623z28leo1savx5": {
     "id": "623z28leo1savx5",
@@ -1454,6 +1566,20 @@
     "tournament": "Major League Soccer",
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
+  },
+  "623z28let24ovx5": {
+    "id": "623z28let24ovx5",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792926000,
+    "homeTeam": "Ninh Binh",
+    "awayTeam": "CA.TPHCM",
+    "tournament": "V.League 1",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "623z28lex020vx5": {
     "id": "623z28lex020vx5",
@@ -1481,7 +1607,7 @@
     "awayTeam": "Portsmouth",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "623z28lex0o0vx5": {
     "id": "623z28lex0o0vx5",
@@ -1495,7 +1621,7 @@
     "awayTeam": "Birmingham",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "623z28lex76yvx5": {
     "id": "623z28lex76yvx5",
@@ -1509,7 +1635,7 @@
     "awayTeam": "Schalke",
     "tournament": "Bundesliga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "623z28lexk34vx5": {
     "id": "623z28lexk34vx5",
@@ -1579,7 +1705,21 @@
     "awayTeam": "Elche",
     "tournament": "La Liga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
+  "6hqac9lu6e6ovme": {
+    "id": "6hqac9lu6e6ovme",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792864800,
+    "homeTeam": "Al-Riyadh",
+    "awayTeam": "Al-Taawoun",
+    "tournament": "Professional League",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "6hqac9lu6esovme": {
     "id": "6hqac9lu6esovme",
@@ -1607,35 +1747,35 @@
     "awayTeam": "Slavia Praha",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-18T06:35:20.760Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "6hqac9lufd6fvme": {
     "id": "6hqac9lufd6fvme",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 1,
     "startTimestamp": 1792687500,
     "homeTeam": "Iberia 1999",
     "awayTeam": "Mjallby",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "6hqac9lufd9fvme": {
     "id": "6hqac9lufd9fvme",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 0,
     "startTimestamp": 1792687500,
     "homeTeam": "Jablonec",
     "awayTeam": "Brighton",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "6hqac9lufdsfvme": {
     "id": "6hqac9lufdsfvme",
@@ -1691,7 +1831,7 @@
     "awayTeam": "Can Tho",
     "tournament": "V.League 2",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "6hqac9lumyykvme": {
     "id": "6hqac9lumyykvme",
@@ -1705,7 +1845,7 @@
     "awayTeam": "Nice",
     "tournament": "Ligue 1",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "6hqac9lux91hvme": {
     "id": "6hqac9lux91hvme",
@@ -1735,6 +1875,20 @@
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-18T06:35:20.760Z"
   },
+  "6hqac9lux9h4vme": {
+    "id": "6hqac9lux9h4vme",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792891800,
+    "homeTeam": "Salt Lake",
+    "awayTeam": "St. Louis",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "7kbz8iln2k72r9b": {
     "id": "7kbz8iln2k72r9b",
     "date": "2026-10-21",
@@ -1747,7 +1901,7 @@
     "awayTeam": "Aldershot",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilnwy5mr9b": {
     "id": "7kbz8ilnwy5mr9b",
@@ -1822,30 +1976,30 @@
   "7kbz8ilu6l25r9b": {
     "id": "7kbz8ilu6l25r9b",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 4,
     "startTimestamp": 1792695600,
     "homeTeam": "Lincoln RI",
     "awayTeam": "Twente",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilu6l7xr9b": {
     "id": "7kbz8ilu6l7xr9b",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 4,
     "startTimestamp": 1792687500,
     "homeTeam": "Ararat-Armenia",
     "awayTeam": "AZ",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilu6l95r9b": {
     "id": "7kbz8ilu6l95r9b",
@@ -1864,16 +2018,16 @@
   "7kbz8ilu6lc5r9b": {
     "id": "7kbz8ilu6lc5r9b",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 4,
     "startTimestamp": 1792687500,
     "homeTeam": "Kauno Zalgiris",
     "awayTeam": "Brann",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilu6lnxr9b": {
     "id": "7kbz8ilu6lnxr9b",
@@ -1892,16 +2046,16 @@
   "7kbz8ilu6ly3r9b": {
     "id": "7kbz8ilu6ly3r9b",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 3,
+    "awayDisplay": 0,
     "startTimestamp": 1792695600,
     "homeTeam": "Hoffenheim",
     "awayTeam": "Lyon",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilu6yhar9b": {
     "id": "7kbz8ilu6yhar9b",
@@ -1915,7 +2069,7 @@
     "awayTeam": "AEK",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilu6ys2r9b": {
     "id": "7kbz8ilu6ys2r9b",
@@ -1929,7 +2083,7 @@
     "awayTeam": "Slovan",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilu75n8r9b": {
     "id": "7kbz8ilu75n8r9b",
@@ -1944,6 +2098,20 @@
     "tournament": "Major League Soccer",
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-15T07:04:11.171Z"
+  },
+  "7kbz8ilu7w8zr9b": {
+    "id": "7kbz8ilu7w8zr9b",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792884600,
+    "homeTeam": "DC United",
+    "awayTeam": "Cincinnati",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilu7wmzr9b": {
     "id": "7kbz8ilu7wmzr9b",
@@ -1999,7 +2167,7 @@
     "awayTeam": "Nottingham",
     "tournament": "Premier League",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilulx5ar9b": {
     "id": "7kbz8ilulx5ar9b",
@@ -2055,21 +2223,21 @@
     "awayTeam": "Derby",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilutpzwr9b": {
     "id": "7kbz8ilutpzwr9b",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 1,
     "startTimestamp": 1792671300,
     "homeTeam": "Ha Noi Police",
     "awayTeam": "Thanh Hoa",
     "tournament": "V.League 1",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7kbz8ilutyrqr9b": {
     "id": "7kbz8ilutyrqr9b",
@@ -2097,7 +2265,7 @@
     "awayTeam": "Al-Faisaly",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-18T06:35:20.760Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7xdat6l3946ov72": {
     "id": "7xdat6l3946ov72",
@@ -2251,7 +2419,7 @@
     "awayTeam": "Bodo/Glimt",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7xdat6l3rpo7v72": {
     "id": "7xdat6l3rpo7v72",
@@ -2265,7 +2433,7 @@
     "awayTeam": "Man Utd",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7xdat6l3t5c8v72": {
     "id": "7xdat6l3t5c8v72",
@@ -2279,7 +2447,7 @@
     "awayTeam": "DC United",
     "tournament": "Major League Soccer",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7xdat6l3twn8v72": {
     "id": "7xdat6l3twn8v72",
@@ -2321,7 +2489,7 @@
     "awayTeam": "Hamburger",
     "tournament": "Bundesliga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7xdat6l3v9gov72": {
     "id": "7xdat6l3v9gov72",
@@ -2335,7 +2503,7 @@
     "awayTeam": "Malaga",
     "tournament": "La Liga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "7xdat6l3vejav72": {
     "id": "7xdat6l3vejav72",
@@ -2368,30 +2536,30 @@
   "9zuz9plc0x7orm3": {
     "id": "9zuz9plc0x7orm3",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 2,
     "startTimestamp": 1792687500,
     "homeTeam": "Crvena Zvezda",
     "awayTeam": "Copenhagen",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "9zuz9plc0xj9rm3": {
     "id": "9zuz9plc0xj9rm3",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 5,
     "startTimestamp": 1792679400,
     "homeTeam": "Kairat",
     "awayTeam": "Panathinaikos",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "9zuz9plc0yh0rm3": {
     "id": "9zuz9plc0yh0rm3",
@@ -2405,7 +2573,7 @@
     "awayTeam": "Arsenal",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "9zuz9plc7d08rm3": {
     "id": "9zuz9plc7d08rm3",
@@ -2419,7 +2587,7 @@
     "awayTeam": "Al-Ettifaq",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "9zuz9plc7dq8rm3": {
     "id": "9zuz9plc7dq8rm3",
@@ -2452,16 +2620,30 @@
   "9zuz9plcf87lrm3": {
     "id": "9zuz9plcf87lrm3",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 3,
+    "awayDisplay": 2,
     "startTimestamp": 1792663200,
     "homeTeam": "Van Hien Univ",
     "awayTeam": "Sai Gon",
     "tournament": "V.League 2",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
+  "9zuz9plclwm1rm3": {
+    "id": "9zuz9plclwm1rm3",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792944900,
+    "homeTeam": "Angers",
+    "awayTeam": "Lorient",
+    "tournament": "Ligue 1",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "9zuz9plcv82frm3": {
     "id": "9zuz9plcv82frm3",
@@ -2517,7 +2699,7 @@
     "awayTeam": "Elversberg",
     "tournament": "Bundesliga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "9zuz9plcw4yerm3": {
     "id": "9zuz9plcw4yerm3",
@@ -2601,7 +2783,7 @@
     "awayTeam": "TP.HCM",
     "tournament": "V.League 2",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "a8qv3rlq4d0wr1c": {
     "id": "a8qv3rlq4d0wr1c",
@@ -2658,6 +2840,20 @@
     "tournament": "Serie A",
     "firstSeenAt": "2026-10-15T06:37:33.746Z",
     "lastSeenAt": "2026-10-20T06:34:05.613Z"
+  },
+  "a8qv3rlqlw40r1c": {
+    "id": "a8qv3rlqlw40r1c",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792944900,
+    "homeTeam": "Marseille",
+    "awayTeam": "Le Havre",
+    "tournament": "Ligue 1",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "a8qv3rlqm5a2r1c": {
     "id": "a8qv3rlqm5a2r1c",
@@ -2769,7 +2965,7 @@
     "awayTeam": "Long An",
     "tournament": "V.League 2",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b1ta1ll5562wvff": {
     "id": "b1ta1ll5562wvff",
@@ -2816,16 +3012,16 @@
   "b1ta1ll5d746vff": {
     "id": "b1ta1ll5d746vff",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 4,
     "startTimestamp": 1792695600,
     "homeTeam": "Omonia",
     "awayTeam": "Benfica",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b1ta1ll5d766vff": {
     "id": "b1ta1ll5d766vff",
@@ -2844,44 +3040,44 @@
   "b1ta1ll5d77pvff": {
     "id": "b1ta1ll5d77pvff",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 2,
     "startTimestamp": 1792695600,
     "homeTeam": "Besiktas",
     "awayTeam": "Crystal Palace",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b1ta1ll5d7h6vff": {
     "id": "b1ta1ll5d7h6vff",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 4,
+    "awayDisplay": 1,
     "startTimestamp": 1792687500,
     "homeTeam": "Ferencvaros",
     "awayTeam": "Torreense",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b1ta1ll5d7hpvff": {
     "id": "b1ta1ll5d7hpvff",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 4,
     "startTimestamp": 1792687500,
     "homeTeam": "Dinamo",
     "awayTeam": "NEC",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b1ta1ll5d7mqvff": {
     "id": "b1ta1ll5d7mqvff",
@@ -2923,7 +3119,7 @@
     "awayTeam": "Villarreal",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b1ta1ll5dyrmvff": {
     "id": "b1ta1ll5dyrmvff",
@@ -2939,6 +3135,20 @@
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-18T06:35:20.760Z"
   },
+  "b1ta1ll5l352vff": {
+    "id": "b1ta1ll5l352vff",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792936800,
+    "homeTeam": "Monaco",
+    "awayTeam": "Lille",
+    "tournament": "Ligue 1",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "b1ta1ll5lk31vff": {
     "id": "b1ta1ll5lk31vff",
     "date": "2026-10-24",
@@ -2951,7 +3161,7 @@
     "awayTeam": "Fulham",
     "tournament": "Premier League",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b1ta1ll5lkj5vff": {
     "id": "b1ta1ll5lkj5vff",
@@ -2993,7 +3203,7 @@
     "awayTeam": "Rayo Vallecano",
     "tournament": "La Liga",
     "firstSeenAt": "2026-10-18T06:35:20.760Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b1ta1ll5s40ovff": {
     "id": "b1ta1ll5s40ovff",
@@ -3007,7 +3217,7 @@
     "awayTeam": "Middlesbrough",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b1ta1ll5s4yovff": {
     "id": "b1ta1ll5s4yovff",
@@ -3022,6 +3232,20 @@
     "tournament": "Championship",
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-17T06:08:33.035Z"
+  },
+  "b1ta1ll5w5g0vff": {
+    "id": "b1ta1ll5w5g0vff",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792895400,
+    "homeTeam": "Portland",
+    "awayTeam": "Charlotte",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b1ta1ll5w5s0vff": {
     "id": "b1ta1ll5w5s0vff",
@@ -3051,6 +3275,20 @@
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-14T10:31:31.482Z"
   },
+  "b1ta1ll5w5z0vff": {
+    "id": "b1ta1ll5w5z0vff",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792870200,
+    "homeTeam": "Columbus",
+    "awayTeam": "Toronto",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "b1ta1ll6fy5lvff": {
     "id": "b1ta1ll6fy5lvff",
     "date": "2026-10-17",
@@ -3079,6 +3317,20 @@
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
   },
+  "b44vv3l32ohyrxp": {
+    "id": "b44vv3l32ohyrxp",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792863000,
+    "homeTeam": "Montreal",
+    "awayTeam": "Nashville",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "b44vv3l32ojyrxp": {
     "id": "b44vv3l32ojyrxp",
     "date": "2026-10-15",
@@ -3105,7 +3357,7 @@
     "awayTeam": "Nam Dinh",
     "tournament": "V.League 1",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b44vv3l363rmrxp": {
     "id": "b44vv3l363rmrxp",
@@ -3120,6 +3372,20 @@
     "tournament": "Serie A",
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-14T10:31:31.482Z"
+  },
+  "b44vv3l36nnprxp": {
+    "id": "b44vv3l36nnprxp",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792945800,
+    "homeTeam": "Sunderland",
+    "awayTeam": "Leeds",
+    "tournament": "Premier League",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b44vv3l36yoerxp": {
     "id": "b44vv3l36yoerxp",
@@ -3138,44 +3404,44 @@
   "b44vv3l3f73zrxp": {
     "id": "b44vv3l3f73zrxp",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 0,
     "startTimestamp": 1792687500,
     "homeTeam": "Trabzonspor",
     "awayTeam": "Hearts",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b44vv3l3f7yorxp": {
     "id": "b44vv3l3f7yorxp",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 0,
     "startTimestamp": 1792695600,
     "homeTeam": "Ajax",
     "awayTeam": "Atalanta",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b44vv3l3f7zzrxp": {
     "id": "b44vv3l3f7zzrxp",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 1,
     "startTimestamp": 1792695600,
     "homeTeam": "Midtjylland",
     "awayTeam": "St. Truidense",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b44vv3l3fg3erxp": {
     "id": "b44vv3l3fg3erxp",
@@ -3189,7 +3455,7 @@
     "awayTeam": "Shakhtar",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b44vv3l3fggerxp": {
     "id": "b44vv3l3fggerxp",
@@ -3203,7 +3469,7 @@
     "awayTeam": "LASK",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b44vv3l3fk72rxp": {
     "id": "b44vv3l3fk72rxp",
@@ -3245,7 +3511,7 @@
     "awayTeam": "Watford",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b44vv3l3v5amrxp": {
     "id": "b44vv3l3v5amrxp",
@@ -3287,7 +3553,7 @@
     "awayTeam": "Altrincham",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "b44vv3lkdg56rxp": {
     "id": "b44vv3lkdg56rxp",
@@ -3357,7 +3623,7 @@
     "awayTeam": "Chorley",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "cq0afiln64rkv78": {
     "id": "cq0afiln64rkv78",
@@ -3399,7 +3665,7 @@
     "awayTeam": "Millwall",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "cq0afiln77qpv78": {
     "id": "cq0afiln77qpv78",
@@ -3428,6 +3694,20 @@
     "tournament": "Major League Soccer",
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
+  },
+  "cq0afilneogfv78": {
+    "id": "cq0afilneogfv78",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792884600,
+    "homeTeam": "Atlanta",
+    "awayTeam": "Chicago",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "cq0afilnsezwv78": {
     "id": "cq0afilnsezwv78",
@@ -3474,16 +3754,16 @@
   "cq0afilnv859v78": {
     "id": "cq0afilnv859v78",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 4,
+    "awayDisplay": 0,
     "startTimestamp": 1792687500,
     "homeTeam": "USG",
     "awayTeam": "H. Beer Sheva",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "gk7aeql4d6cyv0f": {
     "id": "gk7aeql4d6cyv0f",
@@ -3512,6 +3792,20 @@
     "tournament": "Ligue 1",
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
+  },
+  "gk7aeqls1k6hv0f": {
+    "id": "gk7aeqls1k6hv0f",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792936800,
+    "homeTeam": "Atalanta",
+    "awayTeam": "Frosinone",
+    "tournament": "Serie A",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "gk7aeqls1kr5v0f": {
     "id": "gk7aeqls1kr5v0f",
@@ -3553,7 +3847,7 @@
     "awayTeam": "Frankfurt",
     "tournament": "Bundesliga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "gk7aeqls8y1hv0f": {
     "id": "gk7aeqls8y1hv0f",
@@ -3581,7 +3875,7 @@
     "awayTeam": "Atl. Madrid",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "gk7aeqlse62kv0f": {
     "id": "gk7aeqlse62kv0f",
@@ -3653,6 +3947,20 @@
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
   },
+  "gk7aeqlsfp63v0f": {
+    "id": "gk7aeqlsfp63v0f",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792888200,
+    "homeTeam": "Houston",
+    "awayTeam": "Minnesota",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "gk7aeqlsfpcfv0f": {
     "id": "gk7aeqlsfpcfv0f",
     "date": "2026-10-11",
@@ -3698,16 +4006,16 @@
   "gk7aeqlsw3h6v0f": {
     "id": "gk7aeqlsw3h6v0f",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 3,
     "startTimestamp": 1792680300,
     "homeTeam": "Al-Fateh",
     "awayTeam": "Al-Shabab",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "go6v7il62e73rxk": {
     "id": "go6v7il62e73rxk",
@@ -3721,7 +4029,7 @@
     "awayTeam": "Leatherhead",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "go6v7il6dgcqrxk": {
     "id": "go6v7il6dgcqrxk",
@@ -3754,16 +4062,16 @@
   "go6v7ils366frxk": {
     "id": "go6v7ils366frxk",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 3,
     "startTimestamp": 1792695600,
     "homeTeam": "Jagiellonia",
     "awayTeam": "Anderlecht",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "go6v7ils36nprxk": {
     "id": "go6v7ils36nprxk",
@@ -3782,16 +4090,30 @@
   "go6v7ils36sprxk": {
     "id": "go6v7ils36sprxk",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 3,
     "startTimestamp": 1792687500,
     "homeTeam": "Inter Escaldes",
     "awayTeam": "U. Craiova",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
+  "go6v7ils47a8rxk": {
+    "id": "go6v7ils47a8rxk",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792926000,
+    "homeTeam": "Da Nang",
+    "awayTeam": "Hanoi",
+    "tournament": "V.League 1",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "go6v7ils4xr2rxk": {
     "id": "go6v7ils4xr2rxk",
@@ -3820,6 +4142,20 @@
     "tournament": "Major League Soccer",
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
+  },
+  "go6v7ils8xg5rxk": {
+    "id": "go6v7ils8xg5rxk",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792884600,
+    "homeTeam": "Philadelphia",
+    "awayTeam": "New England Rev",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "go6v7ils8xm5rxk": {
     "id": "go6v7ils8xm5rxk",
@@ -3875,7 +4211,7 @@
     "awayTeam": "Swansea",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "go6v7ilsl3merxk": {
     "id": "go6v7ilsl3merxk",
@@ -3903,7 +4239,7 @@
     "awayTeam": "Roma",
     "tournament": "Serie A",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "go6v7ilslz1mrxk": {
     "id": "go6v7ilslz1mrxk",
@@ -3945,7 +4281,7 @@
     "awayTeam": "Neom",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "hesv5yl26y69whu": {
     "id": "hesv5yl26y69whu",
@@ -3987,7 +4323,7 @@
     "awayTeam": "Macclesfield",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "hesv5yld2945whu": {
     "id": "hesv5yld2945whu",
@@ -4001,7 +4337,7 @@
     "awayTeam": "Bristol City",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "hesv5yld29m5whu": {
     "id": "hesv5yld29m5whu",
@@ -4071,7 +4407,7 @@
     "awayTeam": "Nghe An",
     "tournament": "V.League 1",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "hesv5yld9y11whu": {
     "id": "hesv5yld9y11whu",
@@ -4085,7 +4421,7 @@
     "awayTeam": "Thai Nguyen",
     "tournament": "V.League 2",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "hesv5yldr1a0whu": {
     "id": "hesv5yldr1a0whu",
@@ -4118,16 +4454,16 @@
   "hesv5yldr1h4whu": {
     "id": "hesv5yldr1h4whu",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 0,
     "startTimestamp": 1792695600,
     "homeTeam": "Braga",
     "awayTeam": "Gent",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "hesv5yldr1j4whu": {
     "id": "hesv5yldr1j4whu",
@@ -4185,6 +4521,20 @@
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-16T09:15:08.624Z"
   },
+  "hesv5yldt4gxwhu": {
+    "id": "hesv5yldt4gxwhu",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792936800,
+    "homeTeam": "Liverpool",
+    "awayTeam": "Brighton",
+    "tournament": "Premier League",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "hesv5yldtkr5whu": {
     "id": "hesv5yldtkr5whu",
     "date": "2026-10-17",
@@ -4225,7 +4575,7 @@
     "awayTeam": "Al-Riyadh",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-18T06:35:20.760Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "mx7a61l22yr8wi4": {
     "id": "mx7a61l22yr8wi4",
@@ -4297,6 +4647,20 @@
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
   },
+  "mx7a61lrd1aawi4": {
+    "id": "mx7a61lrd1aawi4",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792933200,
+    "homeTeam": "Athletic Club",
+    "awayTeam": "Getafe",
+    "tournament": "La Liga",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "mx7a61lrd1qawi4": {
     "id": "mx7a61lrd1qawi4",
     "date": "2026-10-11",
@@ -4341,17 +4705,17 @@
   },
   "mx7a61lrhd92wi4": {
     "id": "mx7a61lrhd92wi4",
-    "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
+    "date": "2026-10-24",
+    "statusCode": 60,
+    "statusType": "postponed",
     "homeDisplay": null,
     "awayDisplay": null,
-    "startTimestamp": 1792692000,
+    "startTimestamp": 1792778400,
     "homeTeam": "Al-Ahli",
     "awayTeam": "Al Khaleej",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "mx7a61lrljcawi4": {
     "id": "mx7a61lrljcawi4",
@@ -4393,7 +4757,7 @@
     "awayTeam": "Coventry",
     "tournament": "Premier League",
     "firstSeenAt": "2026-10-18T06:35:20.760Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "mx7a61lrlvzhwi4": {
     "id": "mx7a61lrlvzhwi4",
@@ -4412,16 +4776,16 @@
   "mx7a61lrm8o5wi4": {
     "id": "mx7a61lrm8o5wi4",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 3,
+    "awayDisplay": 0,
     "startTimestamp": 1792695600,
     "homeTeam": "Monaco",
     "awayTeam": "Freiburg",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "mx7a61lrmp57wi4": {
     "id": "mx7a61lrmp57wi4",
@@ -4449,7 +4813,7 @@
     "awayTeam": "Barcelona",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "mx7a61lrmynawi4": {
     "id": "mx7a61lrmynawi4",
@@ -4463,7 +4827,7 @@
     "awayTeam": "Dortmund",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-18T06:35:20.760Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "n97akml9d9yywnv": {
     "id": "n97akml9d9yywnv",
@@ -4477,7 +4841,7 @@
     "awayTeam": "Spalding",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "n97akml9hp0zwnv": {
     "id": "n97akml9hp0zwnv",
@@ -4533,7 +4897,7 @@
     "awayTeam": "Athletic Club",
     "tournament": "La Liga",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "n97akmln2988wnv": {
     "id": "n97akmln2988wnv",
@@ -4561,7 +4925,7 @@
     "awayTeam": "Wrexham",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "n97akmln3l2qwnv": {
     "id": "n97akmln3l2qwnv",
@@ -4580,16 +4944,16 @@
   "n97akmln3l6awnv": {
     "id": "n97akmln3l6awnv",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 6,
     "startTimestamp": 1792695600,
     "homeTeam": "Lillestrom",
     "awayTeam": "Real Sociedad",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "n97akmln3la4wnv": {
     "id": "n97akmln3la4wnv",
@@ -4608,16 +4972,16 @@
   "n97akmln3lcqwnv": {
     "id": "n97akmln3lcqwnv",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 0,
     "startTimestamp": 1792695600,
     "homeTeam": "Borac",
     "awayTeam": "KuPs",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "n97akmln3p9ywnv": {
     "id": "n97akmln3p9ywnv",
@@ -4689,6 +5053,20 @@
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
   },
+  "n97akmlnfemmwnv": {
+    "id": "n97akmlnfemmwnv",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792884600,
+    "homeTeam": "Orlando",
+    "awayTeam": "NY City",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "n97akmlnfesmwnv": {
     "id": "n97akmlnfesmwnv",
     "date": "2026-10-15",
@@ -4743,7 +5121,7 @@
     "awayTeam": "Hai Phong",
     "tournament": "V.League 1",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "o6jamrl143jpw7q": {
     "id": "o6jamrl143jpw7q",
@@ -4787,6 +5165,20 @@
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
   },
+  "o6jamrl16dmww7q": {
+    "id": "o6jamrl16dmww7q",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792888200,
+    "homeTeam": "Dallas",
+    "awayTeam": "San Jose",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "o6jamrl19joow7q": {
     "id": "o6jamrl19joow7q",
     "date": "2026-10-20",
@@ -4799,7 +5191,7 @@
     "awayTeam": "Al-Qadasiya",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-18T06:35:20.760Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "o6jamrl1h5b9w7q": {
     "id": "o6jamrl1h5b9w7q",
@@ -4832,72 +5224,72 @@
   "o6jamrl1hg3hw7q": {
     "id": "o6jamrl1hg3hw7q",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 5,
     "startTimestamp": 1792687500,
     "homeTeam": "Getafe",
     "awayTeam": "Lugano",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "o6jamrl1hg5zw7q": {
     "id": "o6jamrl1hg5zw7q",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 0,
     "startTimestamp": 1792687500,
     "homeTeam": "Sturm",
     "awayTeam": "Marseille",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "o6jamrl1hg8fw7q": {
     "id": "o6jamrl1hg8fw7q",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 2,
     "startTimestamp": 1792695600,
     "homeTeam": "Viktoria Plzen",
     "awayTeam": "Levski Sofia",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "o6jamrl1hgbzw7q": {
     "id": "o6jamrl1hgbzw7q",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 1,
     "startTimestamp": 1792687500,
     "homeTeam": "Pafos",
     "awayTeam": "Riga",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "o6jamrl1hgozw7q": {
     "id": "o6jamrl1hgozw7q",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 2,
     "startTimestamp": 1792687500,
     "homeTeam": "Nordsjaelland",
     "awayTeam": "CSKA Sofia",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "o6jamrl1hgsfw7q": {
     "id": "o6jamrl1hgsfw7q",
@@ -4940,6 +5332,20 @@
     "tournament": "Ligue 1",
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
+  },
+  "o6jamrl1roapw7q": {
+    "id": "o6jamrl1roapw7q",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792867500,
+    "homeTeam": "Lazio",
+    "awayTeam": "Parma",
+    "tournament": "Serie A",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "o6jamrlr8x26w7q": {
     "id": "o6jamrlr8x26w7q",
@@ -4986,16 +5392,16 @@
   "o8tzjglnd77ow47": {
     "id": "o8tzjglnd77ow47",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 2,
     "startTimestamp": 1792695600,
     "homeTeam": "Celtic",
     "awayTeam": "Celta",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "o8tzjglndw16w47": {
     "id": "o8tzjglndw16w47",
@@ -5053,6 +5459,20 @@
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
   },
+  "o8tzjglns176w47": {
+    "id": "o8tzjglns176w47",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792868400,
+    "homeTeam": "Atl. Madrid",
+    "awayTeam": "Deportivo",
+    "tournament": "La Liga",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "o8tzjglns196w47": {
     "id": "o8tzjglns196w47",
     "date": "2026-10-11",
@@ -5107,7 +5527,7 @@
     "awayTeam": "Al Nassr",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "o8tzjglqgw83w47": {
     "id": "o8tzjglqgw83w47",
@@ -5135,7 +5555,7 @@
     "awayTeam": "Bury",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "q69zrnl13grhvee": {
     "id": "q69zrnl13grhvee",
@@ -5177,7 +5597,7 @@
     "awayTeam": "Norwich",
     "tournament": "Championship",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "q69zrnlu4k69vee": {
     "id": "q69zrnlu4k69vee",
@@ -5247,7 +5667,7 @@
     "awayTeam": "Torino",
     "tournament": "Serie A",
     "firstSeenAt": "2026-10-18T06:35:20.760Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "q69zrnlug83lvee": {
     "id": "q69zrnlug83lvee",
@@ -5263,6 +5683,34 @@
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-14T10:31:31.482Z"
   },
+  "q69zrnlug8rlvee": {
+    "id": "q69zrnlug8rlvee",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792944900,
+    "homeTeam": "Rennes",
+    "awayTeam": "Strasbourg",
+    "tournament": "Ligue 1",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
+  "q69zrnluh3z4vee": {
+    "id": "q69zrnluh3z4vee",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792877400,
+    "homeTeam": "NY Red Bulls",
+    "awayTeam": "Inter Miami",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "q69zrnlutgcfvee": {
     "id": "q69zrnlutgcfvee",
     "date": "2026-10-22",
@@ -5275,7 +5723,7 @@
     "awayTeam": "Feyenoord",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "q69zrnlutgslvee": {
     "id": "q69zrnlutgslvee",
@@ -5294,30 +5742,30 @@
   "q69zrnlutv1xvee": {
     "id": "q69zrnlutv1xvee",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 1,
     "startTimestamp": 1792687500,
     "homeTeam": "Lech",
     "awayTeam": "Sunderland",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "q69zrnlutvhqvee": {
     "id": "q69zrnlutvhqvee",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 3,
+    "awayDisplay": 0,
     "startTimestamp": 1792695600,
     "homeTeam": "Bournemouth",
     "awayTeam": "Milan",
     "tournament": "UEFA Europa League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "q69zrnlutvmxvee": {
     "id": "q69zrnlutvmxvee",
@@ -5375,6 +5823,20 @@
     "firstSeenAt": "2026-10-16T02:27:58.130Z",
     "lastSeenAt": "2026-10-21T06:33:12.099Z"
   },
+  "sybadnlf1nz4whq": {
+    "id": "sybadnlf1nz4whq",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792891800,
+    "homeTeam": "Colorado",
+    "awayTeam": "Vancouver",
+    "tournament": "Major League Soccer",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "sybadnlf2w66whq": {
     "id": "sybadnlf2w66whq",
     "date": "2026-10-16",
@@ -5401,7 +5863,7 @@
     "awayTeam": "Al-Hilal",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "sybadnlf426xwhq": {
     "id": "sybadnlf426xwhq",
@@ -5443,7 +5905,7 @@
     "awayTeam": "PSV",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "sybadnlf4882whq": {
     "id": "sybadnlf4882whq",
@@ -5457,7 +5919,7 @@
     "awayTeam": "Galatasaray",
     "tournament": "UEFA Champions League",
     "firstSeenAt": "2026-10-19T06:46:44.177Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "sybadnlf48o2whq": {
     "id": "sybadnlf48o2whq",
@@ -5515,6 +5977,34 @@
     "firstSeenAt": "2026-10-17T06:08:33.035Z",
     "lastSeenAt": "2026-10-22T06:34:42.381Z"
   },
+  "sybadnlfeg7zwhq": {
+    "id": "sybadnlfeg7zwhq",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792936800,
+    "homeTeam": "Genoa",
+    "awayTeam": "Venezia",
+    "tournament": "Serie A",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
+  "sybadnlfejn2whq": {
+    "id": "sybadnlfejn2whq",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792944900,
+    "homeTeam": "Auxerre",
+    "awayTeam": "Le Mans",
+    "tournament": "Ligue 1",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "sybadnlfeo50whq": {
     "id": "sybadnlfeo50whq",
     "date": "2026-10-24",
@@ -5527,7 +6017,7 @@
     "awayTeam": "Everton",
     "tournament": "Premier League",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "sybadnlfeoc7whq": {
     "id": "sybadnlfeoc7whq",
@@ -5560,16 +6050,16 @@
   "sybadnlfln5owhq": {
     "id": "sybadnlfln5owhq",
     "date": "2026-10-22",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 3,
     "startTimestamp": 1792666800,
     "homeTeam": "Phu Tho",
     "awayTeam": "CAND",
     "tournament": "V.League 2",
     "firstSeenAt": "2026-10-20T06:34:05.613Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "sybadnlfw1g8whq": {
     "id": "sybadnlfw1g8whq",
@@ -5611,7 +6101,7 @@
     "awayTeam": "M'gladbach",
     "tournament": "Bundesliga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "sybadnlfwv22whq": {
     "id": "sybadnlfwv22whq",
@@ -5639,7 +6129,7 @@
     "awayTeam": "Espanyol",
     "tournament": "La Liga",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "sybadnlsx8nmwhq": {
     "id": "sybadnlsx8nmwhq",
@@ -5654,6 +6144,20 @@
     "tournament": "FA Cup",
     "firstSeenAt": "2026-10-15T06:37:33.746Z",
     "lastSeenAt": "2026-10-20T06:34:05.613Z"
+  },
+  "ykcv4ill4205w5u": {
+    "id": "ykcv4ill4205w5u",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792938600,
+    "homeTeam": "Hoffenheim",
+    "awayTeam": "Leverkusen",
+    "tournament": "Bundesliga",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "ykcv4ill4235w5u": {
     "id": "ykcv4ill4235w5u",
@@ -5709,7 +6213,7 @@
     "awayTeam": "Abha",
     "tournament": "Professional League",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "ykcv4ill9ozlw5u": {
     "id": "ykcv4ill9ozlw5u",
@@ -5751,7 +6255,7 @@
     "awayTeam": "Lam Dong",
     "tournament": "V.League 2",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "ykcv4illg3n2w5u": {
     "id": "ykcv4illg3n2w5u",
@@ -5812,16 +6316,16 @@
   "ykcv4illvy87w5u": {
     "id": "ykcv4illvy87w5u",
     "date": "2026-10-23",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 1,
     "startTimestamp": 1792695600,
     "homeTeam": "Thun",
     "awayTeam": "Hajduk",
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-10-21T03:51:38.887Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "ykcv4illvym0w5u": {
     "id": "ykcv4illvym0w5u",
@@ -5879,6 +6383,20 @@
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-14T10:31:31.482Z"
   },
+  "ykcv4illw49xw5u": {
+    "id": "ykcv4illw49xw5u",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792927800,
+    "homeTeam": "Inter",
+    "awayTeam": "Fiorentina",
+    "tournament": "Serie A",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
+  },
   "ykcv4illw4gxw5u": {
     "id": "ykcv4illw4gxw5u",
     "date": "2026-10-24",
@@ -5891,7 +6409,7 @@
     "awayTeam": "Monza",
     "tournament": "Serie A",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "ykcv4illw65qw5u": {
     "id": "ykcv4illw65qw5u",
@@ -5905,7 +6423,7 @@
     "awayTeam": "Tottenham",
     "tournament": "Premier League",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "ykcv4illw65ww5u": {
     "id": "ykcv4illw65ww5u",
@@ -5919,7 +6437,7 @@
     "awayTeam": "Man City",
     "tournament": "Premier League",
     "firstSeenAt": "2026-10-22T04:57:57.322Z",
-    "lastSeenAt": "2026-10-22T06:34:42.381Z"
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "ykcv4illw6sww5u": {
     "id": "ykcv4illw6sww5u",
@@ -5934,6 +6452,20 @@
     "tournament": "Premier League",
     "firstSeenAt": "2026-10-14T08:01:29.480Z",
     "lastSeenAt": "2026-10-16T09:15:08.624Z"
+  },
+  "ykcv4illw8c9w5u": {
+    "id": "ykcv4illw8c9w5u",
+    "date": "2026-10-25",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1792867500,
+    "homeTeam": "Lens",
+    "awayTeam": "Paris",
+    "tournament": "Ligue 1",
+    "firstSeenAt": "2026-10-23T03:29:22.374Z",
+    "lastSeenAt": "2026-10-23T03:29:22.374Z"
   },
   "ykcv4ilrddc8w5u": {
     "id": "ykcv4ilrddc8w5u",
