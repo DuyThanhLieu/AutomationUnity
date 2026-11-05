@@ -26,15 +26,6 @@
     "scoreText": null,
     "seenAt": "2026-11-01T08:06:31.142Z"
   },
-  "1ztvu6l8r7oav9p": {
-    "id": "1ztvu6l8r7oav9p",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Udinese",
-    "awayTeam": "Milan",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "1ztvu6l8voj6v9p": {
     "id": "1ztvu6l8voj6v9p",
     "date": "2026-10-28",
@@ -152,15 +143,6 @@
     "scoreText": null,
     "seenAt": "2026-10-30T07:44:10.233Z"
   },
-  "270vqalr7xj9w0m": {
-    "id": "270vqalr7xj9w0m",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Man Utd",
-    "awayTeam": "Bournemouth",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "270vqalrfg2pw0m": {
     "id": "270vqalrfg2pw0m",
     "date": "2026-10-31",
@@ -179,14 +161,14 @@
     "scoreText": null,
     "seenAt": "2026-11-03T08:33:52.898Z"
   },
-  "270vqalrw07hw0m": {
-    "id": "270vqalrw07hw0m",
-    "date": "2026-10-25",
-    "uiState": "live",
-    "homeTeam": "Los Angeles FC",
-    "awayTeam": "LA Galaxy",
+  "270vqalrrphkw0m": {
+    "id": "270vqalrrphkw0m",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Levski Sofia",
+    "awayTeam": "Jagiellonia",
     "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "270vqalrwwz1w0m": {
     "id": "270vqalrwwz1w0m",
@@ -224,15 +206,6 @@
     "scoreText": null,
     "seenAt": "2026-10-31T07:30:03.800Z"
   },
-  "4m9appl6x06kr6b": {
-    "id": "4m9appl6x06kr6b",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Hull",
-    "awayTeam": "Brentford",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "4m9appl6x08kr6b": {
     "id": "4m9appl6x08kr6b",
     "date": "2026-10-31",
@@ -250,15 +223,6 @@
     "awayTeam": "Lecce",
     "scoreText": null,
     "seenAt": "2026-10-29T07:40:42.703Z"
-  },
-  "4m9appl6xl4er6b": {
-    "id": "4m9appl6xl4er6b",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Tijuana",
-    "awayTeam": "Santos",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
   },
   "4m9appl6xxzmr6b": {
     "id": "4m9appl6xxzmr6b",
@@ -296,33 +260,6 @@
     "scoreText": null,
     "seenAt": "2026-10-31T07:30:03.800Z"
   },
-  "54cvbml3h0rzvp4": {
-    "id": "54cvbml3h0rzvp4",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "América",
-    "awayTeam": "Pachuca",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
-  "54cvbml3hjj0vp4": {
-    "id": "54cvbml3hjj0vp4",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Crystal Palace",
-    "awayTeam": "Newcastle",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
-  "54cvbml3hkqxvp4": {
-    "id": "54cvbml3hkqxvp4",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Toulouse",
-    "awayTeam": "Troyes",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "54cvbml3m1zevp4": {
     "id": "54cvbml3m1zevp4",
     "date": "2026-11-04",
@@ -332,14 +269,23 @@
     "scoreText": null,
     "seenAt": "2026-11-04T07:59:31.132Z"
   },
-  "54cvbml3rgo5vp4": {
-    "id": "54cvbml3rgo5vp4",
-    "date": "2026-10-25",
+  "54cvbml3m7gavp4": {
+    "id": "54cvbml3m7gavp4",
+    "date": "2026-11-05",
     "uiState": "upcoming",
-    "homeTeam": "Freiburg",
-    "awayTeam": "Bayern",
+    "homeTeam": "H. Beer Sheva",
+    "awayTeam": "OFI",
     "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "54cvbml3m7zfvp4": {
+    "id": "54cvbml3m7zfvp4",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Panathinaikos",
+    "awayTeam": "CSKA Sofia",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "54cvbmlf1dcwvp4": {
     "id": "54cvbmlf1dcwvp4",
@@ -385,15 +331,6 @@
     "awayTeam": "Como",
     "scoreText": null,
     "seenAt": "2026-11-04T07:59:31.132Z"
-  },
-  "5z3v0bl271jmvu6": {
-    "id": "5z3v0bl271jmvu6",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Celta",
-    "awayTeam": "Real Betis",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
   },
   "5z3v0bl274hpvu6": {
     "id": "5z3v0bl274hpvu6",
@@ -493,15 +430,6 @@
     "awayTeam": "Real Union",
     "scoreText": null,
     "seenAt": "2026-11-04T07:59:31.132Z"
-  },
-  "623z28le67s9vx5": {
-    "id": "623z28le67s9vx5",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Orlando (W)",
-    "awayTeam": "Gotham (W)",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
   },
   "623z28lel484vx5": {
     "id": "623z28lel484vx5",
@@ -782,15 +710,6 @@
     "scoreText": null,
     "seenAt": "2026-10-31T07:30:03.800Z"
   },
-  "7xdat6l3g7q6v72": {
-    "id": "7xdat6l3g7q6v72",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "San Diego Wave (W)",
-    "awayTeam": "Boston Legacy (W)",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "7xdat6l3onr9v72": {
     "id": "7xdat6l3onr9v72",
     "date": "2026-10-27",
@@ -799,6 +718,42 @@
     "awayTeam": "Frankfurt",
     "scoreText": null,
     "seenAt": "2026-10-27T06:49:52.699Z"
+  },
+  "7xdat6l3rg31v72": {
+    "id": "7xdat6l3rg31v72",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Sturm",
+    "awayTeam": "Celje",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "7xdat6l3rgo1v72": {
+    "id": "7xdat6l3rgo1v72",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Lugano",
+    "awayTeam": "Kauno Zalgiris",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "7xdat6l3rgr1v72": {
+    "id": "7xdat6l3rgr1v72",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Thun",
+    "awayTeam": "Hearts",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "7xdat6l3rgyev72": {
+    "id": "7xdat6l3rgyev72",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Trabzonspor",
+    "awayTeam": "Freiburg",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "7xdat6l3twblv72": {
     "id": "7xdat6l3twblv72",
@@ -845,6 +800,24 @@
     "scoreText": null,
     "seenAt": "2026-10-29T07:40:42.703Z"
   },
+  "9zuz9plc0x8mrm3": {
+    "id": "9zuz9plc0x8mrm3",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Benfica",
+    "awayTeam": "Lech",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "9zuz9plc0xh9rm3": {
+    "id": "9zuz9plc0xh9rm3",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Getafe",
+    "awayTeam": "Brighton",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
   "9zuz9plc0ys2rm3": {
     "id": "9zuz9plc0ys2rm3",
     "date": "2026-11-04",
@@ -871,15 +844,6 @@
     "awayTeam": "Magdeburg",
     "scoreText": null,
     "seenAt": "2026-10-28T07:22:30.605Z"
-  },
-  "9zuz9plclwm1rm3": {
-    "id": "9zuz9plclwm1rm3",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Angers",
-    "awayTeam": "Lorient",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
   },
   "9zuz9plcs4ryrm3": {
     "id": "9zuz9plcs4ryrm3",
@@ -916,15 +880,6 @@
     "awayTeam": "Valencia",
     "scoreText": null,
     "seenAt": "2026-11-01T08:06:31.142Z"
-  },
-  "9zuz9plcw1z1rm3": {
-    "id": "9zuz9plcw1z1rm3",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Barcelona",
-    "awayTeam": "Real Madrid",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
   },
   "9zuz9plr4x5hrm3": {
     "id": "9zuz9plr4x5hrm3",
@@ -1016,15 +971,6 @@
     "scoreText": null,
     "seenAt": "2026-10-31T07:30:03.800Z"
   },
-  "a8qv3rlqlw40r1c": {
-    "id": "a8qv3rlqlw40r1c",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Marseille",
-    "awayTeam": "Le Havre",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "a8qv3rlqmp20r1c": {
     "id": "a8qv3rlqmp20r1c",
     "date": "2026-10-31",
@@ -1034,14 +980,14 @@
     "scoreText": null,
     "seenAt": "2026-10-31T07:30:03.800Z"
   },
-  "a8qv3rlqmpz0r1c": {
-    "id": "a8qv3rlqmpz0r1c",
-    "date": "2026-10-25",
+  "a8qv3rlqt4syr1c": {
+    "id": "a8qv3rlqt4syr1c",
+    "date": "2026-11-05",
     "uiState": "upcoming",
-    "homeTeam": "Real Sociedad",
-    "awayTeam": "Levante",
+    "homeTeam": "Monaco",
+    "awayTeam": "Nordsjaelland",
     "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "a8qv3rlqty6hr1c": {
     "id": "a8qv3rlqty6hr1c",
@@ -1052,14 +998,14 @@
     "scoreText": null,
     "seenAt": "2026-11-04T07:59:31.132Z"
   },
-  "b1ta1ll5l352vff": {
-    "id": "b1ta1ll5l352vff",
-    "date": "2026-10-25",
+  "b1ta1ll5d7j6vff": {
+    "id": "b1ta1ll5d7j6vff",
+    "date": "2026-11-05",
     "uiState": "upcoming",
-    "homeTeam": "Monaco",
-    "awayTeam": "Lille",
+    "homeTeam": "Midtjylland",
+    "awayTeam": "Ajax",
     "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "b1ta1ll5s0gfvff": {
     "id": "b1ta1ll5s0gfvff",
@@ -1187,15 +1133,6 @@
     "scoreText": null,
     "seenAt": "2026-10-31T07:30:03.800Z"
   },
-  "b44vv3l36nnprxp": {
-    "id": "b44vv3l36nnprxp",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Sunderland",
-    "awayTeam": "Leeds",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "b44vv3l36y5erxp": {
     "id": "b44vv3l36y5erxp",
     "date": "2026-11-01",
@@ -1204,6 +1141,24 @@
     "awayTeam": "Toulouse",
     "scoreText": null,
     "seenAt": "2026-11-01T08:06:31.142Z"
+  },
+  "b44vv3l3f748rxp": {
+    "id": "b44vv3l3f748rxp",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "NEC",
+    "awayTeam": "Omonia",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "b44vv3l3f77zrxp": {
+    "id": "b44vv3l3f77zrxp",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Lincoln RI",
+    "awayTeam": "Hajduk",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "b44vv3lkd753rxp": {
     "id": "b44vv3lkd753rxp",
@@ -1268,15 +1223,6 @@
     "scoreText": null,
     "seenAt": "2026-10-28T07:22:30.605Z"
   },
-  "cq0afilnmj2pv78": {
-    "id": "cq0afilnmj2pv78",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Lecce",
-    "awayTeam": "Juventus",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "cq0afilnmjgpv78": {
     "id": "cq0afilnmjgpv78",
     "date": "2026-10-31",
@@ -1304,15 +1250,6 @@
     "scoreText": null,
     "seenAt": "2026-10-26T06:56:02.684Z"
   },
-  "cq0afilnmw0pv78": {
-    "id": "cq0afilnmw0pv78",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Queretaro",
-    "awayTeam": "Cruz Azul",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "gk7aeql4d81ov0f": {
     "id": "gk7aeql4d81ov0f",
     "date": "2026-10-29",
@@ -1333,12 +1270,12 @@
   },
   "gk7aeql4d8zov0f": {
     "id": "gk7aeql4d8zov0f",
-    "date": "2026-10-28",
-    "uiState": "upcoming",
+    "date": "2026-11-05",
+    "uiState": "live",
     "homeTeam": "Alcoyano",
     "awayTeam": "Mallorca",
     "scoreText": null,
-    "seenAt": "2026-10-28T07:22:30.605Z"
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "gk7aeql4djhpv0f": {
     "id": "gk7aeql4djhpv0f",
@@ -1357,15 +1294,6 @@
     "awayTeam": "Arsenal",
     "scoreText": null,
     "seenAt": "2026-11-01T08:06:31.142Z"
-  },
-  "gk7aeqls1k6hv0f": {
-    "id": "gk7aeqls1k6hv0f",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Atalanta",
-    "awayTeam": "Frosinone",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
   },
   "gk7aeqls1k9hv0f": {
     "id": "gk7aeqls1k9hv0f",
@@ -1430,6 +1358,42 @@
     "scoreText": null,
     "seenAt": "2026-11-04T07:59:31.132Z"
   },
+  "gk7aeqlse85ev0f": {
+    "id": "gk7aeqlse85ev0f",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Atalanta",
+    "awayTeam": "Kairat",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "gk7aeqlse8gev0f": {
+    "id": "gk7aeqlse8gev0f",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Real Sociedad",
+    "awayTeam": "Lyon",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "gk7aeqlse8h2v0f": {
+    "id": "gk7aeqlse8h2v0f",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Riga",
+    "awayTeam": "Jablonec",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "gk7aeqlse8mzv0f": {
+    "id": "gk7aeqlse8mzv0f",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Celtic",
+    "awayTeam": "Besiktas",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
   "gk7aeqlsfpslv0f": {
     "id": "gk7aeqlsfpslv0f",
     "date": "2026-10-31",
@@ -1441,12 +1405,12 @@
   },
   "go6v7il6d68wrxk": {
     "id": "go6v7il6d68wrxk",
-    "date": "2026-10-28",
-    "uiState": "upcoming",
+    "date": "2026-11-05",
+    "uiState": "live",
     "homeTeam": "Tarancon",
     "awayTeam": "Levante",
     "scoreText": null,
-    "seenAt": "2026-10-28T07:22:30.605Z"
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "go6v7il6d69wrxk": {
     "id": "go6v7il6d69wrxk",
@@ -1456,6 +1420,33 @@
     "awayTeam": "Unionistas",
     "scoreText": null,
     "seenAt": "2026-10-29T07:40:42.703Z"
+  },
+  "go6v7ils360prxk": {
+    "id": "go6v7ils360prxk",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Twente",
+    "awayTeam": "Pafos",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "go6v7ils361frxk": {
+    "id": "go6v7ils361frxk",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Lillestrom",
+    "awayTeam": "Viktoria Plzen",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "go6v7ils36hxrxk": {
+    "id": "go6v7ils36hxrxk",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Celta",
+    "awayTeam": "USG",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "go6v7ils3y03rxk": {
     "id": "go6v7ils3y03rxk",
@@ -1474,15 +1465,6 @@
     "awayTeam": "Mainz 05",
     "scoreText": null,
     "seenAt": "2026-10-27T06:49:52.699Z"
-  },
-  "go6v7ils7ocyrxk": {
-    "id": "go6v7ils7ocyrxk",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Kansas City (W)",
-    "awayTeam": "Washington (W)",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
   },
   "go6v7ils8xakrxk": {
     "id": "go6v7ils8xakrxk",
@@ -1583,6 +1565,15 @@
     "scoreText": null,
     "seenAt": "2026-10-28T07:22:30.605Z"
   },
+  "hesv5yldr130whu": {
+    "id": "hesv5yldr130whu",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "KuPs",
+    "awayTeam": "Gent",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
   "hesv5yldt025whu": {
     "id": "hesv5yldt025whu",
     "date": "2026-10-30",
@@ -1592,15 +1583,6 @@
     "scoreText": null,
     "seenAt": "2026-10-30T07:44:10.233Z"
   },
-  "hesv5yldt4gxwhu": {
-    "id": "hesv5yldt4gxwhu",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Liverpool",
-    "awayTeam": "Brighton",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "hesv5yldtv68whu": {
     "id": "hesv5yldtv68whu",
     "date": "2026-11-02",
@@ -1609,15 +1591,6 @@
     "awayTeam": "Brest",
     "scoreText": null,
     "seenAt": "2026-11-02T08:14:58.553Z"
-  },
-  "hesv5yldx4zhwhu": {
-    "id": "hesv5yldx4zhwhu",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "China (W) U17",
-    "awayTeam": "USA U17(W)",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
   },
   "mx7a61l2281ywi4": {
     "id": "mx7a61l2281ywi4",
@@ -1691,15 +1664,6 @@
     "scoreText": null,
     "seenAt": "2026-10-31T07:30:03.800Z"
   },
-  "mx7a61lrd1aawi4": {
-    "id": "mx7a61lrd1aawi4",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Athletic Club",
-    "awayTeam": "Getafe",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "mx7a61lrd1mawi4": {
     "id": "mx7a61lrd1mawi4",
     "date": "2026-11-01",
@@ -1717,6 +1681,15 @@
     "awayTeam": "Tijuana",
     "scoreText": null,
     "seenAt": "2026-10-28T07:22:30.605Z"
+  },
+  "mx7a61lrm8sxwi4": {
+    "id": "mx7a61lrm8sxwi4",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Copenhagen",
+    "awayTeam": "Iberia 1999",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "n97akml9hl06wnv": {
     "id": "n97akml9hl06wnv",
@@ -1754,6 +1727,24 @@
     "scoreText": null,
     "seenAt": "2026-10-31T07:30:03.800Z"
   },
+  "n97akmln3l34wnv": {
+    "id": "n97akmln3l34wnv",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "U. Craiova",
+    "awayTeam": "Egnatia",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "n97akmln3lyqwnv": {
+    "id": "n97akmln3lyqwnv",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "AZ",
+    "awayTeam": "Juventus",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
   "n97akmlnlo0fwnv": {
     "id": "n97akmlnlo0fwnv",
     "date": "2026-10-30",
@@ -1789,6 +1780,15 @@
     "awayTeam": "Columbus",
     "scoreText": null,
     "seenAt": "2026-10-28T07:22:30.605Z"
+  },
+  "o6jamrl1hgrhw7q": {
+    "id": "o6jamrl1hgrhw7q",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Leverkusen",
+    "awayTeam": "Marseille",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "o6jamrl1hxoyw7q": {
     "id": "o6jamrl1hxoyw7q",
@@ -1889,6 +1889,33 @@
     "scoreText": null,
     "seenAt": "2026-10-28T07:22:30.605Z"
   },
+  "o8tzjglnd759w47": {
+    "id": "o8tzjglnd759w47",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Crvena Zvezda",
+    "awayTeam": "Inter Escaldes",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "o8tzjglnd769w47": {
+    "id": "o8tzjglnd769w47",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Mjallby",
+    "awayTeam": "Borac",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "o8tzjglnd7h2w47": {
+    "id": "o8tzjglnd7h2w47",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "AGF",
+    "awayTeam": "Braga",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
   "o8tzjglnhkhww47": {
     "id": "o8tzjglnhkhww47",
     "date": "2026-10-31",
@@ -1988,24 +2015,6 @@
     "scoreText": null,
     "seenAt": "2026-11-02T08:14:58.553Z"
   },
-  "q69zrnlug8rlvee": {
-    "id": "q69zrnlug8rlvee",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Rennes",
-    "awayTeam": "Strasbourg",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
-  "q69zrnlugzhovee": {
-    "id": "q69zrnlugzhovee",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Atlas",
-    "awayTeam": "Puebla",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "q69zrnluh36avee": {
     "id": "q69zrnluh36avee",
     "date": "2026-10-28",
@@ -2014,6 +2023,33 @@
     "awayTeam": "Montreal",
     "scoreText": null,
     "seenAt": "2026-10-28T07:22:30.605Z"
+  },
+  "q69zrnlutv2pvee": {
+    "id": "q69zrnlutv2pvee",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Torreense",
+    "awayTeam": "Ararat-Armenia",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "q69zrnlutv5qvee": {
+    "id": "q69zrnlutv5qvee",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Anderlecht",
+    "awayTeam": "RB Salzburg",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "q69zrnlutvcpvee": {
+    "id": "q69zrnlutvcpvee",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "St. Truidense",
+    "awayTeam": "Brann",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "sybadnlf1n34whq": {
     "id": "sybadnlf1n34whq",
@@ -2042,14 +2078,14 @@
     "scoreText": null,
     "seenAt": "2026-11-03T08:33:52.898Z"
   },
-  "sybadnlfeg7zwhq": {
-    "id": "sybadnlfeg7zwhq",
-    "date": "2026-10-25",
+  "sybadnlf4d2wwhq": {
+    "id": "sybadnlf4d2wwhq",
+    "date": "2026-11-05",
     "uiState": "upcoming",
-    "homeTeam": "Genoa",
-    "awayTeam": "Venezia",
+    "homeTeam": "Crystal Palace",
+    "awayTeam": "Hoffenheim",
     "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "sybadnlfegz8whq": {
     "id": "sybadnlfegz8whq",
@@ -2059,15 +2095,6 @@
     "awayTeam": "Bologna",
     "scoreText": null,
     "seenAt": "2026-10-28T07:22:30.605Z"
-  },
-  "sybadnlfejn2whq": {
-    "id": "sybadnlfejn2whq",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Auxerre",
-    "awayTeam": "Le Mans",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
   },
   "sybadnlfloafwhq": {
     "id": "sybadnlfloafwhq",
@@ -2141,15 +2168,6 @@
     "scoreText": null,
     "seenAt": "2026-10-27T06:49:52.699Z"
   },
-  "ykcv4ill4205w5u": {
-    "id": "ykcv4ill4205w5u",
-    "date": "2026-10-25",
-    "uiState": "upcoming",
-    "homeTeam": "Hoffenheim",
-    "awayTeam": "Leverkusen",
-    "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
-  },
   "ykcv4ill42r5w5u": {
     "id": "ykcv4ill42r5w5u",
     "date": "2026-11-01",
@@ -2213,14 +2231,23 @@
     "scoreText": null,
     "seenAt": "2026-11-04T07:59:31.132Z"
   },
-  "ykcv4illw49xw5u": {
-    "id": "ykcv4illw49xw5u",
-    "date": "2026-10-25",
+  "ykcv4illvy27w5u": {
+    "id": "ykcv4illvy27w5u",
+    "date": "2026-11-05",
     "uiState": "upcoming",
-    "homeTeam": "Inter",
-    "awayTeam": "Fiorentina",
+    "homeTeam": "Sunderland",
+    "awayTeam": "Dinamo",
     "scoreText": null,
-    "seenAt": "2026-10-25T06:48:13.379Z"
+    "seenAt": "2026-11-05T08:29:21.143Z"
+  },
+  "ykcv4illvy70w5u": {
+    "id": "ykcv4illvy70w5u",
+    "date": "2026-11-05",
+    "uiState": "upcoming",
+    "homeTeam": "Milan",
+    "awayTeam": "Ferencvaros",
+    "scoreText": null,
+    "seenAt": "2026-11-05T08:29:21.143Z"
   },
   "ykcv4illw4rxw5u": {
     "id": "ykcv4illw4rxw5u",
