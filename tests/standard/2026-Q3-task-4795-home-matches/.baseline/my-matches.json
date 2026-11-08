@@ -11,6 +11,18 @@
     "firstSeenAt": "2026-10-31T07:30:11.869Z",
     "lastSeenAt": "2026-11-06T08:29:45.490Z"
   },
+  "270vqalrfgapw0m": {
+    "id": "270vqalrfgapw0m",
+    "date": "2026-11-07",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 2,
+    "homeTeam": "Mainz",
+    "awayTeam": "Bayern",
+    "firstSeenAt": "2026-11-08T07:58:04.833Z",
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
+  },
   "54cvbml3m1zevp4": {
     "id": "54cvbml3m1zevp4",
     "date": "2026-11-05",
@@ -21,7 +33,7 @@
     "homeTeam": "AEK",
     "awayTeam": "Real Madrid",
     "firstSeenAt": "2026-11-06T08:29:45.490Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "54cvbml3rgo5vp4": {
     "id": "54cvbml3rgo5vp4",
@@ -45,7 +57,7 @@
     "homeTeam": "Bayern",
     "awayTeam": "Dortmund",
     "firstSeenAt": "2026-11-02T08:15:04.631Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "5z3v0blc8gzlvu6": {
     "id": "5z3v0blc8gzlvu6",
@@ -69,7 +81,7 @@
     "homeTeam": "Slavia",
     "awayTeam": "Arsenal",
     "firstSeenAt": "2026-11-06T08:29:45.490Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "6hqac9lumwj7vme": {
     "id": "6hqac9lumwj7vme",
@@ -117,7 +129,7 @@
     "homeTeam": "Milan",
     "awayTeam": "Inter",
     "firstSeenAt": "2026-11-02T08:15:04.631Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "a8qv3rlqty6hr1c": {
     "id": "a8qv3rlqty6hr1c",
@@ -129,7 +141,19 @@
     "homeTeam": "Fenerbahce",
     "awayTeam": "Liverpool",
     "firstSeenAt": "2026-11-06T08:29:45.490Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
+  },
+  "b1ta1ll5568wvff": {
+    "id": "b1ta1ll5568wvff",
+    "date": "2026-11-07",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 1,
+    "homeTeam": "Gia Lai",
+    "awayTeam": "Hanoi",
+    "firstSeenAt": "2026-11-08T07:58:04.833Z",
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "b1ta1ll5v76pvff": {
     "id": "b1ta1ll5v76pvff",
@@ -153,7 +177,7 @@
     "homeTeam": "Liverpool",
     "awayTeam": "Arsenal",
     "firstSeenAt": "2026-11-02T08:15:04.631Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "gk7aeqlse674v0f": {
     "id": "gk7aeqlse674v0f",
@@ -165,7 +189,7 @@
     "homeTeam": "Barcelona",
     "awayTeam": "Aston Villa",
     "firstSeenAt": "2026-11-05T08:29:24.148Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "go6v7ils3y03rxk": {
     "id": "go6v7ils3y03rxk",
@@ -177,7 +201,7 @@
     "homeTeam": "Atl. Madrid",
     "awayTeam": "Bayern",
     "firstSeenAt": "2026-11-05T08:29:24.148Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "go6v7ils47a8rxk": {
     "id": "go6v7ils47a8rxk",
@@ -203,6 +227,18 @@
     "firstSeenAt": "2026-10-26T04:28:43.381Z",
     "lastSeenAt": "2026-11-01T08:06:36.809Z"
   },
+  "n97akmlnl49kwnv": {
+    "id": "n97akmlnl49kwnv",
+    "date": "2026-11-07",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 0,
+    "homeTeam": "Arsenal",
+    "awayTeam": "Hull",
+    "firstSeenAt": "2026-11-08T07:58:04.833Z",
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
+  },
   "o8tzjglqg41xw47": {
     "id": "o8tzjglqg41xw47",
     "date": "2026-10-28",
@@ -215,18 +251,6 @@
     "firstSeenAt": "2026-10-29T07:40:42.775Z",
     "lastSeenAt": "2026-11-04T07:59:35.215Z"
   },
-  "sybadnlfeo50whq": {
-    "id": "sybadnlfeo50whq",
-    "date": "2026-10-24",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 0,
-    "homeTeam": "Arsenal",
-    "awayTeam": "Everton",
-    "firstSeenAt": "2026-10-25T06:48:14.557Z",
-    "lastSeenAt": "2026-10-31T07:30:11.869Z"
-  },
   "sybadnlfwvc2whq": {
     "id": "sybadnlfwvc2whq",
     "date": "2026-11-01",
@@ -237,7 +261,7 @@
     "homeTeam": "Barcelona",
     "awayTeam": "Alavés",
     "firstSeenAt": "2026-11-02T08:15:04.631Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "sybadnlfwvc3whq": {
     "id": "sybadnlfwvc3whq",
@@ -249,7 +273,7 @@
     "homeTeam": "Racing Club",
     "awayTeam": "Real Madrid",
     "firstSeenAt": "2026-11-02T08:15:04.631Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "ykcv4illvd89w5u": {
     "id": "ykcv4illvd89w5u",
@@ -261,7 +285,7 @@
     "homeTeam": "Feyenoord",
     "awayTeam": "Inter",
     "firstSeenAt": "2026-11-05T08:29:24.148Z",
-    "lastSeenAt": "2026-11-07T07:46:18.625Z"
+    "lastSeenAt": "2026-11-08T07:58:04.833Z"
   },
   "ykcv4illw49xw5u": {
     "id": "ykcv4illw49xw5u",
