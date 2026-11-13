@@ -72,16 +72,30 @@
   "1ztvu6l8glg6v9p": {
     "id": "1ztvu6l8glg6v9p",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 2,
     "startTimestamp": 1794512700,
     "homeTeam": "Czech",
     "awayTeam": "Spain",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "1ztvu6l8glz6v9p": {
+    "id": "1ztvu6l8glz6v9p",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794685500,
+    "homeTeam": "Austria",
+    "awayTeam": "Ireland",
+    "tournament": "UEFA Nations League",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "1ztvu6l8ro78v9p": {
     "id": "1ztvu6l8ro78v9p",
@@ -125,33 +139,19 @@
     "firstSeenAt": "2026-11-06T08:29:38.836Z",
     "lastSeenAt": "2026-11-11T08:21:42.874Z"
   },
-  "1ztvu6l8voj6v9p": {
-    "id": "1ztvu6l8voj6v9p",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 3,
-    "awayDisplay": 2,
-    "startTimestamp": 1793206800,
-    "homeTeam": "Freiburg",
-    "awayTeam": "Wolfsburg",
-    "tournament": "DFB Pokal",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "1ztvu6l8vp8yv9p": {
     "id": "1ztvu6l8vp8yv9p",
-    "date": "2026-11-12",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
-    "startTimestamp": 1794499200,
+    "date": "2026-11-13",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 1,
+    "startTimestamp": 1794502800,
     "homeTeam": "Guinea",
     "awayTeam": "Eritrea",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "1ztvu6l8vx17v9p": {
     "id": "1ztvu6l8vx17v9p",
@@ -223,6 +223,62 @@
     "firstSeenAt": "2026-11-01T08:06:28.569Z",
     "lastSeenAt": "2026-11-06T08:29:38.836Z"
   },
+  "1ztvu6lf5183v9p": {
+    "id": "1ztvu6lf5183v9p",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "Buxerolles",
+    "awayTeam": "Sable-sur-Sarthe",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "1ztvu6lf5914v9p": {
+    "id": "1ztvu6lf5914v9p",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794751200,
+    "homeTeam": "Atlas Paillade",
+    "awayTeam": "Cannes",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "1ztvu6lf599kv9p": {
+    "id": "1ztvu6lf599kv9p",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Paris 13",
+    "awayTeam": "Red Star",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "1ztvu6lf59mkv9p": {
+    "id": "1ztvu6lf59mkv9p",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Riom",
+    "awayTeam": "Limonest",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "1ztvu6lf5ko9v9p": {
     "id": "1ztvu6lf5ko9v9p",
     "date": "2026-11-07",
@@ -236,20 +292,6 @@
     "tournament": "FA Cup",
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
-  },
-  "1ztvu6lfm2jxv9p": {
-    "id": "1ztvu6lfm2jxv9p",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 3,
-    "awayDisplay": 2,
-    "startTimestamp": 1793216700,
-    "homeTeam": "Sunderland",
-    "awayTeam": "Brentford",
-    "tournament": "Carabao Cup",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
   },
   "1ztvu6lfmnz6v9p": {
     "id": "1ztvu6lfmnz6v9p",
@@ -265,6 +307,20 @@
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
     "lastSeenAt": "2026-11-04T07:59:29.147Z"
   },
+  "270vqal5512aw0m": {
+    "id": "270vqal5512aw0m",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "Avenir Foot",
+    "awayTeam": "Crest Aouste",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "270vqal5513aw0m": {
     "id": "270vqal5513aw0m",
     "date": "2026-11-14",
@@ -277,7 +333,21 @@
     "awayTeam": "Annecy",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "270vqal551aaw0m": {
+    "id": "270vqal551aaw0m",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Vesoul",
+    "awayTeam": "Fleury",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "270vqal554gfw0m": {
     "id": "270vqal554gfw0m",
@@ -307,6 +377,20 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
+  "270vqal55kj1w0m": {
+    "id": "270vqal55kj1w0m",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794749400,
+    "homeTeam": "Sottevillais",
+    "awayTeam": "Fecamp",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "270vqal5tp9ww0m": {
     "id": "270vqal5tp9ww0m",
     "date": "2026-11-11",
@@ -319,7 +403,7 @@
     "awayTeam": "Alaves",
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "270vqal5tpmww0m": {
     "id": "270vqal5tpmww0m",
@@ -347,21 +431,7 @@
     "awayTeam": "Estonia",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
-  },
-  "270vqalr77aew0m": {
-    "id": "270vqalr77aew0m",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 0,
-    "startTimestamp": 1793208600,
-    "homeTeam": "Parma",
-    "awayTeam": "Udinese",
-    "tournament": "Serie A",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "270vqalr77zew0m": {
     "id": "270vqalr77zew0m",
@@ -517,20 +587,6 @@
     "firstSeenAt": "2026-11-06T08:29:38.836Z",
     "lastSeenAt": "2026-11-11T08:21:42.874Z"
   },
-  "270vqalrwwz1w0m": {
-    "id": "270vqalrwwz1w0m",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 1,
-    "startTimestamp": 1793230800,
-    "homeTeam": "Toronto",
-    "awayTeam": "DC United",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "270vqalrxvckw0m": {
     "id": "270vqalrxvckw0m",
     "date": "2026-11-13",
@@ -543,7 +599,7 @@
     "awayTeam": "Congo",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "270vqalrxw45w0m": {
     "id": "270vqalrxw45w0m",
@@ -613,21 +669,7 @@
     "awayTeam": "Lesotho",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
-  },
-  "4m9appl6tgj0r6b": {
-    "id": "4m9appl6tgj0r6b",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 3,
-    "awayDisplay": 2,
-    "startTimestamp": 1793230800,
-    "homeTeam": "New England Rev",
-    "awayTeam": "NY Red Bulls",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "4m9appl6tgq0r6b": {
     "id": "4m9appl6tgq0r6b",
@@ -655,7 +697,7 @@
     "awayTeam": "Israel",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "4m9appl6x08kr6b": {
     "id": "4m9appl6x08kr6b",
@@ -725,7 +767,35 @@
     "awayTeam": "Reims",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "4m9applu42gar6b": {
+    "id": "4m9applu42gar6b",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Dunkerque",
+    "awayTeam": "QRM",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "4m9applu42sar6b": {
+    "id": "4m9applu42sar6b",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794750300,
+    "homeTeam": "Saint Pauloise",
+    "awayTeam": "La Tamponnaise",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "4m9applu43hkr6b": {
     "id": "4m9applu43hkr6b",
@@ -739,7 +809,35 @@
     "awayTeam": "Thailand U23",
     "tournament": "Youth Nation Friendly Match",
     "firstSeenAt": "2026-11-08T07:57:31.461Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "4m9applu4960r6b": {
+    "id": "4m9applu4960r6b",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794682800,
+    "homeTeam": "OM Cambrai",
+    "awayTeam": "Amiens",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "4m9applu4nb6r6b": {
+    "id": "4m9applu4nb6r6b",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Tatinghem",
+    "awayTeam": "Racing Club",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "4m9applu4zmxr6b": {
     "id": "4m9applu4zmxr6b",
@@ -800,16 +898,16 @@
   "54cvbml355aavp4": {
     "id": "54cvbml355aavp4",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 1,
     "startTimestamp": 1794510000,
     "homeTeam": "Ivory Coast",
     "awayTeam": "Gambia",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "54cvbml382bqvp4": {
     "id": "54cvbml382bqvp4",
@@ -837,7 +935,7 @@
     "awayTeam": "N. Macedonia",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "54cvbml3h342vp4": {
     "id": "54cvbml3h342vp4",
@@ -909,20 +1007,6 @@
     "firstSeenAt": "2026-11-04T07:59:29.147Z",
     "lastSeenAt": "2026-11-09T08:39:48.371Z"
   },
-  "54cvbml3mgnkvp4": {
-    "id": "54cvbml3mgnkvp4",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 2,
-    "startTimestamp": 1793259900,
-    "homeTeam": "Adelaide Utd",
-    "awayTeam": "Lion City",
-    "tournament": "AFC Champions League 2",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "54cvbml3rdyzvp4": {
     "id": "54cvbml3rdyzvp4",
     "date": "2026-11-04",
@@ -936,6 +1020,20 @@
     "tournament": "Championship",
     "firstSeenAt": "2026-11-02T08:14:55.650Z",
     "lastSeenAt": "2026-11-07T07:46:14.482Z"
+  },
+  "54cvbmlf16jqvp4": {
+    "id": "54cvbmlf16jqvp4",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Massay",
+    "awayTeam": "AS Montlouis",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "54cvbmlf1ds2vp4": {
     "id": "54cvbmlf1ds2vp4",
@@ -965,6 +1063,20 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
+  "54cvbmlf1wc4vp4": {
+    "id": "54cvbmlf1wc4vp4",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Ouen Aumone",
+    "awayTeam": "Boulogne",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "54cvbmlf1wm4vp4": {
     "id": "54cvbmlf1wm4vp4",
     "date": "2026-11-14",
@@ -977,21 +1089,35 @@
     "awayTeam": "Pouliguen",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
-  "54cvbmlfd7h3vp4": {
-    "id": "54cvbmlfd7h3vp4",
-    "date": "2026-11-13",
+  "54cvbmlf1wo4vp4": {
+    "id": "54cvbmlf1wo4vp4",
+    "date": "2026-11-15",
     "statusCode": 0,
     "statusType": "not_started",
     "homeDisplay": null,
     "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "COBSP",
+    "awayTeam": "Rouen",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "54cvbmlfd7h3vp4": {
+    "id": "54cvbmlfd7h3vp4",
+    "date": "2026-11-13",
+    "statusCode": 110,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 3,
     "startTimestamp": 1794506400,
     "homeTeam": "Navalcarnero",
     "awayTeam": "Real Betis",
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "5z3v0bl20419vu6": {
     "id": "5z3v0bl20419vu6",
@@ -1066,16 +1192,16 @@
   "5z3v0bl2dyn2vu6": {
     "id": "5z3v0bl2dyn2vu6",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 3,
+    "awayDisplay": 1,
     "startTimestamp": 1794512700,
     "homeTeam": "Italy",
     "awayTeam": "France",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "5z3v0bl2l8nmvu6": {
     "id": "5z3v0bl2l8nmvu6",
@@ -1131,7 +1257,7 @@
     "awayTeam": "Botswana",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "5z3v0bl2tx08vu6": {
     "id": "5z3v0bl2tx08vu6",
@@ -1161,19 +1287,19 @@
     "firstSeenAt": "2026-11-06T08:29:38.836Z",
     "lastSeenAt": "2026-11-11T08:21:42.874Z"
   },
-  "5z3v0bl2x7hkvu6": {
-    "id": "5z3v0bl2x7hkvu6",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 0,
-    "startTimestamp": 1793234400,
-    "homeTeam": "Nashville",
-    "awayTeam": "Philadelphia",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
+  "5z3v0blc157kvu6": {
+    "id": "5z3v0blc157kvu6",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "Boulazac",
+    "awayTeam": "Genets Anglet",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "5z3v0blc1jbwvu6": {
     "id": "5z3v0blc1jbwvu6",
@@ -1189,19 +1315,33 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
-  "5z3v0blc8gzlvu6": {
-    "id": "5z3v0blc8gzlvu6",
-    "date": "2026-10-29",
-    "statusCode": 120,
-    "statusType": "finished",
-    "homeDisplay": 1,
-    "awayDisplay": 1,
-    "startTimestamp": 1793217600,
-    "homeTeam": "Liverpool",
-    "awayTeam": "Chelsea",
-    "tournament": "Carabao Cup",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
+  "5z3v0blc1n0xvu6": {
+    "id": "5z3v0blc1n0xvu6",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "ASPTT Dijon",
+    "awayTeam": "Selongey",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "5z3v0blc1nhfvu6": {
+    "id": "5z3v0blc1nhfvu6",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Montreuil FC",
+    "awayTeam": "Loon-Plage",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "5z3v0blc8l52vu6": {
     "id": "5z3v0blc8l52vu6",
@@ -1215,7 +1355,7 @@
     "awayTeam": "UD Logrones",
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "5z3v0blc8lo2vu6": {
     "id": "5z3v0blc8lo2vu6",
@@ -1243,7 +1383,7 @@
     "awayTeam": "Brazil",
     "tournament": "Nation Friendly Match",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "623z28l5hl2mvx5": {
     "id": "623z28l5hl2mvx5",
@@ -1285,7 +1425,7 @@
     "awayTeam": "Korea Rep U19",
     "tournament": "Panda Cup",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "623z28l5w0b8vx5": {
     "id": "623z28l5w0b8vx5",
@@ -1327,7 +1467,7 @@
     "awayTeam": "Thaon",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "623z28l5wng3vx5": {
     "id": "623z28l5wng3vx5",
@@ -1341,7 +1481,21 @@
     "awayTeam": "Biesheim",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "623z28l5wx0zvx5": {
+    "id": "623z28l5wx0zvx5",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Tremblay",
+    "awayTeam": "Maisons Alfort",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "623z28le6y8mvx5": {
     "id": "623z28le6y8mvx5",
@@ -1355,7 +1509,7 @@
     "awayTeam": "Azerbaijan",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "623z28le77j8vx5": {
     "id": "623z28le77j8vx5",
@@ -1455,20 +1609,6 @@
     "firstSeenAt": "2026-10-30T07:44:08.462Z",
     "lastSeenAt": "2026-11-04T07:59:29.147Z"
   },
-  "623z28leo14zvx5": {
-    "id": "623z28leo14zvx5",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 1,
-    "awayDisplay": 2,
-    "startTimestamp": 1793234400,
-    "homeTeam": "Austin FC",
-    "awayTeam": "Salt Lake",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "623z28leo1r5vx5": {
     "id": "623z28leo1r5vx5",
     "date": "2026-11-08",
@@ -1500,16 +1640,16 @@
   "623z28lete0pvx5": {
     "id": "623z28lete0pvx5",
     "date": "2026-11-12",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 1,
     "startTimestamp": 1794499200,
     "homeTeam": "Madagascar",
     "awayTeam": "Guinea Bissau",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "623z28lex7syvx5": {
     "id": "623z28lex7syvx5",
@@ -1553,6 +1693,20 @@
     "firstSeenAt": "2026-11-03T08:33:50.784Z",
     "lastSeenAt": "2026-11-08T07:57:31.461Z"
   },
+  "6hqac9l1e020vme": {
+    "id": "6hqac9l1e020vme",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Besancon",
+    "awayTeam": "Metz APM",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "6hqac9l1e029vme": {
     "id": "6hqac9l1e029vme",
     "date": "2026-11-14",
@@ -1565,7 +1719,21 @@
     "awayTeam": "Hauts Lyonnais",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "6hqac9l1e0j9vme": {
+    "id": "6hqac9l1e0j9vme",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Saint-Omer",
+    "awayTeam": "Virois",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "6hqac9l1e156vme": {
     "id": "6hqac9l1e156vme",
@@ -1579,7 +1747,7 @@
     "awayTeam": "Berkhamsted",
     "tournament": "FA Cup",
     "firstSeenAt": "2026-11-08T07:57:31.461Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "6hqac9l1ej65vme": {
     "id": "6hqac9l1ej65vme",
@@ -1607,7 +1775,21 @@
     "awayTeam": "Uruguay",
     "tournament": "Nation Friendly Match",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "6hqac9l1enopvme": {
+    "id": "6hqac9l1enopvme",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "Claira/Laurent",
+    "awayTeam": "Puissalicon Magalas",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "6hqac9l1sdaqvme": {
     "id": "6hqac9l1sdaqvme",
@@ -1626,16 +1808,16 @@
   "6hqac9lu22yqvme": {
     "id": "6hqac9lu22yqvme",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 2,
     "startTimestamp": 1794512700,
     "homeTeam": "San Marino",
     "awayTeam": "Belarus",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "6hqac9lu3jn7vme": {
     "id": "6hqac9lu3jn7vme",
@@ -1789,7 +1971,7 @@
     "awayTeam": "Liberia",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "6hqac9lum59zvme": {
     "id": "6hqac9lum59zvme",
@@ -1819,34 +2001,6 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
-  "6hqac9lumw87vme": {
-    "id": "6hqac9lumw87vme",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 1,
-    "awayDisplay": 4,
-    "startTimestamp": 1793216700,
-    "homeTeam": "Monza",
-    "awayTeam": "Napoli",
-    "tournament": "Serie A",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
-  "6hqac9lumwj7vme": {
-    "id": "6hqac9lumwj7vme",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 2,
-    "startTimestamp": 1793208600,
-    "homeTeam": "Venezia",
-    "awayTeam": "Inter",
-    "tournament": "Serie A",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "6hqac9lumyakvme": {
     "id": "6hqac9lumyakvme",
     "date": "2026-11-09",
@@ -1875,6 +2029,20 @@
     "firstSeenAt": "2026-10-31T07:30:01.722Z",
     "lastSeenAt": "2026-11-05T08:29:19.339Z"
   },
+  "7kbz8iln268yr9b": {
+    "id": "7kbz8iln268yr9b",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "2 Rives 82",
+    "awayTeam": "Trelissac",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "7kbz8iln26gyr9b": {
     "id": "7kbz8iln26gyr9b",
     "date": "2026-11-14",
@@ -1887,7 +2055,21 @@
     "awayTeam": "Rodez",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "7kbz8iln26myr9b": {
+    "id": "7kbz8iln26myr9b",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "USM Senlis",
+    "awayTeam": "St Pryve St Hilaire",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "7kbz8iln2k5lr9b": {
     "id": "7kbz8iln2k5lr9b",
@@ -1902,6 +2084,20 @@
     "tournament": "FA Cup",
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
+  },
+  "7kbz8iln2n3hr9b": {
+    "id": "7kbz8iln2n3hr9b",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "RC Chambery",
+    "awayTeam": "Chamois Niortais",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "7kbz8iln2vc9r9b": {
     "id": "7kbz8iln2vc9r9b",
@@ -1987,20 +2183,6 @@
     "firstSeenAt": "2026-11-02T08:14:55.650Z",
     "lastSeenAt": "2026-11-07T07:46:14.482Z"
   },
-  "7kbz8ilu7wzhr9b": {
-    "id": "7kbz8ilu7wzhr9b",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 1,
-    "startTimestamp": 1793230800,
-    "homeTeam": "NY City",
-    "awayTeam": "Atlanta",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "7kbz8ilulx6ar9b": {
     "id": "7kbz8ilulx6ar9b",
     "date": "2026-10-31",
@@ -2027,7 +2209,7 @@
     "awayTeam": "Faroe Islands",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "7kbz8ilur0m7r9b": {
     "id": "7kbz8ilur0m7r9b",
@@ -2069,7 +2251,7 @@
     "awayTeam": "Tanzania",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "7xdat6l394nov72": {
     "id": "7xdat6l394nov72",
@@ -2113,20 +2295,6 @@
     "firstSeenAt": "2026-10-30T07:44:08.462Z",
     "lastSeenAt": "2026-11-04T07:59:29.147Z"
   },
-  "7xdat6l398sav72": {
-    "id": "7xdat6l398sav72",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 0,
-    "startTimestamp": 1793216700,
-    "homeTeam": "Genoa",
-    "awayTeam": "Juventus",
-    "tournament": "Serie A",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "7xdat6l39n3qv72": {
     "id": "7xdat6l39n3qv72",
     "date": "2026-10-31",
@@ -2140,6 +2308,20 @@
     "tournament": "Premier League",
     "firstSeenAt": "2026-10-29T07:40:40.831Z",
     "lastSeenAt": "2026-11-03T08:33:50.784Z"
+  },
+  "7xdat6l3gpm9v72": {
+    "id": "7xdat6l3gpm9v72",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794685500,
+    "homeTeam": "Portugal",
+    "awayTeam": "Denmark",
+    "tournament": "UEFA Nations League",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "7xdat6l3o2zmv72": {
     "id": "7xdat6l3o2zmv72",
@@ -2158,16 +2340,16 @@
   "7xdat6l3o30ev72": {
     "id": "7xdat6l3o30ev72",
     "date": "2026-11-12",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 3,
+    "awayDisplay": 1,
     "startTimestamp": 1794499200,
     "homeTeam": "DR Congo",
     "awayTeam": "Sierra Leone",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "7xdat6l3ow38v72": {
     "id": "7xdat6l3ow38v72",
@@ -2182,20 +2364,6 @@
     "tournament": "V.League 2",
     "firstSeenAt": "2026-10-30T07:44:08.462Z",
     "lastSeenAt": "2026-11-04T07:59:29.147Z"
-  },
-  "7xdat6l3r725v72": {
-    "id": "7xdat6l3r725v72",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 0,
-    "startTimestamp": 1793276100,
-    "homeTeam": "Phnom Penh",
-    "awayTeam": "Kitchee",
-    "tournament": "AFC Champions League 2",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
   },
   "7xdat6l3r7hhv72": {
     "id": "7xdat6l3r7hhv72",
@@ -2351,6 +2519,20 @@
     "firstSeenAt": "2026-10-29T07:40:40.831Z",
     "lastSeenAt": "2026-11-03T08:33:50.784Z"
   },
+  "7xdat6lf604pv72": {
+    "id": "7xdat6lf604pv72",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "AS Montigny",
+    "awayTeam": "Pontarlier",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "7xdat6lf608pv72": {
     "id": "7xdat6lf608pv72",
     "date": "2026-11-14",
@@ -2363,7 +2545,21 @@
     "awayTeam": "Vertou",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "7xdat6lf660lv72": {
+    "id": "7xdat6lf660lv72",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Verson",
+    "awayTeam": "RC Calais",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "7xdat6lf679av72": {
     "id": "7xdat6lf679av72",
@@ -2377,7 +2573,7 @@
     "awayTeam": "Chinese Taipei",
     "tournament": "Nation Friendly Match",
     "firstSeenAt": "2026-11-09T08:39:48.371Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "7xdat6lf6es3v72": {
     "id": "7xdat6lf6es3v72",
@@ -2393,6 +2589,20 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
+  "7xdat6lf6oc5v72": {
+    "id": "7xdat6lf6oc5v72",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Rochefort FC",
+    "awayTeam": "Juventus Papus",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "7xdat6lf6x60v72": {
     "id": "7xdat6lf6x60v72",
     "date": "2026-11-14",
@@ -2405,21 +2615,7 @@
     "awayTeam": "Valenciennes",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
-  },
-  "7xdat6lfhdr6v72": {
-    "id": "7xdat6lfhdr6v72",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 3,
-    "awayDisplay": 0,
-    "startTimestamp": 1793216700,
-    "homeTeam": "Bournemouth",
-    "awayTeam": "Aston Villa",
-    "tournament": "Carabao Cup",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "7xdat6lfhgj9v72": {
     "id": "7xdat6lfhgj9v72",
@@ -2536,16 +2732,16 @@
   "9zuz9plcf97orm3": {
     "id": "9zuz9plcf97orm3",
     "date": "2026-11-12",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 0,
     "startTimestamp": 1794495600,
     "homeTeam": "Ghana",
     "awayTeam": "Somalia",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "9zuz9plcfe1erm3": {
     "id": "9zuz9plcfe1erm3",
@@ -2560,20 +2756,6 @@
     "tournament": "V.League 1",
     "firstSeenAt": "2026-11-04T07:59:29.147Z",
     "lastSeenAt": "2026-11-09T08:39:48.371Z"
-  },
-  "9zuz9plcfo0hrm3": {
-    "id": "9zuz9plcfo0hrm3",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 6,
-    "awayDisplay": 1,
-    "startTimestamp": 1793216700,
-    "homeTeam": "Bayern",
-    "awayTeam": "Magdeburg",
-    "tournament": "DFB Pokal",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
   },
   "9zuz9plclw51rm3": {
     "id": "9zuz9plclw51rm3",
@@ -2592,16 +2774,16 @@
   "9zuz9plcsymhrm3": {
     "id": "9zuz9plcsymhrm3",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 1,
     "startTimestamp": 1794512700,
     "homeTeam": "England",
     "awayTeam": "Croatia",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "9zuz9plcv81xrm3": {
     "id": "9zuz9plcv81xrm3",
@@ -2630,20 +2812,6 @@
     "tournament": "Major League Soccer",
     "firstSeenAt": "2026-11-06T08:29:38.836Z",
     "lastSeenAt": "2026-11-11T08:21:42.874Z"
-  },
-  "9zuz9plcv8sxrm3": {
-    "id": "9zuz9plcv8sxrm3",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 3,
-    "startTimestamp": 1793234400,
-    "homeTeam": "St. Louis",
-    "awayTeam": "Portland",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
   },
   "9zuz9plcw1o1rm3": {
     "id": "9zuz9plcw1o1rm3",
@@ -2699,7 +2867,7 @@
     "awayTeam": "Leganes",
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "9zuz9plr85bqrm3": {
     "id": "9zuz9plr85bqrm3",
@@ -2727,7 +2895,35 @@
     "awayTeam": "Montpellier",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "9zuz9plr8gsprm3": {
+    "id": "9zuz9plr8gsprm3",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Pontivy",
+    "awayTeam": "Rennes TA",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "9zuz9plr8v7xrm3": {
+    "id": "9zuz9plr8v7xrm3",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Castelbourgeois",
+    "awayTeam": "Nantes",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "a8qv3rleo4oar1c": {
     "id": "a8qv3rleo4oar1c",
@@ -2757,6 +2953,34 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
+  "a8qv3rlesj8or1c": {
+    "id": "a8qv3rlesj8or1c",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Grau du Roi",
+    "awayTeam": "Riviera",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "a8qv3rlesn5mr1c": {
+    "id": "a8qv3rlesn5mr1c",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Sedan",
+    "awayTeam": "Bourges",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "a8qv3rlesnyer1c": {
     "id": "a8qv3rlesnyer1c",
     "date": "2026-11-14",
@@ -2769,7 +2993,21 @@
     "awayTeam": "Sochaux",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "a8qv3rlesnymr1c": {
+    "id": "a8qv3rlesnymr1c",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Chatou",
+    "awayTeam": "Les Ulis",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "a8qv3rlesob7r1c": {
     "id": "a8qv3rlesob7r1c",
@@ -2784,6 +3022,20 @@
     "tournament": "FA Cup",
     "firstSeenAt": "2026-11-07T07:46:14.482Z",
     "lastSeenAt": "2026-11-12T08:50:31.359Z"
+  },
+  "a8qv3rlq26syr1c": {
+    "id": "a8qv3rlq26syr1c",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794682800,
+    "homeTeam": "Angola",
+    "awayTeam": "South Sudan",
+    "tournament": "CAF Africa Cup of Nations",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "a8qv3rlq28y2r1c": {
     "id": "a8qv3rlq28y2r1c",
@@ -2830,16 +3082,30 @@
   "a8qv3rlqfy4ar1c": {
     "id": "a8qv3rlqfy4ar1c",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 1,
     "startTimestamp": 1794512700,
     "homeTeam": "Montenegro",
     "awayTeam": "Latvia",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "a8qv3rlqfyoar1c": {
+    "id": "a8qv3rlqfyoar1c",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794751200,
+    "homeTeam": "Cyprus",
+    "awayTeam": "Montenegro",
+    "tournament": "UEFA Nations League",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "a8qv3rlqlkb4r1c": {
     "id": "a8qv3rlqlkb4r1c",
@@ -3007,7 +3273,7 @@
     "awayTeam": "Rwanda",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "b1ta1ll57y59vff": {
     "id": "b1ta1ll57y59vff",
@@ -3021,35 +3287,7 @@
     "awayTeam": "Greece",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
-  },
-  "b1ta1ll5d0havff": {
-    "id": "b1ta1ll5d0havff",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 2,
-    "startTimestamp": 1793211300,
-    "homeTeam": "Al Faisaly",
-    "awayTeam": "Al-Taawoun",
-    "tournament": "AFC Champions League 2",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
-  "b1ta1ll5d0jxvff": {
-    "id": "b1ta1ll5d0jxvff",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 1,
-    "awayDisplay": 5,
-    "startTimestamp": 1793268000,
-    "homeTeam": "Tampines Rovers",
-    "awayTeam": "Svay Rieng",
-    "tournament": "AFC Champions League 2",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "b1ta1ll5d7j6vff": {
     "id": "b1ta1ll5d7j6vff",
@@ -3149,20 +3387,6 @@
     "firstSeenAt": "2026-10-31T07:30:01.722Z",
     "lastSeenAt": "2026-11-05T08:29:19.339Z"
   },
-  "b1ta1ll5w5z7vff": {
-    "id": "b1ta1ll5w5z7vff",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 1,
-    "startTimestamp": 1793241600,
-    "homeTeam": "Seattle",
-    "awayTeam": "Houston",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "b1ta1ll5xdc3vff": {
     "id": "b1ta1ll5xdc3vff",
     "date": "2026-10-30",
@@ -3203,7 +3427,7 @@
     "awayTeam": "Celta",
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "b1ta1ll6t4b3vff": {
     "id": "b1ta1ll6t4b3vff",
@@ -3218,6 +3442,20 @@
     "tournament": "FA Cup",
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
+  },
+  "b1ta1ll6t837vff": {
+    "id": "b1ta1ll6t837vff",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Kellermann",
+    "awayTeam": "Metz",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "b1ta1ll6tecevff": {
     "id": "b1ta1ll6tecevff",
@@ -3245,7 +3483,49 @@
     "awayTeam": "FBBP",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "b1ta1ll6tj8lvff": {
+    "id": "b1ta1ll6tj8lvff",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "Bressuire",
+    "awayTeam": "Challans",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "b1ta1ll6tjg8vff": {
+    "id": "b1ta1ll6tjg8vff",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "FCOS Koenigshoffen",
+    "awayTeam": "Oberlauterbach",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "b1ta1ll6tjz8vff": {
+    "id": "b1ta1ll6tjz8vff",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Seyssinet",
+    "awayTeam": "Nimes",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "b44vv3l32o66rxp": {
     "id": "b44vv3l32o66rxp",
@@ -3301,7 +3581,7 @@
     "awayTeam": "Mauritania",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "b44vv3l35oskrxp": {
     "id": "b44vv3l35oskrxp",
@@ -3413,7 +3693,7 @@
     "awayTeam": "Iceland",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "b44vv3l3t8c2rxp": {
     "id": "b44vv3l3t8c2rxp",
@@ -3485,6 +3765,20 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
+  "b44vv3lk16n9rxp": {
+    "id": "b44vv3lk16n9rxp",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Talange",
+    "awayTeam": "Baume Dames",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "b44vv3lk1k2prxp": {
     "id": "b44vv3lk1k2prxp",
     "date": "2026-11-14",
@@ -3497,7 +3791,21 @@
     "awayTeam": "Qatar U23",
     "tournament": "Youth Nation Friendly Match",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "b44vv3lk1p1lrxp": {
+    "id": "b44vv3lk1p1lrxp",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "Chauny",
+    "awayTeam": "Le Pays Valois",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "b44vv3lk1phlrxp": {
     "id": "b44vv3lk1phlrxp",
@@ -3511,7 +3819,7 @@
     "awayTeam": "Clermont",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "b44vv3lkd753rxp": {
     "id": "b44vv3lkd753rxp",
@@ -3555,6 +3863,20 @@
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
     "lastSeenAt": "2026-11-02T08:14:55.650Z"
   },
+  "cq0afil0r028v78": {
+    "id": "cq0afil0r028v78",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794715200,
+    "homeTeam": "Tefana",
+    "awayTeam": "Thionville",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "cq0afil0r0g8v78": {
     "id": "cq0afil0r0g8v78",
     "date": "2026-11-14",
@@ -3567,7 +3889,35 @@
     "awayTeam": "Orléans",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "cq0afil0r0h8v78": {
+    "id": "cq0afil0r0h8v78",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Saint-Renan",
+    "awayTeam": "Laval",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "cq0afil0r2jpv78": {
+    "id": "cq0afil0r2jpv78",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794744000,
+    "homeTeam": "Kyrgyzstan",
+    "awayTeam": "Vietnam",
+    "tournament": "Nation Friendly Match",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "cq0afil0r7nzv78": {
     "id": "cq0afil0r7nzv78",
@@ -3582,6 +3932,20 @@
     "tournament": "FA Cup",
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
+  },
+  "cq0afil0rg56v78": {
+    "id": "cq0afil0rg56v78",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Metz ESAP",
+    "awayTeam": "Reipertswiller",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "cq0afil0rz9lv78": {
     "id": "cq0afil0rz9lv78",
@@ -3609,7 +3973,21 @@
     "awayTeam": "Switzerland",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "cq0afiln6k40v78": {
+    "id": "cq0afiln6k40v78",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794682800,
+    "homeTeam": "Algeria",
+    "awayTeam": "Togo",
+    "tournament": "CAF Africa Cup of Nations",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "cq0afiln7222v78": {
     "id": "cq0afiln7222v78",
@@ -3666,20 +4044,6 @@
     "tournament": "Major League Soccer",
     "firstSeenAt": "2026-10-31T07:30:01.722Z",
     "lastSeenAt": "2026-11-05T08:29:19.339Z"
-  },
-  "cq0afilneor6v78": {
-    "id": "cq0afilneor6v78",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 2,
-    "startTimestamp": 1793230800,
-    "homeTeam": "Inter Miami",
-    "awayTeam": "Cincinnati",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
   },
   "cq0afilnmjgpv78": {
     "id": "cq0afilnmjgpv78",
@@ -3765,19 +4129,47 @@
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
     "lastSeenAt": "2026-11-05T08:29:19.339Z"
   },
-  "gk7aeql4djhpv0f": {
-    "id": "gk7aeql4djhpv0f",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 1,
-    "startTimestamp": 1793216700,
-    "homeTeam": "Fulham",
-    "awayTeam": "Crystal Palace",
-    "tournament": "Carabao Cup",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
+  "gk7aeql4s52qv0f": {
+    "id": "gk7aeql4s52qv0f",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Lyon Duchere",
+    "awayTeam": "Feurs",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "gk7aeql4s56qv0f": {
+    "id": "gk7aeql4s56qv0f",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794749400,
+    "homeTeam": "Perros Louannec",
+    "awayTeam": "Vannes",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "gk7aeql4s5syv0f": {
+    "id": "gk7aeql4s5syv0f",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Caen PTT",
+    "awayTeam": "Chambly",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "gk7aeql4sy9mv0f": {
     "id": "gk7aeql4sy9mv0f",
@@ -3838,30 +4230,30 @@
   "gk7aeqls56cov0f": {
     "id": "gk7aeqls56cov0f",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 2,
     "startTimestamp": 1794502800,
     "homeTeam": "Turkey",
     "awayTeam": "Belgium",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
-  "gk7aeqls60hov0f": {
-    "id": "gk7aeqls60hov0f",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 2,
-    "startTimestamp": 1793216700,
-    "homeTeam": "Hannover",
-    "awayTeam": "Kaiserslautern",
-    "tournament": "DFB Pokal",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
+  "gk7aeqls56zov0f": {
+    "id": "gk7aeqls56zov0f",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794685500,
+    "homeTeam": "Romania",
+    "awayTeam": "Poland",
+    "tournament": "UEFA Nations League",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "gk7aeqls64s8v0f": {
     "id": "gk7aeqls64s8v0f",
@@ -3880,16 +4272,16 @@
   "gk7aeqls6ogev0f": {
     "id": "gk7aeqls6ogev0f",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 4,
+    "awayDisplay": 1,
     "startTimestamp": 1794510000,
     "homeTeam": "Benin",
     "awayTeam": "Central African Rep",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "gk7aeqls6p8fv0f": {
     "id": "gk7aeqls6p8fv0f",
@@ -4087,20 +4479,6 @@
     "firstSeenAt": "2026-11-02T08:14:55.650Z",
     "lastSeenAt": "2026-11-07T07:46:14.482Z"
   },
-  "gk7aeqlsedq6v0f": {
-    "id": "gk7aeqlsedq6v0f",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 1,
-    "startTimestamp": 1793276100,
-    "homeTeam": "Shenhua",
-    "awayTeam": "Machida",
-    "tournament": "AFC Champions League 2",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "gk7aeqlsfpnyv0f": {
     "id": "gk7aeqlsfpnyv0f",
     "date": "2026-11-08",
@@ -4143,19 +4521,61 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
-  "go6v7il6d68wrxk": {
-    "id": "go6v7il6d68wrxk",
-    "date": "2026-11-13",
+  "go6v7il62kg1rxk": {
+    "id": "go6v7il62kg1rxk",
+    "date": "2026-11-15",
     "statusCode": 0,
     "statusType": "not_started",
     "homeDisplay": null,
     "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Endoume",
+    "awayTeam": "Toulon",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "go6v7il62kj1rxk": {
+    "id": "go6v7il62kj1rxk",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "Lannion",
+    "awayTeam": "Guingamp",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "go6v7il62lrkrxk": {
+    "id": "go6v7il62lrkrxk",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Veauche",
+    "awayTeam": "St Paul en Jarez",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "go6v7il6d68wrxk": {
+    "id": "go6v7il6d68wrxk",
+    "date": "2026-11-13",
+    "statusCode": 110,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 2,
     "startTimestamp": 1794506400,
     "homeTeam": "Tarancon",
     "awayTeam": "Levante",
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "go6v7il6d69wrxk": {
     "id": "go6v7il6d69wrxk",
@@ -4213,20 +4633,6 @@
     "firstSeenAt": "2026-11-04T07:59:29.147Z",
     "lastSeenAt": "2026-11-09T08:39:48.371Z"
   },
-  "go6v7ils3o1orxk": {
-    "id": "go6v7ils3o1orxk",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 3,
-    "startTimestamp": 1793276100,
-    "homeTeam": "Tai Po",
-    "awayTeam": "Pathum Utd",
-    "tournament": "AFC Champions League 2",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "go6v7ils3onorxk": {
     "id": "go6v7ils3onorxk",
     "date": "2026-11-03",
@@ -4267,7 +4673,7 @@
     "awayTeam": "Burundi",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "go6v7ils4xn2rxk": {
     "id": "go6v7ils4xn2rxk",
@@ -4283,6 +4689,20 @@
     "firstSeenAt": "2026-10-30T07:44:08.462Z",
     "lastSeenAt": "2026-11-04T07:59:29.147Z"
   },
+  "go6v7ils7y8wrxk": {
+    "id": "go6v7ils7y8wrxk",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Norway",
+    "awayTeam": "Wales",
+    "tournament": "UEFA Nations League",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "go6v7ils8x79rxk": {
     "id": "go6v7ils8x79rxk",
     "date": "2026-11-08",
@@ -4296,20 +4716,6 @@
     "tournament": "Major League Soccer",
     "firstSeenAt": "2026-11-06T08:29:38.836Z",
     "lastSeenAt": "2026-11-11T08:21:42.874Z"
-  },
-  "go6v7ils8xakrxk": {
-    "id": "go6v7ils8xakrxk",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 2,
-    "startTimestamp": 1793234400,
-    "homeTeam": "Chicago",
-    "awayTeam": "Orlando",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
   },
   "go6v7ilsh1r6rxk": {
     "id": "go6v7ilsh1r6rxk",
@@ -4435,7 +4841,7 @@
     "awayTeam": "Eibar",
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "hesv5yl261mzwhu": {
     "id": "hesv5yl261mzwhu",
@@ -4450,6 +4856,48 @@
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-28T07:22:28.450Z",
     "lastSeenAt": "2026-11-02T08:14:55.650Z"
+  },
+  "hesv5yl2s67hwhu": {
+    "id": "hesv5yl2s67hwhu",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Vandoeuvre",
+    "awayTeam": "Epinal",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "hesv5yl2s6ohwhu": {
+    "id": "hesv5yl2s6ohwhu",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Vitre",
+    "awayTeam": "St Pierre Milizac",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "hesv5yl2s6shwhu": {
+    "id": "hesv5yl2s6shwhu",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Cournon",
+    "awayTeam": "Chassieu Decines",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "hesv5yl2s9bawhu": {
     "id": "hesv5yl2s9bawhu",
@@ -4482,16 +4930,16 @@
   "hesv5yl2sdhxwhu": {
     "id": "hesv5yl2sdhxwhu",
     "date": "2026-11-12",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 1,
     "startTimestamp": 1794484800,
     "homeTeam": "Singapore U23",
     "awayTeam": "Vietnam U23",
     "tournament": "Youth Nation Friendly Match",
     "firstSeenAt": "2026-11-10T08:52:17.743Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "hesv5yl2swgpwhu": {
     "id": "hesv5yl2swgpwhu",
@@ -4505,7 +4953,7 @@
     "awayTeam": "Etoile",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "hesv5yl2sz52whu": {
     "id": "hesv5yl2sz52whu",
@@ -4547,7 +4995,7 @@
     "awayTeam": "Kazakhstan",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "hesv5yld8o8pwhu": {
     "id": "hesv5yld8o8pwhu",
@@ -4577,20 +5025,6 @@
     "firstSeenAt": "2026-11-06T08:29:38.836Z",
     "lastSeenAt": "2026-11-11T08:21:42.874Z"
   },
-  "hesv5yld943zwhu": {
-    "id": "hesv5yld943zwhu",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 2,
-    "startTimestamp": 1793206800,
-    "homeTeam": "Jeddeloh",
-    "awayTeam": "Hertha",
-    "tournament": "DFB Pokal",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "hesv5yld9nh4whu": {
     "id": "hesv5yld9nh4whu",
     "date": "2026-11-14",
@@ -4603,7 +5037,7 @@
     "awayTeam": "Malawi",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "hesv5yldr130whu": {
     "id": "hesv5yldr130whu",
@@ -4720,16 +5154,16 @@
   "mx7a61l228hywi4": {
     "id": "mx7a61l228hywi4",
     "date": "2026-11-13",
-    "statusCode": 60,
-    "statusType": "postponed",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 3,
     "startTimestamp": 1794504600,
     "homeTeam": "Puertollano",
     "awayTeam": "Albacete",
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "mx7a61l22x9wwi4": {
     "id": "mx7a61l22x9wwi4",
@@ -4759,6 +5193,48 @@
     "firstSeenAt": "2026-10-31T07:30:01.722Z",
     "lastSeenAt": "2026-11-03T08:33:50.784Z"
   },
+  "mx7a61l2t7glwi4": {
+    "id": "mx7a61l2t7glwi4",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Charleville",
+    "awayTeam": "Ol Marcquois",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "mx7a61l2t7jlwi4": {
+    "id": "mx7a61l2t7jlwi4",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Le Touquet",
+    "awayTeam": "Avranches",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "mx7a61l2tks9wi4": {
+    "id": "mx7a61l2tks9wi4",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Yerres Crosne",
+    "awayTeam": "Cosne",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "mx7a61l2tnb7wi4": {
     "id": "mx7a61l2tnb7wi4",
     "date": "2026-11-07",
@@ -4772,6 +5248,20 @@
     "tournament": "FA Cup",
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
+  },
+  "mx7a61lr3yhywi4": {
+    "id": "mx7a61lr3yhywi4",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794685500,
+    "homeTeam": "Northern Ireland",
+    "awayTeam": "Ukraine",
+    "tournament": "UEFA Nations League",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "mx7a61lr6300wi4": {
     "id": "mx7a61lr6300wi4",
@@ -4801,20 +5291,6 @@
     "firstSeenAt": "2026-10-29T07:40:40.831Z",
     "lastSeenAt": "2026-11-03T08:33:50.784Z"
   },
-  "mx7a61lr6v9ywi4": {
-    "id": "mx7a61lr6v9ywi4",
-    "date": "2026-10-29",
-    "statusCode": 120,
-    "statusType": "finished",
-    "homeDisplay": 1,
-    "awayDisplay": 1,
-    "startTimestamp": 1793216700,
-    "homeTeam": "Kiel",
-    "awayTeam": "Hoffenheim",
-    "tournament": "DFB Pokal",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "mx7a61lr6zsxwi4": {
     "id": "mx7a61lr6zsxwi4",
     "date": "2026-11-14",
@@ -4827,7 +5303,7 @@
     "awayTeam": "Niger",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "mx7a61lr8389wi4": {
     "id": "mx7a61lr8389wi4",
@@ -4967,7 +5443,7 @@
     "awayTeam": "Vietnam U19",
     "tournament": "Panda Cup",
     "firstSeenAt": "2026-11-09T08:39:48.371Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "n97akml9d9n2wnv": {
     "id": "n97akml9d9n2wnv",
@@ -5009,7 +5485,35 @@
     "awayTeam": "Concarneau",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "n97akml9dngownv": {
+    "id": "n97akml9dngownv",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "CPB Brequigny",
+    "awayTeam": "Montlucon",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "n97akml9dnmownv": {
+    "id": "n97akml9dnmownv",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794751200,
+    "homeTeam": "GFA Rumilly Val",
+    "awayTeam": "Saint Etienne",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "n97akml9hl06wnv": {
     "id": "n97akml9hl06wnv",
@@ -5039,20 +5543,6 @@
     "firstSeenAt": "2026-10-28T07:22:28.450Z",
     "lastSeenAt": "2026-11-02T08:14:55.650Z"
   },
-  "n97akml9ho13wnv": {
-    "id": "n97akml9ho13wnv",
-    "date": "2026-10-29",
-    "statusCode": 120,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 2,
-    "startTimestamp": 1793215800,
-    "homeTeam": "Man City",
-    "awayTeam": "Brighton",
-    "tournament": "Carabao Cup",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "n97akmln0p06wnv": {
     "id": "n97akmln0p06wnv",
     "date": "2026-11-14",
@@ -5065,7 +5555,7 @@
     "awayTeam": "Gibraltar",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "n97akmln287xwnv": {
     "id": "n97akmln287xwnv",
@@ -5235,20 +5725,6 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-06T08:29:38.836Z"
   },
-  "n97akmlnt4a6wnv": {
-    "id": "n97akmlnt4a6wnv",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 0,
-    "startTimestamp": 1793206800,
-    "homeTeam": "Dresden",
-    "awayTeam": "Schalke",
-    "tournament": "DFB Pokal",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "n97akmlnteqpwnv": {
     "id": "n97akmlnteqpwnv",
     "date": "2026-11-01",
@@ -5275,7 +5751,7 @@
     "awayTeam": "Kenya",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "n97akmlntpchwnv": {
     "id": "n97akmlntpchwnv",
@@ -5332,20 +5808,6 @@
     "tournament": "Championship",
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
-  },
-  "o6jamrl16dgaw7q": {
-    "id": "o6jamrl16dgaw7q",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 2,
-    "startTimestamp": 1793234400,
-    "homeTeam": "Dallas",
-    "awayTeam": "Columbus",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
   },
   "o6jamrl16dr6w7q": {
     "id": "o6jamrl16dr6w7q",
@@ -5420,16 +5882,16 @@
   "o6jamrl1o18fw7q": {
     "id": "o6jamrl1o18fw7q",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 4,
+    "awayDisplay": 1,
     "startTimestamp": 1794510000,
     "homeTeam": "Senegal",
     "awayTeam": "Sudan",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "o6jamrl1od53w7q": {
     "id": "o6jamrl1od53w7q",
@@ -5529,6 +5991,20 @@
     "firstSeenAt": "2026-10-30T07:44:08.462Z",
     "lastSeenAt": "2026-11-04T07:59:29.147Z"
   },
+  "o6jamrl1sxc4w7q": {
+    "id": "o6jamrl1sxc4w7q",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Georgia",
+    "awayTeam": "Hungary",
+    "tournament": "UEFA Nations League",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "o6jamrlr8gc4w7q": {
     "id": "o6jamrlr8gc4w7q",
     "date": "2026-10-30",
@@ -5569,7 +6045,21 @@
     "awayTeam": "Diables Noirs",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "o6jamrlrw2mxw7q": {
+    "id": "o6jamrlrw2mxw7q",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Neslois",
+    "awayTeam": "Furiani Agliani",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "o6jamrlrw3a9w7q": {
     "id": "o6jamrlrw3a9w7q",
@@ -5585,19 +6075,19 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
-  "o8tzjgln1x2zw47": {
-    "id": "o8tzjgln1x2zw47",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 3,
-    "awayDisplay": 1,
-    "startTimestamp": 1793234400,
-    "homeTeam": "Minnesota",
-    "awayTeam": "Kansas City",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
+  "o6jamrlrw48aw7q": {
+    "id": "o6jamrlrw48aw7q",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Violaines",
+    "awayTeam": "US Vermelles",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "o8tzjgln1xq3w47": {
     "id": "o8tzjgln1xq3w47",
@@ -5627,33 +6117,19 @@
     "firstSeenAt": "2026-10-29T07:40:40.831Z",
     "lastSeenAt": "2026-11-03T08:33:50.784Z"
   },
-  "o8tzjgln5k11w47": {
-    "id": "o8tzjgln5k11w47",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 5,
-    "awayDisplay": 2,
-    "startTimestamp": 1793216700,
-    "homeTeam": "Leverkusen",
-    "awayTeam": "Nürnberg",
-    "tournament": "DFB Pokal",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "o8tzjgln5ph2w47": {
     "id": "o8tzjgln5ph2w47",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 0,
     "startTimestamp": 1794510000,
     "homeTeam": "Cameroon",
     "awayTeam": "Namibia",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "o8tzjgln5xg4w47": {
     "id": "o8tzjgln5xg4w47",
@@ -5781,6 +6257,20 @@
     "firstSeenAt": "2026-10-31T07:30:01.722Z",
     "lastSeenAt": "2026-11-05T08:29:19.339Z"
   },
+  "o8tzjglnrwy1w47": {
+    "id": "o8tzjglnrwy1w47",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794685500,
+    "homeTeam": "Sweden",
+    "awayTeam": "Bosnia & Herzegovina",
+    "tournament": "UEFA Nations League",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "o8tzjglns4b5w47": {
     "id": "o8tzjglns4b5w47",
     "date": "2026-10-31",
@@ -5835,7 +6325,7 @@
     "awayTeam": "Real Jaen",
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "o8tzjglqv6zpw47": {
     "id": "o8tzjglqv6zpw47",
@@ -5851,6 +6341,62 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
+  "o8tzjglqvd2kw47": {
+    "id": "o8tzjglqvd2kw47",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "FC Lourdes XI",
+    "awayTeam": "Pau",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "o8tzjglqvda3w47": {
+    "id": "o8tzjglqvda3w47",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Amneville",
+    "awayTeam": "Sundhoffen",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "o8tzjglqvdckw47": {
+    "id": "o8tzjglqvdckw47",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Cheminots Paray",
+    "awayTeam": "Villefranche",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "q69zrnl109b6vee": {
+    "id": "q69zrnl109b6vee",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "Stade Bordelais",
+    "awayTeam": "Mazeres",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "q69zrnl109z6vee": {
     "id": "q69zrnl109z6vee",
     "date": "2026-11-14",
@@ -5863,7 +6409,7 @@
     "awayTeam": "Caen",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "q69zrnl10ejmvee": {
     "id": "q69zrnl10ejmvee",
@@ -5878,6 +6424,20 @@
     "tournament": "FA Cup",
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
+  },
+  "q69zrnl10nnavee": {
+    "id": "q69zrnl10nnavee",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "Macaire",
+    "awayTeam": "Nueillaubiers",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "q69zrnl10xs7vee": {
     "id": "q69zrnl10xs7vee",
@@ -5905,7 +6465,7 @@
     "awayTeam": "Valencia",
     "tournament": "Copa del Rey",
     "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "q69zrnlu2gr5vee": {
     "id": "q69zrnlu2gr5vee",
@@ -5919,7 +6479,7 @@
     "awayTeam": "Germany",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "q69zrnlu4dm8vee": {
     "id": "q69zrnlu4dm8vee",
@@ -5989,7 +6549,7 @@
     "awayTeam": "Ethiopia",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "q69zrnlug640vee": {
     "id": "q69zrnlug640vee",
@@ -6005,20 +6565,6 @@
     "firstSeenAt": "2026-11-01T08:06:28.569Z",
     "lastSeenAt": "2026-11-06T08:29:38.836Z"
   },
-  "q69zrnluh36avee": {
-    "id": "q69zrnluh36avee",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 4,
-    "awayDisplay": 0,
-    "startTimestamp": 1793230800,
-    "homeTeam": "Charlotte",
-    "awayTeam": "Montreal",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "q69zrnlutk2mvee": {
     "id": "q69zrnlutk2mvee",
     "date": "2026-11-02",
@@ -6032,34 +6578,6 @@
     "tournament": "AFC Champions League",
     "firstSeenAt": "2026-10-31T07:30:01.722Z",
     "lastSeenAt": "2026-11-05T08:29:19.339Z"
-  },
-  "q69zrnlutkh8vee": {
-    "id": "q69zrnlutkh8vee",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 1,
-    "awayDisplay": 2,
-    "startTimestamp": 1793211300,
-    "homeTeam": "Al Khaldiya",
-    "awayTeam": "Al-Wahda",
-    "tournament": "AFC Champions League 2",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
-  "q69zrnlutkmzvee": {
-    "id": "q69zrnlutkmzvee",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 1,
-    "awayDisplay": 0,
-    "startTimestamp": 1793268000,
-    "homeTeam": "Gangwon",
-    "awayTeam": "Kuching",
-    "tournament": "AFC Champions League 2",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
   },
   "q69zrnlutv2pvee": {
     "id": "q69zrnlutv2pvee",
@@ -6102,20 +6620,6 @@
     "tournament": "UEFA Conference League",
     "firstSeenAt": "2026-11-04T07:59:29.147Z",
     "lastSeenAt": "2026-11-09T08:39:48.371Z"
-  },
-  "sybadnlf1n34whq": {
-    "id": "sybadnlf1n34whq",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 4,
-    "awayDisplay": 1,
-    "startTimestamp": 1793241600,
-    "homeTeam": "Vancouver",
-    "awayTeam": "San Diego",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
   },
   "sybadnlf1njmwhq": {
     "id": "sybadnlf1njmwhq",
@@ -6201,20 +6705,6 @@
     "firstSeenAt": "2026-11-06T08:29:38.836Z",
     "lastSeenAt": "2026-11-11T08:21:42.874Z"
   },
-  "sybadnlfegz8whq": {
-    "id": "sybadnlfegz8whq",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 4,
-    "startTimestamp": 1793208600,
-    "homeTeam": "Milan",
-    "awayTeam": "Bologna",
-    "tournament": "Serie A",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "sybadnlfej92whq": {
     "id": "sybadnlfej92whq",
     "date": "2026-11-07",
@@ -6241,7 +6731,7 @@
     "awayTeam": "Libya",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "sybadnlfleqewhq": {
     "id": "sybadnlfleqewhq",
@@ -6271,33 +6761,19 @@
     "firstSeenAt": "2026-11-04T07:59:29.147Z",
     "lastSeenAt": "2026-11-09T08:39:48.371Z"
   },
-  "sybadnlfloafwhq": {
-    "id": "sybadnlfloafwhq",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 0,
-    "awayDisplay": 1,
-    "startTimestamp": 1793206800,
-    "homeTeam": "Paderborn",
-    "awayTeam": "Stuttgart",
-    "tournament": "DFB Pokal",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "sybadnlft8nfwhq": {
     "id": "sybadnlft8nfwhq",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 2,
+    "awayDisplay": 0,
     "startTimestamp": 1794512700,
     "homeTeam": "Albania",
     "awayTeam": "Finland",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "sybadnlfw23ewhq": {
     "id": "sybadnlfw23ewhq",
@@ -6397,6 +6873,48 @@
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
   },
+  "sybadnlso739whq": {
+    "id": "sybadnlso739whq",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794747600,
+    "homeTeam": "Pontivyen",
+    "awayTeam": "Plabennec",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "sybadnlso7q9whq": {
+    "id": "sybadnlso7q9whq",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794679200,
+    "homeTeam": "Brive",
+    "awayTeam": "Angouleme",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "sybadnlso7qmwhq": {
+    "id": "sybadnlso7qmwhq",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794677400,
+    "homeTeam": "Balma",
+    "awayTeam": "Castanet",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
   "sybadnlso9azwhq": {
     "id": "sybadnlso9azwhq",
     "date": "2026-11-07",
@@ -6410,6 +6928,20 @@
     "tournament": "FA Cup",
     "firstSeenAt": "2026-11-05T08:29:19.339Z",
     "lastSeenAt": "2026-11-10T08:52:17.743Z"
+  },
+  "sybadnlsoy5awhq": {
+    "id": "sybadnlsoy5awhq",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Voltigeurs Chateaubriant",
+    "awayTeam": "Horizon Patho",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "sybadnlsxd9fwhq": {
     "id": "sybadnlsxd9fwhq",
@@ -6523,34 +7055,6 @@
     "firstSeenAt": "2026-10-30T07:44:08.462Z",
     "lastSeenAt": "2026-11-04T07:59:29.147Z"
   },
-  "ykcv4ill9o8ew5u": {
-    "id": "ykcv4ill9o8ew5u",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 4,
-    "awayDisplay": 2,
-    "startTimestamp": 1793284500,
-    "homeTeam": "Al Khaleej",
-    "awayTeam": "Al-Hazm",
-    "tournament": "Professional League",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
-  "ykcv4ille003w5u": {
-    "id": "ykcv4ille003w5u",
-    "date": "2026-10-29",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 2,
-    "startTimestamp": 1793241600,
-    "homeTeam": "San Jose",
-    "awayTeam": "Colorado",
-    "tournament": "Major League Soccer",
-    "firstSeenAt": "2026-10-27T06:49:50.391Z",
-    "lastSeenAt": "2026-11-01T08:06:28.569Z"
-  },
   "ykcv4ille033w5u": {
     "id": "ykcv4ille033w5u",
     "date": "2026-11-02",
@@ -6568,16 +7072,16 @@
   "ykcv4illg15fw5u": {
     "id": "ykcv4illg15fw5u",
     "date": "2026-11-12",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 0,
     "startTimestamp": 1794499200,
     "homeTeam": "Equatorial Guinea",
     "awayTeam": "Zimbabwe",
     "tournament": "CAF Africa Cup of Nations",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "ykcv4illg332w5u": {
     "id": "ykcv4illg332w5u",
@@ -6596,16 +7100,30 @@
   "ykcv4illsdc6w5u": {
     "id": "ykcv4illsdc6w5u",
     "date": "2026-11-13",
-    "statusCode": 0,
-    "statusType": "not_started",
-    "homeDisplay": null,
-    "awayDisplay": null,
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 1,
+    "awayDisplay": 1,
     "startTimestamp": 1794502800,
     "homeTeam": "Armenia",
     "awayTeam": "Cyprus",
     "tournament": "UEFA Nations League",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "ykcv4illsdq6w5u": {
+    "id": "ykcv4illsdq6w5u",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794751200,
+    "homeTeam": "Latvia",
+    "awayTeam": "Armenia",
+    "tournament": "UEFA Nations League",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "ykcv4illv26ew5u": {
     "id": "ykcv4illv26ew5u",
@@ -6731,21 +7249,63 @@
     "awayTeam": "La Roche",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-12T08:50:31.359Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
-  "ykcv4ilr293aw5u": {
-    "id": "ykcv4ilr293aw5u",
-    "date": "2026-11-13",
+  "ykcv4ilr2938w5u": {
+    "id": "ykcv4ilr2938w5u",
+    "date": "2026-11-15",
     "statusCode": 0,
     "statusType": "not_started",
     "homeDisplay": null,
     "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Bethune",
+    "awayTeam": "Nancy",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "ykcv4ilr293aw5u": {
+    "id": "ykcv4ilr293aw5u",
+    "date": "2026-11-13",
+    "statusCode": 100,
+    "statusType": "finished",
+    "homeDisplay": 0,
+    "awayDisplay": 2,
     "startTimestamp": 1794506400,
     "homeTeam": "Chambery",
     "awayTeam": "Grenoble",
     "tournament": "Coupe de France",
     "firstSeenAt": "2026-11-11T08:21:42.874Z",
-    "lastSeenAt": "2026-11-12T08:50:31.359Z"
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "ykcv4ilr29raw5u": {
+    "id": "ykcv4ilr29raw5u",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Cestas",
+    "awayTeam": "Bayonne",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
+  },
+  "ykcv4ilr2e53w5u": {
+    "id": "ykcv4ilr2e53w5u",
+    "date": "2026-11-15",
+    "statusCode": 0,
+    "statusType": "not_started",
+    "homeDisplay": null,
+    "awayDisplay": null,
+    "startTimestamp": 1794675600,
+    "homeTeam": "Contres",
+    "awayTeam": "Linas-Montlhery",
+    "tournament": "Coupe de France",
+    "firstSeenAt": "2026-11-13T08:45:05.941Z",
+    "lastSeenAt": "2026-11-13T08:45:05.941Z"
   },
   "ykcv4ilr2ggew5u": {
     "id": "ykcv4ilr2ggew5u",
