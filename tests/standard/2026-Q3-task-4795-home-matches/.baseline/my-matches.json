@@ -23,42 +23,6 @@
     "firstSeenAt": "2026-11-08T07:58:04.833Z",
     "lastSeenAt": "2026-11-14T08:00:41.518Z"
   },
-  "54cvbml3m1zevp4": {
-    "id": "54cvbml3m1zevp4",
-    "date": "2026-11-05",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 3,
-    "homeTeam": "AEK",
-    "awayTeam": "Real Madrid",
-    "firstSeenAt": "2026-11-06T08:29:45.490Z",
-    "lastSeenAt": "2026-11-12T08:50:33.957Z"
-  },
-  "6hqac9luf27kvme": {
-    "id": "6hqac9luf27kvme",
-    "date": "2026-11-05",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 1,
-    "awayDisplay": 2,
-    "homeTeam": "Slavia",
-    "awayTeam": "Arsenal",
-    "firstSeenAt": "2026-11-06T08:29:45.490Z",
-    "lastSeenAt": "2026-11-12T08:50:33.957Z"
-  },
-  "a8qv3rlqty6hr1c": {
-    "id": "a8qv3rlqty6hr1c",
-    "date": "2026-11-05",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 3,
-    "awayDisplay": 2,
-    "homeTeam": "Fenerbahce",
-    "awayTeam": "Liverpool",
-    "firstSeenAt": "2026-11-06T08:29:45.490Z",
-    "lastSeenAt": "2026-11-12T08:50:33.957Z"
-  },
   "b1ta1ll5568wvff": {
     "id": "b1ta1ll5568wvff",
     "date": "2026-11-07",
