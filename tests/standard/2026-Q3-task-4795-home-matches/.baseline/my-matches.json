@@ -11,29 +11,17 @@
     "firstSeenAt": "2026-11-09T08:39:54.909Z",
     "lastSeenAt": "2026-11-15T08:26:01.889Z"
   },
-  "270vqalrfgapw0m": {
-    "id": "270vqalrfgapw0m",
-    "date": "2026-11-07",
+  "b1ta1ll556zfvff": {
+    "id": "b1ta1ll556zfvff",
+    "date": "2026-11-21",
     "statusCode": 100,
     "statusType": "finished",
     "homeDisplay": 1,
-    "awayDisplay": 2,
-    "homeTeam": "Mainz",
-    "awayTeam": "Bayern",
-    "firstSeenAt": "2026-11-08T07:58:04.833Z",
-    "lastSeenAt": "2026-11-14T08:00:41.518Z"
-  },
-  "b1ta1ll5568wvff": {
-    "id": "b1ta1ll5568wvff",
-    "date": "2026-11-07",
-    "statusCode": 100,
-    "statusType": "finished",
-    "homeDisplay": 2,
-    "awayDisplay": 1,
-    "homeTeam": "Gia Lai",
+    "awayDisplay": 3,
+    "homeTeam": "Dong Nai",
     "awayTeam": "Hanoi",
-    "firstSeenAt": "2026-11-08T07:58:04.833Z",
-    "lastSeenAt": "2026-11-14T08:00:41.518Z"
+    "firstSeenAt": "2026-11-22T08:46:33.572Z",
+    "lastSeenAt": "2026-11-22T08:46:33.572Z"
   },
   "hesv5yldtks5whu": {
     "id": "hesv5yldtks5whu",
@@ -47,17 +35,17 @@
     "firstSeenAt": "2026-11-10T08:52:22.241Z",
     "lastSeenAt": "2026-11-16T08:34:52.581Z"
   },
-  "n97akmlnl49kwnv": {
-    "id": "n97akmlnl49kwnv",
-    "date": "2026-11-07",
+  "o6jamrl14598w7q": {
+    "id": "o6jamrl14598w7q",
+    "date": "2026-11-21",
     "statusCode": 100,
     "statusType": "finished",
     "homeDisplay": 1,
-    "awayDisplay": 0,
-    "homeTeam": "Arsenal",
-    "awayTeam": "Hull",
-    "firstSeenAt": "2026-11-08T07:58:04.833Z",
-    "lastSeenAt": "2026-11-14T08:00:41.518Z"
+    "awayDisplay": 1,
+    "homeTeam": "Bayern",
+    "awayTeam": "FC Köln",
+    "firstSeenAt": "2026-11-22T08:46:33.572Z",
+    "lastSeenAt": "2026-11-22T08:46:33.572Z"
   },
   "q69zrnlu4dm8vee": {
     "id": "q69zrnlu4dm8vee",
